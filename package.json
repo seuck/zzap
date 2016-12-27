@@ -1,0 +1,11 @@
+{
+  "name": "zzap",
+  "version": "1.0.0",
+  "description": "The modern incarnation of Zzap.it",
+  "main": "index.js",
+  "author": "@seuck",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ."
+  }
+}
