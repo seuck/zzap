@@ -1,3 +1,4 @@
+// or more ingeneral: export default class {}
 class Dog {
   constructor(name) {
     this.name = name;
@@ -8,4 +9,8 @@ class Dog {
   }
 }
 
-module.exports = Dog;
+// CommonJS syntax
+//module.exports = Dog;
+
+// ES6 syntax
+export default Dog;
