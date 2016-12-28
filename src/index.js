@@ -1,5 +1,5 @@
 // CommonJS syntax
-//const Dog = require('./dog');
+// const Dog = require('./dog');
 
 // ES6 syntax
 import Dog from './dog';

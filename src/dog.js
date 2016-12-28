@@ -10,7 +10,7 @@ class Dog {
 }
 
 // CommonJS syntax
-//module.exports = Dog;
+// module.exports = Dog;
 
 // ES6 syntax
 export default Dog;
