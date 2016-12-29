@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 // CommonJS syntax
 // const Dog = require('../shared/dog');
 
