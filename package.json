@@ -9,7 +9,9 @@
     "start": "gulp",
     "validate": "gulp lint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "babel-polyfill": "^6.20.0"
+  },
   "devDependencies": {
     "babel-preset-latest": "^6.16.0",
     "del": "^2.2.2",
@@ -33,7 +35,13 @@
       "import"
     ],
     "rules": {
-        "comma-dangle": ["error", "never"]
+      "comma-dangle": [
+        "error",
+        "never"
+      ]
+    },
+    "env": {
+      "browser": true
     }
   }
 }
