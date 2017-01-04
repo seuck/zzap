@@ -1,0 +1,9 @@
+@mixin responsive-centered {
+  margin: 0 auto;
+  overflow: hidden;
+
+  @include for-tablet-landscape-up {
+    width: 900px;
+    overflow: visible;
+  }
+}
