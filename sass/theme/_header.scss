@@ -1,12 +1,32 @@
 header {
   @include responsive-centered;
   position: relative;
+  height: 37vw;
+
+  @include for-tablet-landscape-up {
+    height: 332px;
+  }
+
+  &.small {
+    .logo {
+      transform: scale(0.3);
+    }
+  }
 }
 
 .logo {
   width: 60%;
   margin-top: -10%;
   margin-left: -13.5%;
+  position: fixed;
+  transform-origin: 23% 22%;
+  transform: scale(1);
+
+  @include for-tablet-landscape-up {
+    width: 540px;
+    margin-top: -90px;
+    margin-left: -122px;
+  }
 }
 
 .baloon {
@@ -14,7 +34,6 @@ header {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100%;
 
   div {
     transform: rotate(30deg);
