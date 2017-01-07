@@ -6,11 +6,11 @@ const browserToby = new Dog('Browser Toby');
 document.querySelector('.app').innerText = browserToby.bark();
 
 function init() {
+  const logo = document.querySelector('.logo');
   window.addEventListener('scroll', () => {
     const distanceY = window.pageYOffset || document.documentElement.scrollTop;
-    const logo = document.querySelector('.logo');
-    if (distanceY > 0) {
-      const scale = Math.max(0.3, 1 - (distanceY / 100.0));
+    if (distanceY >= 0) {
+      const scale = Math.max(0.3, 1 - ((distanceY / 100.0) / 3.5));
       logo.style.transform = `scale(${scale})`;
     }
   });

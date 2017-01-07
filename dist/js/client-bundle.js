@@ -60,11 +60,11 @@
 	document.querySelector('.app').innerText = browserToby.bark();
 	
 	function init() {
+	  var logo = document.querySelector('.logo');
 	  window.addEventListener('scroll', function () {
 	    var distanceY = window.pageYOffset || document.documentElement.scrollTop;
-	    var logo = document.querySelector('.logo');
-	    if (distanceY > 0) {
-	      var scale = Math.max(0.3, 1 - distanceY / 100.0);
+	    if (distanceY >= 0) {
+	      var scale = Math.max(0.3, 1 - distanceY / 100.0 / 3.5);
 	      logo.style.transform = 'scale(' + scale + ')';
 	    }
 	  });

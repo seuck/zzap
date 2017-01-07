@@ -49,6 +49,7 @@ body {
 
   @include for-tablet-landscape-up {
     background-size: 900px;
+    overflow-x: hidden;
   }
 }
 
