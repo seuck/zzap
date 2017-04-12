@@ -6,30 +6,37 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <header>
-      <img class="logo" src="assets/zzap-logo.svg">
-      <div class="baloon">
-        <div>
+    <header class="header">
+      <div class="header__container">
+        <img class="header__logo" src="assets/zzap-logo.svg">
+      </div>
+    </header>
+    <section class="cover">
+      <div class="cover__baloon">
+        <div class="cover__balooncontainer">
           <img src="assets/baloon.svg">
           <span>Edizione online della rivista italiana più amata</span>
         </div>
       </div>
-    </header>
-    <nav>
-      <ul>
-        <li><a href="#">Scansioni</br><small>Sfoglia tutti i numeri di Zzap!</small></a></li>
-        <li><a href="#">Database</br><small>Tutti i dettagli delle recensioni</small></a></li>
-        <li><a href="#"><small>Solo per temerari esploratori</small></br>Mappe</a></li>
-        <li><a href="#">Speciali</br><small>Rari ma imperdibili</small></a></li>
-      </ul>
-    </nav>
-    <section>
-      <div class="app"></div>
+      <nav class="cover__navigation">
+        <ul>
+          <li><a href="#">Scansioni</br><small>Sfoglia tutti i numeri di Zzap!</small></a></li>
+          <li><a href="#">Database</br><small>Tutti i dettagli delle recensioni</small></a></li>
+          <li><a href="#"><small>Solo per temerari esploratori</small></br>Mappe</a></li>
+          <li><a href="#">Speciali</br><small>Rari ma imperdibili</small></a></li>
+        </ul>
+      </nav>
     </section>
-    <section>
+    <section class="index">
+      Sommario
+    </section>
+    <section class="scans">
+      Scansioni
+    </section>
+    <section class="about">
+      Chi siamo
+    </section>
 
-    </section>
     <script src="js/client-bundle.js"></script>
-
   </body>
 </html>

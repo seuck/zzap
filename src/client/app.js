@@ -1,12 +1,5 @@
-import 'babel-polyfill'; // check if it's needed
-import Dog from '../shared/dog';
-
-const browserToby = new Dog('Browser Toby');
-
-document.querySelector('.app').innerText = browserToby.bark();
-
 function init() {
-  const logo = document.querySelector('.logo');
+  const logo = document.querySelector('.header__logo');
   window.addEventListener('scroll', () => {
     const distanceY = window.pageYOffset || document.documentElement.scrollTop;
     if (distanceY >= 0) {

@@ -1,0 +1,107 @@
+.cover {
+  @include responsive-centered;
+  height: 1266px;
+  position: relative;
+
+  background-image: url(../assets/covers/retrograde.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50% 0;
+  background-origin: padding-box;
+
+  @include for-tablet-landscape-up {
+    background-size: 900px;
+    overflow-x: hidden;
+  }
+
+  &__baloon {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &container {
+      transform: rotate(30deg);
+      position: absolute;
+      top: 6%;
+      right: -3%;
+      width: 30%;
+
+      @include for-tablet-landscape-up {
+        top: 26%;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 17% 13%;
+      text-align: center;
+      font-size: 115%;
+      line-height: 1.2;
+      font-weight: bold;
+      color: red;
+
+      @include for-tablet-landscape-up {
+        font-size: 21px;
+      }
+    }
+  }
+
+  &__navigation {
+    font-size: 180%;
+    text-transform: uppercase;
+    margin-top: 45%;
+
+    @include for-tablet-landscape-up {
+      margin-top: 405px;
+    }
+
+    li {
+      margin-bottom: 3%;
+      margin-left: 5%;
+
+      @include for-tablet-landscape-up{
+        margin-bottom: 26px;
+        margin-left: 45px;
+      }
+
+      &:nth-child(1) a {
+        -webkit-text-fill-color: $red;
+      }
+
+      &:nth-child(2) a {
+        -webkit-text-fill-color: $yellow;
+      }
+
+      &:nth-child(3) a {
+        -webkit-text-fill-color: $green;
+      }
+
+      &:nth-child(4) a {
+        -webkit-text-fill-color: $lightPurple;
+      }
+
+      a {
+        -webkit-text-stroke: 1.0px #000;
+        font-weight: bold;
+      }
+    }
+
+    small {
+      font-size: 56%;
+      vertical-align: middle;
+      color: #fff;
+
+      @include for-tablet-portrait-up {
+        -webkit-text-stroke: 1.0px #000;
+        -webkit-text-fill-color: #fff;
+      }
+    }
+  }
+}

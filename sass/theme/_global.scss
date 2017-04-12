@@ -35,22 +35,13 @@ a {
   text-decoration: none;
 }
 
+body {
+  background-color: #222;
+}
+
 a:hover,
 a:focus {
   background-color: $darkBlue;
-}
-
-body {
-  background-image: url(../assets/covers/retrograde.jpg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: 50% 0;
-  background-origin: padding-box;
-
-  @include for-tablet-landscape-up {
-    background-size: 900px;
-    overflow-x: hidden;
-  }
 }
 
 section {
