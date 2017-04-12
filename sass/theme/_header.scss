@@ -1,11 +1,5 @@
 .header {
 
-  &.small {
-    .logo {
-      transform: scale(0.3);
-    }
-  }
-
   &__container {
     @include responsive-centered;
   }
@@ -23,6 +17,22 @@
       width: 540px;
       margin-top: -90px;
       margin-left: -122px;
+    }
+  }
+
+  &__navigation {
+    color: #fff;
+    position: fixed;
+    z-index: 1;
+    margin-left: 170px;
+    display: none;
+
+    &.visible {
+      display: block;
+    }
+    
+    li {
+      display: inline-block;
     }
   }
 }
