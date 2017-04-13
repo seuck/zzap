@@ -1,6 +1,6 @@
 .cover {
   @include responsive-centered;
-  height: 1266px;
+  height: 141vw;
   position: relative;
 
   background-image: url(../assets/covers/retrograde.jpg);
@@ -10,6 +10,7 @@
   background-origin: padding-box;
 
   @include for-tablet-landscape-up {
+    height: 1266px;
     background-size: 900px;
     overflow-x: hidden;
   }
@@ -74,10 +75,12 @@
     li {
       margin-bottom: 3%;
       margin-left: 5%;
+      margin-right: 5%;
 
       @include for-tablet-landscape-up{
         margin-bottom: 26px;
         margin-left: 45px;
+        margin-right: 45px;
       }
 
       &:nth-child(1) a {
@@ -98,6 +101,11 @@
       &:nth-child(4) a {
         color: $lightPurple;
         -webkit-text-fill-color: $lightPurple;
+      }
+
+      &:nth-child(5) a {
+        color: $blue;
+        -webkit-text-fill-color: $blue;
       }
 
       a {
@@ -123,6 +131,11 @@
         @include for-tablet-landscape-up {
           -webkit-text-stroke: 1.0px #000;
         }
+      }
+
+      &.cover__navigation__side {
+        float: right;
+        text-align: right;
       }
     }
   }

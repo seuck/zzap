@@ -11,7 +11,7 @@
     transform-origin: 23% 22%;
     transform: scale(1);
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 
     @include for-tablet-landscape-up {
       width: 540px;
@@ -24,8 +24,13 @@
     color: #fff;
     position: fixed;
     z-index: 1;
-    margin-left: 170px;
+    padding-left: 170px;
     display: none;
+    height: 33px;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+    width: 100%;
+    padding-top: 20px;
 
     &.visible {
       display: block;
