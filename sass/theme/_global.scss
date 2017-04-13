@@ -37,6 +37,10 @@ a {
 
 body {
   background-color: #222;
+
+  @include for-phone-only {
+    font-size: 14px;
+  }
 }
 
 a:hover,
