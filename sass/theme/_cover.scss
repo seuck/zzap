@@ -29,12 +29,8 @@
       width: 178px;
 
       @include for-tablet-portrait-up {
-        width: 30%;
+        width: 270px;
         right: -3%;
-      }
-
-      @include for-tablet-landscape-up {
-        top: 26%;
       }
     }
 
@@ -55,10 +51,6 @@
 
       @include for-tablet-portrait-up {
         font-size: 115%;
-      }
-
-      @include for-tablet-landscape-up {
-        font-size: 21px;
       }
     }
   }
@@ -125,10 +117,10 @@
       small {
         font-size: 56%;
         vertical-align: middle;
-        color: #fff;
-        -webkit-text-fill-color: #fff;
+        color: $white;
+        -webkit-text-fill-color: $white;
 
-        @include for-tablet-landscape-up {
+        @include for-tablet-portrait-up {
           -webkit-text-stroke: 1.0px #000;
         }
       }

@@ -7,10 +7,10 @@
 html {
   font-family: sans-serif;
   line-height: 1.5;
-  color: #fff;
-  font-size: 2vw;
+  color: $white;
+  font-size: 14px;
 
-  @include for-tablet-landscape-up {
+  @include for-tablet-portrait-up {
     font-size: 18px;
   }
 }
@@ -36,11 +36,7 @@ a {
 }
 
 body {
-  background-color: #222;
-
-  @include for-phone-only {
-    font-size: 14px;
-  }
+  background-color: $darkGrey;
 }
 
 a:hover,
@@ -48,6 +44,12 @@ a:focus {
   background-color: $darkBlue;
 }
 
-section {
-    height: 400px;
+h2 {
+  font-size: 140%;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 120%;
 }

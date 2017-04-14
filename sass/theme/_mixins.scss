@@ -3,7 +3,17 @@
   overflow: hidden;
 
   @include for-tablet-landscape-up {
-    width: 900px;
+    width: 850px;
     overflow: visible;
   }
+}
+
+@mixin paper {
+    color: $darkGrey;
+    background-color: $white;
+    padding: 30px 20px;
+
+    @include for-tablet-portrait-up {
+      padding: 40px 25px;
+    }
 }
