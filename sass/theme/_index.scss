@@ -1,6 +1,5 @@
 .index {
-    @include responsive-centered;
-    @include paper;
+    @include contentpage;
 
     &__container {
 

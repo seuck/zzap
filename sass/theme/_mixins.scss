@@ -3,17 +3,30 @@
   overflow: hidden;
 
   @include for-tablet-landscape-up {
-    width: 850px;
     overflow: visible;
   }
 }
 
-@mixin paper {
+@mixin coverpage {
+    @include responsive-centered;
+
+    @include for-tablet-landscape-up {
+      width: 900px;
+    }
+}
+
+@mixin contentpage {
+    @include responsive-centered;
+    
     color: $darkGrey;
     background-color: $white;
     padding: 30px 20px;
 
     @include for-tablet-portrait-up {
       padding: 40px 25px;
+    }
+
+    @include for-tablet-landscape-up {
+      width: 850px;
     }
 }
