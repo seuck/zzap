@@ -37,11 +37,11 @@
     }
 
     &__imagelink {
-        
+        margin-left: 8px;
+        height: 100%;
     }
 
     &__image {
-        padding-left: 8px;
         width: 120px;
 
         @include for-tablet-landscape-up {
