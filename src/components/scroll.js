@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 (() => {
   function initScroll(window, document) {
     const logo = document.querySelector('.header__logo');
@@ -29,8 +31,7 @@
     refreshHeader();
   }
 
-  window.onload = () => {
+  $(document).ready(() => {
     initScroll(window, document);
-  };
+  });
 })();
-

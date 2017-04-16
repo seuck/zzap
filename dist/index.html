@@ -121,7 +121,69 @@
     </section>
 
     <section class="scans">
-      Scansioni
+      <div id="scan_viewer">
+        <div id="scan_loader" class="centered overlay">
+          <img class="scan_loader_box" src="/img/c64_loader.gif" />
+        </div>
+        
+        <div id="reader" class="relative">
+          <div id="reader_navigator" class="relative">
+            <span id="reader_info_magazine"></span>
+            <a id="reader_close_button" title="Chiudi (Esc)"><img src="/img/icons/24-zoom-out.png" /></a>
+            <span id="reader_info_pages"></span>
+          </div>
+          <div id="reader_content" class="content">
+            <img id="reader_left" />
+            <img id="reader_right" />
+          </div>
+        </div>
+    
+    
+        <div id="issue_selector">
+          <div class="container">
+            <div class="span-24 issue_array_box relative">
+              <a id="issueSelectorLink" href="/scansioni">Tutti i numeri</a>
+              <div id="issues_array">
+                <div id="_issue" class="issues_array_issue relative">
+                  <div id="issue_array_overlay" class="issue_array_overlay_style">
+                    <p class="issue_array_overlay_number">1</p>
+                    <p><span class="issue_array_info_month">12</span>/<span class="issue_array_info_year">1986</span></p>
+                  </div>
+                  <a><img class="lazy" src="/img/c64_loader.gif" data-original="/img/issue_selector/zzap/1.jpg" /></a>
+                </div>
+                <div id="issues_generated"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div id="pages">
+          <div id="_double_page" class="container">
+            <div class="span-6 left_column">
+              <div class="issue_info">
+                <h1><span class="issue_number">1</span></h1>
+                <h2><span class="issue_month">Maggio</span> <span class="issue_year">1986</span></h2>
+                <p class="issue_editor">Editore</p>
+                <p>Scansioni di: <a id="_scan_author" class="space" href="#">Seuck</a><span id="scan_authors_generated"></span></p>
+              </div>
+              &nbsp;
+            </div>
+            <div class="span-12">
+              <div class="doublepage">
+                <a>
+                  <img class="lazy thumb" src="/img/c64_loader.gif" data-original="/img/scans/zzap/1/02.jpg"  width="235">
+                  <img class="lazy thumb" src="/img/c64_loader.gif" data-original="/img/scans/zzap/1/03.jpg"  width="235">
+                </a>
+              </div>
+            </div>
+            <div class="span-6 right_column last">
+              &nbsp;
+            </div>
+          </div>
+          
+          <div id="double_pages_generated"></div>
+        </div>
+      </div>
     </section>
     <section class="about">
       Chi siamo

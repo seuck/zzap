@@ -2,7 +2,6 @@
 /* eslint-disable no-console */
 
 import gulp from 'gulp';
-import babel from 'gulp-babel';
 import sass from 'gulp-sass';
 import del from 'del';
 import eslint from 'gulp-eslint';
@@ -19,27 +18,19 @@ const paths = {
   allSrcJs: 'src/**/*.js?(x)',
   serverSrcJs: 'src/server/**/*.js?(x)',
   sharedSrcJs: 'src/shared/**/*.js?(x)',
-  clientEntryPoint: 'src/client/app.js',
+  clientEntryPoint: 'src/all-components.js',
   allSass: 'sass/**/*.scss',
   clientBundle: 'dist/client-bundle.js?(.map)',
   gulpFile: 'gulpfile.babel.js',
   webpackFile: 'webpack.config.babel.js',
-  libDir: 'lib',
   distCssDir: 'dist/css',
   distJsDir: 'dist/js'
 };
 
 gulp.task('clean', () => del([
-  paths.libDir,
   paths.clientBundle,
   paths.distCssDir
 ]));
-
-gulp.task('build', ['lint', 'clean'], () =>
-  gulp.src(paths.allSrcJs)
-    .pipe(babel())
-    .pipe(gulp.dest(paths.libDir))
-);
 
 gulp.task('main', ['sass', 'lint', 'clean'], () =>
   gulp.src(paths.clientEntryPoint)
