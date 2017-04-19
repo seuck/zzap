@@ -1,7 +1,8 @@
 @import "theme/colors";
 @import "theme/mixins";
 @import "theme/global";
-@import "theme/header";
-@import "theme/cover";
-@import "theme/index";
-@import "theme/scans";
+@import "theme/sections/header";
+@import "theme/sections/cover";
+@import "theme/sections/index";
+@import "theme/sections/scans";
+@import "theme/sections/content";

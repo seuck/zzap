@@ -15,6 +15,11 @@
     overflow-x: hidden;
   }
 
+  a:hover,
+  a:focus {
+      background-color: $selectionColorHover;
+  }
+
   &__baloon {
     display: block;
     position: absolute;

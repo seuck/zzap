@@ -15,7 +15,7 @@
     }
 }
 
-@mixin contentpage {
+@mixin contentpage($base) {
     @include responsive-centered;
     
     color: $darkGrey;
@@ -28,5 +28,18 @@
 
     @include for-tablet-landscape-up {
       width: 850px;
+    }
+
+    #{$base}__container {
+        @include for-tablet-landscape-up {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-content: flex-start;
+        }
+    }
+
+    #{$base}__section {
+        flex: 0 1 48%;
     }
 }

@@ -1,0 +1,12 @@
+.content {
+    @include contentpage(&);
+
+    &__link {
+        background-color: $selectionColor;
+
+        &:hover,
+        &:focus {
+            background-color: $selectionColorHover;
+        }
+    }
+}

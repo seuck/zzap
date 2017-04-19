@@ -1,20 +1,18 @@
 .scans {
-    @include responsive-centered;
+    @include coverpage;
 
-    .relative {
-	position: relative;
+    &__magazines {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+
+        &__image {
+            display: block;
+        }
     }
 
     .hide {
         display: none;
-    }
-
-    .float_right {
-        float: right;
-    }
-
-    .float_left {
-        float: left;
     }
 
     .space {
@@ -22,10 +20,10 @@
     }
 
     .lazy {
-    display: none;
+        display: none;
     }
 
-    .overlay{
+    .overlay {
         position:fixed;
         top:0px;
         bottom:0px;
@@ -124,14 +122,10 @@
 
     .issues_array_issue,
     .issues_array_empty {
-        display: block;
-        width: 85px;
-        float: left;
-        height: 120px;
-        overflow: hidden;
-        margin: 0 1px 0 0;
-        padding: 0;
+        height: 121px;
         cursor: pointer;
+        flex: 0 1 86px;
+        position: relative;
     }
 
     .issues_array_empty {
@@ -159,10 +153,6 @@
 
     .issue_array_overlay_number {
         font-size: 2em;
-    }
-
-    .issue_array_box {
-        margin-left: 2px;
     }
 
     .issues_array_empty {
