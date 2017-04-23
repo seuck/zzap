@@ -7,27 +7,32 @@ import $ from 'jquery';
     const minScale = 0.3;
     const windowWidthMaxLogoSize = 900;
     const speedFactor = 250;
+    let lastYOffset = -1;
 
     function refreshHeader() {
-      const distanceY = window.pageYOffset || document.documentElement.scrollTop;
-      const windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      const speed = Math.min(windowWidth, windowWidthMaxLogoSize) / speedFactor;
+      if (lastYOffset === window.pageYOffset) {
+        requestAnimationFrame(refreshHeader);
+      } else {
+        lastYOffset = window.pageYOffset;
 
-      if (distanceY >= 0) {
-        const scale = Math.max(minScale, 1 - ((distanceY / 100.0) / speed));
-        logo.style.transform = `scale(${scale})`;
+        const distanceY = window.pageYOffset || document.documentElement.scrollTop;
+        const windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const speed = Math.min(windowWidth, windowWidthMaxLogoSize) / speedFactor;
 
-        if (distanceY > 250) {
-          navigation.className = 'header__navigation visible';
-        } else {
-          navigation.className = 'header__navigation';
+        if (distanceY >= 0) {
+          const scale = Math.max(minScale, 1 - ((distanceY / 100.0) / speed));
+          logo.style.transform = `scale(${scale})`;
+
+          if (distanceY > 250) {
+            navigation.className = 'header__navigation visible';
+          } else {
+            navigation.className = 'header__navigation';
+          }
         }
+        requestAnimationFrame(refreshHeader);
       }
     }
 
-    window.addEventListener('scroll', () => {
-      refreshHeader();
-    });
     refreshHeader();
   }
 

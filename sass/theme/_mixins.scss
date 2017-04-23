@@ -42,4 +42,32 @@
     #{$base}__section {
         flex: 0 1 48%;
     }
+
+    #{$base}__section {
+        &-image {
+            &odd  #{$base}__image {
+              &:nth-child(1) {
+                transform: rotate(7deg);
+              }
+
+              &:nth-child(2) {
+                transform: rotate(-5deg);
+              }
+            }
+
+            &even #{$base}__image {
+                &:nth-child(1) {
+                  transform: rotate(-5deg);
+                }
+
+                &:nth-child(2) {
+                  transform: rotate(7deg);
+                }
+            }
+        }
+    }
+}
+
+@mixin imageshadow {
+  box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4);
 }

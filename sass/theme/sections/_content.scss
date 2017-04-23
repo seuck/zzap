@@ -9,4 +9,26 @@
             background-color: $selectionColorHover;
         }
     }
+
+    &__section {
+        padding-bottom: 30px;
+
+        @include for-tablet-landscape-up {
+            padding-bottom: 0;
+        }
+    }
+
+    &__imagelink {
+        padding: 20px 20px 30px 20px;
+        display: block;
+    }
+
+    &__image {
+        @include imageshadow;
+        width: 295px;
+
+        @include for-tablet-landscape-up {
+            width: 350px;
+        }
+    }
 }
