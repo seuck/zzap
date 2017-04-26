@@ -109,20 +109,31 @@ p + p {
       margin-left: -122px; } }
 
 .header__navigation {
+  display: none;
   color: #fff;
   position: fixed;
   z-index: 1;
-  padding-left: 170px;
-  display: none;
-  height: 33px;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 30px;
   z-index: 1;
-  width: 100%;
-  padding-top: 20px; }
+  width: 900px;
+  margin: 0 auto;
+  top: 35px;
+  left: 0;
+  right: 0; }
   .header__navigation.visible {
     display: block; }
-  .header__navigation li {
-    display: inline-block; }
+
+.header__navigationlist {
+  background-color: #40A7E9;
+  margin-left: 102px;
+  padding: 10px 0 10px 60px; }
+
+.header__navigationelement {
+  display: inline-block;
+  margin-right: 20px; }
+
+.header__navigationlink:hover, .header__navigationlink:focus {
+  background-color: #3058a0; }
 
 .cover {
   margin: 0 auto;
