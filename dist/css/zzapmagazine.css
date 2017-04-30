@@ -101,7 +101,7 @@ p + p {
   transform-origin: 23% 22%;
   transform: scale(1);
   position: fixed;
-  z-index: 2; }
+  z-index: 100; }
   @media (min-width: 900px) {
     .header__logo {
       width: 540px;
@@ -112,12 +112,11 @@ p + p {
   display: none;
   color: #fff;
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   height: 30px;
-  z-index: 1;
   width: 900px;
   margin: 0 auto;
-  top: 35px;
+  top: 32px;
   left: 0;
   right: 0; }
   .header__navigation.visible {
@@ -126,21 +125,37 @@ p + p {
 .header__navigationlist {
   background-color: #40A7E9;
   margin-left: 102px;
-  padding: 10px 0 10px 60px; }
+  padding-left: 50px; }
 
-.header__navigationelement {
-  display: inline-block;
-  margin-right: 20px; }
+.header__navigationelement, .header__socialelement {
+  display: inline-block; }
 
-.header__navigationlink:hover, .header__navigationlink:focus {
-  background-color: #3058a0; }
+.header__navigationlink, .header__sociallink {
+  display: inline-block; }
+  .header__navigationlink:hover, .header__navigationlink:focus, .header__sociallink:hover, .header__sociallink:focus {
+    background-color: #3058a0; }
+
+.header__navigationlink {
+  padding: 9px 12px; }
+
+.header__sociallist {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 40px; }
+
+.header__sociallink {
+  padding: 6px 12px; }
+
+.header__socialimage {
+  width: 23px; }
 
 .cover {
   margin: 0 auto;
   overflow: hidden;
   height: 141vw;
   position: relative;
-  background-image: url(../assets/covers/zzap-cover-daphne-dirk.jpg);
+  background-image: url(../assets/cover/artworks/zzap-cover-daphne-dirk.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 50% 0;
@@ -253,10 +268,10 @@ p + p {
       overflow: visible; } }
   @media (min-width: 600px) {
     .index {
-      padding: 40px 25px; } }
+      padding: 50px 40px; } }
   @media (min-width: 900px) {
     .index {
-      width: 850px; } }
+      width: 820px; } }
   @media (min-width: 900px) {
     .index .index__container {
       display: flex;
@@ -264,7 +279,7 @@ p + p {
       justify-content: space-between;
       align-content: flex-start; } }
   .index .index__section {
-    flex: 0 1 48%; }
+    flex: 0 1 47%; }
   .index .index__section-imageodd .index__image:nth-child(1) {
     transform: rotate(7deg); }
   .index .index__section-imageodd .index__image:nth-child(2) {
@@ -327,7 +342,7 @@ p + p {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    z-index: 100;
+    z-index: 1;
     background: rgba(80, 144, 208, 0.7) repeat left; }
   .scans #pages .container {
     padding-top: 10px;
@@ -438,10 +453,10 @@ p + p {
       overflow: visible; } }
   @media (min-width: 600px) {
     .content {
-      padding: 40px 25px; } }
+      padding: 50px 40px; } }
   @media (min-width: 900px) {
     .content {
-      width: 850px; } }
+      width: 820px; } }
   @media (min-width: 900px) {
     .content .content__container {
       display: flex;
@@ -449,7 +464,7 @@ p + p {
       justify-content: space-between;
       align-content: flex-start; } }
   .content .content__section {
-    flex: 0 1 48%; }
+    flex: 0 1 47%; }
   .content .content__section-imageodd .content__image:nth-child(1) {
     transform: rotate(7deg); }
   .content .content__section-imageodd .content__image:nth-child(2) {
@@ -463,7 +478,7 @@ p + p {
     .content__link:hover, .content__link:focus {
       background-color: #fd0; }
   .content__section {
-    padding-bottom: 30px; }
+    padding-bottom: 60px; }
     @media (min-width: 900px) {
       .content__section {
         padding-bottom: 0; } }

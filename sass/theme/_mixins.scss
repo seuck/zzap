@@ -23,11 +23,11 @@
     padding: 30px 20px;
 
     @include for-tablet-portrait-up {
-      padding: 40px 25px;
+      padding: 50px 40px;
     }
 
     @include for-tablet-landscape-up {
-      width: 850px;
+      width: 820px;
     }
 
     #{$base}__container {
@@ -40,7 +40,7 @@
     }
 
     #{$base}__section {
-        flex: 0 1 48%;
+        flex: 0 1 47%;
     }
 
     #{$base}__section {

@@ -11,7 +11,7 @@
     transform-origin: 23% 22%;
     transform: scale(1);
     position: fixed;
-    z-index: 2;
+    z-index: 100;
 
     @include for-tablet-landscape-up {
       width: 540px;
@@ -24,12 +24,11 @@
     display: none;
     color: $white;
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     height: 30px;
-    z-index: 1;
     width: 900px;
     margin: 0 auto;
-    top: 35px;
+    top: 32px;
     left: 0;
     right: 0;
 
@@ -41,18 +40,40 @@
   &__navigationlist {
     background-color: $blue;
     margin-left: 102px;
-    padding: 10px 0 10px 60px;
+    padding-left: 50px;
   }
 
-  &__navigationelement {
+  &__navigationelement,
+  &__socialelement {
     display: inline-block;
-    margin-right: 20px;
   }
 
-  &__navigationlink {
+  &__navigationlink,
+  &__sociallink {
+    display: inline-block;
+
     &:hover,
     &:focus {
         background-color: $darkblue;
     }
+  }
+
+  &__navigationlink {
+    padding: 9px 12px;
+  }
+
+  &__sociallist {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 40px;
+  }
+
+  &__sociallink {
+    padding: 6px 12px;
+  }
+
+  &__socialimage {
+    width: 23px;
   }
 }
