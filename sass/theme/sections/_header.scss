@@ -1,5 +1,11 @@
 .header {
 
+  @mixin compact-logo {
+    width: 540px;
+    margin-top: -90px;
+    margin-left: -122px;
+  }
+
   &__container {
     @include coverpage;
   }
@@ -25,22 +31,17 @@
     color: $white;
     position: fixed;
     z-index: 99;
-    height: 30px;
-    width: 900px;
     margin: 0 auto;
     top: 32px;
-    left: 0;
+    left: 100px;
     right: 0;
-
-    &.visible {
-      display: block;
-    }
-  }
-
-  &__navigationlist {
     background-color: $blue;
-    margin-left: 102px;
     padding-left: 50px;
+    @include imageshadow;
+
+    @include for-tablet-landscape-up {
+      width: 750px;
+    }
   }
 
   &__navigationelement,
@@ -54,7 +55,7 @@
 
     &:hover,
     &:focus {
-        background-color: $darkblue;
+      background-color: $darkblue;
     }
   }
 
@@ -75,5 +76,17 @@
 
   &__socialimage {
     width: 23px;
+  }
+
+  &--compact {
+    .header__navigation {
+      @include for-tablet-portrait-up {
+        display: block;
+      }
+    }
+
+    .header__logo {
+      @include compact-logo;
+    }
   }
 }

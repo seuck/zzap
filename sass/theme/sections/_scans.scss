@@ -4,10 +4,11 @@
     &__magazines {
         display: flex;
         flex-flow: row wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
 
         &__image {
             display: block;
+            width: 99%;
         }
     }
 
@@ -124,7 +125,6 @@
     .issues_array_empty {
         height: 121px;
         cursor: pointer;
-        flex: 0 1 86px;
         position: relative;
     }
 

@@ -39,7 +39,7 @@ html {
   font-family: sans-serif;
   line-height: 1.5;
   color: #fff;
-  font-size: 14px; }
+  font-size: 16px; }
   @media (min-width: 600px) {
     html {
       font-size: 18px; } }
@@ -113,19 +113,16 @@ p + p {
   color: #fff;
   position: fixed;
   z-index: 99;
-  height: 30px;
-  width: 900px;
   margin: 0 auto;
   top: 32px;
-  left: 0;
-  right: 0; }
-  .header__navigation.visible {
-    display: block; }
-
-.header__navigationlist {
+  left: 100px;
+  right: 0;
   background-color: #40A7E9;
-  margin-left: 102px;
-  padding-left: 50px; }
+  padding-left: 50px;
+  box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4); }
+  @media (min-width: 900px) {
+    .header__navigation {
+      width: 750px; } }
 
 .header__navigationelement, .header__socialelement {
   display: inline-block; }
@@ -149,6 +146,15 @@ p + p {
 
 .header__socialimage {
   width: 23px; }
+
+@media (min-width: 600px) {
+  .header--compact .header__navigation {
+    display: block; } }
+
+.header--compact .header__logo {
+  width: 540px;
+  margin-top: -90px;
+  margin-left: -122px; }
 
 .cover {
   margin: 0 auto;
@@ -327,9 +333,10 @@ p + p {
   .scans__magazines {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start; }
+    justify-content: space-between; }
     .scans__magazines__image {
-      display: block; }
+      display: block;
+      width: 99%; }
   .scans .hide {
     display: none; }
   .scans .space {
@@ -406,7 +413,6 @@ p + p {
   .scans .issues_array_empty {
     height: 121px;
     cursor: pointer;
-    flex: 0 1 86px;
     position: relative; }
   .scans .issues_array_empty {
     background-color: #ddd; }
@@ -483,11 +489,21 @@ p + p {
       .content__section {
         padding-bottom: 0; } }
   .content__imagelink {
-    padding: 20px 20px 30px 20px;
-    display: block; }
+    display: block;
+    padding: 8% 6% 10% 6%; }
+    @media (min-width: 600px) {
+      .content__imagelink {
+        padding: 41px 31px 52px 31px; } }
+    @media (min-width: 900px) {
+      .content__imagelink {
+        padding: 20px 20px 30px 20px; } }
   .content__image {
     box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4);
-    width: 295px; }
+    width: 100%;
+    margin: auto; }
+    @media (min-width: 600px) {
+      .content__image {
+        width: 458px; } }
     @media (min-width: 900px) {
       .content__image {
         width: 350px; } }
