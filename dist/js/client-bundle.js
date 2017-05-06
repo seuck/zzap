@@ -10677,11 +10677,11 @@
 			_jquery2.default.mousestopDelay = 1000; // defaults: 50
 	
 			// Setup elements visibility
-			(0, _jquery2.default)("#issue_selector").hide();
-			(0, _jquery2.default)("#pages").hide();
+			(0, _jquery2.default)(".scans__magazine").hide();
+			(0, _jquery2.default)(".scans__issue").hide();
 			(0, _jquery2.default)("#reader").hide();
 			(0, _jquery2.default)("#reader_navigator").hide();
-			(0, _jquery2.default)("#scan_loader").hide();
+			(0, _jquery2.default)(".scans__loader").hide();
 	
 			// Reader mouse move event
 			(0, _jquery2.default)("#reader_content").mousemove(readerContentScroll);
@@ -10692,8 +10692,6 @@
 			});
 	
 			(0, _jquery2.default)("#reader_close_button").on("click", closeReader);
-	
-			(0, _jquery2.default)("#issueSelectorLink").on("click", transformMiniSelectorToIssueSelector);
 	
 			(0, _jquery2.default)(document).on("keyup", readerKeyboardEventHandler);
 	
@@ -10732,21 +10730,16 @@
 		};
 	
 		var loadMagazines = function loadMagazines() {
-			(0, _jquery2.default)("#scan_loader").show();
+			(0, _jquery2.default)(".scans__loader").show();
 			_jquery2.default.getJSON(apiPath + "magazines.js?callback=?", function (data) {
 				magazinesData = data;
 				renderIssueSelector();
 			});
 		};
 	
-		// Transform Issue Selector and show selected Issue
-		var loadIssueFromSelectorEvent = function loadIssueFromSelectorEvent(event) {
-			transformIssueSelectorToMiniSelector(this, event);
-		};
-	
 		var loadIssue = function loadIssue(data) {
-			(0, _jquery2.default)("#pages").hide();
-			(0, _jquery2.default)("#scan_loader").show();
+			(0, _jquery2.default)(".scans__issue").hide();
+			(0, _jquery2.default)(".scans__loader").show();
 			_jquery2.default.getJSON(apiPath + "issues/" + data.issue + ".js?callback=?", function (returnData) {
 				issueData = returnData;
 	
@@ -10756,73 +10749,6 @@
 					renderIssue();
 				}
 			});
-		};
-	
-		var transformMiniSelectorToIssueSelector = function transformMiniSelectorToIssueSelector() {
-			(0, _jquery2.default)("#issues_generated").children().animate({ opacity: 1 });
-			(0, _jquery2.default)("#double_pages_generated").empty();
-			return false;
-		};
-	
-		// Call it from an event
-		var transformIssueSelectorToMiniSelector = function transformIssueSelectorToMiniSelector(caller, callingEvent) {
-	
-			var neighbors = [];
-			var i = 0;
-			while (i < 10 && neighbors.length < 10) {
-				var idNext = (0, _jquery2.default)(caller).next();
-				var idPrev = (0, _jquery2.default)(caller).prev();
-				for (var j = 0; j < i; j++) {
-					idNext = idNext.next();
-					idPrev = idPrev.prev();
-				}
-				if (idNext.length) {
-					neighbors.push(idNext.attr("id"));
-				}
-				if (idPrev.length) {
-					neighbors.push(idPrev.attr("id"));
-				}
-				i++;
-			}
-			//console.log(neighbors);
-	
-			// Show element and assign its ID in one instruction
-			var actualId = (0, _jquery2.default)(caller).show().attr("id");
-			var idPlus1 = (0, _jquery2.default)(caller).next().show().attr("id");
-			var idPlus2 = (0, _jquery2.default)(caller).next().next().show().attr("id");
-			var idPlus3 = (0, _jquery2.default)(caller).next().next().next().show().attr("id");
-			var idPlus4 = (0, _jquery2.default)(caller).next().next().next().next().show().attr("id");
-			var idPlus5 = (0, _jquery2.default)(caller).next().next().next().next().next().show().attr("id");
-			var idMinus1 = (0, _jquery2.default)(caller).prev().show().attr("id");
-			var idMinus2 = (0, _jquery2.default)(caller).prev().prev().show().attr("id");
-			var idMinus3 = (0, _jquery2.default)(caller).prev().prev().prev().show().attr("id");
-			var idMinus4 = (0, _jquery2.default)(caller).prev().prev().prev().prev().show().attr("id");
-			var idMinus5 = (0, _jquery2.default)(caller).prev().prev().prev().prev().prev().show().attr("id");
-	
-			// Animate transition: four steps
-			_jquery2.default.when((0, _jquery2.default)("#issues_generated").children().not("#" + actualId).animate({ opacity: 0 })).done(function () {
-				_jquery2.default.when((0, _jquery2.default)("#issues_generated").children().not("#" + actualId + ", #" + idPlus1 + ", #" + idPlus2 + ", #" + idPlus3 + ", #" + idPlus4 + ", #" + idPlus5 + "," + "#" + idMinus1 + ", #" + idMinus2 + ", #" + idMinus3 + ", #" + idMinus4 + ", #" + idMinus5).animate({ width: 0, marginRight: 0 }, 'slow')).done(function () {
-					_jquery2.default.when((0, _jquery2.default)("#issues_generated").children("#" + idPlus1 + ", #" + idPlus2 + ", #" + idPlus3 + ", #" + idPlus4 + ", #" + idPlus5 + "," + "#" + idMinus1 + ", #" + idMinus2 + ", #" + idMinus3 + ", #" + idMinus4 + ", #" + idMinus5).animate({ opacity: 1 })).done(function () {
-						loadIssue(callingEvent.data);
-					});
-				});
-			});
-	
-			// Show empty elements
-			//$(".issues_array_empty").show();
-			// Special cases: just two empty elements are visible
-			/*
-	  if (prevId === undefined) {
-	  	$(".issues_array_empty").first().clone()
-	  		.addClass("issues_array_empty_remove")
-	  		.on("click", transformMiniSelectorToIssueSelector)
-	  		.insertBefore(".issues_array_empty:first");
-	  } else if (nextId === undefined) {
-	  	$(".issues_array_empty").first().clone()
-	  		.addClass("issues_array_empty_remove")
-	  		.on("click", transformMiniSelectorToIssueSelector)
-	  		.insertAfter(".issues_array_empty:last");
-	  }*/
 		};
 	
 		var renderIssueSelector = function renderIssueSelector() {
@@ -10835,28 +10761,26 @@
 	
 			// Render all issues of all magazines	
 			for (var magazine = 0; magazine < magazinesData.length; magazine++) {
+				for (var padding = 0; padding < magazinesData[magazine].issues[0].month; padding++) {
+					(0, _jquery2.default)("#_" + partial).clone().addClass('scans__magazine__issuepadding').find(".scans__magazine__issueinfo").remove().end().find("img").remove().end().appendTo("#" + partial + "s_generated");
+				}
+	
 				for (var issue = 0; issue < magazinesData[magazine].issues.length; issue++) {
 					partialRendered++;
 					var imagePath = thumbs_path + magazinesData[magazine].name.replace(/[^a-z0-9]/gi, '').toLowerCase() + "/" + magazinesData[magazine].issues[issue].sequence + ".jpg";
 	
-					(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered).find("img").attr("data-original", imagePath).end().find("#issue_array_overlay").attr("id", "issue_array_overlay" + partialRendered).end().find(".issue_array_overlay_number").html(magazinesData[magazine].issues[issue].sequence).end().find(".issue_array_info_month").html(magazinesData[magazine].issues[issue].month).end().find(".issue_array_info_year").html(magazinesData[magazine].issues[issue].year).end().on("click", { "issue": magazinesData[magazine].issues[issue].id }, loadIssueFromSelectorEvent).appendTo("#" + partial + "s_generated");
+					(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered).find("img").attr("data-original", imagePath).end().find(".scans__magazine__issueinfo__number").html(magazinesData[magazine].issues[issue].sequence).end().find(".scans__magazine__issueinfo__month").html(magazinesData[magazine].issues[issue].month).end().find(".scans__magazine__issueinfo__year").html(magazinesData[magazine].issues[issue].year).end().on("click", { "issue": magazinesData[magazine].issues[issue].id }, function (event) {
+						loadIssue(event.data);
+					}).appendTo("#" + partial + "s_generated");
 				}
 			}
-			// Hide all issue's overlays
-			(0, _jquery2.default)(".issue_array_overlay_style").hide();
-			// Setup issues events
-			(0, _jquery2.default)(".issues_array_issue").on("mouseover", function () {
-				(0, _jquery2.default)(this).find(".issue_array_overlay_style").show();
-			}).on("mouseleave", function () {
-				(0, _jquery2.default)(this).find(".issue_array_overlay_style").hide();
-			});
 	
 			// Hide all partials
 			(0, _jquery2.default)("#_" + partial).hide(); // Partial ids start with an underscore
 	
 			// Go live
-			(0, _jquery2.default)("#scan_loader").hide();
-			(0, _jquery2.default)("#issue_selector").show();
+			(0, _jquery2.default)(".scans__loader").hide();
+			(0, _jquery2.default)(".scans__magazine").show();
 	
 			// Activate scan images lazy loading
 			(0, _jquery2.default)("#" + partial + "s_generated img.lazy").show().lazyload({
@@ -10881,27 +10805,27 @@
 			(0, _jquery2.default)("#" + partial + "s_generated").empty();
 	
 			// Cover
-			(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[0].scan.path).end().addClass("first").end().find(".doublepage a").on("click", { "l": -1, "r": 0 }, callReader).end().find("#_scan_author").attr("id", "_in_place_scan_author").end().find("#scan_authors_generated").attr("id", "in_place_scan_authors_generated").end().appendTo("#" + partial + "s_generated");
+			(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[0].scan.path).end().addClass("first").end().find(".scans__issue__doublepage a").on("click", { "l": -1, "r": 0 }, callReader).end().find("#_scan_author").attr("id", "_in_place_scan_author").end().find("#scan_authors_generated").attr("id", "in_place_scan_authors_generated").end().appendTo("#" + partial + "s_generated");
 			// Remove unused image
 			(0, _jquery2.default)("#" + partial + "s_generated").children().first().find("img").last().remove();
 	
 			// Double pages
 			for (var i = 1; i < issueData.volumes[0].pages_number - 1; i = i + 2) {
-				(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[i].scan.path).end().end().find("img").last().attr("data-original", thumbs_path + issueData.volumes[0].pages[i + 1].scan.path).end().end().find(".doublepage a").on("click", { "l": i, "r": i + 1 }, callReader).end().find(".issue_info").remove().end().appendTo("#" + partial + "s_generated");
+				(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[i].scan.path).end().end().find("img").last().attr("data-original", thumbs_path + issueData.volumes[0].pages[i + 1].scan.path).end().end().find(".scans__issue__doublepage a").on("click", { "l": i, "r": i + 1 }, callReader).end().find(".scans__issue__info").remove().end().appendTo("#" + partial + "s_generated");
 			}
 	
 			// Backcover
-			(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[issueData.volumes[0].pages_number - 1].scan.path).end().end().find(".doublepage a").on("click", { "l": issueData.volumes[0].pages_number - 1, "r": issueData.volumes[0].pages_number }, callReader).end().find(".issue_info").remove().end().appendTo("#" + partial + "s_generated");
+			(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[issueData.volumes[0].pages_number - 1].scan.path).end().end().find(".scans__issue__doublepage a").on("click", { "l": issueData.volumes[0].pages_number - 1, "r": issueData.volumes[0].pages_number }, callReader).end().find(".scans__issue__info").remove().end().appendTo("#" + partial + "s_generated");
 			// Remove unused image
 			(0, _jquery2.default)("#" + partial + "s_generated").children().last().find("img").last().remove();
 	
 			(0, _jquery2.default)("#_" + partial).hide();
 	
 			// Render issue info
-			(0, _jquery2.default)(".issue_number").html(issueData.sequence);
-			(0, _jquery2.default)(".issue_month").html(locales.months[issueData.month - 1]);
-			(0, _jquery2.default)(".issue_year").html(issueData.year);
-			(0, _jquery2.default)(".issue_editor").html(issueData.editor.name);
+			(0, _jquery2.default)(".scans__issue__number").html(issueData.sequence);
+			(0, _jquery2.default)(".scans__issue__month").html(locales.months[issueData.month - 1]);
+			(0, _jquery2.default)(".scans__issue__year").html(issueData.year);
+			(0, _jquery2.default)(".scans__issue__editor").html(issueData.editor.name);
 	
 			//
 			// Render scan authors
@@ -10909,8 +10833,8 @@
 			renderScanAuthors();
 	
 			// Go live
-			(0, _jquery2.default)("#scan_loader").hide();
-			(0, _jquery2.default)("#" + container).show();
+			(0, _jquery2.default)(".scans__loader").hide();
+			(0, _jquery2.default)(".scans__issue").show();
 	
 			// Activate scan images lazy loading
 			(0, _jquery2.default)("#double_pages_generated img.lazy").show().lazyload({
@@ -10958,7 +10882,7 @@
 			var isBackcover = data.l == issueData.volumes[0].pages_number - 1;
 			var loaderUnload;
 	
-			(0, _jquery2.default)("#scan_loader").show();
+			(0, _jquery2.default)(".scans__loader").show();
 	
 			// Reset Reader
 			(0, _jquery2.default)("#reader_left,#reader_right").attr("src", "").off("click", callReader).hide();
@@ -11002,7 +10926,7 @@
 			}
 	
 			// Go live
-			(0, _jquery2.default)("#pages").hide();
+			(0, _jquery2.default)(".scans__issue").hide();
 			(0, _jquery2.default)("#reader").show();
 			(0, _jquery2.default)("#reader_navigator").show();
 			return false;
@@ -11015,7 +10939,7 @@
 				renderIssue();
 			}
 			(0, _jquery2.default)("#reader").hide();
-			(0, _jquery2.default)("#pages").show();
+			(0, _jquery2.default)(".scans__issue").show();
 		};
 	
 		var readerKeyboardEventHandler = function readerKeyboardEventHandler(e) {
@@ -11094,7 +11018,7 @@
 			return function () {
 				elementsToLoad = elementsToLoad - 1;
 				if (elementsToLoad <= 0) {
-					(0, _jquery2.default)("#scan_loader").hide();
+					(0, _jquery2.default)(".scans__loader").hide();
 				}
 			};
 		}
@@ -11119,32 +11043,42 @@
 	(function () {
 	  function initScroll(window, document) {
 	    var logo = document.querySelector('.header__logo');
-	    var navigation = document.querySelector('.header__navigation');
+	    var headerClass = 'header';
+	    var headerFlavorCompactClass = headerClass + '--compact';
+	    var header = document.querySelector('.' + headerClass);
 	    var minScale = 0.3;
-	    var windowWidthMaxLogoSize = 900;
-	    var speedFactor = 250;
+	    var windowWidthMaxSize = 900;
+	    var verticalThresholdMax = 250;
 	    var lastYOffset = -1;
+	    var lastWindowWidth = -1;
 	
 	    function refreshHeader() {
-	      if (lastYOffset === window.pageYOffset) {
+	      var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	
+	      if (lastYOffset === window.pageYOffset && lastWindowWidth === windowWidth) {
 	        requestAnimationFrame(refreshHeader);
 	      } else {
 	        lastYOffset = window.pageYOffset;
+	        lastWindowWidth = windowWidth;
 	
 	        var distanceY = window.pageYOffset || document.documentElement.scrollTop;
-	        var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-	        var speed = Math.min(windowWidth, windowWidthMaxLogoSize) / speedFactor;
-	
 	        if (distanceY >= 0) {
-	          var scale = Math.max(minScale, 1 - distanceY / 100.0 / speed);
-	          logo.style.transform = 'scale(' + scale + ')';
-	
-	          if (distanceY > 250) {
-	            navigation.className = 'header__navigation visible';
+	          var limitedWindowWidth = Math.min(windowWidth, windowWidthMaxSize);
+	          var actualThreshold = verticalThresholdMax / windowWidthMaxSize * limitedWindowWidth;
+	          if (distanceY > actualThreshold) {
+	            header.className = headerClass + ' ' + headerFlavorCompactClass;
+	            logo.style.transform = 'scale(' + minScale + ')';
 	          } else {
-	            navigation.className = 'header__navigation';
+	            var speed = limitedWindowWidth / verticalThresholdMax;
+	            var scale = Math.max(minScale, 1 - distanceY / 100.0 / speed);
+	            logo.style.transform = 'scale(' + scale + ')';
+	
+	            header.className = headerClass;
 	          }
+	        } else {
+	          logo.style.transform = 'scale(1)';
 	        }
+	
 	        requestAnimationFrame(refreshHeader);
 	      }
 	    }

@@ -7,7 +7,7 @@
   }
 
   &__container {
-    @include coverpage;
+    @include fullpage;
   }
 
   &__logo {
@@ -55,7 +55,7 @@
 
     &:hover,
     &:focus {
-      background-color: $darkblue;
+      background-color: $darkBlue;
     }
   }
 

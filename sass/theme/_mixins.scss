@@ -7,7 +7,7 @@
   }
 }
 
-@mixin coverpage {
+@mixin fullpage {
     @include responsive-centered;
 
     @include for-tablet-landscape-up {
@@ -70,4 +70,12 @@
 
 @mixin imageshadow {
   box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+@mixin infocomponent {
+  padding: 0 20px 30px 20px;
+
+  @include for-tablet-portrait-up {
+    padding: 0 40px 30px 40px;
+  }
 }

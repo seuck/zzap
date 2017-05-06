@@ -14,7 +14,7 @@ import $ from 'jquery';
 		
 		// Setup elements visibility
 		$(".scans__magazine").hide();
-		$("#pages").hide();
+		$(".scans__issue").hide();
 		$("#reader").hide();
 		$("#reader_navigator").hide();
 		$(".scans__loader").hide();
@@ -28,8 +28,6 @@ import $ from 'jquery';
 		});
 		
 		$("#reader_close_button").on("click", closeReader);
-
-		$(".scans__magazine__back").on("click", transformMiniSelectorToIssueSelector);
 		
 		$(document).on("keyup", readerKeyboardEventHandler);
 
@@ -78,13 +76,8 @@ import $ from 'jquery';
 		});
 	};
 
-	// Transform Issue Selector and show selected Issue
-	var loadIssueFromSelectorEvent = function(event) {
-		transformIssueSelectorToMiniSelector(this, event);
-	};
-
 	var loadIssue = function(data) {
-		$("#pages").hide();
+		$(".scans__issue").hide();
 		$(".scans__loader").show();
 		$.getJSON(apiPath + "issues/" + data.issue + ".js?callback=?", function(returnData){
 			issueData = returnData;
@@ -95,83 +88,6 @@ import $ from 'jquery';
 				renderIssue();
 			}
 		});
-	};
-
-	var transformMiniSelectorToIssueSelector = function() {
-		$("#issues_generated").children().animate({opacity:1});
-		$("#double_pages_generated").empty();
-		return(false);
-	};
-
-	// Call it from an event
-	var transformIssueSelectorToMiniSelector = function(caller, callingEvent) {
-		
-		var neighbors = [];
-		var i = 0;
-		while (i < 10 && neighbors.length < 10) {
-			var idNext = $(caller).next();
-			var idPrev = $(caller).prev();
-			for (var j = 0; j < i; j++) {
-				idNext = idNext.next();
-				idPrev = idPrev.prev();
-			}
-			if (idNext.length) {
-				neighbors.push(idNext.attr("id"));
-			}
-			if (idPrev.length) {
-				neighbors.push(idPrev.attr("id"));
-			}
-			i++;
-		}
-		//console.log(neighbors);
-			
-		// Show element and assign its ID in one instruction
-		var actualId = $(caller).show().attr("id");
-		var idPlus1 = $(caller).next().show().attr("id");
-		var idPlus2 = $(caller).next().next().show().attr("id");
-		var idPlus3 = $(caller).next().next().next().show().attr("id");
-		var idPlus4 = $(caller).next().next().next().next().show().attr("id");
-		var idPlus5 = $(caller).next().next().next().next().next().show().attr("id");
-		var idMinus1 = $(caller).prev().show().attr("id");
-		var idMinus2 = $(caller).prev().prev().show().attr("id");
-		var idMinus3 = $(caller).prev().prev().prev().show().attr("id");
-		var idMinus4 = $(caller).prev().prev().prev().prev().show().attr("id");
-		var idMinus5 = $(caller).prev().prev().prev().prev().prev().show().attr("id");
-
-		// Animate transition: four steps
-		$.when($("#issues_generated").children().not("#" + actualId).animate(
-			{opacity:0})
-		).done(function() {
-			$.when($("#issues_generated").children().not("#" + actualId + ", #" + idPlus1 + ", #" + idPlus2 + ", #" + idPlus3 + ", #" + idPlus4 + ", #" + idPlus5 + "," +
-																						"#" + idMinus1 + ", #" + idMinus2 + ", #" + idMinus3 + ", #" + idMinus4 + ", #" + idMinus5).animate(
-				{width: 0, marginRight: 0}, 'slow'
-			)).done(function() {
-				$.when($("#issues_generated").children(
-					"#" + idPlus1 + ", #" + idPlus2 + ", #" + idPlus3 + ", #" + idPlus4 + ", #" + idPlus5 + "," +
-					"#" + idMinus1 + ", #" + idMinus2 + ", #" + idMinus3 + ", #" + idMinus4 + ", #" + idMinus5
-				).animate(
-					{opacity:1}
-				)).done(function() {
-					loadIssue(callingEvent.data);
-				});
-			});
-		});
-		
-		// Show empty elements
-		//$(".issues_array_empty").show();
-		// Special cases: just two empty elements are visible
-		/*
-		if (prevId === undefined) {
-			$(".issues_array_empty").first().clone()
-				.addClass("issues_array_empty_remove")
-				.on("click", transformMiniSelectorToIssueSelector)
-				.insertBefore(".issues_array_empty:first");
-		} else if (nextId === undefined) {
-			$(".issues_array_empty").first().clone()
-				.addClass("issues_array_empty_remove")
-				.on("click", transformMiniSelectorToIssueSelector)
-				.insertAfter(".issues_array_empty:last");
-		}*/
 	};
 
 	var renderIssueSelector = function() {
@@ -209,7 +125,9 @@ import $ from 'jquery';
 					.end()
 					.find(".scans__magazine__issueinfo__year").html(magazinesData[magazine].issues[issue].year)
 					.end()
-					.on("click", {"issue": magazinesData[magazine].issues[issue].id}, loadIssueFromSelectorEvent)
+					.on("click", {"issue": magazinesData[magazine].issues[issue].id}, function(event) {
+						loadIssue(event.data);
+					})
 					.appendTo("#" + partial + "s_generated");
 				}
 		}
@@ -250,7 +168,7 @@ import $ from 'jquery';
 			.end()
 			.addClass("first")
 			.end()
-			.find(".doublepage a")
+			.find(".scans__issue__doublepage a")
 			.on("click", {"l": -1, "r": 0}, callReader)
 			.end()
 			.find("#_scan_author").attr("id", "_in_place_scan_author")
@@ -270,10 +188,10 @@ import $ from 'jquery';
 				.end().end()
 				.find("img").last().attr("data-original", thumbs_path + issueData.volumes[0].pages[(i + 1)].scan.path)
 				.end().end()
-				.find(".doublepage a")
+				.find(".scans__issue__doublepage a")
 				.on("click", {"l": i, "r": i + 1}, callReader)
 				.end()
-				.find(".issue_info").remove()
+				.find(".scans__issue__info").remove()
 				.end()
 				.appendTo("#" + partial + "s_generated");
 		}
@@ -284,10 +202,10 @@ import $ from 'jquery';
 			.find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[(issueData.volumes[0].pages_number - 1)].scan.path)
 			.end()
 			.end()
-			.find(".doublepage a")
+			.find(".scans__issue__doublepage a")
 			.on("click", {"l": issueData.volumes[0].pages_number - 1, "r": issueData.volumes[0].pages_number}, callReader)
 			.end()
-			.find(".issue_info").remove()
+			.find(".scans__issue__info").remove()
 			.end()
 			.appendTo("#" + partial + "s_generated");
 		// Remove unused image
@@ -296,10 +214,10 @@ import $ from 'jquery';
 		$("#_" + partial).hide();
 			
 		// Render issue info
-		$(".issue_number").html(issueData.sequence);
-		$(".issue_month").html(locales.months[issueData.month - 1]);
-		$(".issue_year").html(issueData.year);
-		$(".issue_editor").html(issueData.editor.name);
+		$(".scans__issue__number").html(issueData.sequence);
+		$(".scans__issue__month").html(locales.months[issueData.month - 1]);
+		$(".scans__issue__year").html(issueData.year);
+		$(".scans__issue__editor").html(issueData.editor.name);
 			
 		//
 		// Render scan authors
@@ -308,7 +226,7 @@ import $ from 'jquery';
 		
 		// Go live
 		$(".scans__loader").hide();
-		$("#" + container).show();
+		$(".scans__issue").show();
 		
 		// Activate scan images lazy loading
 		$("#double_pages_generated img.lazy").show().lazyload({
@@ -406,7 +324,7 @@ import $ from 'jquery';
 		}
 
 		// Go live
-		$("#pages").hide();
+		$(".scans__issue").hide();
 		$("#reader").show();
 		$("#reader_navigator").show();
 		return false;
@@ -419,7 +337,7 @@ import $ from 'jquery';
 			renderIssue();
 		}
 		$("#reader").hide();
-		$("#pages").show();
+		$(".scans__issue").show();
 	};
 
 	var readerKeyboardEventHandler = function(e) {

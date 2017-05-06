@@ -1,7 +1,14 @@
 .scans {
-    @include coverpage;
+    @include fullpage;
+
+    color: $white;
 
     &__magazine {
+        padding: 50px 0;
+
+        &__info {
+            @include infocomponent;
+        }
 
         &__issues {
             display: flex;
@@ -15,7 +22,7 @@
         }
 
         &__image {
-            width: 79px; //Remove after resizing images to 80px width
+            width: 79px; //Remove after resizing images
         }
 
         &__issue {
@@ -48,7 +55,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background-color: rgba(0,0,0,0.6);
+            background-color: $translucentOverlay;
             z-index: 5;
 
             &__date {
@@ -62,33 +69,34 @@
         }
     }
 
-    &__loaderimage {
-        width: 288px;
-        height: 230px;
-        line-height: 0;
-        /* Center position */	
-        display: block;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        margin-left: -144px;
-        margin-top: -115px;
-        z-index: 1000;
+    &__issue {
+        padding: 50px 0;
+
+        &__info {
+            @include infocomponent;
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__detaillink {
+            display: flex;
+        }
+
+        &__page {
+            width: 50%;
+            height: 100%;
+            cursor: url(/img/icons/24-zoom-in.png),auto;
+        }
+
+        &__page.first {
+            padding-left: 50%;
+        }
     }
 
-    .hide {
-        display: none;
-    }
-
-    .space {
-        margin-right: 0.5em;
-    }
-
-    .lazy {
-        display: none;
-    }
-
-    .overlay {
+    &__loader {
         position:fixed;
         top:0px;
         bottom:0px;
@@ -96,30 +104,19 @@
         right:0px;
         z-index:1;
         background: rgba(80, 144, 208, 0.7) repeat left;
-    }
 
-    #pages .container {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-    }
-
-    #pages .doublepage img {
-        cursor: url(/img/icons/24-zoom-in.png),auto;
-    }
-
-    #pages .container:hover {
-        background-color: #e0e0e0;
-    }
-
-    .doublepage img.thumb {
-        float: left;
-        width: 235px;
-        overflow: hidden;
-    }
-
-    .doublepage img.first {
-        padding-left: 235px;
+        &__image {
+            width: 288px;
+            height: 230px;
+            line-height: 0;
+            display: block;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -144px;
+            margin-top: -115px;
+            z-index: 1000;
+        }
     }
 
     #reader {
@@ -162,7 +159,7 @@
         left: 0;
         right: 0;
         height: 38px;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: $translucentOverlay;
         color: #ffffff;
         padding-top: 12px;
         text-align: center;
@@ -183,13 +180,5 @@
         top: 12;
         right: 0;
         padding-right: 24px;
-    }
-
-    .issues_array_empty {
-        background-color: #ddd;
-    }
-
-    .issues_array_empty {
-        cursor: pointer;
     }
 }
