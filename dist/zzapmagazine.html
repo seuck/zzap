@@ -131,9 +131,8 @@
     </section>
 
     <section class="scans">
-      <div id="scan_viewer">
-        <div id="scan_loader" class="centered overlay">
-          <img class="scan_loader_box" src="/img/c64_loader.gif" />
+        <div class="scans__loader centered overlay">
+          <img class="scans__loaderimage" src="/img/c64_loader.gif" />
         </div>
         
         <div id="reader" class="">
@@ -150,17 +149,17 @@
     
     
         <div class="scans__magazine">
-          <a id="issueSelectorLink" href="/scansioni">Tutti i numeri</a>
-          <div id="issues_array">
-            <div id="_issue" class="issues_array_issue">
-              <div id="issue_array_overlay" class="issue_array_overlay_style">
-                <p class="issue_array_overlay_number">1</p>
-                <p><span class="issue_array_info_month">12</span>/<span class="issue_array_info_year">1986</span></p>
-              </div>
-              <a class="scans__magazines__link"><img class="scans__magazines__image lazy" src="/img/c64_loader.gif" data-original="/img/issue_selector/zzap/1.jpg" /></a>
+          <a class="scans__magazine__back" href="/scansioni">Tutti i numeri</a>
+            <div id="_issue" class="scans__magazine__issue">
+              <a class="scans__magazine__link">
+                <div class="scans__magazine__issueinfo">
+                  <p class="scans__magazine__issueinfo__number">1</p>
+                  <p class="scans__magazine__issueinfo__date"><span class="scans__magazine__issueinfo__month"></span>/<span class="scans__magazine__issueinfo__year"></span></p>
+                </div>
+                <img class="scans__magazine__image lazy" src="/img/c64_loader.gif" data-original="" />
+              </a>
             </div>
-            <div id="issues_generated" class="scans__magazines"></div>
-          </div>
+            <div id="issues_generated" class="scans__magazine__issues"></div>
         </div>
       
         <div id="pages">
@@ -181,8 +180,8 @@
           
           <div id="double_pages_generated"></div>
         </div>
-      </div>
     </section>
+
     <section class="content">
       <h2>Diario di una Pasqua creativa</h2>
       <div class="content__container">

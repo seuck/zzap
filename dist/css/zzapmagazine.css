@@ -330,13 +330,57 @@ p + p {
   @media (min-width: 900px) {
     .scans {
       width: 900px; } }
-  .scans__magazines {
+  .scans__magazine__issues {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between; }
-    .scans__magazines__image {
-      display: block;
-      width: 99%; }
+  .scans__magazine__link {
+    width: 79px;
+    display: block; }
+  .scans__magazine__image {
+    width: 79px; }
+  .scans__magazine__issue {
+    cursor: pointer;
+    position: relative;
+    padding: 1px; }
+    .scans__magazine__issuepadding {
+      display: none;
+      cursor: initial; }
+      @media (min-width: 900px) {
+        .scans__magazine__issuepadding {
+          display: block; } }
+  .scans__magazine__link:hover .scans__magazine__issueinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+  .scans__magazine__issueinfo {
+    color: #ffffff;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5; }
+    .scans__magazine__issueinfo__date {
+      margin: 0;
+      padding: 0; }
+    .scans__magazine__issueinfo__number {
+      font-size: 2em; }
+  .scans__loaderimage {
+    width: 288px;
+    height: 230px;
+    line-height: 0;
+    /* Center position */
+    display: block;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -144px;
+    margin-top: -115px;
+    z-index: 1000; }
   .scans .hide {
     display: none; }
   .scans .space {
@@ -409,44 +453,10 @@ p + p {
     top: 12;
     right: 0;
     padding-right: 24px; }
-  .scans .issues_array_issue,
-  .scans .issues_array_empty {
-    height: 121px;
-    cursor: pointer;
-    position: relative; }
   .scans .issues_array_empty {
     background-color: #ddd; }
-  .scans .issue_array_overlay_style {
-    color: #ffffff;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 85px;
-    height: 89px;
-    background-color: rgba(0, 0, 0, 0.6);
-    text-align: center;
-    z-index: 5;
-    padding-top: 30px; }
-  .scans .issue_array_overlay_style p {
-    margin: 0;
-    padding: 0; }
-  .scans .issue_array_overlay_number {
-    font-size: 2em; }
   .scans .issues_array_empty {
     cursor: pointer; }
-  .scans .scan_loader_box {
-    width: 288px;
-    height: 230px;
-    line-height: 0;
-    /* Center position */
-    display: block;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    margin-left: -144px;
-    margin-top: -115px;
-    z-index: 1000; }
 
 .content {
   margin: 0 auto;

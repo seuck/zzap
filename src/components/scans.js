@@ -13,11 +13,11 @@ import $ from 'jquery';
 		$.mousestopDelay = 1000; // defaults: 50
 		
 		// Setup elements visibility
-		$("#issue_selector").hide();
+		$(".scans__magazine").hide();
 		$("#pages").hide();
 		$("#reader").hide();
 		$("#reader_navigator").hide();
-		$("#scan_loader").hide();
+		$(".scans__loader").hide();
 		
 		// Reader mouse move event
 		$("#reader_content").mousemove(readerContentScroll);
@@ -29,7 +29,7 @@ import $ from 'jquery';
 		
 		$("#reader_close_button").on("click", closeReader);
 
-		$("#issueSelectorLink").on("click", transformMiniSelectorToIssueSelector);
+		$(".scans__magazine__back").on("click", transformMiniSelectorToIssueSelector);
 		
 		$(document).on("keyup", readerKeyboardEventHandler);
 
@@ -71,7 +71,7 @@ import $ from 'jquery';
 	};
 
 	var loadMagazines = function() {
-		$("#scan_loader").show()
+		$(".scans__loader").show()
 		$.getJSON(apiPath + "magazines.js?callback=?", function(data){
 			magazinesData = data;
 			renderIssueSelector();
@@ -85,7 +85,7 @@ import $ from 'jquery';
 
 	var loadIssue = function(data) {
 		$("#pages").hide();
-		$("#scan_loader").show();
+		$(".scans__loader").show();
 		$.getJSON(apiPath + "issues/" + data.issue + ".js?callback=?", function(returnData){
 			issueData = returnData;
 			
@@ -98,7 +98,7 @@ import $ from 'jquery';
 	};
 
 	var transformMiniSelectorToIssueSelector = function() {
-		$("#issues_generated").children().animate({opacity:1,width:85,marginRight:1});
+		$("#issues_generated").children().animate({opacity:1});
 		$("#double_pages_generated").empty();
 		return(false);
 	};
@@ -184,6 +184,16 @@ import $ from 'jquery';
 		
 		// Render all issues of all magazines	
 		for (var magazine = 0; magazine < magazinesData.length; magazine++) {
+			for (var padding = 0; padding < magazinesData[magazine].issues[0].month; padding++) {
+				$("#_" + partial).clone()
+					.addClass('scans__magazine__issuepadding')
+					.find(".scans__magazine__issueinfo").remove()
+					.end()
+					.find("img").remove()
+					.end()
+					.appendTo("#" + partial + "s_generated");
+			}
+
 			for (var issue = 0; issue < magazinesData[magazine].issues.length; issue++) {
 				partialRendered++;
 				var imagePath = thumbs_path + magazinesData[magazine].name.replace(/[^a-z0-9]/gi, '').toLowerCase()
@@ -193,35 +203,23 @@ import $ from 'jquery';
 					.attr("id", partial + partialRendered)
 					.find("img").attr("data-original", imagePath)
 					.end()
-					.find("#issue_array_overlay").attr("id", "issue_array_overlay" + partialRendered)
+					.find(".scans__magazine__issueinfo__number").html(magazinesData[magazine].issues[issue].sequence)
 					.end()
-					.find(".issue_array_overlay_number").html(magazinesData[magazine].issues[issue].sequence)
+					.find(".scans__magazine__issueinfo__month").html(magazinesData[magazine].issues[issue].month)
 					.end()
-					.find(".issue_array_info_month").html(magazinesData[magazine].issues[issue].month)
-					.end()
-					.find(".issue_array_info_year").html(magazinesData[magazine].issues[issue].year)
+					.find(".scans__magazine__issueinfo__year").html(magazinesData[magazine].issues[issue].year)
 					.end()
 					.on("click", {"issue": magazinesData[magazine].issues[issue].id}, loadIssueFromSelectorEvent)
 					.appendTo("#" + partial + "s_generated");
 				}
 		}
-		// Hide all issue's overlays
-		$(".issue_array_overlay_style").hide()
-		// Setup issues events
-		$(".issues_array_issue")
-		.on("mouseover", function() {
-				$(this).find(".issue_array_overlay_style").show();
-		})
-		.on("mouseleave", function() {
-				$(this).find(".issue_array_overlay_style").hide();
-		});
 		
 		// Hide all partials
 		$("#_" + partial).hide(); // Partial ids start with an underscore
 		
 		// Go live
-		$("#scan_loader").hide();
-		$("#issue_selector").show();
+		$(".scans__loader").hide();
+		$(".scans__magazine").show();
 		
 		// Activate scan images lazy loading
 		$("#" + partial + "s_generated img.lazy").show().lazyload({
@@ -309,7 +307,7 @@ import $ from 'jquery';
 		renderScanAuthors();
 		
 		// Go live
-		$("#scan_loader").hide();
+		$(".scans__loader").hide();
 		$("#" + container).show();
 		
 		// Activate scan images lazy loading
@@ -362,7 +360,7 @@ import $ from 'jquery';
 		var isBackcover = (data.l == issueData.volumes[0].pages_number - 1);
 		var loaderUnload;
 		
-		$("#scan_loader").show();
+		$(".scans__loader").show();
 		
 		// Reset Reader
 		$("#reader_left,#reader_right").attr("src", "").off("click", callReader).hide();
@@ -497,7 +495,7 @@ import $ from 'jquery';
 		return function () {
 			elementsToLoad = elementsToLoad - 1;
 			if (elementsToLoad <= 0) {
-				$("#scan_loader").hide();
+				$(".scans__loader").hide();
 			}
 		}
 	}

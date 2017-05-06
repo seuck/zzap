@@ -1,15 +1,79 @@
 .scans {
     @include coverpage;
 
-    &__magazines {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
+    &__magazine {
+
+        &__issues {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        &__link {
+            width: 79px;
+            display: block;
+        }
 
         &__image {
-            display: block;
-            width: 99%;
+            width: 79px; //Remove after resizing images to 80px width
         }
+
+        &__issue {
+            cursor: pointer;
+            position: relative;
+            padding: 1px;
+
+            &padding {
+                display: none;
+                cursor: initial;
+
+                @include for-tablet-landscape-up {
+                    display: block;
+                }
+            }
+        }
+
+        &__link:hover .scans__magazine__issueinfo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &__issueinfo {
+            color: #ffffff;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 5;
+
+            &__date {
+                margin: 0;
+                padding: 0;
+            }
+
+            &__number {
+                font-size: 2em;
+            }
+        }
+    }
+
+    &__loaderimage {
+        width: 288px;
+        height: 230px;
+        line-height: 0;
+        /* Center position */	
+        display: block;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -144px;
+        margin-top: -115px;
+        z-index: 1000;
     }
 
     .hide {
@@ -121,55 +185,11 @@
         padding-right: 24px;
     }
 
-    .issues_array_issue,
-    .issues_array_empty {
-        height: 121px;
-        cursor: pointer;
-        position: relative;
-    }
-
     .issues_array_empty {
         background-color: #ddd;
     }
 
-    .issue_array_overlay_style {
-        color: #ffffff;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 85px;
-        height: 89px;
-        background-color: rgba(0,0,0,0.6);
-        text-align: center;
-        z-index: 5;
-        padding-top: 30px;
-    }
-
-    .issue_array_overlay_style p {
-        margin: 0;
-        padding: 0;
-    }
-
-    .issue_array_overlay_number {
-        font-size: 2em;
-    }
-
     .issues_array_empty {
         cursor: pointer;
-    }
-
-    .scan_loader_box {
-        width: 288px;
-        height: 230px;
-        line-height: 0;
-        /* Center position */	
-        display: block;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        margin-left: -144px;
-        margin-top: -115px;
-        z-index: 1000;
     }
 }
