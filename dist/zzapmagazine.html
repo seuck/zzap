@@ -18,8 +18,8 @@
             <li class="header__navigationelement"><a class="header__navigationlink" href="#">Mappe</a></li>
           </ul>
           <ul class="header__sociallist">
-            <li class="header__socialelement"><a class="header__sociallink" href="https://www.facebook.com/ProgettoZzapItalia"><img class="header__socialimage" src="assets/social/icons/facebook-logo.svg" alt="Logo di Facebook"></a></li>
-            <li class="header__socialelement"><a class="header__sociallink" href="https://twitter.com/ZzapItalia"><img class="header__socialimage" src="assets/social/icons/twitter-logo.svg" alt="Logo di Twitter"></a></li>
+            <li class="header__socialelement"><a class="header__sociallink" href="https://www.facebook.com/ProgettoZzapItalia"><img class="header__socialimage" src="assets/icons/social/facebook-logo.svg" alt="Logo di Facebook"></a></li>
+            <li class="header__socialelement"><a class="header__sociallink" href="https://twitter.com/ZzapItalia"><img class="header__socialimage" src="assets/icons/social/twitter-logo.svg" alt="Logo di Twitter"></a></li>
           </ul>
         </nav>
       </div>
@@ -163,25 +163,36 @@
         </section>
       
         <section class="scans__issue">
-          <div class="scans__issue__info">
-            <h2>Numero <span class="scans__issue__number"></span></h2>
-            <h3><span class="scans__issue__month"></span> <span class="scans__issue__year"></span></h3>
-            <p class="scans__issue__editor">Editore</p>
-            <p>Scansioni di:
-              <ul>
-                <li><a id="_scan_author" class="space" href="#">Seuck</a>
-                <span id="scan_authors_generated"></span></li>
-              </ul></p>
+        
+          <div id="_double_page" class="scans__issue__cover">
+            <div class="scans__issue__infocontainer">
+              <div class="scans__issue__info">
+                <h2 class="scans__issue__numberline">Numero <span class="scans__issue__number"></span></h2>
+                <p class="scans__issue__dateline"><img class="scans__issue__icon" src="assets/icons/calendar.svg" alt="calendario"><span class="scans__issue__month"></span> <span class="scans__issue__year"></span></p>
+                <p class="scans__issue__editorline"><img class="scans__issue__icon" src="assets/icons/edit.svg" alt="matita"><span class="scans__issue__editor"></span></p>
+                <p class="scans__issue__contributorlabel"><img class="scans__issue__icon" src="assets/icons/scanner.svg" alt="scanner">Scansioni di:
+                  <ul class="scans__issue__contributorlist">
+                    <li id="_scan_author" class="scans__issue__contributor"><a href="#">Seuck</a></li>
+                    
+                    <span id="scan_authors_generated"></span>
+                  </ul>
+                </p>
+              </div>
+            </div>
+            <a class="scans__issue__detaillink">
+              <img class="scans__issue__page lazy thumb" src="/img/c64_loader.gif" data-original="/img/scans/zzap/1/03.jpg">
+            </a>
           </div>
-          
+
           <div id="_double_page" class="scans__issue__doublepage">
             <a class="scans__issue__detaillink">
               <img class="scans__issue__page lazy thumb" src="/img/c64_loader.gif" data-original="/img/scans/zzap/1/02.jpg">
               <img class="scans__issue__page lazy thumb" src="/img/c64_loader.gif" data-original="/img/scans/zzap/1/03.jpg">
             </a>
           </div>
-          
+
           <div id="double_pages_generated" class="scans__issue__content"></div>
+
         </section>
     </section>
 

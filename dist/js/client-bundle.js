@@ -10805,9 +10805,7 @@
 			(0, _jquery2.default)("#" + partial + "s_generated").empty();
 	
 			// Cover
-			(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[0].scan.path).end().addClass("first").end().find(".scans__issue__doublepage a").on("click", { "l": -1, "r": 0 }, callReader).end().find("#_scan_author").attr("id", "_in_place_scan_author").end().find("#scan_authors_generated").attr("id", "in_place_scan_authors_generated").end().appendTo("#" + partial + "s_generated");
-			// Remove unused image
-			(0, _jquery2.default)("#" + partial + "s_generated").children().first().find("img").last().remove();
+			(0, _jquery2.default)(".scans__issue__cover").attr("id", partial + partialRendered++).find("img").attr("data-original", thumbs_path + issueData.volumes[0].pages[0].scan.path).end().find(".scans__issue__cover a").on("click", { "l": -1, "r": 0 }, callReader).end().find("#_scan_author").attr("id", "_in_place_scan_author").end().find("#scan_authors_generated").attr("id", "in_place_scan_authors_generated");
 	
 			// Double pages
 			for (var i = 1; i < issueData.volumes[0].pages_number - 1; i = i + 2) {
@@ -10837,7 +10835,7 @@
 			(0, _jquery2.default)(".scans__issue").show();
 	
 			// Activate scan images lazy loading
-			(0, _jquery2.default)("#double_pages_generated img.lazy").show().lazyload({
+			(0, _jquery2.default)(".scans__issue__cover img.lazy, #double_pages_generated img.lazy").show().lazyload({
 				threshold: 200,
 				effect: "fadeIn"
 			});
@@ -10850,7 +10848,7 @@
 			partialRendered = 0;
 			partial = "in_place_scan_author";
 			for (var i = 0; i < issueData.volumes[0].scan_authors.length; i++) {
-				(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).attr("href", "../author/" + issueData.volumes[0].scan_authors[i].name).html(issueData.volumes[0].scan_authors[i].name).appendTo("#" + partial + "s_generated");
+				(0, _jquery2.default)("#_" + partial).clone().attr("id", partial + partialRendered++).find('a').attr("href", "../author/" + issueData.volumes[0].scan_authors[i].name).html(issueData.volumes[0].scan_authors[i].name).end().appendTo("#" + partial + "s_generated");
 			}
 	
 			(0, _jquery2.default)("#_" + partial).hide();

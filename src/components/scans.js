@@ -162,23 +162,16 @@ import $ from 'jquery';
 		$("#" + partial + "s_generated").empty();
 		
 		// Cover
-		$("#_" + partial).clone()
+		$(".scans__issue__cover")
 			.attr("id", partial + partialRendered++)
-			.find("img").first().attr("data-original", thumbs_path + issueData.volumes[0].pages[0].scan.path)
+			.find("img").attr("data-original", thumbs_path + issueData.volumes[0].pages[0].scan.path)
 			.end()
-			.addClass("first")
-			.end()
-			.find(".scans__issue__doublepage a")
+			.find(".scans__issue__cover a")
 			.on("click", {"l": -1, "r": 0}, callReader)
 			.end()
 			.find("#_scan_author").attr("id", "_in_place_scan_author")
 			.end()
-			.find("#scan_authors_generated").attr("id", "in_place_scan_authors_generated")
-			.end()
-			.appendTo("#" + partial + "s_generated");
-		// Remove unused image
-		$("#" + partial + "s_generated").children().first().find("img").last().remove();
-		
+			.find("#scan_authors_generated").attr("id", "in_place_scan_authors_generated");
 		
 		// Double pages
 		for (var i = 1; i < (issueData.volumes[0].pages_number - 1); i=i+2) {
@@ -229,7 +222,7 @@ import $ from 'jquery';
 		$(".scans__issue").show();
 		
 		// Activate scan images lazy loading
-		$("#double_pages_generated img.lazy").show().lazyload({
+		$(".scans__issue__cover img.lazy, #double_pages_generated img.lazy").show().lazyload({
 			threshold: 200,
 			effect : "fadeIn"
 		});
@@ -244,8 +237,10 @@ import $ from 'jquery';
 		for (var i = 0; i < issueData.volumes[0].scan_authors.length; i++) {
 			$("#_" + partial).clone()
 				.attr("id", partial + partialRendered++)
+				.find('a')
 				.attr("href", "../author/" + issueData.volumes[0].scan_authors[i].name)
 				.html(issueData.volumes[0].scan_authors[i].name)
+				.end()
 				.appendTo("#" + partial + "s_generated");
 		}
 		
