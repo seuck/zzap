@@ -16,7 +16,10 @@ export default {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
   },
   plugins: [
     new webpack.ProvidePlugin({
