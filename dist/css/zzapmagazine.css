@@ -382,6 +382,15 @@ p + p {
         font-size: 2em; }
   .scans__issue {
     padding: 50px 0; }
+    .scans__issue__cover {
+      display: flex;
+      flex-direction: row; }
+      .scans__issue__cover .scans__issue__detaillink {
+        width: 50%; }
+      .scans__issue__cover .scans__issue__page {
+        width: 100%; }
+    .scans__issue__infocontainer {
+      width: 50%; }
     .scans__issue__info {
       padding: 0 20px 30px 20px; }
       @media (min-width: 600px) {
@@ -396,8 +405,15 @@ p + p {
       width: 50%;
       height: 100%;
       cursor: url(/img/icons/24-zoom-in.png), auto; }
-    .scans__issue__page.first {
-      padding-left: 50%; }
+    .scans__issue__contributorlist {
+      margin: 0 46px; }
+    .scans__issue__contributor {
+      line-height: 1.3; }
+    .scans__issue__icon {
+      width: 26px;
+      display: inline-block;
+      padding-right: 10px;
+      vertical-align: middle; }
   .scans__loader {
     position: fixed;
     top: 0px;

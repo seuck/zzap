@@ -100,7 +100,7 @@ import $ from 'jquery';
 		
 		// Render all issues of all magazines	
 		for (var magazine = 0; magazine < magazinesData.length; magazine++) {
-			for (var padding = 0; padding < magazinesData[magazine].issues[0].month; padding++) {
+			for (var padding = 0; padding < magazinesData[magazine].issues[0].month - 1; padding++) {
 				$("#_" + partial).clone()
 					.addClass('scans__magazine__issuepadding')
 					.find(".scans__magazine__issueinfo").remove()
