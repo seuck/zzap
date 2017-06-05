@@ -1,7 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import webpack from 'webpack';
+const path = require('path');
+const webpack = require('webpack');
+const pkgjson = require('./package.json');
 
 export default {
+  entry: './src/all-components.js',
   output: {
     filename: 'client-bundle.js'
   },
@@ -9,16 +12,20 @@ export default {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.js?$/,
         loader: 'babel-loader',
         exclude: [/node_modules/]
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
     alias: {
-      vue: 'vue/dist/vue.js'
+      vue: 'vue/dist/vue.js',
+      components: path.resolve(__dirname, pkgjson.paths.src, 'components')
     }
   },
   plugins: [
@@ -26,5 +33,10 @@ export default {
       $: 'jquery',
       jQuery: 'jquery'
     })
-  ]
+  ],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    compress: true,
+    port: 8000
+  }
 };
