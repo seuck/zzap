@@ -1,34 +1,24 @@
 <template>
   <section class="scans">
-      <section class="scans__loader">
-        <img class="scans__loader__image" src="/img/c64_loader.gif" />
-      </section>
-      
-      <section id="reader" class="">
-        <div id="reader_navigator" class="">
-          <span id="reader_info_magazine"></span>
-          <a id="reader_close_button" title="Chiudi (Esc)"><img src="/img/icons/24-zoom-out.png" /></a>
-          <span id="reader_info_pages"></span>
-        </div>
-        <div id="reader_content" class="content">
-          <img id="reader_left" />
-          <img id="reader_right" />
-        </div>
-      </section>
-  
-  
       <section class="scans__magazine">
         <h2 class="scans__magazine__info">Scansioni</h2>
-        <div id="_issue" class="scans__magazine__issue">
-          <a class="scans__magazine__link">
-            <div class="scans__magazine__issueinfo">
-              <p class="scans__magazine__issueinfo__number"></p>
-              <p class="scans__magazine__issueinfo__date"><span class="scans__magazine__issueinfo__month"></span>/<span class="scans__magazine__issueinfo__year"></span></p>
-            </div>
-            <img class="scans__magazine__image lazy" src="/img/c64_loader.gif" data-original="" />
-          </a>
+        <div class="scans__magazine__issues">
+
+          <div v-for="issue in paddingIssues" class="scans__magazine__issue scans__magazine__issuepadding">
+            <span class="scans__magazine__link"></span>
+          </div>
+
+          <div v-for="issue in magazine.issues" class="scans__magazine__issue">
+            <a class="scans__magazine__link">
+              <div class="scans__magazine__issueinfo">
+                <p class="scans__magazine__issueinfo__number">{{ issue.sequence }}</p>
+                <p class="scans__magazine__issueinfo__date"><span class="scans__magazine__issueinfo__month">{{ issue.month }}</span>/<span class="scans__magazine__issueinfo__year">{{ issue.year }}</span></p>
+              </div>
+              <img class="scans__magazine__image" :src="getThumbnailPath(issue)">
+            </a>
+          </div>
+
         </div>
-        <div id="issues_generated" class="scans__magazine__issues"></div>
       </section>
     
       <section class="scans__issue">

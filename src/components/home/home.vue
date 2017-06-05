@@ -1,9 +1,11 @@
 <template>
   <div>
+    <loader payload=""></loader>
+    <reader readerContent=""></reader>
     <zzapheader></zzapheader>
     <cover></cover>
     <index></index>
-    <scans></scans>
+    <scans magazineId="1"></scans>
 
     <content-container title="Diario di una Pasqua creativa">
       <content-section title="Martedì 11 Aprile 2017: 1 - Il galeone" image-style="content__section-imageodd">

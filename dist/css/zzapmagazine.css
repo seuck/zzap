@@ -355,7 +355,6 @@ p + p {
       position: relative;
       padding: 1px; }
       .scans__magazine__issuepadding {
-        display: none;
         cursor: initial; }
         @media (min-width: 900px) {
           .scans__magazine__issuepadding {
