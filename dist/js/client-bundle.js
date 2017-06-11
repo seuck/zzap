@@ -66,6 +66,8 @@
 	  }
 	});
 	
+	_vue2.default.config.productionTip = false;
+	
 	// include all *.js files in the "components" folder but exclude .test files
 	var components = __webpack_require__(54);
 	components.keys().forEach(components);
@@ -10509,6 +10511,7 @@
 	  data: function data() {
 	    return {
 	      magazine: {},
+	      issue: {},
 	      errors: []
 	    };
 	  },
@@ -10528,6 +10531,9 @@
 	        return Array(this.issues[0].month - 1);
 	      }
 	      return [];
+	    },
+	    isIssueSelected: function isIssueSelected() {
+	      return typeof this.issue.id !== 'undefined';
 	    }
 	  },
 	  methods: {
@@ -10540,8 +10546,23 @@
 	        return _this.errors.push(e);
 	      });
 	    },
-	    getThumbnailPath: function getThumbnailPath(issue) {
+	    getIssue: function getIssue(issueId) {
+	      var _this2 = this;
+	
+	      _axios2.default.get('api/v1/magazine/' + this.magazineId + '/issue/' + issueId).then(function (response) {
+	        _this2.issue = response.data;
+	      }).catch(function (e) {
+	        return _this2.errors.push(e);
+	      });
+	    },
+	    buildThumbnailPath: function buildThumbnailPath(issue) {
 	      return '/img/issue_selector/' + this.magazineName + '/' + issue.sequence + '.jpg';
+	    },
+	    issueSelected: function issueSelected(issueId) {
+	      this.issue = this.getIssue(issueId);
+	    },
+	    buildContributorLink: function buildContributorLink(contributorId) {
+	      return '/contributor/' + contributorId;
 	    }
 	  },
 	  mounted: function mounted() {
@@ -12287,7 +12308,12 @@
 	    return _c('div', {
 	      staticClass: "scans__magazine__issue"
 	    }, [_c('a', {
-	      staticClass: "scans__magazine__link"
+	      staticClass: "scans__magazine__link",
+	      on: {
+	        "click": function($event) {
+	          _vm.issueSelected(issue.id)
+	        }
+	      }
 	    }, [_c('div', {
 	      staticClass: "scans__magazine__issueinfo"
 	    }, [_c('p', {
@@ -12301,18 +12327,13 @@
 	    }, [_vm._v(_vm._s(issue.year))])])]), _vm._v(" "), _c('img', {
 	      staticClass: "scans__magazine__image",
 	      attrs: {
-	        "src": _vm.getThumbnailPath(issue)
+	        "src": _vm.buildThumbnailPath(issue)
 	      }
 	    })])])
-	  })], 2)]), _vm._v(" "), _vm._m(0)])
-	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('section', {
+	  })], 2)]), _vm._v(" "), (typeof _vm.issue.id !== 'undefined') ? _c('section', {
 	    staticClass: "scans__issue"
 	  }, [_c('div', {
-	    staticClass: "scans__issue__cover",
-	    attrs: {
-	      "id": "_double_page"
-	    }
+	    staticClass: "scans__issue__cover"
 	  }, [_c('div', {
 	    staticClass: "scans__issue__infocontainer"
 	  }, [_c('div', {
@@ -12321,7 +12342,7 @@
 	    staticClass: "scans__issue__numberline"
 	  }, [_vm._v("Numero "), _c('span', {
 	    staticClass: "scans__issue__number"
-	  })]), _vm._v(" "), _c('p', {
+	  }, [_vm._v(_vm._s(_vm.issue.sequence))])]), _vm._v(" "), _c('p', {
 	    staticClass: "scans__issue__dateline"
 	  }, [_c('img', {
 	    staticClass: "scans__issue__icon",
@@ -12331,9 +12352,9 @@
 	    }
 	  }), _c('span', {
 	    staticClass: "scans__issue__month"
-	  }), _vm._v(" "), _c('span', {
+	  }, [_vm._v(_vm._s(_vm.issue.month))]), _vm._v(" "), _c('span', {
 	    staticClass: "scans__issue__year"
-	  })]), _vm._v(" "), _c('p', {
+	  }, [_vm._v(_vm._s(_vm.issue.year))])]), _vm._v(" "), _c('p', {
 	    staticClass: "scans__issue__editorline"
 	  }, [_c('img', {
 	    staticClass: "scans__issue__icon",
@@ -12343,7 +12364,7 @@
 	    }
 	  }), _c('span', {
 	    staticClass: "scans__issue__editor"
-	  })]), _vm._v(" "), _c('p', {
+	  }, [_vm._v(_vm._s(_vm.issue.editor.name))])]), _vm._v(" "), _c('p', {
 	    staticClass: "scans__issue__contributorlabel"
 	  }, [_c('img', {
 	    staticClass: "scans__issue__icon",
@@ -12353,20 +12374,22 @@
 	    }
 	  }), _vm._v("Scansioni di:\n              "), _c('ul', {
 	    staticClass: "scans__issue__contributorlist"
-	  }, [_c('li', {
-	    staticClass: "scans__issue__contributor",
+	  }, _vm._l((_vm.issue.volumes[0].scan_authors), function(contributor) {
+	    return _c('li', {
+	      staticClass: "scans__issue__contributor"
+	    }, [_c('a', {
+	      attrs: {
+	        "href": "buildContributorLink(contributor.id)"
+	      }
+	    }, [_vm._v(_vm._s(contributor.name))])])
+	  }))])])]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
+	    staticClass: "scans__issue__content",
 	    attrs: {
-	      "id": "_scan_author"
+	      "id": "double_pages_generated"
 	    }
-	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_vm._v("Seuck")])]), _vm._v(" "), _c('span', {
-	    attrs: {
-	      "id": "scan_authors_generated"
-	    }
-	  })])])])]), _vm._v(" "), _c('a', {
+	  })]) : _vm._e()])
+	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('a', {
 	    staticClass: "scans__issue__detaillink"
 	  }, [_c('img', {
 	    staticClass: "scans__issue__page lazy thumb",
@@ -12374,7 +12397,9 @@
 	      "src": "/img/c64_loader.gif",
 	      "data-original": "/img/scans/zzap/1/03.jpg"
 	    }
-	  })])]), _vm._v(" "), _c('div', {
+	  })])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
 	    staticClass: "scans__issue__doublepage",
 	    attrs: {
 	      "id": "_double_page"
@@ -12393,12 +12418,7 @@
 	      "src": "/img/c64_loader.gif",
 	      "data-original": "/img/scans/zzap/1/03.jpg"
 	    }
-	  })])]), _vm._v(" "), _c('div', {
-	    staticClass: "scans__issue__content",
-	    attrs: {
-	      "id": "double_pages_generated"
-	    }
-	  })])
+	  })])])
 	}]}
 	module.exports.render._withStripped = true
 	if (false) {

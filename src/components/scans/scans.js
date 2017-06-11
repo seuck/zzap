@@ -6,6 +6,7 @@ export default {
   data() {
     return {
       magazine: {},
+      issue: {},
       errors: []
     };
   },
@@ -24,6 +25,9 @@ export default {
         return Array(this.issues[0].month - 1);
       }
       return []
+    },
+    isIssueSelected() {
+      return typeof this.issue.id !== 'undefined';
     }
   },
   methods: {
@@ -34,8 +38,21 @@ export default {
       })
       .catch(e => this.errors.push(e));
     },
-    getThumbnailPath(issue) {
+    getIssue(issueId) {
+      axios.get(`api/v1/magazine/${this.magazineId}/issue/${issueId}`)
+      .then((response) => {
+        this.issue = response.data;
+      })
+      .catch(e => this.errors.push(e));
+    },
+    buildThumbnailPath(issue) {
       return `/img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`;
+    },
+    issueSelected(issueId) {
+      this.issue = this.getIssue(issueId);
+    },
+    buildContributorLink(contributorId) {
+      return `/contributor/${contributorId}`;
     }
   },
   mounted() {

@@ -4,36 +4,35 @@
         <h2 class="scans__magazine__info">Scansioni</h2>
         <div class="scans__magazine__issues">
 
-          <div v-for="issue in paddingIssues" class="scans__magazine__issue scans__magazine__issuepadding">
+          <div class="scans__magazine__issue scans__magazine__issuepadding" v-for="issue in paddingIssues">
             <span class="scans__magazine__link"></span>
           </div>
 
           <div v-for="issue in magazine.issues" class="scans__magazine__issue">
-            <a class="scans__magazine__link">
+            <a class="scans__magazine__link" @click="issueSelected(issue.id)" >
               <div class="scans__magazine__issueinfo">
                 <p class="scans__magazine__issueinfo__number">{{ issue.sequence }}</p>
-                <p class="scans__magazine__issueinfo__date"><span class="scans__magazine__issueinfo__month">{{ issue.month }}</span>/<span class="scans__magazine__issueinfo__year">{{ issue.year }}</span></p>
+                <p class="scans__magazine__issueinfo__date">
+                  <span class="scans__magazine__issueinfo__month">{{ issue.month }}</span>/<span class="scans__magazine__issueinfo__year">{{ issue.year }}</span>
+                </p>
               </div>
-              <img class="scans__magazine__image" :src="getThumbnailPath(issue)">
+              <img class="scans__magazine__image" :src="buildThumbnailPath(issue)">
             </a>
           </div>
 
         </div>
       </section>
     
-      <section class="scans__issue">
-      
-        <div id="_double_page" class="scans__issue__cover">
+      <section class="scans__issue" v-if="isIssueSelected">
+        <div class="scans__issue__cover">
           <div class="scans__issue__infocontainer">
             <div class="scans__issue__info">
-              <h2 class="scans__issue__numberline">Numero <span class="scans__issue__number"></span></h2>
-              <p class="scans__issue__dateline"><img class="scans__issue__icon" src="assets/icons/calendar.svg" alt="calendario"><span class="scans__issue__month"></span> <span class="scans__issue__year"></span></p>
-              <p class="scans__issue__editorline"><img class="scans__issue__icon" src="assets/icons/edit.svg" alt="matita"><span class="scans__issue__editor"></span></p>
+              <h2 class="scans__issue__numberline">Numero <span class="scans__issue__number">{{issue.sequence}}</span></h2>
+              <p class="scans__issue__dateline"><img class="scans__issue__icon" src="assets/icons/calendar.svg" alt="calendario"><span class="scans__issue__month">{{issue.month}}</span> <span class="scans__issue__year">{{issue.year}}</span></p>
+              <p class="scans__issue__editorline"><img class="scans__issue__icon" src="assets/icons/edit.svg" alt="matita"><span class="scans__issue__editor">{{issue.editor.name}}</span></p>
               <p class="scans__issue__contributorlabel"><img class="scans__issue__icon" src="assets/icons/scanner.svg" alt="scanner">Scansioni di:
                 <ul class="scans__issue__contributorlist">
-                  <li id="_scan_author" class="scans__issue__contributor"><a href="#">Seuck</a></li>
-                  
-                  <span id="scan_authors_generated"></span>
+                  <li v-for="contributor in issue.volumes[0].scan_authors" class="scans__issue__contributor"><a :href="buildContributorLink(contributor.id)">{{contributor.name}}</a></li>
                 </ul>
               </p>
             </div>
