@@ -30,30 +30,46 @@ export default {
     },
     isIssueSelected() {
       return this.issue && !isEmptyObject(this.issue)
+    },
+    getDoublePages() {
+      const doublePageArray = []
+      if (this.isIssueSelected) {
+        for (let i = 1; i < this.issue.volumes[0].pages.length - 1; i = i + 2) {
+          doublePageArray.push(i)
+        }
+      }
+      return doublePageArray
     }
   },
   methods: {
-    getMagazine() {
+    loadMagazine() {
       axios.get(`api/v1/magazine/${this.magazineId}`)
       .then((response) => {
         this.magazine = response.data;
       })
       .catch(e => this.errors.push(e))
     },
-    getIssue(issueId) {
+    loadIssue(issueId) {
       axios.get(`api/v1/magazine/${this.magazineId}/issue/${issueId}`)
       .then((response) => {
         this.issue = response.data;
       })
       .catch(e => this.errors.push(e))
     },
-    buildThumbnailPath(issue) {
+    selectIssue(issueId) {
+      this.issue = this.loadIssue(issueId)
+    },
+    buildCoverThumbPath(issue) {
       return `/img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`
     },
-    issueSelected(issueId) {
-      this.issue = this.getIssue(issueId)
+    buildPageThumbPath(pageNumber) {
+      let normalisedNumber = pageNumber.toString()
+      if (normalisedNumber.length === 1) {
+        normalisedNumber = `0${normalisedNumber}`
+      }
+      return `/img/thumbs/zzap/${this.issue.id}/${normalisedNumber}.jpg`
     },
-    buildContributorLink(contributorId) {
+    buildContributorPath(contributorId) {
       return `/contributor/${contributorId}`
     },
     getMonth(monthNumber) {
@@ -61,6 +77,6 @@ export default {
     }
   },
   mounted() {
-    this.getMagazine()
+    this.loadMagazine()
   }
 };

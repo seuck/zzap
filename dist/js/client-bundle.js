@@ -10541,10 +10541,19 @@
 	    },
 	    isIssueSelected: function isIssueSelected() {
 	      return this.issue && !(0, _object.isEmptyObject)(this.issue);
+	    },
+	    getDoublePages: function getDoublePages() {
+	      var doublePageArray = [];
+	      if (this.isIssueSelected) {
+	        for (var i = 1; i < this.issue.volumes[0].pages.length - 1; i = i + 2) {
+	          doublePageArray.push(i);
+	        }
+	      }
+	      return doublePageArray;
 	    }
 	  },
 	  methods: {
-	    getMagazine: function getMagazine() {
+	    loadMagazine: function loadMagazine() {
 	      var _this = this;
 	
 	      _axios2.default.get('api/v1/magazine/' + this.magazineId).then(function (response) {
@@ -10553,7 +10562,7 @@
 	        return _this.errors.push(e);
 	      });
 	    },
-	    getIssue: function getIssue(issueId) {
+	    loadIssue: function loadIssue(issueId) {
 	      var _this2 = this;
 	
 	      _axios2.default.get('api/v1/magazine/' + this.magazineId + '/issue/' + issueId).then(function (response) {
@@ -10562,13 +10571,20 @@
 	        return _this2.errors.push(e);
 	      });
 	    },
-	    buildThumbnailPath: function buildThumbnailPath(issue) {
+	    selectIssue: function selectIssue(issueId) {
+	      this.issue = this.loadIssue(issueId);
+	    },
+	    buildCoverThumbPath: function buildCoverThumbPath(issue) {
 	      return '/img/issue_selector/' + this.magazineName + '/' + issue.sequence + '.jpg';
 	    },
-	    issueSelected: function issueSelected(issueId) {
-	      this.issue = this.getIssue(issueId);
+	    buildPageThumbPath: function buildPageThumbPath(pageNumber) {
+	      var normalisedNumber = pageNumber.toString();
+	      if (normalisedNumber.length === 1) {
+	        normalisedNumber = '0' + normalisedNumber;
+	      }
+	      return '/img/thumbs/zzap/' + this.issue.id + '/' + normalisedNumber + '.jpg';
 	    },
-	    buildContributorLink: function buildContributorLink(contributorId) {
+	    buildContributorPath: function buildContributorPath(contributorId) {
 	      return '/contributor/' + contributorId;
 	    },
 	    getMonth: function getMonth(monthNumber) {
@@ -10576,7 +10592,7 @@
 	    }
 	  },
 	  mounted: function mounted() {
-	    this.getMagazine();
+	    this.loadMagazine();
 	  }
 	};
 
@@ -12346,7 +12362,7 @@
 	      staticClass: "scans__magazine__link",
 	      on: {
 	        "click": function($event) {
-	          _vm.issueSelected(issue.id)
+	          _vm.selectIssue(issue.id)
 	        }
 	      }
 	    }, [_c('div', {
@@ -12362,7 +12378,7 @@
 	    }, [_vm._v(_vm._s(issue.year))])])]), _vm._v(" "), _c('img', {
 	      staticClass: "scans__magazine__image",
 	      attrs: {
-	        "src": _vm.buildThumbnailPath(issue)
+	        "src": _vm.buildCoverThumbPath(issue)
 	      }
 	    })])])
 	  })], 2)]), _vm._v(" "), (_vm.isIssueSelected) ? _c('section', {
@@ -12414,47 +12430,47 @@
 	      staticClass: "scans__issue__contributor"
 	    }, [_c('a', {
 	      attrs: {
-	        "href": _vm.buildContributorLink(contributor.id)
+	        "href": _vm.buildContributorPath(contributor.id)
 	      }
 	    }, [_vm._v(_vm._s(contributor.name))])])
-	  }))])])]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
-	    staticClass: "scans__issue__content",
-	    attrs: {
-	      "id": "double_pages_generated"
-	    }
-	  })]) : _vm._e()])
-	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('a', {
+	  }))])])]), _vm._v(" "), _c('a', {
 	    staticClass: "scans__issue__detaillink"
 	  }, [_c('img', {
-	    staticClass: "scans__issue__page lazy thumb",
+	    staticClass: "scans__issue__page thumb",
 	    attrs: {
-	      "src": "/img/c64_loader.gif",
-	      "data-original": "/img/scans/zzap/1/03.jpg"
+	      "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[0].label)
 	    }
-	  })])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: "scans__issue__doublepage",
-	    attrs: {
-	      "id": "_double_page"
-	    }
+	  })])]), _vm._v(" "), _c('div', {
+	    staticClass: "scans__issue__content"
+	  }, _vm._l((_vm.getDoublePages), function(page) {
+	    return _c('div', {
+	      staticClass: "scans__issue__doublepage"
+	    }, [_c('a', {
+	      staticClass: "scans__issue__detaillink"
+	    }, [_c('img', {
+	      staticClass: "scans__issue__page thumb",
+	      attrs: {
+	        "src": _vm.buildPageThumbPath(page + 1)
+	      }
+	    }), _vm._v(" "), _c('img', {
+	      staticClass: "scans__issue__page thumb",
+	      attrs: {
+	        "src": _vm.buildPageThumbPath(page + 2)
+	      }
+	    })])])
+	  })), _vm._v(" "), _c('div', {
+	    staticClass: "scans__issue__content"
+	  }, [_c('div', {
+	    staticClass: "scans__issue__doublepage"
 	  }, [_c('a', {
 	    staticClass: "scans__issue__detaillink"
 	  }, [_c('img', {
-	    staticClass: "scans__issue__page lazy thumb",
+	    staticClass: "scans__issue__page thumb",
 	    attrs: {
-	      "src": "/img/c64_loader.gif",
-	      "data-original": "/img/scans/zzap/1/02.jpg"
+	      "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[_vm.issue.volumes[0].pages.length - 1].label)
 	    }
-	  }), _vm._v(" "), _c('img', {
-	    staticClass: "scans__issue__page lazy thumb",
-	    attrs: {
-	      "src": "/img/c64_loader.gif",
-	      "data-original": "/img/scans/zzap/1/03.jpg"
-	    }
-	  })])])
-	}]}
+	  })])])])]) : _vm._e()])
+	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
