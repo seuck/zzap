@@ -1,4 +1,6 @@
 import axios from 'axios';
+import * as localeDate from 'locales/localedate'
+import { isEmptyObject } from 'utils/object'
 
 export default {
   name: 'scans',
@@ -12,22 +14,22 @@ export default {
   },
   computed: {
     magazineName() {
-      return this.magazine.name.replace(/[^a-z0-9]/gi, '').toLowerCase();
+      return this.magazine.name.replace(/[^a-z0-9]/gi, '').toLowerCase()
     },
     issues() {
       if (typeof this.magazine !== 'undefined') {
         return this.magazine.issues;
       }
-      return [];
+      return []
     },
     paddingIssues() {
       if (typeof this.issues !== 'undefined') {
-        return Array(this.issues[0].month - 1);
+        return Array(this.issues[0].month - 1)
       }
       return []
     },
     isIssueSelected() {
-      return typeof this.issue.id !== 'undefined';
+      return this.issue && !isEmptyObject(this.issue)
     }
   },
   methods: {
@@ -36,26 +38,29 @@ export default {
       .then((response) => {
         this.magazine = response.data;
       })
-      .catch(e => this.errors.push(e));
+      .catch(e => this.errors.push(e))
     },
     getIssue(issueId) {
       axios.get(`api/v1/magazine/${this.magazineId}/issue/${issueId}`)
       .then((response) => {
         this.issue = response.data;
       })
-      .catch(e => this.errors.push(e));
+      .catch(e => this.errors.push(e))
     },
     buildThumbnailPath(issue) {
-      return `/img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`;
+      return `/img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`
     },
     issueSelected(issueId) {
-      this.issue = this.getIssue(issueId);
+      this.issue = this.getIssue(issueId)
     },
     buildContributorLink(contributorId) {
-      return `/contributor/${contributorId}`;
+      return `/contributor/${contributorId}`
+    },
+    getMonth(monthNumber) {
+      return localeDate.MONTHS['it'][monthNumber]
     }
   },
   mounted() {
-    this.getMagazine();
+    this.getMagazine()
   }
 };

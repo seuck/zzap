@@ -28,7 +28,7 @@
           <div class="scans__issue__infocontainer">
             <div class="scans__issue__info">
               <h2 class="scans__issue__numberline">Numero <span class="scans__issue__number">{{issue.sequence}}</span></h2>
-              <p class="scans__issue__dateline"><img class="scans__issue__icon" src="assets/icons/calendar.svg" alt="calendario"><span class="scans__issue__month">{{issue.month}}</span> <span class="scans__issue__year">{{issue.year}}</span></p>
+              <p class="scans__issue__dateline"><img class="scans__issue__icon" src="assets/icons/calendar.svg" alt="calendario"><span class="scans__issue__month">{{getMonth(issue.month)}}</span> <span class="scans__issue__year">{{issue.year}}</span></p>
               <p class="scans__issue__editorline"><img class="scans__issue__icon" src="assets/icons/edit.svg" alt="matita"><span class="scans__issue__editor">{{issue.editor.name}}</span></p>
               <p class="scans__issue__contributorlabel"><img class="scans__issue__icon" src="assets/icons/scanner.svg" alt="scanner">Scansioni di:
                 <ul class="scans__issue__contributorlist">

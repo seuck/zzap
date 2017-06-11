@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const path = require('path');
-const webpack = require('webpack');
-const pkgjson = require('./package.json');
+const path = require('path')
+const webpack = require('webpack')
+const pkgjson = require('./package.json')
 
 export default {
   entry: './src/all-components.js',
@@ -25,7 +25,9 @@ export default {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.js',
-      components: path.resolve(__dirname, pkgjson.paths.src, 'components')
+      components: path.resolve(__dirname, pkgjson.paths.src, 'components'),
+      utils: path.resolve(__dirname, pkgjson.paths.src, 'utils'),
+      locales: path.resolve(__dirname, pkgjson.paths.src, 'locales')
     }
   },
   plugins: [
@@ -39,4 +41,4 @@ export default {
     compress: true,
     port: 8000
   }
-};
+}

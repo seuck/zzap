@@ -2,8 +2,8 @@ import $ from 'jquery';
 
 (() => {
 	var scanPath = "/scansioni";
-	//var apiPath = "http://localhost:3000/api/";
-	var apiPath = "http://www.zzap.biz/api/";
+	var apiPath = "http://localhost:3000/api/";
+	//var apiPath = "api/v1/magazine/1";
 
 	var magazinesData;
 	var issueData;
@@ -70,7 +70,7 @@ import $ from 'jquery';
 
 	var loadMagazines = function() {
 		$(".scans__loader").show()
-		$.getJSON(apiPath + "magazines.js?callback=?", function(data){
+		$.getJSON(apiPath, function(data){
 			magazinesData = data;
 			renderIssueSelector();
 		});
