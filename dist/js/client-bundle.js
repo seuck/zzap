@@ -9945,7 +9945,18 @@
 	
 	exports.default = {
 	  name: 'home',
-	  components: { Loader: _loader2.default, Zzapheader: _zzapheader2.default, Cover: _cover2.default, Index: _index2.default, Scans: _scans2.default, ContentContainer: _contentcontainer2.default, ContentSection: _contentsection2.default, Reader: _reader2.default }
+	  components: { Loader: _loader2.default, Zzapheader: _zzapheader2.default, Cover: _cover2.default, Index: _index2.default, Scans: _scans2.default, ContentContainer: _contentcontainer2.default, ContentSection: _contentsection2.default, Reader: _reader2.default },
+	  data: function data() {
+	    return {
+	      readerData: []
+	    };
+	  },
+	
+	  methods: {
+	    initReader: function initReader(readerData) {
+	      this.readerData = readerData;
+	    }
+	  }
 	};
 
 /***/ },
@@ -10519,7 +10530,9 @@
 	    return {
 	      magazine: {},
 	      issue: {},
-	      errors: []
+	      errors: [],
+	      readerData: {},
+	      doublePagesCache: []
 	    };
 	  },
 	
@@ -10542,14 +10555,17 @@
 	    isIssueSelected: function isIssueSelected() {
 	      return this.issue && !(0, _object.isEmptyObject)(this.issue);
 	    },
-	    getDoublePages: function getDoublePages() {
-	      var doublePageArray = [];
-	      if (this.isIssueSelected) {
-	        for (var i = 1; i < this.issue.volumes[0].pages.length - 1; i = i + 2) {
-	          doublePageArray.push(i);
+	    doublePages: function doublePages() {
+	      if (this.doublePagesCache.length === 0) {
+	        var doublePageArray = [];
+	        if (this.isIssueSelected) {
+	          for (var i = 1; i < this.issue.volumes[0].pages.length - 1; i += 2) {
+	            doublePageArray.push(i);
+	          }
 	        }
+	        this.doublePagesCache = doublePageArray;
 	      }
-	      return doublePageArray;
+	      return this.doublePagesCache;
 	    }
 	  },
 	  methods: {
@@ -10578,17 +10594,63 @@
 	      return '/img/issue_selector/' + this.magazineName + '/' + issue.sequence + '.jpg';
 	    },
 	    buildPageThumbPath: function buildPageThumbPath(pageNumber) {
-	      var normalisedNumber = pageNumber.toString();
-	      if (normalisedNumber.length === 1) {
-	        normalisedNumber = '0' + normalisedNumber;
-	      }
+	      var normalisedNumber = this.addLeftPadding(pageNumber, '0', 2);
 	      return '/img/thumbs/zzap/' + this.issue.id + '/' + normalisedNumber + '.jpg';
+	    },
+	    buildScanPath: function buildScanPath(pageNumber) {
+	      var normalisedNumber = this.addLeftPadding(pageNumber, '0', 2);
+	      return '/zzap/' + this.issue.id + '/' + normalisedNumber + '.jpg';
 	    },
 	    buildContributorPath: function buildContributorPath(contributorId) {
 	      return '/contributor/' + contributorId;
 	    },
+	    addLeftPadding: function addLeftPadding(text, paddingChar, maxLength) {
+	      var paddedText = text.toString();
+	      while (paddedText.length < maxLength) {
+	        paddedText = '' + paddingChar + paddedText;
+	      }
+	      return paddedText;
+	    },
 	    getMonth: function getMonth(monthNumber) {
-	      return localeDate.MONTHS['it'][monthNumber];
+	      return localeDate.MONTHS.it[monthNumber];
+	    },
+	    getReaderData: function getReaderData(startPage) {
+	      if ((0, _object.isEmptyObject)(this.readerData)) {
+	        var data = {};
+	        data.title = this.issue.magazine.name + ' numero ' + this.issue.sequence + ' - ' + this.getMonth(this.issue.month) + ' ' + this.issue.year;
+	        data.startPage = startPage;
+	        data.pages = [];
+	
+	        data.pages.push(this.buildDoublePageForReader(undefined, this.issue.volumes[0].pages[0].label));
+	        this.doublePages.forEach(function (page) {
+	          data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[Number(page)].label, this.issue.volumes[0].pages[Number(page) + 1].label));
+	        }, this);
+	        data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1].label, undefined));
+	
+	        this.readerData = data;
+	        // eslint-disable-next-line no-console
+	        console.log(data);
+	      }
+	      return this.readerData;
+	    },
+	    buildDoublePageForReader: function buildDoublePageForReader(first, second) {
+	      var doublePage = {};
+	      if (typeof first !== 'undefined') {
+	        doublePage.first = {
+	          label: first,
+	          path: this.buildScanPath(first)
+	        };
+	      }
+	      if (typeof second !== 'undefined') {
+	        doublePage.second = {
+	          label: second,
+	          path: this.buildScanPath(second)
+	        };
+	      }
+	      return doublePage;
+	    },
+	    openReader: function openReader(startPage) {
+	      this.$emit('openReader', this.getReaderData(startPage));
 	    }
 	  },
 	  mounted: function mounted() {
@@ -12434,7 +12496,12 @@
 	      }
 	    }, [_vm._v(_vm._s(contributor.name))])])
 	  }))])])]), _vm._v(" "), _c('a', {
-	    staticClass: "scans__issue__detaillink"
+	    staticClass: "scans__issue__detaillink",
+	    on: {
+	      "click": function($event) {
+	        _vm.openReader(_vm.issue.volumes[0].pages[0].label)
+	      }
+	    }
 	  }, [_c('img', {
 	    staticClass: "scans__issue__page thumb",
 	    attrs: {
@@ -12442,34 +12509,42 @@
 	    }
 	  })])]), _vm._v(" "), _c('div', {
 	    staticClass: "scans__issue__content"
-	  }, _vm._l((_vm.getDoublePages), function(page) {
+	  }, [_vm._l((_vm.doublePages), function(page) {
 	    return _c('div', {
 	      staticClass: "scans__issue__doublepage"
 	    }, [_c('a', {
-	      staticClass: "scans__issue__detaillink"
+	      staticClass: "scans__issue__detaillink",
+	      on: {
+	        "click": function($event) {
+	          _vm.openReader(_vm.issue.volumes[0].pages[page + 1].label)
+	        }
+	      }
 	    }, [_c('img', {
 	      staticClass: "scans__issue__page thumb",
 	      attrs: {
-	        "src": _vm.buildPageThumbPath(page + 1)
+	        "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[page + 1].label)
 	      }
 	    }), _vm._v(" "), _c('img', {
 	      staticClass: "scans__issue__page thumb",
 	      attrs: {
-	        "src": _vm.buildPageThumbPath(page + 2)
+	        "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[page + 2].label)
 	      }
 	    })])])
-	  })), _vm._v(" "), _c('div', {
-	    staticClass: "scans__issue__content"
-	  }, [_c('div', {
+	  }), _vm._v(" "), _c('div', {
 	    staticClass: "scans__issue__doublepage"
 	  }, [_c('a', {
-	    staticClass: "scans__issue__detaillink"
+	    staticClass: "scans__issue__detaillink",
+	    on: {
+	      "click": function($event) {
+	        _vm.openReader(_vm.issue.volumes[0].pages[_vm.issue.volumes[0].pages.length - 1].label)
+	      }
+	    }
 	  }, [_c('img', {
 	    staticClass: "scans__issue__page thumb",
 	    attrs: {
 	      "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[_vm.issue.volumes[0].pages.length - 1].label)
 	    }
-	  })])])])]) : _vm._e()])
+	  })])])], 2)]) : _vm._e()])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -12695,7 +12770,21 @@
 	});
 	exports.default = {
 	  name: 'reader',
-	  props: ['readerContent']
+	  props: ['pages', 'startPage', 'title'],
+	  data: function data() {
+	    return {
+	      actualPage: ''
+	    };
+	  },
+	
+	  computed: {
+	    hasContent: function hasContent() {
+	      return this.pages && this.pages.length > 0;
+	    }
+	  },
+	  beforeUpdate: function beforeUpdate() {
+	    this.actualPage = this.startPage;
+	  }
 	};
 
 /***/ },
@@ -12703,47 +12792,46 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return (_vm.readerContent) ? _c('section', {
-	    attrs: {
-	      "id": "reader"
-	    }
-	  }, [_vm._m(0), _vm._v(" "), _vm._m(1)]) : _vm._e()
-	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    attrs: {
-	      "id": "reader_navigator"
-	    }
+	  return (_vm.hasContent) ? _c('section', {
+	    staticClass: "reader"
+	  }, [_c('div', {
+	    staticClass: "reader__navigator"
 	  }, [_c('span', {
-	    attrs: {
-	      "id": "reader_info_magazine"
+	    staticClass: "reader__info"
+	  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c('div', {
+	    staticClass: "reader__content"
+	  }, [(_vm.pages[_vm.actualPage].first) ? _c('a', {
+	    on: {
+	      "click": function($event) {
+	        this.actualPage = this.actualPage - 1
+	      }
 	    }
-	  }), _vm._v(" "), _c('a', {
+	  }, [_c('img', {
+	    staticClass: "reader__left",
 	    attrs: {
-	      "id": "reader_close_button",
+	      "src": _vm.pages[_vm.actualPage].first.path
+	    }
+	  })]) : _vm._e(), _vm._v(" "), (_vm.pages[_vm.actualPage].second) ? _c('a', {
+	    on: {
+	      "click": function($event) {
+	        this.actualPage = this.actualPage + 1
+	      }
+	    }
+	  }, [_c('img', {
+	    staticClass: "reader__right",
+	    attrs: {
+	      "src": _vm.pages[_vm.actualPage].second.path
+	    }
+	  })]) : _vm._e()])]) : _vm._e()
+	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('a', {
+	    staticClass: "reader__close",
+	    attrs: {
 	      "title": "Chiudi (Esc)"
 	    }
 	  }, [_c('img', {
 	    attrs: {
 	      "src": "/img/icons/24-zoom-out.png"
-	    }
-	  })]), _vm._v(" "), _c('span', {
-	    attrs: {
-	      "id": "reader_info_pages"
-	    }
-	  })])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: "content",
-	    attrs: {
-	      "id": "reader_content"
-	    }
-	  }, [_c('img', {
-	    attrs: {
-	      "id": "reader_left"
-	    }
-	  }), _vm._v(" "), _c('img', {
-	    attrs: {
-	      "id": "reader_right"
 	    }
 	  })])
 	}]}
@@ -12842,11 +12930,18 @@
 	    }
 	  }), _vm._v(" "), _c('reader', {
 	    attrs: {
-	      "readerContent": ""
+	      "pages": _vm.readerData.pages,
+	      "startPage": _vm.readerData.startPage,
+	      "title": _vm.readerData.title
 	    }
 	  }), _vm._v(" "), _c('zzapheader'), _vm._v(" "), _c('cover'), _vm._v(" "), _c('index'), _vm._v(" "), _c('scans', {
 	    attrs: {
 	      "magazineId": "1"
+	    },
+	    on: {
+	      "openReader": function($event) {
+	        _vm.initReader($event)
+	      }
 	    }
 	  }), _vm._v(" "), _c('content-container', {
 	    attrs: {

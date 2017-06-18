@@ -9,5 +9,15 @@ import Loader from 'components/loader/loader.vue'
 
 export default {
   name: 'home',
-  components: { Loader, Zzapheader, Cover, Index, Scans, ContentContainer, ContentSection, Reader }
+  components: { Loader, Zzapheader, Cover, Index, Scans, ContentContainer, ContentSection, Reader },
+  data() {
+    return {
+      readerData: []
+    }
+  },
+  methods: {
+    initReader(readerData) {
+      this.readerData = readerData
+    }
+  }
 }

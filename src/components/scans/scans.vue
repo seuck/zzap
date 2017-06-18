@@ -37,23 +37,20 @@
               </p>
             </div>
           </div>
-          <a class="scans__issue__detaillink">
+          <a class="scans__issue__detaillink" @click="openReader(issue.volumes[0].pages[0].label)">
             <img class="scans__issue__page thumb" :src="buildPageThumbPath(issue.volumes[0].pages[0].label)">
           </a>
         </div>
 
         <div class="scans__issue__content">
-          <div class="scans__issue__doublepage" v-for="page in getDoublePages">
-            <a class="scans__issue__detaillink">
-              <img class="scans__issue__page thumb" :src="buildPageThumbPath(page + 1)">
-              <img class="scans__issue__page thumb" :src="buildPageThumbPath(page + 2)">
+          <div class="scans__issue__doublepage" v-for="page in doublePages">
+            <a class="scans__issue__detaillink" @click="openReader(issue.volumes[0].pages[page + 1].label)">
+              <img class="scans__issue__page thumb" :src="buildPageThumbPath(issue.volumes[0].pages[page + 1].label)">
+              <img class="scans__issue__page thumb" :src="buildPageThumbPath(issue.volumes[0].pages[page + 2].label)">
             </a>
           </div>
-        </div>
-
-        <div class="scans__issue__content">
           <div class="scans__issue__doublepage">
-            <a class="scans__issue__detaillink">
+            <a class="scans__issue__detaillink" @click="openReader(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
               <img class="scans__issue__page thumb" :src="buildPageThumbPath(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
             </a>
           </div>

@@ -1,11 +1,11 @@
 <template>
   <div>
     <loader payload=""></loader>
-    <reader readerContent=""></reader>
+    <reader :pages="readerData.pages" :startPage="readerData.startPage" :title="readerData.title"></reader>
     <zzapheader></zzapheader>
     <cover></cover>
     <index></index>
-    <scans magazineId="1"></scans>
+    <scans magazineId="1" @openReader="initReader($event)"></scans>
 
     <content-container title="Diario di una Pasqua creativa">
       <content-section title="Martedì 11 Aprile 2017: 1 - Il galeone" image-style="content__section-imageodd">
