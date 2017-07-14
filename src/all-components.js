@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
-
 import Vue from 'vue'
 import Home from 'components/home/home.vue'
 
+// eslint-disable-next-line no-unused-vars
 const vueZzap = new Vue({
   el: '.vueroot',
   render: h => h(Home)

@@ -56,8 +56,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	/* eslint-disable no-unused-vars */
-	
+	// eslint-disable-next-line no-unused-vars
 	var vueZzap = new _vue2.default({
 	  el: '.vueroot',
 	  render: function render(h) {
@@ -12773,18 +12772,58 @@
 	  props: ['pages', 'startPage', 'title'],
 	  data: function data() {
 	    return {
-	      actualPage: ''
+	      actualPage: '',
+	      _pages: []
 	    };
 	  },
 	
 	  computed: {
 	    hasContent: function hasContent() {
-	      return this.pages && this.pages.length > 0;
+	      return this._pages && this._pages.length > 0;
 	    }
 	  },
-	  beforeUpdate: function beforeUpdate() {
-	    this.actualPage = this.startPage;
-	  }
+	  methods: {
+	    doesPageExist: function doesPageExist(pageNumber) {
+	      return typeof this._pages[pageNumber] !== 'undefined';
+	    },
+	    nextPage: function nextPage() {
+	      var nextPage = this.actualPage + 1;
+	      if (this.doesPageExist(nextPage)) {
+	        this.actualPage = nextPage;
+	      }
+	    },
+	    previousPage: function previousPage() {
+	      // eslint-disable-next-line no-console
+	      console.log(this.actualPage);
+	      var previousPage = this.actualPage - 1;
+	      // eslint-disable-next-line no-console
+	      console.log(previousPage + ' -> ' + this.doesPageExist(previousPage));
+	      if (this.doesPageExist(previousPage)) {
+	        this.actualPage = previousPage;
+	      }
+	      // eslint-disable-next-line no-console
+	      console.log(this.actualPage);
+	    },
+	    initActualPage: function initActualPage(pageNumber) {
+	      if (this.doesPageExist(pageNumber)) {
+	        this.actualPage = pageNumber;
+	      } else {
+	        this.actualPage = 0;
+	      }
+	    },
+	    close: function close() {
+	      this._pages.length = 0;
+	      // eslint-disable-next-line no-console
+	      console.log('closed');
+	    }
+	  },
+	  beforeMount: function beforeMount() {
+	    // eslint-disable-next-line no-console
+	    console.log('mounted');
+	    this._pages = this.pages;
+	    this.initActualPage(this.startPage);
+	  },
+	  beforeUpdate: function beforeUpdate() {}
 	};
 
 /***/ },
@@ -12794,47 +12833,44 @@
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return (_vm.hasContent) ? _c('section', {
 	    staticClass: "reader"
-	  }, [_c('div', {
+	  }, [_c('header', {
 	    staticClass: "reader__navigator"
-	  }, [_c('span', {
+	  }, [_c('h2', {
 	    staticClass: "reader__info"
-	  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c('div', {
-	    staticClass: "reader__content"
-	  }, [(_vm.pages[_vm.actualPage].first) ? _c('a', {
-	    on: {
-	      "click": function($event) {
-	        this.actualPage = this.actualPage - 1
-	      }
-	    }
-	  }, [_c('img', {
-	    staticClass: "reader__left",
-	    attrs: {
-	      "src": _vm.pages[_vm.actualPage].first.path
-	    }
-	  })]) : _vm._e(), _vm._v(" "), (_vm.pages[_vm.actualPage].second) ? _c('a', {
-	    on: {
-	      "click": function($event) {
-	        this.actualPage = this.actualPage + 1
-	      }
-	    }
-	  }, [_c('img', {
-	    staticClass: "reader__right",
-	    attrs: {
-	      "src": _vm.pages[_vm.actualPage].second.path
-	    }
-	  })]) : _vm._e()])]) : _vm._e()
-	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('a', {
+	  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('a', {
 	    staticClass: "reader__close",
 	    attrs: {
 	      "title": "Chiudi (Esc)"
+	    },
+	    on: {
+	      "click": _vm.close
 	    }
 	  }, [_c('img', {
 	    attrs: {
 	      "src": "/img/icons/24-zoom-out.png"
 	    }
-	  })])
-	}]}
+	  })])]), _vm._v(" "), _c('div', {
+	    staticClass: "reader__content"
+	  }, [(_vm._pages[_vm.actualPage].first) ? _c('a', {
+	    on: {
+	      "click": _vm.nextPage
+	    }
+	  }, [_c('img', {
+	    staticClass: "reader__left",
+	    attrs: {
+	      "src": _vm._pages[_vm.actualPage].first.path
+	    }
+	  })]) : _vm._e(), _vm._v(" "), (_vm._pages[_vm.actualPage].last) ? _c('a', {
+	    on: {
+	      "click": _vm.previousPage
+	    }
+	  }, [_c('img', {
+	    staticClass: "reader__right",
+	    attrs: {
+	      "src": _vm._pages[_vm.actualPage].last.path
+	    }
+	  })]) : _vm._e()])]) : _vm._e()
+	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
@@ -12930,9 +12966,27 @@
 	    }
 	  }), _vm._v(" "), _c('reader', {
 	    attrs: {
-	      "pages": _vm.readerData.pages,
-	      "startPage": _vm.readerData.startPage,
-	      "title": _vm.readerData.title
+	      "pages": [{
+	        first: {
+	          path: '/img/thumbs/zzap/1/01.jpg'
+	        }
+	      }, {
+	        first: {
+	          path: '/img/thumbs/zzap/1/02.jpg'
+	        },
+	        last: {
+	          path: '/img/thumbs/zzap/1/03.jpg'
+	        }
+	      }, {
+	        first: {
+	          path: '/img/thumbs/zzap/1/04.jpg'
+	        },
+	        last: {
+	          path: '/img/thumbs/zzap/1/05.jpg'
+	        }
+	      }],
+	      "startPage": 1,
+	      "title": "Test"
 	    }
 	  }), _vm._v(" "), _c('zzapheader'), _vm._v(" "), _c('cover'), _vm._v(" "), _c('index'), _vm._v(" "), _c('scans', {
 	    attrs: {

@@ -1,12 +1,16 @@
 <template>
-  <section v-if="hasContent"class="reader">
-    <div class="reader__navigator">
-      <span class="reader__info">{{title}}</span>
-      <a class="reader__close" title="Chiudi (Esc)"><img src="/img/icons/24-zoom-out.png"/></a>
-    </div>
+  <section class="reader" v-if="hasContent">
+    <header class="reader__navigator">
+      <h2 class="reader__info">{{title}}</h2>
+      <a class="reader__close" title="Chiudi (Esc)" @click="close"><img src="/img/icons/24-zoom-out.png"/></a>
+    </header>
     <div class="reader__content">
-      <a v-if="pages[actualPage].first" @click="this.actualPage = this.actualPage - 1"><img class="reader__left" :src="pages[actualPage].first.path"/></a>
-      <a v-if="pages[actualPage].second" @click="this.actualPage = this.actualPage + 1"><img class="reader__right" :src="pages[actualPage].second.path"/></a>
+      <a v-if="_pages[actualPage].first" @click="nextPage">
+        <img class="reader__left" :src="_pages[actualPage].first.path"/>
+      </a>
+      <a v-if="_pages[actualPage].last" @click="previousPage">
+        <img class="reader__right" :src="_pages[actualPage].last.path"/>
+      </a>
     </div>
   </section>
 </template>
