@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 (() => {
   function initScroll(window, document) {
     const logo = document.querySelector('.header__logo')
@@ -46,7 +44,7 @@ import $ from 'jquery';
     refreshHeader()
   }
 
-  $(document).ready(() => {
+  document.addEventListener('DOMContentLoaded', () =>
     initScroll(window, document)
-  })
+  )
 })()

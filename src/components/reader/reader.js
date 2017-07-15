@@ -1,59 +1,89 @@
+import { EVENTS } from 'constants/events'
+
+/*
+ * Scroll down for example data
+ */
+
 export default {
   name: 'reader',
   props: ['pages', 'startPage', 'title'],
   data() {
     return {
-      actualPage: '',
-      _pages: []
+      actualPage: ''
     }
   },
   computed: {
     hasContent() {
-      return this._pages && this._pages.length > 0
+      return this.pages && this.pages.length > 0
     }
   },
   methods: {
     doesPageExist(pageNumber) {
-      return typeof this._pages[pageNumber] !== 'undefined'
+      return typeof this.pages[pageNumber] !== 'undefined'
     },
     nextPage() {
-      const nextPage = this.actualPage + 1
+      const nextPage = +this.actualPage + 1
       if (this.doesPageExist(nextPage)) {
         this.actualPage = nextPage
       }
     },
     previousPage() {
-      // eslint-disable-next-line no-console
-      console.log(this.actualPage)
-      const previousPage = this.actualPage - 1
-      // eslint-disable-next-line no-console
-      console.log(`${previousPage} -> ${this.doesPageExist(previousPage)}`)
+      const previousPage = +this.actualPage - 1
       if (this.doesPageExist(previousPage)) {
         this.actualPage = previousPage
       }
-      // eslint-disable-next-line no-console
-      console.log(this.actualPage)
     },
     initActualPage(pageNumber) {
-      if (this.doesPageExist(pageNumber)) {
-        this.actualPage = pageNumber
-      } else {
-        this.actualPage = 0
+      if (this.actualPage === '' && typeof pageNumber !== 'undefined') {
+        if (this.doesPageExist(pageNumber)) {
+          this.actualPage = +pageNumber
+        } else {
+          this.actualPage = 0
+        }
       }
     },
     close() {
-      this._pages.length = 0
-      // eslint-disable-next-line no-console
-      console.log('closed')
+      this.$emit(EVENTS.closeReader)
+      this.actualPage = ''
+    },
+    hasPage(pageName) {
+      return this.doesPageExist(this.actualPage) &&
+        typeof this.pages[this.actualPage][pageName] !== 'undefined'
     }
   },
   beforeMount() {
-    // eslint-disable-next-line no-console
-    console.log('mounted')
-    this._pages = this.pages
     this.initActualPage(this.startPage)
   },
   beforeUpdate() {
-
+    this.initActualPage(this.startPage)
   }
 }
+
+/*
+
+Example data for pages prop:
+[
+  {
+    first: {
+      path: '/img/thumbs/zzap/1/01.jpg'
+    }
+  },
+  {
+    first: {
+      path: '/img/thumbs/zzap/1/02.jpg'
+    },
+    last: {
+      path: '/img/thumbs/zzap/1/03.jpg'
+    }
+  },
+  {
+    first: {
+      path: '/img/thumbs/zzap/1/04.jpg'
+    },
+    last: {
+      path: '/img/thumbs/zzap/1/05.jpg'
+    }
+  }
+]
+
+*/

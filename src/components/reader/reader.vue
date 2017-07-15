@@ -5,11 +5,11 @@
       <a class="reader__close" title="Chiudi (Esc)" @click="close"><img src="/img/icons/24-zoom-out.png"/></a>
     </header>
     <div class="reader__content">
-      <a v-if="_pages[actualPage].first" @click="nextPage">
-        <img class="reader__left" :src="_pages[actualPage].first.path"/>
+      <a v-if="hasPage('first')" @click="previousPage">
+        <img class="reader__left" :src="pages[actualPage].first.path"/>
       </a>
-      <a v-if="_pages[actualPage].last" @click="previousPage">
-        <img class="reader__right" :src="_pages[actualPage].last.path"/>
+      <a v-if="hasPage('last')" @click="nextPage">
+        <img class="reader__right" :src="pages[actualPage].last.path"/>
       </a>
     </div>
   </section>

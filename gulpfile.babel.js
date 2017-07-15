@@ -9,9 +9,8 @@ import webpack from 'webpack-stream'
 import webpackConfig from './webpack.config.babel'
 
 const paths = {
-  allSrcJs: 'src/**/*.js?(x)',
-  serverSrcJs: 'src/server/**/*.js?(x)',
-  sharedSrcJs: 'src/shared/**/*.js?(x)',
+  allSrcJs: 'src/**/*.js',
+  allSrcToWatch: 'src/**/*.{js,vue}',
   clientEntryPoint: 'src/all-components.js',
   allSass: 'sass/**/*.scss',
   clientBundle: 'dist/client-bundle.js?(.map)',
@@ -33,7 +32,7 @@ gulp.task('main', ['sass', 'lint', 'clean'], () =>
 )
 
 gulp.task('watch', () => {
-  gulp.watch(paths.allSrcJs, ['main'])
+  gulp.watch(paths.allSrcToWatch, ['main'])
   gulp.watch(paths.allSass, ['sass'])
 })
 

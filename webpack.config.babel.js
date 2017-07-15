@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path')
-const webpack = require('webpack')
 const pkgjson = require('./package.json')
 
 export default {
@@ -27,15 +26,10 @@ export default {
       vue: 'vue/dist/vue.js',
       components: path.resolve(__dirname, pkgjson.paths.src, 'components'),
       utils: path.resolve(__dirname, pkgjson.paths.src, 'utils'),
-      locales: path.resolve(__dirname, pkgjson.paths.src, 'locales')
+      locales: path.resolve(__dirname, pkgjson.paths.src, 'locales'),
+      constants: path.resolve(__dirname, pkgjson.paths.src, 'constants')
     }
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    })
-  ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     compress: true,

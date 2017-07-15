@@ -1,0 +1,28 @@
+.reader {
+  position: relative;
+
+  &__content {
+    display: flex;
+    margin-top: 65px;
+  }
+
+  &__navigator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.6);
+    padding: 20px;
+    text-align: center;
+  }
+
+  &__info {
+    padding: 0;
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}

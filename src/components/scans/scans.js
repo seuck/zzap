@@ -1,6 +1,7 @@
 import axios from 'axios'
-import * as localeDate from 'locales/localedate'
+import { EVENTS } from 'constants/events'
 import { isEmptyObject } from 'utils/object'
+import * as localeDate from 'locales/localedate'
 
 export default {
   name: 'scans',
@@ -115,7 +116,7 @@ export default {
       }
       return this.readerData
     },
-    buildDoublePageForReader(first, second) {
+    buildDoublePageForReader(first, last) {
       const doublePage = {}
       if (typeof first !== 'undefined') {
         doublePage.first = {
@@ -123,16 +124,16 @@ export default {
           path: this.buildScanPath(first)
         }
       }
-      if (typeof second !== 'undefined') {
-        doublePage.second = {
-          label: second,
-          path: this.buildScanPath(second)
+      if (typeof last !== 'undefined') {
+        doublePage.last = {
+          label: last,
+          path: this.buildScanPath(last)
         }
       }
       return doublePage
     },
     openReader(startPage) {
-      this.$emit('openReader', this.getReaderData(startPage))
+      this.$emit(EVENTS.openReader, this.getReaderData(startPage))
     }
   },
   mounted() {

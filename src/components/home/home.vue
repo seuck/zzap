@@ -1,7 +1,13 @@
 <template>
-  <div>
+  <div :class="homeClass">
     <loader payload=""></loader>
-    <reader :pages="[{first:{path:'/img/thumbs/zzap/1/01.jpg'}},{first:{path:'/img/thumbs/zzap/1/02.jpg'},last:{path:'/img/thumbs/zzap/1/03.jpg'}},{first:{path:'/img/thumbs/zzap/1/04.jpg'},last:{path:'/img/thumbs/zzap/1/05.jpg'}}]" :startPage=1 title="Test"></reader>
+    <reader
+      :pages="readerData.pages"
+      :startPage="readerData.startPage"
+      :title="readerData.title"
+      :open="readerData.open"
+      @closeReader="resetReader"
+    ></reader>
     
     <zzapheader></zzapheader>
     <cover></cover>
