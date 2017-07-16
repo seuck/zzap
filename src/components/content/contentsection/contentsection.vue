@@ -5,9 +5,4 @@
   </section>
 </template>
 
-<script>
-  export default {
-    name: 'content-section',
-    props: ['title', 'imageStyle']
-  }
-</script>
+<script src="./contentsection.js"></script>

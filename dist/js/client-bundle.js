@@ -12975,7 +12975,7 @@
 	  /* moduleIdentifier (server only) */
 	  null
 	)
-	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/contentcontainer.vue"
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/contentcontainer/contentcontainer.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] contentcontainer.vue: functional components are not supported with templates, they should use render functions.")}
 	
@@ -12986,9 +12986,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-05f9d862", Component.options)
+	    hotAPI.createRecord("data-v-f84e8462", Component.options)
 	  } else {
-	    hotAPI.reload("data-v-05f9d862", Component.options)
+	    hotAPI.reload("data-v-f84e8462", Component.options)
 	  }
 	  module.hot.dispose(function (data) {
 	    disposed = true
@@ -13007,16 +13007,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	
 	exports.default = {
 	  name: 'content-container',
 	  props: ['title']
@@ -13037,7 +13027,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-05f9d862", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-f84e8462", module.exports)
 	  }
 	}
 
@@ -13058,7 +13048,7 @@
 	  /* moduleIdentifier (server only) */
 	  null
 	)
-	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/contentsection.vue"
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/contentsection/contentsection.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] contentsection.vue: functional components are not supported with templates, they should use render functions.")}
 	
@@ -13069,9 +13059,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-4cf81706", Component.options)
+	    hotAPI.createRecord("data-v-e0cb29e2", Component.options)
 	  } else {
-	    hotAPI.reload("data-v-4cf81706", Component.options)
+	    hotAPI.reload("data-v-e0cb29e2", Component.options)
 	  }
 	  module.hot.dispose(function (data) {
 	    disposed = true
@@ -13090,14 +13080,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	
 	exports.default = {
 	  name: 'content-section',
 	  props: ['title', 'imageStyle']
@@ -13119,7 +13101,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-4cf81706", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-e0cb29e2", module.exports)
 	  }
 	}
 
@@ -13516,6 +13498,8 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var map = {
+		"./content/contentcontainer/contentcontainer.js": 45,
+		"./content/contentsection/contentsection.js": 48,
 		"./home/home.js": 4,
 		"./loader/loader.js": 54,
 		"./reader/reader.js": 51,

@@ -7,9 +7,4 @@
   </section>
 </template>
 
-<script>
-  export default {
-    name: 'content-container',
-    props: ['title']  
-  }
-</script>
+<script src="./contentcontainer.js"></script>
