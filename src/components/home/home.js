@@ -10,10 +10,10 @@ import Loader from 'components/loader/loader.vue'
 
 import { CLASSES as GLOBALCLASSES } from 'constants/classes'
 
-const MODULE_NAME = 'home'
+const COMPONENT_NAME = 'home'
 
 export default {
-  name: MODULE_NAME,
+  name: COMPONENT_NAME,
   components: {
     ContentContainer,
     ContentSection,
@@ -28,18 +28,18 @@ export default {
   data() {
     return {
       readerData: {},
-      homeClass: MODULE_NAME,
+      homeClass: COMPONENT_NAME,
       issueId: ''
     }
   },
   methods: {
     initReader(readerData) {
       this.readerData = readerData
-      this.homeClass = `${MODULE_NAME} ${GLOBALCLASSES.overlay}`
+      this.homeClass = `${COMPONENT_NAME} ${GLOBALCLASSES.overlay}`
     },
     resetReader() {
       this.readerData = {}
-      this.homeClass = MODULE_NAME
+      this.homeClass = COMPONENT_NAME
     },
     initIssue(issueId) {
       this.issueId = issueId

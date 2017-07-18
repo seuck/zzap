@@ -2,10 +2,10 @@
     <header class="header">
       <h1>Progetto Zzap! Italia</h1>
       <div class="header__container">
-        <a href="#"><img class="header__logo" src="assets/cover/zzap-logo.svg" alt="Logo di Zzap!"></a>
+        <a href="#" @click="scrollToClass('cover')"><img class="header__logo" src="assets/cover/zzap-logo.svg" alt="Logo di Zzap!"></a>
         <nav class="header__navigation">
           <ul class="header__navigationlist">
-            <li class="header__navigationelement"><a class="header__navigationlink" href="#">Scansioni</a></li>
+            <li class="header__navigationelement"><a class="header__navigationlink" href="#" @click="scrollToClassWithDefaultOffset('scanindex')">Scansioni</a></li>
             <li class="header__navigationelement"><a class="header__navigationlink" href="#">Database</a></li>
             <li class="header__navigationelement"><a class="header__navigationlink" href="#">Mappe</a></li>
           </ul>

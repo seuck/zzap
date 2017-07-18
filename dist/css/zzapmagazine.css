@@ -283,7 +283,7 @@ p + p {
       overflow: visible; } }
   @media (min-width: 600px) {
     .index {
-      padding: 50px 40px; } }
+      padding: 60px 40px; } }
   @media (min-width: 900px) {
     .index {
       width: 820px; } }
@@ -337,7 +337,7 @@ p + p {
   margin: 0 auto;
   overflow: hidden;
   color: #fff;
-  padding: 50px 0; }
+  padding: 60px 0; }
   @media (min-width: 900px) {
     .scanindex {
       overflow: visible; } }
@@ -449,7 +449,7 @@ p + p {
       overflow: visible; } }
   @media (min-width: 600px) {
     .content {
-      padding: 50px 40px; } }
+      padding: 60px 40px; } }
   @media (min-width: 900px) {
     .content {
       width: 820px; } }
