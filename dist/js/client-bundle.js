@@ -10431,7 +10431,7 @@
 	      (0, _scroll.scrollToClassWithDefaultOffset)(className);
 	    },
 	    initScroll: function initScroll() {
-	      var logo = document.querySelector('.header__logo');
+	      var logo = document.querySelector('.' + COMPONENT_CLASS + '__logo');
 	      var headerFlavorCompactClass = COMPONENT_CLASS + '--compact';
 	      var header = document.querySelector('.' + COMPONENT_CLASS);
 	      var minScale = 0.3;
@@ -10550,29 +10550,23 @@
 	    },
 	    on: {
 	      "click": function($event) {
+	        _vm.scrollToClassWithDefaultOffset('index')
+	      }
+	    }
+	  }, [_vm._v("Sommario")])]), _vm._v(" "), _c('li', {
+	    staticClass: "header__navigationelement"
+	  }, [_c('a', {
+	    staticClass: "header__navigationlink",
+	    attrs: {
+	      "href": "#"
+	    },
+	    on: {
+	      "click": function($event) {
 	        _vm.scrollToClassWithDefaultOffset('scanindex')
 	      }
 	    }
-	  }, [_vm._v("Scansioni")])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _vm._m(2)])])])
+	  }, [_vm._v("Scansioni")])])]), _vm._v(" "), _vm._m(0)])])])
 	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('li', {
-	    staticClass: "header__navigationelement"
-	  }, [_c('a', {
-	    staticClass: "header__navigationlink",
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_vm._v("Database")])])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('li', {
-	    staticClass: "header__navigationelement"
-	  }, [_c('a', {
-	    staticClass: "header__navigationlink",
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_vm._v("Mappe")])])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('ul', {
 	    staticClass: "header__sociallist"
 	  }, [_c('li', {

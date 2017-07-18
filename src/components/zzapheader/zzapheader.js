@@ -16,7 +16,7 @@ export default {
       _scrollToClassWithDefaultOffset(className)
     },
     initScroll() {
-      const logo = document.querySelector('.header__logo')
+      const logo = document.querySelector(`.${COMPONENT_CLASS}__logo`)
       const headerFlavorCompactClass = `${COMPONENT_CLASS}--compact`
       const header = document.querySelector(`.${COMPONENT_CLASS}`)
       const minScale = 0.3
