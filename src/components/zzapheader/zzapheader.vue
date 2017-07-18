@@ -17,3 +17,5 @@
       </div>
     </header>
 </template>
+
+<script src="./zzapheader"></script>

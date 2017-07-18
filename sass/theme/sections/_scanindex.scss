@@ -1,0 +1,71 @@
+.scanindex {
+  @include fullpage;
+
+  color: $white;
+  padding: 50px 0;
+
+  &__info {
+    @include infocomponent;
+  }
+
+  &__issues {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  &__link {
+    width: 79px;
+    display: block;
+  }
+
+  &__image {
+    width: 79px; //Remove after resizing images
+  }
+
+  &__issue {
+    cursor: pointer;
+    position: relative;
+    padding: 1px;
+
+    &padding {
+      cursor: initial;
+
+      @include for-tablet-landscape-up {
+        display: block;
+      }
+    }
+  }
+
+  &__link:hover .scanindex__issueinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__issueinfo {
+    color: #ffffff;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $translucentOverlay;
+    z-index: 5;
+
+    &__date {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__number {
+      font-size: 2em;
+    }
+  }
+}
+
+.overlay .scanindex {
+  display: none;
+}

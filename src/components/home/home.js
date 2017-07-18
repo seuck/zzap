@@ -1,7 +1,8 @@
-import Zzapheader from 'components/zzapheader/zzapheader.vue'
+import ZzapHeader from 'components/zzapheader/zzapheader.vue'
 import Cover from 'components/cover/cover.vue'
 import Index from 'components/index/index.vue'
-import Scans from 'components/scans/scans.vue'
+import ScanIndex from 'components/scanindex/scanindex.vue'
+import ScanIssue from 'components/scanissue/scanissue.vue'
 import ContentContainer from 'components/content/contentcontainer/contentcontainer.vue'
 import ContentSection from 'components/content/contentsection/contentsection.vue'
 import Reader from 'components/reader/reader.vue'
@@ -13,11 +14,22 @@ const MODULE_NAME = 'home'
 
 export default {
   name: MODULE_NAME,
-  components: { Loader, Zzapheader, Cover, Index, Scans, ContentContainer, ContentSection, Reader },
+  components: {
+    ContentContainer,
+    ContentSection,
+    Cover,
+    Index,
+    Loader,
+    Reader,
+    ScanIndex,
+    ScanIssue,
+    ZzapHeader
+  },
   data() {
     return {
       readerData: {},
-      homeClass: MODULE_NAME
+      homeClass: MODULE_NAME,
+      issueId: ''
     }
   },
   methods: {
@@ -28,6 +40,9 @@ export default {
     resetReader() {
       this.readerData = {}
       this.homeClass = MODULE_NAME
+    },
+    initIssue(issueId) {
+      this.issueId = issueId
     }
   }
 }

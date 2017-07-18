@@ -159,6 +159,9 @@ p + p {
   margin-top: -90px;
   margin-left: -122px; }
 
+.overlay .header {
+  display: none; }
+
 .cover {
   margin: 0 auto;
   overflow: hidden;
@@ -266,6 +269,9 @@ p + p {
         float: right;
         text-align: right; }
 
+.overlay .cover {
+  display: none; }
+
 .index {
   margin: 0 auto;
   overflow: hidden;
@@ -324,158 +330,113 @@ p + p {
       .index__image {
         width: 180px; } }
 
-.scans {
+.overlay .index {
+  display: none; }
+
+.scanindex {
   margin: 0 auto;
   overflow: hidden;
-  color: #fff; }
+  color: #fff;
+  padding: 50px 0; }
   @media (min-width: 900px) {
-    .scans {
+    .scanindex {
       overflow: visible; } }
   @media (min-width: 900px) {
-    .scans {
+    .scanindex {
       width: 900px; } }
-  .scans__magazine {
-    padding: 50px 0; }
-    .scans__magazine__info {
-      padding: 0 20px 30px 20px; }
-      @media (min-width: 600px) {
-        .scans__magazine__info {
-          padding: 0 40px 30px 40px; } }
-    .scans__magazine__issues {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between; }
-    .scans__magazine__link {
-      width: 79px;
-      display: block; }
-    .scans__magazine__image {
-      width: 79px; }
-    .scans__magazine__issue {
-      cursor: pointer;
-      position: relative;
-      padding: 1px; }
-      .scans__magazine__issuepadding {
-        cursor: initial; }
-        @media (min-width: 900px) {
-          .scans__magazine__issuepadding {
-            display: block; } }
-    .scans__magazine__link:hover .scans__magazine__issueinfo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column; }
-    .scans__magazine__issueinfo {
-      color: #ffffff;
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 5; }
-      .scans__magazine__issueinfo__date {
-        margin: 0;
-        padding: 0; }
-      .scans__magazine__issueinfo__number {
-        font-size: 2em; }
-  .scans__issue {
-    padding: 50px 0; }
-    .scans__issue__cover {
-      display: flex;
-      flex-direction: row; }
-      .scans__issue__cover .scans__issue__detaillink {
-        width: 50%; }
-      .scans__issue__cover .scans__issue__page {
-        width: 100%; }
-    .scans__issue__infocontainer {
-      width: 50%; }
-    .scans__issue__info {
-      padding: 0 20px 30px 20px; }
-      @media (min-width: 600px) {
-        .scans__issue__info {
-          padding: 0 40px 30px 40px; } }
-    .scans__issue__content {
-      display: flex;
-      flex-direction: column; }
-    .scans__issue__detaillink {
-      display: flex; }
-    .scans__issue__page {
-      width: 50%;
-      height: 100%;
-      cursor: url(/img/icons/24-zoom-in.png), auto; }
-    .scans__issue__contributorlist {
-      margin: 0 46px; }
-    .scans__issue__contributor {
-      line-height: 1.3; }
-    .scans__issue__icon {
-      width: 26px;
-      display: inline-block;
-      padding-right: 10px;
-      vertical-align: middle; }
-  .scans__loader {
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 1;
-    background: rgba(80, 144, 208, 0.7) repeat left; }
-    .scans__loader__image {
-      width: 288px;
-      height: 230px;
-      line-height: 0;
-      display: block;
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      margin-left: -144px;
-      margin-top: -115px;
-      z-index: 1000; }
-  .scans #reader {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    z-index: 10;
-    height: 100%;
-    overflow: hidden;
-    width: 100%; }
-  .scans #reader .content {
-    width: 1024px;
-    height: 1500px; }
-  .scans #reader .double {
-    width: 2048px; }
-  .scans #reader_left {
-    cursor: url(/img/icons/24-arrow-previous.png), auto; }
-  .scans #reader_right {
-    cursor: url(/img/icons/24-arrow-next.png), auto; }
-  .scans #reader .content img {
-    float: left; }
-  .scans #reader_navigator {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 38px;
-    background-color: rgba(0, 0, 0, 0.6);
+  .scanindex__info {
+    padding: 0 20px 30px 20px; }
+    @media (min-width: 600px) {
+      .scanindex__info {
+        padding: 0 40px 30px 40px; } }
+  .scanindex__issues {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; }
+  .scanindex__link {
+    width: 79px;
+    display: block; }
+  .scanindex__image {
+    width: 79px; }
+  .scanindex__issue {
+    cursor: pointer;
+    position: relative;
+    padding: 1px; }
+    .scanindex__issuepadding {
+      cursor: initial; }
+      @media (min-width: 900px) {
+        .scanindex__issuepadding {
+          display: block; } }
+  .scanindex__link:hover .scanindex__issueinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+  .scanindex__issueinfo {
     color: #ffffff;
-    padding-top: 12px;
-    text-align: center; }
-  .scans #reader_navigator strong {
-    color: #fff; }
-  .scans #reader_info_magazine {
+    display: none;
     position: absolute;
+    top: 0;
     left: 0;
-    top: 12;
-    padding-left: 24px; }
-  .scans #reader_close_button {
-    position: absolute;
-    top: 12;
+    bottom: 0;
     right: 0;
-    padding-right: 24px; }
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5; }
+    .scanindex__issueinfo__date {
+      margin: 0;
+      padding: 0; }
+    .scanindex__issueinfo__number {
+      font-size: 2em; }
+
+.overlay .scanindex {
+  display: none; }
+
+.scanissue {
+  margin: 0 auto;
+  overflow: hidden;
+  color: #fff;
+  padding: 50px 0; }
+  @media (min-width: 900px) {
+    .scanissue {
+      overflow: visible; } }
+  @media (min-width: 900px) {
+    .scanissue {
+      width: 900px; } }
+  .scanissue__cover {
+    display: flex;
+    flex-direction: row; }
+    .scanissue__cover .scanissue__detaillink {
+      width: 50%; }
+    .scanissue__cover .scanissue__page {
+      width: 100%; }
+  .scanissue__infocontainer {
+    width: 50%; }
+  .scanissue__info {
+    padding: 0 20px 30px 20px; }
+    @media (min-width: 600px) {
+      .scanissue__info {
+        padding: 0 40px 30px 40px; } }
+  .scanissue__content {
+    display: flex;
+    flex-direction: column; }
+  .scanissue__detaillink {
+    display: flex; }
+  .scanissue__page {
+    width: 50%;
+    height: 100%;
+    cursor: url(/img/icons/24-zoom-in.png), auto; }
+  .scanissue__contributorlist {
+    margin: 0 46px; }
+  .scanissue__contributor {
+    line-height: 1.3; }
+  .scanissue__icon {
+    width: 26px;
+    display: inline-block;
+    padding-right: 10px;
+    vertical-align: middle; }
+
+.overlay .scanissue {
+  display: none; }
 
 .content {
   margin: 0 auto;
@@ -536,3 +497,26 @@ p + p {
     @media (min-width: 900px) {
       .content__image {
         width: 350px; } }
+
+.overlay .content {
+  display: none; }
+
+.reader {
+  position: relative; }
+  .reader__content {
+    display: flex;
+    margin-top: 65px; }
+  .reader__navigator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    text-align: center; }
+  .reader__info {
+    padding: 0; }
+  .reader__close {
+    position: absolute;
+    top: 20px;
+    right: 20px; }

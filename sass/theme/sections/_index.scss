@@ -1,49 +1,49 @@
 .index {
-    @include contentpage(&);
+  @include contentpage(&);
 
-    &__title {
-        padding: 8px;
-        background-color: $blue;
-        text-transform: uppercase;
+  &__title {
+    padding: 8px;
+    background-color: $blue;
+    text-transform: uppercase;
+  }
+
+  &__listcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    flex: 1 1 50%;
+  }
+
+  &__item {
+    line-height: 1.3;
+  }
+
+  &__link {
+    background-color: $selectionColor;
+
+    &:hover,
+    &:focus {
+      background-color: $selectionColorHover;
     }
+  }
 
-    &__listcontainer {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 8px;
-        margin-bottom: 20px;
+  &__imagelink {
+    margin: 12px -2px 0 0;
+    height: 100%;
+  }
+
+  &__image {
+    width: 120px;
+    @include imageshadow;
+
+    @include for-tablet-landscape-up {
+      width: 180px;
     }
-
-    &__list {
-        flex: 1 1 50%;
-    }
-
-    &__item {
-        line-height: 1.3;
-    }
-
-    &__link {
-        background-color: $selectionColor;
-        
-        &:hover,
-        &:focus {
-            background-color: $selectionColorHover;
-        }
-    }
-
-    &__imagelink {
-        margin: 12px -2px 0 0;
-        height: 100%;
-    }
-
-    &__image {
-        width: 120px;
-        @include imageshadow;
-
-        @include for-tablet-landscape-up {
-            width: 180px;
-        }
-    }
+  }
 }
 
 .overlay .index {

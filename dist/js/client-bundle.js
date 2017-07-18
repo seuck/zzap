@@ -67,7 +67,7 @@
 	_vue2.default.config.productionTip = false;
 	
 	// include all *.js files in the "components" folder but exclude .test files
-	var components = __webpack_require__(58);
+	var components = __webpack_require__(63);
 	components.keys().forEach(components);
 
 /***/ }),
@@ -10143,7 +10143,7 @@
 	  /* script */
 	  __webpack_require__(4),
 	  /* template */
-	  __webpack_require__(57),
+	  __webpack_require__(62),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -10285,35 +10285,39 @@
 	
 	var _zzapheader2 = _interopRequireDefault(_zzapheader);
 	
-	var _cover = __webpack_require__(7);
+	var _cover = __webpack_require__(8);
 	
 	var _cover2 = _interopRequireDefault(_cover);
 	
-	var _index = __webpack_require__(9);
+	var _index = __webpack_require__(10);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
-	var _scans = __webpack_require__(11);
+	var _scanindex = __webpack_require__(12);
 	
-	var _scans2 = _interopRequireDefault(_scans);
+	var _scanindex2 = _interopRequireDefault(_scanindex);
 	
-	var _contentcontainer = __webpack_require__(44);
+	var _scanissue = __webpack_require__(44);
+	
+	var _scanissue2 = _interopRequireDefault(_scanissue);
+	
+	var _contentcontainer = __webpack_require__(49);
 	
 	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
 	
-	var _contentsection = __webpack_require__(47);
+	var _contentsection = __webpack_require__(52);
 	
 	var _contentsection2 = _interopRequireDefault(_contentsection);
 	
-	var _reader = __webpack_require__(50);
+	var _reader = __webpack_require__(55);
 	
 	var _reader2 = _interopRequireDefault(_reader);
 	
-	var _loader = __webpack_require__(53);
+	var _loader = __webpack_require__(58);
 	
 	var _loader2 = _interopRequireDefault(_loader);
 	
-	var _classes = __webpack_require__(56);
+	var _classes = __webpack_require__(61);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -10321,11 +10325,22 @@
 	
 	exports.default = {
 	  name: MODULE_NAME,
-	  components: { Loader: _loader2.default, Zzapheader: _zzapheader2.default, Cover: _cover2.default, Index: _index2.default, Scans: _scans2.default, ContentContainer: _contentcontainer2.default, ContentSection: _contentsection2.default, Reader: _reader2.default },
+	  components: {
+	    ContentContainer: _contentcontainer2.default,
+	    ContentSection: _contentsection2.default,
+	    Cover: _cover2.default,
+	    Index: _index2.default,
+	    Loader: _loader2.default,
+	    Reader: _reader2.default,
+	    ScanIndex: _scanindex2.default,
+	    ScanIssue: _scanissue2.default,
+	    ZzapHeader: _zzapheader2.default
+	  },
 	  data: function data() {
 	    return {
 	      readerData: {},
-	      homeClass: MODULE_NAME
+	      homeClass: MODULE_NAME,
+	      issueId: ''
 	    };
 	  },
 	
@@ -10337,6 +10352,9 @@
 	    resetReader: function resetReader() {
 	      this.readerData = {};
 	      this.homeClass = MODULE_NAME;
+	    },
+	    initIssue: function initIssue(issueId) {
+	      this.issueId = issueId;
 	    }
 	  }
 	};
@@ -10348,9 +10366,9 @@
 	var disposed = false
 	var Component = __webpack_require__(3)(
 	  /* script */
-	  null,
-	  /* template */
 	  __webpack_require__(6),
+	  /* template */
+	  __webpack_require__(7),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -10383,6 +10401,19 @@
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  name: 'zzap-header'
+	};
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -10466,7 +10497,7 @@
 	}
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
@@ -10474,7 +10505,7 @@
 	  /* script */
 	  null,
 	  /* template */
-	  __webpack_require__(8),
+	  __webpack_require__(9),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -10506,7 +10537,7 @@
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -10562,7 +10593,7 @@
 	}
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
@@ -10570,7 +10601,7 @@
 	  /* script */
 	  null,
 	  /* template */
-	  __webpack_require__(10),
+	  __webpack_require__(11),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -10602,7 +10633,7 @@
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -10842,13 +10873,13 @@
 	}
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(3)(
 	  /* script */
-	  __webpack_require__(12),
+	  __webpack_require__(13),
 	  /* template */
 	  __webpack_require__(43),
 	  /* styles */
@@ -10858,9 +10889,9 @@
 	  /* moduleIdentifier (server only) */
 	  null
 	)
-	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/scans/scans.vue"
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/scanindex/scanindex.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-	if (Component.options.functional) {console.error("[vue-loader] scans.vue: functional components are not supported with templates, they should use render functions.")}
+	if (Component.options.functional) {console.error("[vue-loader] scanindex.vue: functional components are not supported with templates, they should use render functions.")}
 	
 	/* hot reload */
 	if (false) {(function () {
@@ -10869,9 +10900,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-f8f835da", Component.options)
+	    hotAPI.createRecord("data-v-6a436f91", Component.options)
 	  } else {
-	    hotAPI.reload("data-v-f8f835da", Component.options)
+	    hotAPI.reload("data-v-6a436f91", Component.options)
 	  }
 	  module.hot.dispose(function (data) {
 	    disposed = true
@@ -10882,7 +10913,7 @@
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10891,32 +10922,23 @@
 	  value: true
 	});
 	
-	var _axios = __webpack_require__(13);
+	var _axios = __webpack_require__(14);
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _events = __webpack_require__(40);
+	var _events = __webpack_require__(41);
 	
-	var _object = __webpack_require__(41);
-	
-	var _localedate = __webpack_require__(42);
-	
-	var localeDate = _interopRequireWildcard(_localedate);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	var _zzapi = __webpack_require__(42);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  name: 'scans',
+	  name: 'scan-index',
 	  props: ['magazineId'],
 	  data: function data() {
 	    return {
 	      magazine: {},
-	      issue: {},
-	      errors: [],
-	      readerData: {},
-	      doublePagesCache: []
+	      errors: []
 	    };
 	  },
 	
@@ -10935,106 +10957,23 @@
 	        return Array(this.issues[0].month - 1);
 	      }
 	      return [];
-	    },
-	    isIssueSelected: function isIssueSelected() {
-	      return this.issue && !(0, _object.isEmptyObject)(this.issue);
-	    },
-	    doublePages: function doublePages() {
-	      if (this.doublePagesCache.length === 0) {
-	        var doublePageArray = [];
-	        if (this.isIssueSelected) {
-	          for (var i = 1; i < this.issue.volumes[0].pages.length - 1; i += 2) {
-	            doublePageArray.push(i);
-	          }
-	        }
-	        this.doublePagesCache = doublePageArray;
-	      }
-	      return this.doublePagesCache;
 	    }
 	  },
 	  methods: {
 	    loadMagazine: function loadMagazine() {
 	      var _this = this;
 	
-	      _axios2.default.get('api/v1/magazine/' + this.magazineId).then(function (response) {
+	      _axios2.default.get(_zzapi.ENTITIES.magazine(this.magazineId)).then(function (response) {
 	        _this.magazine = response.data;
 	      }).catch(function (e) {
 	        return _this.errors.push(e);
 	      });
 	    },
-	    loadIssue: function loadIssue(issueId) {
-	      var _this2 = this;
-	
-	      _axios2.default.get('api/v1/magazine/' + this.magazineId + '/issue/' + issueId).then(function (response) {
-	        _this2.issue = response.data;
-	      }).catch(function (e) {
-	        return _this2.errors.push(e);
-	      });
-	    },
 	    selectIssue: function selectIssue(issueId) {
-	      this.issue = this.loadIssue(issueId);
+	      this.$emit(_events.EVENTS.selectedIssue, issueId);
 	    },
 	    buildCoverThumbPath: function buildCoverThumbPath(issue) {
 	      return '/img/issue_selector/' + this.magazineName + '/' + issue.sequence + '.jpg';
-	    },
-	    buildPageThumbPath: function buildPageThumbPath(pageNumber) {
-	      var normalisedNumber = this.addLeftPadding(pageNumber, '0', 2);
-	      return '/img/thumbs/zzap/' + this.issue.id + '/' + normalisedNumber + '.jpg';
-	    },
-	    buildScanPath: function buildScanPath(pageNumber) {
-	      var normalisedNumber = this.addLeftPadding(pageNumber, '0', 2);
-	      return '/zzap/' + this.issue.id + '/' + normalisedNumber + '.jpg';
-	    },
-	    buildContributorPath: function buildContributorPath(contributorId) {
-	      return '/contributor/' + contributorId;
-	    },
-	    addLeftPadding: function addLeftPadding(text, paddingChar, maxLength) {
-	      var paddedText = text.toString();
-	      while (paddedText.length < maxLength) {
-	        paddedText = '' + paddingChar + paddedText;
-	      }
-	      return paddedText;
-	    },
-	    getMonth: function getMonth(monthNumber) {
-	      return localeDate.MONTHS.it[monthNumber];
-	    },
-	    getReaderData: function getReaderData(startPage) {
-	      if ((0, _object.isEmptyObject)(this.readerData)) {
-	        var data = {};
-	        data.title = this.issue.magazine.name + ' numero ' + this.issue.sequence + ' - ' + this.getMonth(this.issue.month) + ' ' + this.issue.year;
-	        data.startPage = startPage;
-	        data.pages = [];
-	
-	        data.pages.push(this.buildDoublePageForReader(undefined, this.issue.volumes[0].pages[0].label));
-	        this.doublePages.forEach(function (page) {
-	          data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[Number(page)].label, this.issue.volumes[0].pages[Number(page) + 1].label));
-	        }, this);
-	        data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1].label, undefined));
-	
-	        this.readerData = data;
-	        // eslint-disable-next-line no-console
-	        console.log(data);
-	      }
-	      return this.readerData;
-	    },
-	    buildDoublePageForReader: function buildDoublePageForReader(first, last) {
-	      var doublePage = {};
-	      if (typeof first !== 'undefined') {
-	        doublePage.first = {
-	          label: first,
-	          path: this.buildScanPath(first)
-	        };
-	      }
-	      if (typeof last !== 'undefined') {
-	        doublePage.last = {
-	          label: last,
-	          path: this.buildScanPath(last)
-	        };
-	      }
-	      return doublePage;
-	    },
-	    openReader: function openReader(startPage) {
-	      this.$emit(_events.EVENTS.openReader, this.getReaderData(startPage));
 	    }
 	  },
 	  mounted: function mounted() {
@@ -11043,21 +10982,21 @@
 	};
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(14);
+	module.exports = __webpack_require__(15);
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
-	var bind = __webpack_require__(16);
-	var Axios = __webpack_require__(18);
-	var defaults = __webpack_require__(19);
+	var utils = __webpack_require__(16);
+	var bind = __webpack_require__(17);
+	var Axios = __webpack_require__(19);
+	var defaults = __webpack_require__(20);
 	
 	/**
 	 * Create an instance of Axios
@@ -11090,15 +11029,15 @@
 	};
 	
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(37);
-	axios.CancelToken = __webpack_require__(38);
-	axios.isCancel = __webpack_require__(34);
+	axios.Cancel = __webpack_require__(38);
+	axios.CancelToken = __webpack_require__(39);
+	axios.isCancel = __webpack_require__(35);
 	
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(39);
+	axios.spread = __webpack_require__(40);
 	
 	module.exports = axios;
 	
@@ -11107,13 +11046,13 @@
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var bind = __webpack_require__(16);
-	var isBuffer = __webpack_require__(17);
+	var bind = __webpack_require__(17);
+	var isBuffer = __webpack_require__(18);
 	
 	/*global toString:true*/
 	
@@ -11416,7 +11355,7 @@
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -11433,7 +11372,7 @@
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -11460,17 +11399,17 @@
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var defaults = __webpack_require__(19);
-	var utils = __webpack_require__(15);
-	var InterceptorManager = __webpack_require__(31);
-	var dispatchRequest = __webpack_require__(32);
-	var isAbsoluteURL = __webpack_require__(35);
-	var combineURLs = __webpack_require__(36);
+	var defaults = __webpack_require__(20);
+	var utils = __webpack_require__(16);
+	var InterceptorManager = __webpack_require__(32);
+	var dispatchRequest = __webpack_require__(33);
+	var isAbsoluteURL = __webpack_require__(36);
+	var combineURLs = __webpack_require__(37);
 	
 	/**
 	 * Create a new instance of Axios
@@ -11552,13 +11491,13 @@
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-	var utils = __webpack_require__(15);
-	var normalizeHeaderName = __webpack_require__(21);
+	var utils = __webpack_require__(16);
+	var normalizeHeaderName = __webpack_require__(22);
 	
 	var DEFAULT_CONTENT_TYPE = {
 	  'Content-Type': 'application/x-www-form-urlencoded'
@@ -11574,10 +11513,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(22);
+	    adapter = __webpack_require__(23);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(22);
+	    adapter = __webpack_require__(23);
 	  }
 	  return adapter;
 	}
@@ -11648,10 +11587,10 @@
 	
 	module.exports = defaults;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	// shim for using process in browser
@@ -11841,12 +11780,12 @@
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
+	var utils = __webpack_require__(16);
 	
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -11859,18 +11798,18 @@
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-	var utils = __webpack_require__(15);
-	var settle = __webpack_require__(23);
-	var buildURL = __webpack_require__(26);
-	var parseHeaders = __webpack_require__(27);
-	var isURLSameOrigin = __webpack_require__(28);
-	var createError = __webpack_require__(24);
-	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(29);
+	var utils = __webpack_require__(16);
+	var settle = __webpack_require__(24);
+	var buildURL = __webpack_require__(27);
+	var parseHeaders = __webpack_require__(28);
+	var isURLSameOrigin = __webpack_require__(29);
+	var createError = __webpack_require__(25);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(30);
 	
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -11967,7 +11906,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(30);
+	      var cookies = __webpack_require__(31);
 	
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -12043,15 +11982,15 @@
 	  });
 	};
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var createError = __webpack_require__(24);
+	var createError = __webpack_require__(25);
 	
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -12078,12 +12017,12 @@
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var enhanceError = __webpack_require__(25);
+	var enhanceError = __webpack_require__(26);
 	
 	/**
 	 * Create an Error with the specified message, config, error code, request and response.
@@ -12102,7 +12041,7 @@
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12129,12 +12068,12 @@
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
+	var utils = __webpack_require__(16);
 	
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -12203,12 +12142,12 @@
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
+	var utils = __webpack_require__(16);
 	
 	/**
 	 * Parse headers into an object
@@ -12246,12 +12185,12 @@
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
+	var utils = __webpack_require__(16);
 	
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -12320,7 +12259,7 @@
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12362,12 +12301,12 @@
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
+	var utils = __webpack_require__(16);
 	
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -12421,12 +12360,12 @@
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
+	var utils = __webpack_require__(16);
 	
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -12479,15 +12418,15 @@
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
-	var transformData = __webpack_require__(33);
-	var isCancel = __webpack_require__(34);
-	var defaults = __webpack_require__(19);
+	var utils = __webpack_require__(16);
+	var transformData = __webpack_require__(34);
+	var isCancel = __webpack_require__(35);
+	var defaults = __webpack_require__(20);
 	
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -12564,12 +12503,12 @@
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(15);
+	var utils = __webpack_require__(16);
 	
 	/**
 	 * Transform the data for a request or a response
@@ -12590,7 +12529,7 @@
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12601,7 +12540,7 @@
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12621,7 +12560,7 @@
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12641,7 +12580,7 @@
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12666,12 +12605,12 @@
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Cancel = __webpack_require__(37);
+	var Cancel = __webpack_require__(38);
 	
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -12729,7 +12668,7 @@
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12762,7 +12701,7 @@
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12772,13 +12711,266 @@
 	});
 	var EVENTS = {
 	  openReader: 'openReader',
-	  closeReader: 'closeReader'
+	  closeReader: 'closeReader',
+	  selectedIssue: 'selectedIssue'
 	};
 	
 	exports.EVENTS = EVENTS;
 
 /***/ }),
-/* 41 */
+/* 42 */
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ENTITIES = {
+	  issue: function issue(magazineId, issueId) {
+	    return "api/v1/magazine/" + magazineId + "/issue/" + issueId;
+	  },
+	  magazine: function magazine(magazineId) {
+	    return "api/v1/magazine/" + magazineId;
+	  }
+	};
+	
+	exports.ENTITIES = ENTITIES;
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
+	    staticClass: "scanindex"
+	  }, [_c('h2', {
+	    staticClass: "scanindex__info"
+	  }, [_vm._v("Scansioni")]), _vm._v(" "), _c('div', {
+	    staticClass: "scanindex__issues"
+	  }, [_vm._l((_vm.paddingIssues), function(issue) {
+	    return _c('div', {
+	      staticClass: "scanindex__issue scanindex__issuepadding"
+	    }, [_c('span', {
+	      staticClass: "scanindex__link"
+	    })])
+	  }), _vm._v(" "), _vm._l((_vm.magazine.issues), function(issue) {
+	    return _c('div', {
+	      staticClass: "scanindex__issue"
+	    }, [_c('a', {
+	      staticClass: "scanindex__link",
+	      on: {
+	        "click": function($event) {
+	          _vm.selectIssue(issue.id)
+	        }
+	      }
+	    }, [_c('div', {
+	      staticClass: "scanindex__issueinfo"
+	    }, [_c('p', {
+	      staticClass: "scanindex__issueinfo__number"
+	    }, [_vm._v(_vm._s(issue.sequence))]), _vm._v(" "), _c('p', {
+	      staticClass: "scanindex__issueinfo__date"
+	    }, [_c('span', {
+	      staticClass: "scanindex__issueinfo__month"
+	    }, [_vm._v(_vm._s(issue.month))]), _vm._v("/"), _c('span', {
+	      staticClass: "scanindex__issueinfo__year"
+	    }, [_vm._v(_vm._s(issue.year))])])]), _vm._v(" "), _c('img', {
+	      staticClass: "scanindex__image",
+	      attrs: {
+	        "src": _vm.buildCoverThumbPath(issue)
+	      }
+	    })])])
+	  })], 2)])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-6a436f91", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(3)(
+	  /* script */
+	  __webpack_require__(45),
+	  /* template */
+	  __webpack_require__(48),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/scanissue/scanissue.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] scanissue.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-b7ea0842", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-b7ea0842", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _axios = __webpack_require__(14);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
+	var _events = __webpack_require__(41);
+	
+	var _object = __webpack_require__(46);
+	
+	var _zzapi = __webpack_require__(42);
+	
+	var _localedate = __webpack_require__(47);
+	
+	var localeDate = _interopRequireWildcard(_localedate);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  name: 'scan-issue',
+	  props: ['magazineId', 'issueId'],
+	  data: function data() {
+	    return {
+	      issue: {},
+	      readerData: {},
+	      doublePagesCache: [],
+	      errors: []
+	    };
+	  },
+	
+	  watch: {
+	    // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
+	    // eslint-disable-next-line object-shorthand
+	    issueId: function issueId(val) {
+	      this.loadIssue(val);
+	    }
+	  },
+	  computed: {
+	    isIssueId: function isIssueId() {
+	      return !(0, _object.isEmptyObject)(this.issue);
+	    },
+	    doublePages: function doublePages() {
+	      if (this.doublePagesCache.length === 0) {
+	        var doublePageArray = [];
+	        if (this.isIssueId) {
+	          for (var i = 1; i < this.issue.volumes[0].pages.length - 1; i += 2) {
+	            doublePageArray.push(i);
+	          }
+	        }
+	        this.doublePagesCache = doublePageArray;
+	      }
+	      return this.doublePagesCache;
+	    }
+	  },
+	  methods: {
+	    loadIssue: function loadIssue(issueId) {
+	      var _this = this;
+	
+	      if (issueId !== '') {
+	        _axios2.default.get(_zzapi.ENTITIES.issue(this.magazineId, this.issueId)).then(function (response) {
+	          _this.issue = response.data;
+	        }).catch(function (e) {
+	          return _this.errors.push(e);
+	        });
+	      }
+	    },
+	    buildPageThumbPath: function buildPageThumbPath(pageNumber) {
+	      var normalisedNumber = this.addLeftPadding(pageNumber, '0', 2);
+	      return '/img/thumbs/zzap/' + this.issue.id + '/' + normalisedNumber + '.jpg';
+	    },
+	    buildScanPath: function buildScanPath(pageNumber) {
+	      var normalisedNumber = this.addLeftPadding(pageNumber, '0', 2);
+	      return '/zzap/' + this.issue.id + '/' + normalisedNumber + '.jpg';
+	    },
+	    buildContributorPath: function buildContributorPath(contributorId) {
+	      return '/contributor/' + contributorId;
+	    },
+	    addLeftPadding: function addLeftPadding(text, paddingChar, maxLength) {
+	      var paddedText = text.toString();
+	      while (paddedText.length < maxLength) {
+	        paddedText = '' + paddingChar + paddedText;
+	      }
+	      return paddedText;
+	    },
+	    getMonth: function getMonth(monthNumber) {
+	      return localeDate.MONTHS.it[monthNumber];
+	    },
+	    getReaderData: function getReaderData(startPage) {
+	      if ((0, _object.isEmptyObject)(this.readerData)) {
+	        var data = {};
+	        data.title = this.issue.magazine.name + ' numero ' + this.issue.sequence + ' - ' + this.getMonth(this.issue.month) + ' ' + this.issue.year;
+	        data.startPage = startPage;
+	        data.pages = [];
+	
+	        data.pages.push(this.buildDoublePageForReader(undefined, this.issue.volumes[0].pages[0].label));
+	
+	        this.doublePages.forEach(function (page) {
+	          data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[Number(page)].label, this.issue.volumes[0].pages[Number(page) + 1].label));
+	        }, this);
+	        data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1].label, undefined));
+	
+	        this.readerData = data;
+	        // eslint-disable-next-line no-console
+	        console.log(data);
+	      }
+	      return this.readerData;
+	    },
+	    buildDoublePageForReader: function buildDoublePageForReader(first, last) {
+	      var doublePage = {};
+	      if (typeof first !== 'undefined') {
+	        doublePage.first = {
+	          label: first,
+	          path: this.buildScanPath(first)
+	        };
+	      }
+	      if (typeof last !== 'undefined') {
+	        doublePage.last = {
+	          label: last,
+	          path: this.buildScanPath(last)
+	        };
+	      }
+	      return doublePage;
+	    },
+	    openReader: function openReader(startPage) {
+	      this.$emit(_events.EVENTS.openReader, this.getReaderData(startPage));
+	    }
+	  }
+	};
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -12788,7 +12980,7 @@
 	};
 
 /***/ }),
-/* 42 */
+/* 47 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12803,171 +12995,131 @@
 	exports.MONTHS = MONTHS;
 
 /***/ }),
-/* 43 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('section', {
-	    staticClass: "scans"
-	  }, [_c('section', {
-	    staticClass: "scans__magazine"
+	  return (_vm.isIssueId) ? _c('section', {
+	    staticClass: "scanissue"
+	  }, [_c('div', {
+	    staticClass: "scanissue__cover"
+	  }, [_c('div', {
+	    staticClass: "scanissue__infocontainer"
+	  }, [_c('div', {
+	    staticClass: "scanissue__info"
 	  }, [_c('h2', {
-	    staticClass: "scans__magazine__info"
-	  }, [_vm._v("Scansioni")]), _vm._v(" "), _c('div', {
-	    staticClass: "scans__magazine__issues"
-	  }, [_vm._l((_vm.paddingIssues), function(issue) {
-	    return _c('div', {
-	      staticClass: "scans__magazine__issue scans__magazine__issuepadding"
-	    }, [_c('span', {
-	      staticClass: "scans__magazine__link"
-	    })])
-	  }), _vm._v(" "), _vm._l((_vm.magazine.issues), function(issue) {
-	    return _c('div', {
-	      staticClass: "scans__magazine__issue"
-	    }, [_c('a', {
-	      staticClass: "scans__magazine__link",
-	      on: {
-	        "click": function($event) {
-	          _vm.selectIssue(issue.id)
-	        }
-	      }
-	    }, [_c('div', {
-	      staticClass: "scans__magazine__issueinfo"
-	    }, [_c('p', {
-	      staticClass: "scans__magazine__issueinfo__number"
-	    }, [_vm._v(_vm._s(issue.sequence))]), _vm._v(" "), _c('p', {
-	      staticClass: "scans__magazine__issueinfo__date"
-	    }, [_c('span', {
-	      staticClass: "scans__magazine__issueinfo__month"
-	    }, [_vm._v(_vm._s(issue.month))]), _vm._v("/"), _c('span', {
-	      staticClass: "scans__magazine__issueinfo__year"
-	    }, [_vm._v(_vm._s(issue.year))])])]), _vm._v(" "), _c('img', {
-	      staticClass: "scans__magazine__image",
-	      attrs: {
-	        "src": _vm.buildCoverThumbPath(issue)
-	      }
-	    })])])
-	  })], 2)]), _vm._v(" "), (_vm.isIssueSelected) ? _c('section', {
-	    staticClass: "scans__issue"
-	  }, [_c('div', {
-	    staticClass: "scans__issue__cover"
-	  }, [_c('div', {
-	    staticClass: "scans__issue__infocontainer"
-	  }, [_c('div', {
-	    staticClass: "scans__issue__info"
-	  }, [_c('h2', {
-	    staticClass: "scans__issue__numberline"
+	    staticClass: "scanissue__numberline"
 	  }, [_vm._v("Numero "), _c('span', {
-	    staticClass: "scans__issue__number"
+	    staticClass: "scanissue__number"
 	  }, [_vm._v(_vm._s(_vm.issue.sequence))])]), _vm._v(" "), _c('p', {
-	    staticClass: "scans__issue__dateline"
+	    staticClass: "scanissue__dateline"
 	  }, [_c('img', {
-	    staticClass: "scans__issue__icon",
+	    staticClass: "scanissue__icon",
 	    attrs: {
 	      "src": "assets/icons/calendar.svg",
 	      "alt": "calendario"
 	    }
 	  }), _c('span', {
-	    staticClass: "scans__issue__month"
+	    staticClass: "scanissue__month"
 	  }, [_vm._v(_vm._s(_vm.getMonth(_vm.issue.month)))]), _vm._v(" "), _c('span', {
-	    staticClass: "scans__issue__year"
+	    staticClass: "scanissue__year"
 	  }, [_vm._v(_vm._s(_vm.issue.year))])]), _vm._v(" "), _c('p', {
-	    staticClass: "scans__issue__editorline"
+	    staticClass: "scanissue__editorline"
 	  }, [_c('img', {
-	    staticClass: "scans__issue__icon",
+	    staticClass: "scanissue__icon",
 	    attrs: {
 	      "src": "assets/icons/edit.svg",
 	      "alt": "matita"
 	    }
 	  }), _c('span', {
-	    staticClass: "scans__issue__editor"
+	    staticClass: "scanissue__editor"
 	  }, [_vm._v(_vm._s(_vm.issue.editor.name))])]), _vm._v(" "), _c('p', {
-	    staticClass: "scans__issue__contributorlabel"
+	    staticClass: "scanissue__contributorlabel"
 	  }, [_c('img', {
-	    staticClass: "scans__issue__icon",
+	    staticClass: "scanissue__icon",
 	    attrs: {
 	      "src": "assets/icons/scanner.svg",
 	      "alt": "scanner"
 	    }
-	  }), _vm._v("Scansioni di:\n              "), _c('ul', {
-	    staticClass: "scans__issue__contributorlist"
+	  }), _vm._v("Scansioni di:\n          "), _c('ul', {
+	    staticClass: "scanissue__contributorlist"
 	  }, _vm._l((_vm.issue.volumes[0].scan_authors), function(contributor) {
 	    return _c('li', {
-	      staticClass: "scans__issue__contributor"
+	      staticClass: "scanissue__contributor"
 	    }, [_c('a', {
 	      attrs: {
 	        "href": _vm.buildContributorPath(contributor.id)
 	      }
 	    }, [_vm._v(_vm._s(contributor.name))])])
 	  }))])])]), _vm._v(" "), _c('a', {
-	    staticClass: "scans__issue__detaillink",
+	    staticClass: "scanissue__detaillink",
 	    on: {
 	      "click": function($event) {
 	        _vm.openReader(_vm.issue.volumes[0].pages[0].label)
 	      }
 	    }
 	  }, [_c('img', {
-	    staticClass: "scans__issue__page thumb",
+	    staticClass: "scanissue__page thumb",
 	    attrs: {
 	      "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[0].label)
 	    }
 	  })])]), _vm._v(" "), _c('div', {
-	    staticClass: "scans__issue__content"
+	    staticClass: "scanissue__content"
 	  }, [_vm._l((_vm.doublePages), function(page) {
 	    return _c('div', {
-	      staticClass: "scans__issue__doublepage"
+	      staticClass: "scanissue__doublepage"
 	    }, [_c('a', {
-	      staticClass: "scans__issue__detaillink",
+	      staticClass: "scanissue__detaillink",
 	      on: {
 	        "click": function($event) {
 	          _vm.openReader(_vm.issue.volumes[0].pages[page + 1].label)
 	        }
 	      }
 	    }, [_c('img', {
-	      staticClass: "scans__issue__page thumb",
+	      staticClass: "scanissue__page thumb",
 	      attrs: {
 	        "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[page + 1].label)
 	      }
 	    }), _vm._v(" "), _c('img', {
-	      staticClass: "scans__issue__page thumb",
+	      staticClass: "scanissue__page thumb",
 	      attrs: {
 	        "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[page + 2].label)
 	      }
 	    })])])
 	  }), _vm._v(" "), _c('div', {
-	    staticClass: "scans__issue__doublepage"
+	    staticClass: "scanissue__doublepage"
 	  }, [_c('a', {
-	    staticClass: "scans__issue__detaillink",
+	    staticClass: "scanissue__detaillink",
 	    on: {
 	      "click": function($event) {
 	        _vm.openReader(_vm.issue.volumes[0].pages[_vm.issue.volumes[0].pages.length - 1].label)
 	      }
 	    }
 	  }, [_c('img', {
-	    staticClass: "scans__issue__page thumb",
+	    staticClass: "scanissue__page thumb",
 	    attrs: {
 	      "src": _vm.buildPageThumbPath(_vm.issue.volumes[0].pages[_vm.issue.volumes[0].pages.length - 1].label)
 	    }
-	  })])])], 2)]) : _vm._e()])
+	  })])])], 2)]) : _vm._e()
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-f8f835da", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-b7ea0842", module.exports)
 	  }
 	}
 
 /***/ }),
-/* 44 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(3)(
 	  /* script */
-	  __webpack_require__(45),
+	  __webpack_require__(50),
 	  /* template */
-	  __webpack_require__(46),
+	  __webpack_require__(51),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -12999,7 +13151,7 @@
 
 
 /***/ }),
-/* 45 */
+/* 50 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -13013,7 +13165,7 @@
 	};
 
 /***/ }),
-/* 46 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -13032,15 +13184,15 @@
 	}
 
 /***/ }),
-/* 47 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(3)(
 	  /* script */
-	  __webpack_require__(48),
+	  __webpack_require__(53),
 	  /* template */
-	  __webpack_require__(49),
+	  __webpack_require__(54),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -13072,7 +13224,7 @@
 
 
 /***/ }),
-/* 48 */
+/* 53 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -13086,7 +13238,7 @@
 	};
 
 /***/ }),
-/* 49 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -13106,15 +13258,15 @@
 	}
 
 /***/ }),
-/* 50 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(3)(
 	  /* script */
-	  __webpack_require__(51),
+	  __webpack_require__(56),
 	  /* template */
-	  __webpack_require__(52),
+	  __webpack_require__(57),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -13146,7 +13298,7 @@
 
 
 /***/ }),
-/* 51 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13155,7 +13307,7 @@
 	  value: true
 	});
 	
-	var _events = __webpack_require__(40);
+	var _events = __webpack_require__(41);
 	
 	/*
 	 * Scroll down for example data
@@ -13246,7 +13398,7 @@
 	*/
 
 /***/ }),
-/* 52 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -13299,15 +13451,15 @@
 	}
 
 /***/ }),
-/* 53 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(3)(
 	  /* script */
-	  __webpack_require__(54),
+	  __webpack_require__(59),
 	  /* template */
-	  __webpack_require__(55),
+	  __webpack_require__(60),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -13339,7 +13491,7 @@
 
 
 /***/ }),
-/* 54 */
+/* 59 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -13353,7 +13505,7 @@
 	};
 
 /***/ }),
-/* 55 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -13375,7 +13527,7 @@
 	}
 
 /***/ }),
-/* 56 */
+/* 61 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -13390,7 +13542,7 @@
 	exports.CLASSES = CLASSES;
 
 /***/ }),
-/* 57 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -13410,9 +13562,19 @@
 	    on: {
 	      "closeReader": _vm.resetReader
 	    }
-	  }), _vm._v(" "), _c('zzapheader'), _vm._v(" "), _c('cover'), _vm._v(" "), _c('index'), _vm._v(" "), _c('scans', {
+	  }), _vm._v(" "), _c('zzap-header'), _vm._v(" "), _c('cover'), _vm._v(" "), _c('index'), _vm._v(" "), _c('scan-index', {
 	    attrs: {
 	      "magazineId": "1"
+	    },
+	    on: {
+	      "selectedIssue": function($event) {
+	        _vm.initIssue($event)
+	      }
+	    }
+	  }), _vm._v(" "), _c('scan-issue', {
+	    attrs: {
+	      "magazineId": "1",
+	      "issueId": _vm.issueId
 	    },
 	    on: {
 	      "openReader": function($event) {
@@ -13494,17 +13656,19 @@
 	}
 
 /***/ }),
-/* 58 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./content/contentcontainer/contentcontainer.js": 45,
-		"./content/contentsection/contentsection.js": 48,
+		"./content/contentcontainer/contentcontainer.js": 50,
+		"./content/contentsection/contentsection.js": 53,
 		"./home/home.js": 4,
-		"./loader/loader.js": 54,
-		"./reader/reader.js": 51,
-		"./scans/scans.js": 12,
-		"./scroll.js": 59
+		"./loader/loader.js": 59,
+		"./reader/reader.js": 56,
+		"./scanindex/scanindex.js": 13,
+		"./scanissue/scanissue.js": 45,
+		"./scroll.js": 64,
+		"./zzapheader/zzapheader.js": 6
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -13517,11 +13681,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 58;
+	webpackContext.id = 63;
 
 
 /***/ }),
-/* 59 */
+/* 64 */
 /***/ (function(module, exports) {
 
 	'use strict';

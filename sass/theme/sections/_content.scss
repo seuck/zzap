@@ -1,52 +1,49 @@
 .content {
-    @include contentpage(&);
+  @include contentpage(&);
 
-    &__link {
-        background-color: $selectionColor;
+  &__link {
+    background-color: $selectionColor;
 
-        &:hover,
-        &:focus {
-            background-color: $selectionColorHover;
-        }
+    &:hover,
+    &:focus {
+      background-color: $selectionColorHover;
+    }
+  }
+
+  &__section {
+    padding-bottom: 60px;
+
+    @include for-tablet-landscape-up {
+      padding-bottom: 0;
+    }
+  }
+
+  &__imagelink {
+    display: block;
+    padding: 8% 6% 10% 6%;
+
+    @include for-tablet-portrait-up {
+      padding: 41px 31px 52px 31px;
     }
 
-    &__section {
-        padding-bottom: 60px;
+    @include for-tablet-landscape-up {
+      padding: 20px 20px 30px 20px;
+    }
+  }
 
-        @include for-tablet-landscape-up {
-            padding-bottom: 0;
-        }
+  &__image {
+    @include imageshadow;
+    width: 100%;
+    margin: auto;
+
+    @include for-tablet-portrait-up {
+      width: 458px;
     }
 
-    &__imagelink {
-        display: block;
-        padding: 8% 6% 10% 6%;
-
-        @include for-tablet-portrait-up {
-            padding: 41px 31px 52px 31px;
-        }
-
-        @include for-tablet-landscape-up {
-            padding: 20px 20px 30px 20px;
-        }
-        
-        
+    @include for-tablet-landscape-up {
+      width: 350px;
     }
-
-    &__image {
-        @include imageshadow;
-        width: 100%;
-        margin: auto;
-
-        @include for-tablet-portrait-up {
-            width: 458px;
-        }
-
-        @include for-tablet-landscape-up {
-            width: 350px;
-        }
-
-    }
+  }
 }
 
 .overlay .content {

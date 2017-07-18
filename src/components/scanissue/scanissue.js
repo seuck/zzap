@@ -1,43 +1,35 @@
 import axios from 'axios'
 import { EVENTS } from 'constants/events'
 import { isEmptyObject } from 'utils/object'
+import { ENTITIES as ZZAPI } from 'api/zzapi'
 import * as localeDate from 'locales/localedate'
 
 export default {
-  name: 'scans',
-  props: ['magazineId'],
+  name: 'scan-issue',
+  props: ['magazineId', 'issueId'],
   data() {
     return {
-      magazine: {},
       issue: {},
-      errors: [],
       readerData: {},
-      doublePagesCache: []
+      doublePagesCache: [],
+      errors: []
+    }
+  },
+  watch: {
+    // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
+    // eslint-disable-next-line object-shorthand
+    issueId: function (val) {
+      this.loadIssue(val)
     }
   },
   computed: {
-    magazineName() {
-      return this.magazine.name.replace(/[^a-z0-9]/gi, '').toLowerCase()
-    },
-    issues() {
-      if (typeof this.magazine !== 'undefined') {
-        return this.magazine.issues
-      }
-      return []
-    },
-    paddingIssues() {
-      if (typeof this.issues !== 'undefined') {
-        return Array(this.issues[0].month - 1)
-      }
-      return []
-    },
-    isIssueSelected() {
-      return this.issue && !isEmptyObject(this.issue)
+    isIssueId() {
+      return !isEmptyObject(this.issue)
     },
     doublePages() {
       if (this.doublePagesCache.length === 0) {
         const doublePageArray = []
-        if (this.isIssueSelected) {
+        if (this.isIssueId) {
           for (let i = 1; i < this.issue.volumes[0].pages.length - 1; i += 2) {
             doublePageArray.push(i)
           }
@@ -48,25 +40,14 @@ export default {
     }
   },
   methods: {
-    loadMagazine() {
-      axios.get(`api/v1/magazine/${this.magazineId}`)
-      .then((response) => {
-        this.magazine = response.data
-      })
-      .catch(e => this.errors.push(e))
-    },
     loadIssue(issueId) {
-      axios.get(`api/v1/magazine/${this.magazineId}/issue/${issueId}`)
-      .then((response) => {
-        this.issue = response.data
-      })
-      .catch(e => this.errors.push(e))
-    },
-    selectIssue(issueId) {
-      this.issue = this.loadIssue(issueId)
-    },
-    buildCoverThumbPath(issue) {
-      return `/img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`
+      if (issueId !== '') {
+        axios.get(ZZAPI.issue(this.magazineId, this.issueId))
+        .then((response) => {
+          this.issue = response.data
+        })
+        .catch(e => this.errors.push(e))
+      }
     },
     buildPageThumbPath(pageNumber) {
       const normalisedNumber = this.addLeftPadding(pageNumber, '0', 2)
@@ -99,6 +80,7 @@ export default {
         data.pages.push(this.buildDoublePageForReader(
           undefined,
           this.issue.volumes[0].pages[0].label))
+
         this.doublePages.forEach(function (page) {
           data.pages.push(this.buildDoublePageForReader(
             this.issue.volumes[0].pages[Number(page)].label,
@@ -135,8 +117,5 @@ export default {
     openReader(startPage) {
       this.$emit(EVENTS.openReader, this.getReaderData(startPage))
     }
-  },
-  mounted() {
-    this.loadMagazine()
   }
 }

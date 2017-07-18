@@ -24,6 +24,7 @@ export default {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.js',
+      api: path.resolve(__dirname, pkgjson.paths.src, 'api'),
       components: path.resolve(__dirname, pkgjson.paths.src, 'components'),
       utils: path.resolve(__dirname, pkgjson.paths.src, 'utils'),
       locales: path.resolve(__dirname, pkgjson.paths.src, 'locales'),

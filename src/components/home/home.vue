@@ -9,10 +9,11 @@
       @closeReader="resetReader"
     ></reader>
     
-    <zzapheader></zzapheader>
+    <zzap-header></zzap-header>
     <cover></cover>
     <index></index>
-    <scans magazineId="1" @openReader="initReader($event)"></scans>
+    <scan-index magazineId="1" @selectedIssue="initIssue($event)"></scan-index>
+    <scan-issue magazineId="1" :issueId="issueId" @openReader="initReader($event)"></scan-issue>
 
     <content-container title="Diario di una Pasqua creativa">
       <content-section title="Martedì 11 Aprile 2017: 1 - Il galeone" image-style="content__section-imageodd">
