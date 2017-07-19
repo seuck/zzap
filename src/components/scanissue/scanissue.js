@@ -3,9 +3,12 @@ import { EVENTS } from 'constants/events'
 import { isEmptyObject } from 'utils/object'
 import { ENTITIES as ZZAPI } from 'api/zzapi'
 import * as localeDate from 'locales/localedate'
+import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
+
+const COMPONENT_NAME = 'scanissue'
 
 export default {
-  name: 'scan-issue',
+  name: COMPONENT_NAME,
   props: ['magazineId', 'issueId'],
   data() {
     return {
@@ -117,5 +120,8 @@ export default {
     openReader(startPage) {
       this.$emit(EVENTS.openReader, this.getReaderData(startPage))
     }
+  },
+  updated() {
+    _scrollToClassWithDefaultOffset(COMPONENT_NAME)
   }
 }

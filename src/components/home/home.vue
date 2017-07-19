@@ -12,8 +12,8 @@
     <zzap-header></zzap-header>
     <cover></cover>
     <index></index>
-    <scan-index magazineId="1" @selectedIssue="initIssue($event)"></scan-index>
-    <scan-issue magazineId="1" :issueId="issueId" @openReader="initReader($event)"></scan-issue>
+    <scanindex magazineId="1" @selectedIssue="initIssue($event)"></scanindex>
+    <scanissue magazineId="1" :issueId="issueId" @openReader="initReader($event)"></scanissue>
 
     <content-container title="Diario di una Pasqua creativa">
       <content-section title="Martedì 11 Aprile 2017: 1 - Il galeone" image-style="content__section-imageodd">

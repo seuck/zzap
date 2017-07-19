@@ -1,11 +1,14 @@
 import { EVENTS } from 'constants/events'
+import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
 /*
  * Scroll down for example data
  */
 
+const COMPONENT_NAME = 'reader'
+
 export default {
-  name: 'reader',
+  name: COMPONENT_NAME,
   props: ['pages', 'startPage', 'title'],
   data() {
     return {
@@ -45,6 +48,7 @@ export default {
     close() {
       this.$emit(EVENTS.closeReader)
       this.actualPage = ''
+      _scrollToClassWithDefaultOffset('scanissue')
     },
     hasPage(pageName) {
       return this.doesPageExist(this.actualPage) &&

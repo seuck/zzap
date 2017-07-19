@@ -1,8 +1,8 @@
 import ZzapHeader from 'components/zzapheader/zzapheader.vue'
 import Cover from 'components/cover/cover.vue'
 import Index from 'components/index/index.vue'
-import ScanIndex from 'components/scanindex/scanindex.vue'
-import ScanIssue from 'components/scanissue/scanissue.vue'
+import Scanindex from 'components/scanindex/scanindex.vue'
+import Scanissue from 'components/scanissue/scanissue.vue'
 import ContentContainer from 'components/content/contentcontainer/contentcontainer.vue'
 import ContentSection from 'components/content/contentsection/contentsection.vue'
 import Reader from 'components/reader/reader.vue'
@@ -21,8 +21,8 @@ export default {
     Index,
     Loader,
     Reader,
-    ScanIndex,
-    ScanIssue,
+    Scanindex,
+    Scanissue,
     ZzapHeader
   },
   data() {

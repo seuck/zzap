@@ -1,9 +1,12 @@
 import axios from 'axios'
 import { EVENTS } from 'constants/events'
 import { ENTITIES as ZZAPI } from 'api/zzapi'
+import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
+
+const COMPONENT_NAME = 'scanindex'
 
 export default {
-  name: 'scan-index',
+  name: COMPONENT_NAME,
   props: ['magazineId'],
   data() {
     return {
@@ -38,6 +41,7 @@ export default {
     },
     selectIssue(issueId) {
       this.$emit(EVENTS.selectedIssue, issueId)
+      _scrollToClassWithDefaultOffset('scanissue')
     },
     buildCoverThumbPath(issue) {
       return `/img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`

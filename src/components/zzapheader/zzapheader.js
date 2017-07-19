@@ -3,7 +3,7 @@ import {
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
 } from 'utils/scroll'
 
-const COMPONENT_NAME = 'zzap-header'
+const COMPONENT_NAME = 'zzap-header' // A component can't be named as an HTML tag
 const COMPONENT_CLASS = 'header'
 
 export default {
