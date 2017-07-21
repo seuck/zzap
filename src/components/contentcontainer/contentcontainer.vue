@@ -1,5 +1,5 @@
 <template>
-  <section class="content">
+  <section :class="componentClass">
     <h2>{{ title }}</h2>
     <div class="content__container">
       <slot></slot>

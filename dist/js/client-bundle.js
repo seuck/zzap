@@ -16680,11 +16680,19 @@
 	
 	var _scroll = __webpack_require__(13);
 	
+	var COMPONENT_NAME = 'content-container';
+	var CLASS_NAME = 'content';
+	
 	exports.default = {
-	  name: 'content-container',
-	  props: ['title'],
+	  name: COMPONENT_NAME,
+	  props: ['title', 'anchor'],
+	  data: function data() {
+	    return {
+	      componentClass: CLASS_NAME + ' ' + CLASS_NAME + '__' + this.anchor
+	    };
+	  },
 	  mounted: function mounted() {
-	    (0, _scroll.scrollToClassWithDefaultOffset)('content');
+	    (0, _scroll.scrollToClassWithDefaultOffset)(CLASS_NAME + '__' + this.anchor);
 	  }
 	};
 
@@ -16694,7 +16702,7 @@
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('section', {
-	    staticClass: "content"
+	    class: _vm.componentClass
 	  }, [_c('h2', [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
 	    staticClass: "content__container"
 	  }, [_vm._t("default")], 2)])
@@ -16788,15 +16796,16 @@
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('content-container', {
 	    attrs: {
-	      "title": "I diari dei programmatori"
+	      "title": "I diari dei programmatori",
+	      "anchor": "diari"
 	    }
-	  }, [_c('router-link', {
+	  }, [_c('ul', [_c('li', [_vm._v("Anche il nuovo sito del Progetto Zzap! Italia ha il suo diario. \""), _c('router-link', {
 	    attrs: {
 	      "to": {
 	        name: 'diari-zzap'
 	      }
 	    }
-	  }, [_vm._v("Il diario del nuovo Progetto Zzap! Italia")])], 1)
+	  }, [_vm._v("Il mio galeone\", di Toni Bianchetti")])], 1)])])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -16880,7 +16889,8 @@
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('content-container', {
 	    attrs: {
-	      "title": "Diario di una Pasqua creativa"
+	      "title": "Diario di una Pasqua creativa",
+	      "anchor": "diari-zzap"
 	    }
 	  }, [_c('content-section', {
 	    attrs: {

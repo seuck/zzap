@@ -1,5 +1,5 @@
 <template>
-  <content-container title="Diario di una Pasqua creativa">
+  <content-container title="Diario di una Pasqua creativa" anchor="diari-zzap">
       <content-section title="Martedì 11 Aprile 2017: 1 - Il galeone" image-style="content__section-imageodd">
         <a class="content__imagelink" href="#"><img class="content__image" src="assets/games/screenshoots/cauldron_ii.gif"></a>
 
