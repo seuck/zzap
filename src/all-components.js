@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import SmoothscrollPolyfill from 'smoothscroll-polyfill'
-import Home from 'components/home/home.vue'
+import Basepage from 'components/basepage/basepage.vue'
 import { routes } from 'constants/routes'
 
 // Init Polyfills
@@ -19,7 +19,7 @@ Vue.use(VueRouter)
 const vueZzap = new Vue({
   el: '.vueroot',
   router,
-  render: h => h(Home)
+  render: h => h(Basepage)
 })
 
 // Include all *.js files in the "components" folder but exclude .test files

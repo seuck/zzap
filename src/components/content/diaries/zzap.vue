@@ -40,4 +40,4 @@ Per fortuna, l’ampio supporto della grafica vettoriale in formato SVG nei brow
     </content-container>
 </template>
 
-<script src="../content.js"></script>
+<script src="./zzap.js"></script>

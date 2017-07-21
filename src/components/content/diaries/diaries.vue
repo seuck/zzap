@@ -4,4 +4,4 @@
   </content-container>
 </template>
 
-<script src="../content.js"></script>
+<script src="./diaries.js"></script>
