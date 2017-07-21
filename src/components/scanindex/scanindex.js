@@ -1,7 +1,8 @@
 import axios from 'axios'
-import { EVENTS } from 'constants/events'
 import { ENTITIES as ZZAPI } from 'api/zzapi'
-import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
+import {
+  scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
+} from 'utils/scroll'
 
 const COMPONENT_NAME = 'scanindex'
 
@@ -40,7 +41,8 @@ export default {
       .catch(e => this.errors.push(e))
     },
     selectIssue(issueId) {
-      this.$emit(EVENTS.selectedIssue, issueId)
+      // this.$emit(EVENTS.selectedIssue, issueId)
+      this.$root.$router.push({ name: 'numero', params: { issueId } })
       _scrollToClassWithDefaultOffset('scanissue')
     },
     buildCoverThumbPath(issue) {

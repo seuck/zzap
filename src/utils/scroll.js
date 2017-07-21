@@ -15,6 +15,8 @@ function scrollToClass(className, offset) {
         behavior: SCROLL_BEHAVIOUR
       })
     }
+    // eslint-disable-next-line no-console
+    console.log(className)
   }
 }
 

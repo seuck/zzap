@@ -62,24 +62,32 @@
 	
 	var _home2 = _interopRequireDefault(_home);
 	
+	var _routes = __webpack_require__(60);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// Init Polyfills
 	_smoothscrollPolyfill2.default.polyfill();
 	
+	// Init Vue routes
+	var router = new _vueRouter2.default({
+	  routes: _routes.routes
+	});
+	
 	// Init Vue
+	_vue2.default.config.productionTip = false;
+	_vue2.default.use(_vueRouter2.default);
 	// eslint-disable-next-line no-unused-vars
 	var vueZzap = new _vue2.default({
 	  el: '.vueroot',
+	  router: router,
 	  render: function render(h) {
 	    return h(_home2.default);
 	  }
 	});
-	_vue2.default.config.productionTip = false;
-	_vue2.default.use(_vueRouter2.default);
 	
 	// Include all *.js files in the "components" folder but exclude .test files
-	var components = __webpack_require__(66);
+	var components = __webpack_require__(72);
 	components.keys().forEach(components);
 
 /***/ }),
@@ -13185,7 +13193,7 @@
 	  /* script */
 	  __webpack_require__(7),
 	  /* template */
-	  __webpack_require__(65),
+	  __webpack_require__(59),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -13339,27 +13347,19 @@
 	
 	var _scanindex2 = _interopRequireDefault(_scanindex);
 	
-	var _scanissue = __webpack_require__(47);
+	var _scanissue = __webpack_require__(46);
 	
 	var _scanissue2 = _interopRequireDefault(_scanissue);
 	
-	var _contentcontainer = __webpack_require__(52);
-	
-	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
-	
-	var _contentsection = __webpack_require__(55);
-	
-	var _contentsection2 = _interopRequireDefault(_contentsection);
-	
-	var _reader = __webpack_require__(58);
+	var _reader = __webpack_require__(52);
 	
 	var _reader2 = _interopRequireDefault(_reader);
 	
-	var _loader = __webpack_require__(61);
+	var _loader = __webpack_require__(55);
 	
 	var _loader2 = _interopRequireDefault(_loader);
 	
-	var _classes = __webpack_require__(64);
+	var _classes = __webpack_require__(58);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -13368,8 +13368,6 @@
 	exports.default = {
 	  name: COMPONENT_NAME,
 	  components: {
-	    ContentContainer: _contentcontainer2.default,
-	    ContentSection: _contentsection2.default,
 	    Cover: _cover2.default,
 	    Index: _index2.default,
 	    Loader: _loader2.default,
@@ -13382,7 +13380,8 @@
 	    return {
 	      readerData: {},
 	      homeClass: COMPONENT_NAME,
-	      issueId: ''
+	      issueId: '',
+	      contentComponent: ''
 	    };
 	  },
 	
@@ -13540,6 +13539,8 @@
 	        behavior: SCROLL_BEHAVIOUR
 	      });
 	    }
+	    // eslint-disable-next-line no-console
+	    console.log(className);
 	  }
 	}
 	
@@ -13560,9 +13561,6 @@
 	  }, [_c('h1', [_vm._v("Progetto Zzap! Italia")]), _vm._v(" "), _c('div', {
 	    staticClass: "header__container"
 	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    },
 	    on: {
 	      "click": function($event) {
 	        _vm.scrollToClass('cover')
@@ -13582,9 +13580,6 @@
 	    staticClass: "header__navigationelement"
 	  }, [_c('a', {
 	    staticClass: "header__navigationlink",
-	    attrs: {
-	      "href": "#"
-	    },
 	    on: {
 	      "click": function($event) {
 	        _vm.scrollToClassWithDefaultOffset('index')
@@ -13594,9 +13589,6 @@
 	    staticClass: "header__navigationelement"
 	  }, [_c('a', {
 	    staticClass: "header__navigationlink",
-	    attrs: {
-	      "href": "#"
-	    },
 	    on: {
 	      "click": function($event) {
 	        _vm.scrollToClassWithDefaultOffset('scanindex')
@@ -13783,13 +13775,29 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _vm._m(0)
-	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('section', {
 	    staticClass: "index"
 	  }, [_c('h2', [_vm._v("Sommario")]), _vm._v(" "), _c('div', {
 	    staticClass: "index__container"
-	  }, [_c('section', {
+	  }, [_vm._m(0), _vm._v(" "), _c('section', {
+	    staticClass: "index__section"
+	  }, [_c('h3', {
+	    staticClass: "index__title"
+	  }, [_vm._v("Giochi caldi")]), _vm._v(" "), _c('div', {
+	    staticClass: "index__listcontainer"
+	  }, [_c('ul', {
+	    staticClass: "index__list"
+	  }, [_c('li', {
+	    staticClass: "index__item"
+	  }, [_c('router-link', {
+	    attrs: {
+	      "to": {
+	        name: 'diari'
+	      }
+	    }
+	  }, [_vm._v("I diari dei programmatori")])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)])])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6), _vm._v(" "), _vm._m(7)])])
+	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
 	    staticClass: "index__section index__section-imageodd"
 	  }, [_c('h3', {
 	    staticClass: "index__title"
@@ -13832,33 +13840,25 @@
 	    attrs: {
 	      "src": "assets/games/screenshoots/cauldron_ii.gif"
 	    }
-	  })])])]), _vm._v(" "), _c('section', {
-	    staticClass: "index__section"
-	  }, [_c('h3', {
-	    staticClass: "index__title"
-	  }, [_vm._v("Giochi caldi")]), _vm._v(" "), _c('div', {
-	    staticClass: "index__listcontainer"
-	  }, [_c('ul', {
-	    staticClass: "index__list"
-	  }, [_c('li', {
+	  })])])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('li', {
 	    staticClass: "index__item"
 	  }, [_c('a', {
 	    attrs: {
 	      "href": "#"
 	    }
-	  }, [_c('span', [_vm._v("Cauldron II")])])]), _vm._v(" "), _c('li', {
+	  }, [_vm._v("Bananas oranges pineabbles pommerades so long it requires two lines")])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('li', {
 	    staticClass: "index__item"
 	  }, [_c('a', {
 	    attrs: {
 	      "href": "#"
 	    }
-	  }, [_vm._v("Bananas oranges pineabbles pommerades so long it requires two lines")])]), _vm._v(" "), _c('li', {
-	    staticClass: "index__item"
-	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_vm._v("Oranges")])])])])]), _vm._v(" "), _c('section', {
+	  }, [_vm._v("Oranges")])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
 	    staticClass: "index__section index__section-imageeven"
 	  }, [_c('h3', {
 	    staticClass: "index__title"
@@ -13894,7 +13894,9 @@
 	    attrs: {
 	      "src": "assets/games/screenshoots/cauldron_ii.gif"
 	    }
-	  })])])]), _vm._v(" "), _c('section', {
+	  })])])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
 	    staticClass: "index__section index__section-imageodd"
 	  }, [_c('h3', {
 	    staticClass: "index__title"
@@ -13930,7 +13932,9 @@
 	    attrs: {
 	      "src": "assets/games/screenshoots/cauldron_ii.gif"
 	    }
-	  })])])]), _vm._v(" "), _c('section', {
+	  })])])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
 	    staticClass: "index__section"
 	  }, [_c('h3', {
 	    staticClass: "index__title"
@@ -13956,7 +13960,9 @@
 	    attrs: {
 	      "href": "#"
 	    }
-	  }, [_vm._v("Oranges")])])])])]), _vm._v(" "), _c('section', {
+	  }, [_vm._v("Oranges")])])])])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
 	    staticClass: "index__section"
 	  }, [_c('h3', {
 	    staticClass: "index__title"
@@ -13982,7 +13988,9 @@
 	    attrs: {
 	      "href": "#"
 	    }
-	  }, [_vm._v("Oranges")])])])])]), _vm._v(" "), _c('section', {
+	  }, [_vm._v("Oranges")])])])])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
 	    staticClass: "index__section"
 	  }, [_c('h3', {
 	    staticClass: "index__title"
@@ -14008,7 +14016,7 @@
 	    attrs: {
 	      "href": "#"
 	    }
-	  }, [_vm._v("Oranges")])])])])])])])
+	  }, [_vm._v("Oranges")])])])])])
 	}]}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -14027,7 +14035,7 @@
 	  /* script */
 	  __webpack_require__(17),
 	  /* template */
-	  __webpack_require__(46),
+	  __webpack_require__(45),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -14072,9 +14080,7 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _events = __webpack_require__(44);
-	
-	var _zzapi = __webpack_require__(45);
+	var _zzapi = __webpack_require__(44);
 	
 	var _scroll = __webpack_require__(10);
 	
@@ -14120,7 +14126,8 @@
 	      });
 	    },
 	    selectIssue: function selectIssue(issueId) {
-	      this.$emit(_events.EVENTS.selectedIssue, issueId);
+	      // this.$emit(EVENTS.selectedIssue, issueId)
+	      this.$root.$router.push({ name: 'numero', params: { issueId: issueId } });
 	      (0, _scroll.scrollToClassWithDefaultOffset)('scanissue');
 	    },
 	    buildCoverThumbPath: function buildCoverThumbPath(issue) {
@@ -15665,23 +15672,6 @@
 /* 44 */
 /***/ (function(module, exports) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var EVENTS = {
-	  openReader: 'openReader',
-	  closeReader: 'closeReader',
-	  selectedIssue: 'selectedIssue'
-	};
-	
-	exports.EVENTS = EVENTS;
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -15699,7 +15689,7 @@
 	exports.ENTITIES = ENTITIES;
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -15752,13 +15742,13 @@
 	}
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(48),
+	  __webpack_require__(47),
 	  /* template */
 	  __webpack_require__(51),
 	  /* styles */
@@ -15792,7 +15782,7 @@
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15805,11 +15795,11 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _events = __webpack_require__(44);
+	var _events = __webpack_require__(48);
 	
 	var _object = __webpack_require__(49);
 	
-	var _zzapi = __webpack_require__(45);
+	var _zzapi = __webpack_require__(44);
 	
 	var _localedate = __webpack_require__(50);
 	
@@ -15934,8 +15924,29 @@
 	  },
 	  updated: function updated() {
 	    (0, _scroll.scrollToClassWithDefaultOffset)(COMPONENT_NAME);
+	  },
+	  mounted: function mounted() {
+	    this.loadIssue(this.issueId);
+	    (0, _scroll.scrollToClassWithDefaultOffset)(COMPONENT_NAME);
 	  }
 	};
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var EVENTS = {
+	  openReader: 'openReader',
+	  closeReader: 'closeReader',
+	  selectedIssue: 'selectedIssue'
+	};
+	
+	exports.EVENTS = EVENTS;
 
 /***/ }),
 /* 49 */
@@ -16095,153 +16106,6 @@
 	  /* moduleIdentifier (server only) */
 	  null
 	)
-	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/contentcontainer/contentcontainer.vue"
-	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-	if (Component.options.functional) {console.error("[vue-loader] contentcontainer.vue: functional components are not supported with templates, they should use render functions.")}
-	
-	/* hot reload */
-	if (false) {(function () {
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  module.hot.accept()
-	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-f84e8462", Component.options)
-	  } else {
-	    hotAPI.reload("data-v-f84e8462", Component.options)
-	  }
-	  module.hot.dispose(function (data) {
-	    disposed = true
-	  })
-	})()}
-	
-	module.exports = Component.exports
-
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	  name: 'content-container',
-	  props: ['title']
-	};
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('section', {
-	    staticClass: "content"
-	  }, [_c('h2', [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
-	    staticClass: "content__container"
-	  }, [_vm._t("default")], 2)])
-	},staticRenderFns: []}
-	module.exports.render._withStripped = true
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-f84e8462", module.exports)
-	  }
-	}
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var disposed = false
-	var Component = __webpack_require__(6)(
-	  /* script */
-	  __webpack_require__(56),
-	  /* template */
-	  __webpack_require__(57),
-	  /* styles */
-	  null,
-	  /* scopeId */
-	  null,
-	  /* moduleIdentifier (server only) */
-	  null
-	)
-	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/contentsection/contentsection.vue"
-	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-	if (Component.options.functional) {console.error("[vue-loader] contentsection.vue: functional components are not supported with templates, they should use render functions.")}
-	
-	/* hot reload */
-	if (false) {(function () {
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  module.hot.accept()
-	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-e0cb29e2", Component.options)
-	  } else {
-	    hotAPI.reload("data-v-e0cb29e2", Component.options)
-	  }
-	  module.hot.dispose(function (data) {
-	    disposed = true
-	  })
-	})()}
-	
-	module.exports = Component.exports
-
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	  name: 'content-section',
-	  props: ['title', 'imageStyle']
-	};
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('section', {
-	    staticClass: "content__section",
-	    class: _vm.imageStyle
-	  }, [_c('h3', {
-	    staticClass: "content__title"
-	  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _vm._t("default")], 2)
-	},staticRenderFns: []}
-	module.exports.render._withStripped = true
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-e0cb29e2", module.exports)
-	  }
-	}
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var disposed = false
-	var Component = __webpack_require__(6)(
-	  /* script */
-	  __webpack_require__(59),
-	  /* template */
-	  __webpack_require__(60),
-	  /* styles */
-	  null,
-	  /* scopeId */
-	  null,
-	  /* moduleIdentifier (server only) */
-	  null
-	)
 	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/reader/reader.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] reader.vue: functional components are not supported with templates, they should use render functions.")}
@@ -16266,7 +16130,7 @@
 
 
 /***/ }),
-/* 59 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16275,7 +16139,7 @@
 	  value: true
 	});
 	
-	var _events = __webpack_require__(44);
+	var _events = __webpack_require__(48);
 	
 	var _scroll = __webpack_require__(10);
 	
@@ -16371,7 +16235,7 @@
 	*/
 
 /***/ }),
-/* 60 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16424,15 +16288,15 @@
 	}
 
 /***/ }),
-/* 61 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(62),
+	  __webpack_require__(56),
 	  /* template */
-	  __webpack_require__(63),
+	  __webpack_require__(57),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -16464,7 +16328,7 @@
 
 
 /***/ }),
-/* 62 */
+/* 56 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -16478,7 +16342,7 @@
 	};
 
 /***/ }),
-/* 63 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16500,7 +16364,7 @@
 	}
 
 /***/ }),
-/* 64 */
+/* 58 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -16515,7 +16379,7 @@
 	exports.CLASSES = CLASSES;
 
 /***/ }),
-/* 65 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16544,17 +16408,373 @@
 	        _vm.initIssue($event)
 	      }
 	    }
-	  }), _vm._v(" "), _c('scanissue', {
+	  }), _vm._v(" "), _c('router-view', {
 	    attrs: {
-	      "magazineId": "1",
-	      "issueId": _vm.issueId
+	      "name": "issue",
+	      "magazineId": "1"
 	    },
 	    on: {
 	      "openReader": function($event) {
 	        _vm.initReader($event)
 	      }
 	    }
-	  }), _vm._v(" "), _c('content-container', {
+	  }), _vm._v(" "), _c('router-view', {
+	    attrs: {
+	      "name": "content"
+	    }
+	  })], 1)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-29dbdfc5", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.routes = undefined;
+	
+	var _scanissue = __webpack_require__(46);
+	
+	var _scanissue2 = _interopRequireDefault(_scanissue);
+	
+	var _diaries = __webpack_require__(61);
+	
+	var _diaries2 = _interopRequireDefault(_diaries);
+	
+	var _zzap = __webpack_require__(70);
+	
+	var _zzap2 = _interopRequireDefault(_zzap);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/*
+	 * For semantic reasons, please localise routes
+	 * according to content language
+	 */
+	var routes = [{
+	  name: 'numero',
+	  path: '/numero/:issueId',
+	  components: {
+	    issue: _scanissue2.default
+	  },
+	  props: { default: false, issue: true }
+	}, {
+	  name: 'diari',
+	  path: '/diari',
+	  components: {
+	    content: _diaries2.default
+	  }
+	}, {
+	  name: 'diari-zzap',
+	  path: '/diari/zzap',
+	  components: {
+	    content: _zzap2.default
+	  }
+	}];
+	
+	exports.routes = routes;
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(6)(
+	  /* script */
+	  __webpack_require__(62),
+	  /* template */
+	  __webpack_require__(69),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/diaries/diaries.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] diaries.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-33ac01d3", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-33ac01d3", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _contentcontainer = __webpack_require__(63);
+	
+	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
+	
+	var _contentsection = __webpack_require__(66);
+	
+	var _contentsection2 = _interopRequireDefault(_contentsection);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  components: {
+	    ContentContainer: _contentcontainer2.default,
+	    ContentSection: _contentsection2.default
+	  }
+	};
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(6)(
+	  /* script */
+	  __webpack_require__(64),
+	  /* template */
+	  __webpack_require__(65),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/contentcontainer/contentcontainer.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] contentcontainer.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-6c0b2e36", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-6c0b2e36", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _scroll = __webpack_require__(10);
+	
+	exports.default = {
+	  name: 'content-container',
+	  props: ['title'],
+	  mounted: function mounted() {
+	    (0, _scroll.scrollToClassWithDefaultOffset)('content');
+	  }
+	};
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
+	    staticClass: "content"
+	  }, [_c('h2', [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
+	    staticClass: "content__container"
+	  }, [_vm._t("default")], 2)])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-6c0b2e36", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(6)(
+	  /* script */
+	  __webpack_require__(67),
+	  /* template */
+	  __webpack_require__(68),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/contentsection/contentsection.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] contentsection.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-8f6dddb6", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-8f6dddb6", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  name: 'content-section',
+	  props: ['title', 'imageStyle']
+	};
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
+	    staticClass: "content__section",
+	    class: _vm.imageStyle
+	  }, [_c('h3', {
+	    staticClass: "content__title"
+	  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _vm._t("default")], 2)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-8f6dddb6", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('content-container', {
+	    attrs: {
+	      "title": "I diari dei programmatori"
+	    }
+	  }, [_c('router-link', {
+	    attrs: {
+	      "to": {
+	        name: 'diari-zzap'
+	      }
+	    }
+	  }, [_vm._v("Il diario del nuovo Progetto Zzap! Italia")])], 1)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-33ac01d3", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(6)(
+	  /* script */
+	  __webpack_require__(62),
+	  /* template */
+	  __webpack_require__(71),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/diaries/zzap.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] zzap.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-63f57cad", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-63f57cad", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('content-container', {
 	    attrs: {
 	      "title": "Diario di una Pasqua creativa"
 	    }
@@ -16573,7 +16793,7 @@
 	    attrs: {
 	      "src": "assets/games/screenshoots/cauldron_ii.gif"
 	    }
-	  })]), _vm._v(" "), _c('p', [_vm._v("Durante la mia adolescenza i fumetti di Dylan Dog hanno affiancato la lettura di Zzap! In entrambi i casi si trattava di una lettura mensile vorace. Ma mentre una volta terminato “l’albo” dell’indagatore dell’incubo non sempre ritornavo a leggerlo, colpa anche di una qualità sempre più discontinua col passare degli anni, Zzap! lo consumavo fino al punto da metterne a dura prova la precaria rilegatura graffettata.\nNonostante le continue letture, tanto per puro godimento sensoriale che come volumi di consultazione su quella fetta di quotidianità che per me erano i videogiochi a quell’eta, i miei “numeri” di Zzap! si sono conservati abbastanza bene, integri a tal punto da servire come prime fonti per le scansioni di questo progetto.\nCome chi ci segue ha piacevolmente scoperto, quell’opera immane di digitalizzazione di tutte le pagine mai publicate di Zzap! è avanzata molto più agilmente di quanto io e Dario ci aspettavamo. Grazie el prezioso contributo di tanti volontari “scansionatori\" sparsi in lungo e in largo per la penisola italiana.")]), _vm._v(" "), _c('p', [_vm._v("Invece, l’opera parallela di sviluppare e mantenere aggiornato il sito web del Progetto ha assomigliato sempre più al galeone del nostro Dylan Dog. Un passatempo eterno, un compito incombente, un sogno irraggiungibile.\nÈ certo vero che la miniatura di un galeone una volta completata finisce in bella mostra su quella mensola così in vista, mentre mettere insieme di un prodotto informatico è per definizione un compito senza fine. Sarà per questo che si usa il verbo “sviluppare” invece che costruire, creare, o semplicemente fare?\nLo sviluppo infatti è per sempre, una meta la cui bellezza è proprio la non esistenza di un punto finale, senza che per questo non valga la pena raggiungerne le varie tappe di sviluppo che si trovano lungo il cammino.")]), _vm._v(" "), _c('a', {
+	  })]), _vm._v(" "), _c('p', [_vm._v("Durante la mia adolescenza i fumetti di Dylan Dog hanno affiancato la lettura di Zzap! In entrambi i casi si trattava di una lettura mensile vorace. Ma mentre una volta terminato “l’albo” dell’indagatore dell’incubo non sempre ritornavo a leggerlo, colpa anche di una qualità sempre più discontinua col passare degli anni, Zzap! lo consumavo fino al punto da metterne a dura prova la precaria rilegatura graffettata.\nNonostante le continue letture, tanto per puro godimento sensoriale che come volumi di consultazione su quella fetta di quotidianità che per me erano i videogiochi a quell’eta, i miei “numeri” di Zzap! si sono conservati abbastanza bene, integri a tal punto da servire come prime fonti per le scansioni di questo progetto.\nCome chi ci segue ha piacevolmente scoperto, quell’opera immane di digitalizzazione di tutte le pagine mai publicate di Zzap! è avanzata molto più agilmente di quanto io e Dario ci aspettavamo. Grazie el prezioso contributo di tanti volontari “scansionatori\" sparsi in lungo e in largo per la penisola italiana.")]), _vm._v(" "), _c('p', [_vm._v("Invece, l’opera parallela di sviluppare e mantenere aggiornato il sito web del Progetto ha assomigliato sempre più al galeone del nostro Dylan Dog. Un passatempo eterno, un compito incombente, un sogno irraggiungibile.\nÈ certo vero che la miniatura di un galeone una volta completata finisce in bella mostra su quella mensola così in vista, mentre mettere insieme un prodotto informatico è per definizione un compito senza fine. Sarà per questo che si usa il verbo “sviluppare” invece che costruire, creare, o semplicemente fare?\nLo sviluppo infatti è per sempre, una meta la cui bellezza è proprio la non esistenza di un punto finale, senza che per questo non valga la pena raggiungerne le varie tappe di sviluppo che si trovano lungo il cammino.")]), _vm._v(" "), _c('a', {
 	    staticClass: "content__imagelink",
 	    attrs: {
 	      "href": "#"
@@ -16618,28 +16838,29 @@
 	    attrs: {
 	      "src": "assets/games/screenshoots/cauldron_ii.gif"
 	    }
-	  })])])], 1)], 1)
+	  })])])], 1)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-29dbdfc5", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-63f57cad", module.exports)
 	  }
 	}
 
 /***/ }),
-/* 66 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./content/contentcontainer/contentcontainer.js": 53,
-		"./content/contentsection/contentsection.js": 56,
+		"./content/content.js": 62,
+		"./contentcontainer/contentcontainer.js": 64,
+		"./contentsection/contentsection.js": 67,
 		"./home/home.js": 7,
-		"./loader/loader.js": 62,
-		"./reader/reader.js": 59,
+		"./loader/loader.js": 56,
+		"./reader/reader.js": 53,
 		"./scanindex/scanindex.js": 17,
-		"./scanissue/scanissue.js": 48,
+		"./scanissue/scanissue.js": 47,
 		"./zzapheader/zzapheader.js": 9
 	};
 	function webpackContext(req) {
@@ -16653,7 +16874,7 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 66;
+	webpackContext.id = 72;
 
 
 /***/ })

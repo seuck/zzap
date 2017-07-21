@@ -18,7 +18,7 @@
         <h3 class="index__title">Giochi caldi</h3>
         <div class="index__listcontainer">
           <ul class="index__list">
-            <li class="index__item"><a href="#"><span>Cauldron II</span></a></li>
+            <li class="index__item"><router-link :to="{ name: 'diari' }">I diari dei programmatori</router-link></li>
             <li class="index__item"><a href="#">Bananas oranges pineabbles pommerades so long it requires two lines</a></li>
             <li class="index__item"><a href="#">Oranges</a></li>
           </ul>

@@ -123,5 +123,9 @@ export default {
   },
   updated() {
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
+  },
+  mounted() {
+    this.loadIssue(this.issueId)
+    _scrollToClassWithDefaultOffset(COMPONENT_NAME)
   }
 }

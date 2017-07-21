@@ -3,8 +3,6 @@ import Cover from 'components/cover/cover.vue'
 import Index from 'components/index/index.vue'
 import Scanindex from 'components/scanindex/scanindex.vue'
 import Scanissue from 'components/scanissue/scanissue.vue'
-import ContentContainer from 'components/content/contentcontainer/contentcontainer.vue'
-import ContentSection from 'components/content/contentsection/contentsection.vue'
 import Reader from 'components/reader/reader.vue'
 import Loader from 'components/loader/loader.vue'
 
@@ -15,8 +13,6 @@ const COMPONENT_NAME = 'home'
 export default {
   name: COMPONENT_NAME,
   components: {
-    ContentContainer,
-    ContentSection,
     Cover,
     Index,
     Loader,
@@ -29,7 +25,8 @@ export default {
     return {
       readerData: {},
       homeClass: COMPONENT_NAME,
-      issueId: ''
+      issueId: '',
+      contentComponent: ''
     }
   },
   methods: {
