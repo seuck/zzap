@@ -87,7 +87,7 @@
 	});
 	
 	// Include all *.js files in the "components" folder but exclude .test files
-	var components = __webpack_require__(77);
+	var components = __webpack_require__(90);
 	components.keys().forEach(components);
 
 /***/ }),
@@ -13351,27 +13351,39 @@
 	
 	var _home2 = _interopRequireDefault(_home);
 	
-	var _scanissue = __webpack_require__(49);
+	var _scanissue = __webpack_require__(53);
 	
 	var _scanissue2 = _interopRequireDefault(_scanissue);
 	
-	var _diaries = __webpack_require__(63);
+	var _diaries = __webpack_require__(67);
 	
 	var _diaries2 = _interopRequireDefault(_diaries);
 	
-	var _zzap = __webpack_require__(72);
+	var _zzap = __webpack_require__(76);
 	
 	var _zzap2 = _interopRequireDefault(_zzap);
 	
-	var _notfoundcomponent = __webpack_require__(75);
+	var _speciali = __webpack_require__(79);
+	
+	var _speciali2 = _interopRequireDefault(_speciali);
+	
+	var _leabbiamovistetutte = __webpack_require__(82);
+	
+	var _leabbiamovistetutte2 = _interopRequireDefault(_leabbiamovistetutte);
+	
+	var _konixmultisystem = __webpack_require__(85);
+	
+	var _konixmultisystem2 = _interopRequireDefault(_konixmultisystem);
+	
+	var _notfoundcomponent = __webpack_require__(88);
 	
 	var _notfoundcomponent2 = _interopRequireDefault(_notfoundcomponent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	/*
-	 * For semantic reasons, please localise routes
-	 * according to content language
+	 * For semantic reasons, please localise both names and routes
+	 * according to content language.
 	 */
 	var routes = [{
 	  path: '/',
@@ -13398,6 +13410,26 @@
 	      content: _diaries2.default,
 	      followup: _zzap2.default
 	    }
+	  }, {
+	    name: 'speciali',
+	    path: 'speciali',
+	    components: {
+	      content: _speciali2.default
+	    }
+	  }, {
+	    path: 'speciali/leabbiamovistetutte',
+	    name: 'speciali-leabbiamovistetutte',
+	    components: {
+	      content: _speciali2.default,
+	      followup: _leabbiamovistetutte2.default
+	    }
+	  }, {
+	    path: 'speciali/konixmultisystem',
+	    name: 'speciali-konixmultisystem',
+	    components: {
+	      content: _speciali2.default,
+	      followup: _konixmultisystem2.default
+	    }
 	  }]
 	}, {
 	  path: '*',
@@ -13415,7 +13447,7 @@
 	  /* script */
 	  __webpack_require__(10),
 	  /* template */
-	  __webpack_require__(62),
+	  __webpack_require__(66),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -13468,23 +13500,23 @@
 	
 	var _index2 = _interopRequireDefault(_index);
 	
-	var _scanindex = __webpack_require__(19);
+	var _scanindex = __webpack_require__(23);
 	
 	var _scanindex2 = _interopRequireDefault(_scanindex);
 	
-	var _scanissue = __webpack_require__(49);
+	var _scanissue = __webpack_require__(53);
 	
 	var _scanissue2 = _interopRequireDefault(_scanissue);
 	
-	var _reader = __webpack_require__(55);
+	var _reader = __webpack_require__(59);
 	
 	var _reader2 = _interopRequireDefault(_reader);
 	
-	var _loader = __webpack_require__(58);
+	var _loader = __webpack_require__(62);
 	
 	var _loader2 = _interopRequireDefault(_loader);
 	
-	var _classes = __webpack_require__(61);
+	var _classes = __webpack_require__(65);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -13862,9 +13894,9 @@
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  null,
-	  /* template */
 	  __webpack_require__(18),
+	  /* template */
+	  __webpack_require__(22),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -13899,28 +13931,177 @@
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _scrolllink = __webpack_require__(19);
+	
+	var _scrolllink2 = _interopRequireDefault(_scrolllink);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  components: {
+	    ScrollLink: _scrolllink2.default
+	  }
+	};
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(6)(
+	  /* script */
+	  __webpack_require__(20),
+	  /* template */
+	  __webpack_require__(21),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/scrolllink/scrolllink.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] scrolllink.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-f5cce476", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-f5cce476", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _scroll = __webpack_require__(13);
+	
+	exports.default = {
+	  name: 'scroll-link',
+	  props: ['anchor', 'target'],
+	  data: function data() {
+	    return {
+	      linkTarget: 'content'
+	    };
+	  },
+	
+	  methods: {
+	    scrollToAnchor: function scrollToAnchor() {
+	      // eslint-disable-next-line no-console
+	      console.log(this.linkTarget + '__' + this.anchor);
+	      (0, _scroll.scrollToClassWithDefaultOffset)(this.linkTarget + '__' + this.anchor);
+	    }
+	  },
+	  mounted: function mounted() {
+	    if (typeof this.target !== 'undefined') {
+	      this.linkTarget = this.target;
+	    }
+	  }
+	};
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('router-link', {
+	    attrs: {
+	      "to": {
+	        name: _vm.anchor
+	      }
+	    },
+	    nativeOn: {
+	      "click": function($event) {
+	        _vm.scrollToAnchor($event)
+	      }
+	    }
+	  }, [_vm._t("default")], 2)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-f5cce476", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('section', {
 	    staticClass: "index"
 	  }, [_c('h2', [_vm._v("Sommario")]), _vm._v(" "), _c('div', {
 	    staticClass: "index__container"
-	  }, [_vm._m(0), _vm._v(" "), _c('section', {
-	    staticClass: "index__section"
+	  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('section', {
+	    staticClass: "index__section index__section-imageeven"
 	  }, [_c('h3', {
 	    staticClass: "index__title"
-	  }, [_vm._v("Giochi caldi")]), _vm._v(" "), _c('div', {
+	  }, [_c('scroll-link', {
+	    attrs: {
+	      "anchor": "speciali"
+	    }
+	  }, [_vm._v("Speciali")])], 1), _vm._v(" "), _c('div', {
 	    staticClass: "index__listcontainer"
 	  }, [_c('ul', {
 	    staticClass: "index__list"
 	  }, [_c('li', {
 	    staticClass: "index__item"
-	  }, [_c('router-link', {
+	  }, [_c('scroll-link', {
 	    attrs: {
-	      "to": {
-	        name: 'diari'
-	      }
+	      "anchor": "speciali-leabbiamovistetutte"
 	    }
-	  }, [_vm._v("I diari dei programmatori")])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)])])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6), _vm._v(" "), _vm._m(7)])])
+	  }, [_vm._v("\"Le abbiamo viste tutte\", di Paolo Besser")])], 1), _vm._v(" "), _c('li', {
+	    staticClass: "index__item"
+	  }, [_c('scroll-link', {
+	    attrs: {
+	      "anchor": "speciali-konixmultisystem"
+	    }
+	  }, [_vm._v("Un sogno mai realizzato: il Konix Multisystem, di Darkj")])], 1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _c('section', {
+	    staticClass: "index__section index__section-imageodd"
+	  }, [_c('h3', {
+	    staticClass: "index__title"
+	  }, [_c('scroll-link', {
+	    attrs: {
+	      "anchor": "diari"
+	    }
+	  }, [_vm._v("Diari, interviste e SEUCK")])], 1), _vm._v(" "), _c('div', {
+	    staticClass: "index__listcontainer"
+	  }, [_c('ul', {
+	    staticClass: "index__list"
+	  }, [_c('li', {
+	    staticClass: "index__item"
+	  }, [_vm._v("Anche il nuovo sito del Progetto Zzap! Italia ha il suo diario.\n      "), _c('scroll-link', {
+	    attrs: {
+	      "anchor": "diari-zzap"
+	    }
+	  }, [_vm._v("\"Il mio galeone\", di Toni Bianchetti")])], 1), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5)]), _vm._v(" "), _vm._m(6)])]), _vm._v(" "), _vm._m(7), _vm._v(" "), _vm._m(8), _vm._v(" "), _vm._m(9)])])
 	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('section', {
 	    staticClass: "index__section index__section-imageodd"
@@ -13967,6 +14148,48 @@
 	    }
 	  })])])])
 	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('section', {
+	    staticClass: "index__section"
+	  }, [_c('h3', {
+	    staticClass: "index__title"
+	  }, [_vm._v("Giochi caldi")]), _vm._v(" "), _c('div', {
+	    staticClass: "index__listcontainer"
+	  }, [_c('ul', {
+	    staticClass: "index__list"
+	  }, [_c('li', {
+	    staticClass: "index__item"
+	  }, [_c('a', {
+	    attrs: {
+	      "href": "#"
+	    }
+	  }, [_vm._v("Bananas oranges pineabbles pommerades so long it requires two lines")])]), _vm._v(" "), _c('li', {
+	    staticClass: "index__item"
+	  }, [_c('a', {
+	    attrs: {
+	      "href": "#"
+	    }
+	  }, [_vm._v("Oranges")])])])])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('li', {
+	    staticClass: "index__item"
+	  }, [_c('a', {
+	    attrs: {
+	      "href": "#"
+	    }
+	  }, [_vm._v("Oranges")])])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('a', {
+	    staticClass: "index__imagelink",
+	    attrs: {
+	      "href": "#"
+	    }
+	  }, [_c('img', {
+	    staticClass: "index__image",
+	    attrs: {
+	      "src": "assets/games/screenshoots/cauldron_ii.gif"
+	    }
+	  })])
+	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('li', {
 	    staticClass: "index__item"
 	  }, [_c('a', {
@@ -13983,33 +14206,7 @@
 	    }
 	  }, [_vm._v("Oranges")])])
 	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('section', {
-	    staticClass: "index__section index__section-imageeven"
-	  }, [_c('h3', {
-	    staticClass: "index__title"
-	  }, [_vm._v("Speciali")]), _vm._v(" "), _c('div', {
-	    staticClass: "index__listcontainer"
-	  }, [_c('ul', {
-	    staticClass: "index__list"
-	  }, [_c('li', {
-	    staticClass: "index__item"
-	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_c('span', [_vm._v("Cauldron II")])])]), _vm._v(" "), _c('li', {
-	    staticClass: "index__item"
-	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_vm._v("Bananas oranges pineabbles pommerades so long it requires two lines")])]), _vm._v(" "), _c('li', {
-	    staticClass: "index__item"
-	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_vm._v("Oranges")])])]), _vm._v(" "), _c('a', {
+	  return _c('a', {
 	    staticClass: "index__imagelink",
 	    attrs: {
 	      "href": "#"
@@ -14019,45 +14216,7 @@
 	    attrs: {
 	      "src": "assets/games/screenshoots/cauldron_ii.gif"
 	    }
-	  })])])])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('section', {
-	    staticClass: "index__section index__section-imageodd"
-	  }, [_c('h3', {
-	    staticClass: "index__title"
-	  }, [_vm._v("Diari, interviste e SEUCK")]), _vm._v(" "), _c('div', {
-	    staticClass: "index__listcontainer"
-	  }, [_c('ul', {
-	    staticClass: "index__list"
-	  }, [_c('li', {
-	    staticClass: "index__item"
-	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_c('span', [_vm._v("Cauldron II")])])]), _vm._v(" "), _c('li', {
-	    staticClass: "index__item"
-	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_vm._v("Bananas oranges pineabbles pommerades so long it requires two lines")])]), _vm._v(" "), _c('li', {
-	    staticClass: "index__item"
-	  }, [_c('a', {
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_vm._v("Oranges")])])]), _vm._v(" "), _c('a', {
-	    staticClass: "index__imagelink",
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_c('img', {
-	    staticClass: "index__image",
-	    attrs: {
-	      "src": "assets/games/screenshoots/cauldron_ii.gif"
-	    }
-	  })])])])
+	  })])
 	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('section', {
 	    staticClass: "index__section"
@@ -14152,15 +14311,15 @@
 	}
 
 /***/ }),
-/* 19 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(20),
+	  __webpack_require__(24),
 	  /* template */
-	  __webpack_require__(48),
+	  __webpack_require__(52),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -14192,7 +14351,7 @@
 
 
 /***/ }),
-/* 20 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14201,11 +14360,11 @@
 	  value: true
 	});
 	
-	var _axios = __webpack_require__(21);
+	var _axios = __webpack_require__(25);
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _zzapi = __webpack_require__(47);
+	var _zzapi = __webpack_require__(51);
 	
 	var _scroll = __webpack_require__(13);
 	
@@ -14265,21 +14424,21 @@
 	};
 
 /***/ }),
-/* 21 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(22);
+	module.exports = __webpack_require__(26);
 
 /***/ }),
-/* 22 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
-	var bind = __webpack_require__(24);
-	var Axios = __webpack_require__(26);
-	var defaults = __webpack_require__(27);
+	var utils = __webpack_require__(27);
+	var bind = __webpack_require__(28);
+	var Axios = __webpack_require__(30);
+	var defaults = __webpack_require__(31);
 	
 	/**
 	 * Create an instance of Axios
@@ -14312,15 +14471,15 @@
 	};
 	
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(44);
-	axios.CancelToken = __webpack_require__(45);
-	axios.isCancel = __webpack_require__(41);
+	axios.Cancel = __webpack_require__(48);
+	axios.CancelToken = __webpack_require__(49);
+	axios.isCancel = __webpack_require__(45);
 	
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(46);
+	axios.spread = __webpack_require__(50);
 	
 	module.exports = axios;
 	
@@ -14329,13 +14488,13 @@
 
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var bind = __webpack_require__(24);
-	var isBuffer = __webpack_require__(25);
+	var bind = __webpack_require__(28);
+	var isBuffer = __webpack_require__(29);
 	
 	/*global toString:true*/
 	
@@ -14638,7 +14797,7 @@
 
 
 /***/ }),
-/* 24 */
+/* 28 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -14655,7 +14814,7 @@
 
 
 /***/ }),
-/* 25 */
+/* 29 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -14682,17 +14841,17 @@
 
 
 /***/ }),
-/* 26 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var defaults = __webpack_require__(27);
-	var utils = __webpack_require__(23);
-	var InterceptorManager = __webpack_require__(38);
-	var dispatchRequest = __webpack_require__(39);
-	var isAbsoluteURL = __webpack_require__(42);
-	var combineURLs = __webpack_require__(43);
+	var defaults = __webpack_require__(31);
+	var utils = __webpack_require__(27);
+	var InterceptorManager = __webpack_require__(42);
+	var dispatchRequest = __webpack_require__(43);
+	var isAbsoluteURL = __webpack_require__(46);
+	var combineURLs = __webpack_require__(47);
 	
 	/**
 	 * Create a new instance of Axios
@@ -14774,13 +14933,13 @@
 
 
 /***/ }),
-/* 27 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-	var utils = __webpack_require__(23);
-	var normalizeHeaderName = __webpack_require__(28);
+	var utils = __webpack_require__(27);
+	var normalizeHeaderName = __webpack_require__(32);
 	
 	var DEFAULT_CONTENT_TYPE = {
 	  'Content-Type': 'application/x-www-form-urlencoded'
@@ -14796,10 +14955,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(29);
+	    adapter = __webpack_require__(33);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(29);
+	    adapter = __webpack_require__(33);
 	  }
 	  return adapter;
 	}
@@ -14873,12 +15032,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 28 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
+	var utils = __webpack_require__(27);
 	
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -14891,18 +15050,18 @@
 
 
 /***/ }),
-/* 29 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-	var utils = __webpack_require__(23);
-	var settle = __webpack_require__(30);
-	var buildURL = __webpack_require__(33);
-	var parseHeaders = __webpack_require__(34);
-	var isURLSameOrigin = __webpack_require__(35);
-	var createError = __webpack_require__(31);
-	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(36);
+	var utils = __webpack_require__(27);
+	var settle = __webpack_require__(34);
+	var buildURL = __webpack_require__(37);
+	var parseHeaders = __webpack_require__(38);
+	var isURLSameOrigin = __webpack_require__(39);
+	var createError = __webpack_require__(35);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(40);
 	
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -14999,7 +15158,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(37);
+	      var cookies = __webpack_require__(41);
 	
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -15078,12 +15237,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var createError = __webpack_require__(31);
+	var createError = __webpack_require__(35);
 	
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -15110,12 +15269,12 @@
 
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var enhanceError = __webpack_require__(32);
+	var enhanceError = __webpack_require__(36);
 	
 	/**
 	 * Create an Error with the specified message, config, error code, request and response.
@@ -15134,7 +15293,7 @@
 
 
 /***/ }),
-/* 32 */
+/* 36 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -15161,12 +15320,12 @@
 
 
 /***/ }),
-/* 33 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
+	var utils = __webpack_require__(27);
 	
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -15235,12 +15394,12 @@
 
 
 /***/ }),
-/* 34 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
+	var utils = __webpack_require__(27);
 	
 	/**
 	 * Parse headers into an object
@@ -15278,12 +15437,12 @@
 
 
 /***/ }),
-/* 35 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
+	var utils = __webpack_require__(27);
 	
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -15352,7 +15511,7 @@
 
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -15394,12 +15553,12 @@
 
 
 /***/ }),
-/* 37 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
+	var utils = __webpack_require__(27);
 	
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -15453,12 +15612,12 @@
 
 
 /***/ }),
-/* 38 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
+	var utils = __webpack_require__(27);
 	
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -15511,15 +15670,15 @@
 
 
 /***/ }),
-/* 39 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
-	var transformData = __webpack_require__(40);
-	var isCancel = __webpack_require__(41);
-	var defaults = __webpack_require__(27);
+	var utils = __webpack_require__(27);
+	var transformData = __webpack_require__(44);
+	var isCancel = __webpack_require__(45);
+	var defaults = __webpack_require__(31);
 	
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -15596,12 +15755,12 @@
 
 
 /***/ }),
-/* 40 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(23);
+	var utils = __webpack_require__(27);
 	
 	/**
 	 * Transform the data for a request or a response
@@ -15622,7 +15781,7 @@
 
 
 /***/ }),
-/* 41 */
+/* 45 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -15633,7 +15792,7 @@
 
 
 /***/ }),
-/* 42 */
+/* 46 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -15653,7 +15812,7 @@
 
 
 /***/ }),
-/* 43 */
+/* 47 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -15673,7 +15832,7 @@
 
 
 /***/ }),
-/* 44 */
+/* 48 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -15698,12 +15857,12 @@
 
 
 /***/ }),
-/* 45 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Cancel = __webpack_require__(44);
+	var Cancel = __webpack_require__(48);
 	
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -15761,7 +15920,7 @@
 
 
 /***/ }),
-/* 46 */
+/* 50 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -15794,7 +15953,7 @@
 
 
 /***/ }),
-/* 47 */
+/* 51 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -15814,7 +15973,7 @@
 	exports.ENTITIES = ENTITIES;
 
 /***/ }),
-/* 48 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -15867,15 +16026,15 @@
 	}
 
 /***/ }),
-/* 49 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(50),
-	  /* template */
 	  __webpack_require__(54),
+	  /* template */
+	  __webpack_require__(58),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -15907,7 +16066,7 @@
 
 
 /***/ }),
-/* 50 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15916,17 +16075,17 @@
 	  value: true
 	});
 	
-	var _axios = __webpack_require__(21);
+	var _axios = __webpack_require__(25);
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _events = __webpack_require__(51);
+	var _events = __webpack_require__(55);
 	
-	var _object = __webpack_require__(52);
+	var _object = __webpack_require__(56);
 	
-	var _zzapi = __webpack_require__(47);
+	var _zzapi = __webpack_require__(51);
 	
-	var _localedate = __webpack_require__(53);
+	var _localedate = __webpack_require__(57);
 	
 	var localeDate = _interopRequireWildcard(_localedate);
 	
@@ -16057,7 +16216,7 @@
 	};
 
 /***/ }),
-/* 51 */
+/* 55 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -16074,7 +16233,7 @@
 	exports.EVENTS = EVENTS;
 
 /***/ }),
-/* 52 */
+/* 56 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -16084,7 +16243,7 @@
 	};
 
 /***/ }),
-/* 53 */
+/* 57 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -16099,7 +16258,7 @@
 	exports.MONTHS = MONTHS;
 
 /***/ }),
-/* 54 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16215,15 +16374,15 @@
 	}
 
 /***/ }),
-/* 55 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(56),
+	  __webpack_require__(60),
 	  /* template */
-	  __webpack_require__(57),
+	  __webpack_require__(61),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -16255,7 +16414,7 @@
 
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16264,7 +16423,7 @@
 	  value: true
 	});
 	
-	var _events = __webpack_require__(51);
+	var _events = __webpack_require__(55);
 	
 	var _scroll = __webpack_require__(13);
 	
@@ -16360,7 +16519,7 @@
 	*/
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16413,15 +16572,15 @@
 	}
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(59),
+	  __webpack_require__(63),
 	  /* template */
-	  __webpack_require__(60),
+	  __webpack_require__(64),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -16453,7 +16612,7 @@
 
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -16467,7 +16626,7 @@
 	};
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16489,7 +16648,7 @@
 	}
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -16504,7 +16663,7 @@
 	exports.CLASSES = CLASSES;
 
 /***/ }),
-/* 62 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16562,15 +16721,15 @@
 	}
 
 /***/ }),
-/* 63 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(64),
+	  __webpack_require__(68),
 	  /* template */
-	  __webpack_require__(71),
+	  __webpack_require__(75),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -16602,7 +16761,7 @@
 
 
 /***/ }),
-/* 64 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16611,33 +16770,38 @@
 	  value: true
 	});
 	
-	var _contentcontainer = __webpack_require__(65);
+	var _contentcontainer = __webpack_require__(69);
 	
 	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
 	
-	var _contentsection = __webpack_require__(68);
+	var _contentsection = __webpack_require__(72);
 	
 	var _contentsection2 = _interopRequireDefault(_contentsection);
+	
+	var _scrolllink = __webpack_require__(19);
+	
+	var _scrolllink2 = _interopRequireDefault(_scrolllink);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
 	  components: {
 	    ContentContainer: _contentcontainer2.default,
-	    ContentSection: _contentsection2.default
+	    ContentSection: _contentsection2.default,
+	    ScrollLink: _scrolllink2.default
 	  }
 	};
 
 /***/ }),
-/* 65 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(66),
+	  __webpack_require__(70),
 	  /* template */
-	  __webpack_require__(67),
+	  __webpack_require__(71),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -16669,7 +16833,7 @@
 
 
 /***/ }),
-/* 66 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16697,7 +16861,7 @@
 	};
 
 /***/ }),
-/* 67 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16716,15 +16880,15 @@
 	}
 
 /***/ }),
-/* 68 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(69),
+	  __webpack_require__(73),
 	  /* template */
-	  __webpack_require__(70),
+	  __webpack_require__(74),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -16756,7 +16920,7 @@
 
 
 /***/ }),
-/* 69 */
+/* 73 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -16770,7 +16934,7 @@
 	};
 
 /***/ }),
-/* 70 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16790,7 +16954,7 @@
 	}
 
 /***/ }),
-/* 71 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16799,13 +16963,11 @@
 	      "title": "I diari dei programmatori",
 	      "anchor": "diari"
 	    }
-	  }, [_c('ul', [_c('li', [_vm._v("Anche il nuovo sito del Progetto Zzap! Italia ha il suo diario. \""), _c('router-link', {
+	  }, [_c('ul', [_c('li', [_vm._v("Anche il nuovo sito del Progetto Zzap! Italia ha il suo diario.\n      "), _c('scroll-link', {
 	    attrs: {
-	      "to": {
-	        name: 'diari-zzap'
-	      }
+	      "anchor": "diari-zzap"
 	    }
-	  }, [_vm._v("Il mio galeone\", di Toni Bianchetti")])], 1)])])
+	  }, [_vm._v("\"Il mio galeone\", di Toni Bianchetti")])], 1)])])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -16816,15 +16978,15 @@
 	}
 
 /***/ }),
-/* 72 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
 	var Component = __webpack_require__(6)(
 	  /* script */
-	  __webpack_require__(73),
+	  __webpack_require__(77),
 	  /* template */
-	  __webpack_require__(74),
+	  __webpack_require__(78),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -16856,7 +17018,7 @@
 
 
 /***/ }),
-/* 73 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16865,11 +17027,11 @@
 	  value: true
 	});
 	
-	var _contentcontainer = __webpack_require__(65);
+	var _contentcontainer = __webpack_require__(69);
 	
 	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
 	
-	var _contentsection = __webpack_require__(68);
+	var _contentsection = __webpack_require__(72);
 	
 	var _contentsection2 = _interopRequireDefault(_contentsection);
 	
@@ -16883,7 +17045,7 @@
 	};
 
 /***/ }),
-/* 74 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -16963,7 +17125,286 @@
 	}
 
 /***/ }),
-/* 75 */
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(6)(
+	  /* script */
+	  __webpack_require__(80),
+	  /* template */
+	  __webpack_require__(81),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/speciali/speciali.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] speciali.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-0256c1cf", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-0256c1cf", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _contentcontainer = __webpack_require__(69);
+	
+	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
+	
+	var _contentsection = __webpack_require__(72);
+	
+	var _contentsection2 = _interopRequireDefault(_contentsection);
+	
+	var _scrolllink = __webpack_require__(19);
+	
+	var _scrolllink2 = _interopRequireDefault(_scrolllink);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  components: {
+	    ContentContainer: _contentcontainer2.default,
+	    ContentSection: _contentsection2.default,
+	    ScrollLink: _scrolllink2.default
+	  }
+	};
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('content-container', {
+	    attrs: {
+	      "title": "Speciali",
+	      "anchor": "speciali"
+	    }
+	  }, [_c('ul', [_c('li', [_vm._v("Un mega articolone storico di Paolo Besser scritto in occasione della temporanea\n      \"rinascita\" di Zzap! sul web nel 1996.\n      "), _c('scroll-link', {
+	    attrs: {
+	      "anchor": "speciali-leabbiamovistetutte"
+	    }
+	  }, [_vm._v("\"Le abbiamo viste tutte\", di Paolo Besser")])], 1), _vm._v(" "), _c('li', [_c('scroll-link', {
+	    attrs: {
+	      "anchor": "speciali-konixmultisystem"
+	    }
+	  }, [_vm._v("Un sogno mai realizzato: il Konix Multisystem, di Darkj")])], 1)])])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-0256c1cf", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(6)(
+	  /* script */
+	  __webpack_require__(83),
+	  /* template */
+	  __webpack_require__(84),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/speciali/pages/leabbiamovistetutte.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] leabbiamovistetutte.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-4bc6779b", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-4bc6779b", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _contentcontainer = __webpack_require__(69);
+	
+	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
+	
+	var _contentsection = __webpack_require__(72);
+	
+	var _contentsection2 = _interopRequireDefault(_contentsection);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  components: {
+	    ContentContainer: _contentcontainer2.default,
+	    ContentSection: _contentsection2.default
+	  }
+	};
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('content-container', {
+	    attrs: {
+	      "title": "Le abbiamo viste tutte, di Paolo Besser",
+	      "anchor": "speciali-leabbiamovistetutte"
+	    }
+	  }, [_c('p', [_vm._v("Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,\n      giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,\n      un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.\n      A meno che, ovviamente, debba scrivere un’autobiografia.\n      E questo tipo di manoscritti, per quanto affascinante, è sempre filtrato dai\n      ricordi, dalle emozioni vissute, dal desiderio di rimediare gli errori\n      compiuti, dalla voglia di giustificazione o di riscatto.\n      Parlare della rivista per cui si lavora, per fortuna, è sostanzialmente\n      diverso: ciò ch’è stato è stato, da qualche parte rimarrà scritto,\n      e troverai sempre il vecchio lettore pronto a contraddirti,\n      e poi c’è quella parte visibile, oggettiva, che rimarrà a tutti gli effetti\n      l’unica cosa che la gente ricorderà. Perché in fondo chi scrive non lo fa\n      solo per informare, ma anche nella speranza che qualcosa di suo rimanga in\n      eterno.\n      Laddove l’informazione è consumo, però, è una speranza difficile da realizzare.\n      Vale per il singolo giornalista, ma anche per la testata in cui scrive.\n      Quanti giornali sono nati, morti, rivissuti, e finiti un’altra volta?\n      Noi di Zzap!, questo tipo di processo, lo conosciamo bene, giacché almeno tre\n      sono state le nostre \"reincarnazioni\", di cui un paio cartacee. Una storia un\n      po’ controversa la nostra, ma che merita un approfondimento, partendo, stavolta,\n      dall’interno.")]), _vm._v(" "), _c('p', [_vm._v("Quella che leggerete di seguito, sarà una storia veramente strana.\n      Perché a conclusione della medesima verrà per forza da chiedersi cosa sia rimasto,\n      effettivamente del vecchio Zzap!, e soprattutto, di quale dei \"tanti\", perché\n      molta è la gente che ha varcato la soglia della Redazione e altrettanta è quella\n      che può dire di aver \"scritto su Zzap!\", una rivista che ha cambiato spesso\n      vertici e collaboratori. E da ognuno di essi ha preso qualcosa. Lo Zzap! di\n      Riccardo Albini è certamente diverso da quello di Fabio Rossi, ed entrambi sono\n      molto diversi da quelli di Giorgio Baratto, Stefano Gallarini, Gabriele Pasquali,\n      Giancarlo Calzetta e, ovviamente, Paolo Besser. Eppure oltre a quel logo che non\n      ha mai rispettato le leggi della prospettiva, c'è sempre stato un filo conduttore\n      composto, se non mi sbaglio, da una vena ironica irrinunciabile e da tanto,\n      tantissimo entusiasmo...")]), _vm._v(" "), _c('content-section', {
+	    attrs: {
+	      "title": "Le origini",
+	      "image-style": "content__section-imageodd"
+	    }
+	  }, [_c('p', [_vm._v("Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente bruciassero... Avevano tutti i giochi di questo mondo, loro, e riuscivano a procurarseli con una facilità davvero incredibile. Erano i tempi della pirateria da edicola, e di seguire mensilmente una pubblicazione, ovviamente come lettore, nemmeno se ne parlava: come per la maggior parte dei bambini di allora, erano i genitori a stabilire se fosse il caso d’investire quelle poche lire in una nuova \"cassettina\" per il computer, strumento per altro visto con diffidenza e disprezzo, eppure, ciò non m’impedì di leggere qualche numero di VideoGiochi, a tutti gli effetti la prima rivista italiana dedicata espressamente all’argomento. Ricordo che la curava lo Studio Vit, all’epoca legato al Gruppo Editoriale Jackson, e che improvvisamente le uscite della testata iniziarono a perdere in fatto di regolarità. Non me ne rendevo conto, ma era già finita un’epoca, e i videogiocatori un po’ più grandicelli si apprestavano a seguire le evoluzioni del mercato su una nuova rivista, \"edizione italiana\" di quella \"inglese più venduta\": Zzap!.\nZzap! uscì in sordina, nel lontano maggio del 1986, tanto in sordina che non tutte le edicole ne furono provviste. Tant’è che il mio primo contatto con la nuova pubblicazione avvenne solo otto mesi più tardi, nel dicembre dello stesso anno: il mio C16 fu soppiantato a Natale da un più potente Commodore 128, e finalmente mi mettevo nelle condizioni di \"recuperare\" tutto il tempo perduto: VideoGiochi si era nel frattempo trasformata in VideoGiochi News e aveva fatto in tempo a morire per la seconda volta, e improvvisamente tra le tante pubblicazioni dedicate all’argomento \"computer\" intravidi un logo nuovo e attraente, quello stesso che capeggia tuttora sulle copertine disegnate da Vera Gentinetta: Zzap!. Più che una parola, un sibilo. Il verso dei laser. Ci misi gli anni a capire come diavolo si pronunciasse, ma dopo sole poche ore quella sarebbe diventata la \"mia\" rivista, quella per la quale avrei rotto le balle all’edicolante ogni santo mese, \"è uscito Zzap!?\", un leitmotiv a cui si saranno abituati in tanti.\n\nSolo in seguito riuscii a recuperare i sei numeri che mancavano alla mia collezione: cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me lo spedì in regalo.\n\nZzap!, all’epoca, aveva tantissimi pregi sul lato contenutistico, ma un sacco di difetti dal punto di vista estetico. Era fatta con i pochi mezzi di chi si sta lanciando con molta cautela su un mercato nuovo, e si vedeva da lontano: pagine a colori con foto in bianco e nero, box letteralmente \"incollati\" alle pagine, poche delicatezze in fotolito. Ma a noi, patiti del joystick e abituati al nulla più assoluto, non importava gran che, visto che la passione con cui leggevamo la rivista arrivava quasi al fanatismo: nomi, date, programmatori, giochi... A volte mi sorprendo a ricordare ancora tutta questa ridda di nozioni, quando invece quelle apprese a scuola tendono ad affondare sempre di più nella nebbia dei ricordi più obsoleti, quelli che diventano sempre più indistinti e corrotti proprio per la scarsità del loro utilizzo. Che importanza poteva avere, poi, se i commenti avevano come fondo piatto uno solo dei colori fondamentali della quadricromia? O se qua e là si vedevano i segni dello scotch con cui le pellicole erano tenute assieme? Tutto, su Zzap!, era magico: l’humour imperava, certi commenti sprezzanti facevano addirittura piegare in due dal ridere, la posta spesso si distingueva per i \"flame\" del polemico di turno. Come dimenticare le lettere di Marco Spadini, o quelle di FFS, o comunque dell’esaltato del mese che, per intenderci, non mancava mai? Noi videogiocatori, \"commodoristi o spectrumisti\" che fossimo, avevamo finalmente trovato la nostra rivista, ci eravamo ritagliati quello spazio di cui sentivamo il bisogno, in un mondo che ci osservava sempre con ostilità (\"sempre lì attaccati\", \"sfigati\", \"ma cercatevi una ragazza!\", \"occhio che diventate ciechi e asociali\").")])])], 1)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-4bc6779b", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var disposed = false
+	var Component = __webpack_require__(6)(
+	  /* script */
+	  __webpack_require__(86),
+	  /* template */
+	  __webpack_require__(87),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/speciali/pages/konixmultisystem.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] konixmultisystem.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-5a9d5d0e", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-5a9d5d0e", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _contentcontainer = __webpack_require__(69);
+	
+	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
+	
+	var _contentsection = __webpack_require__(72);
+	
+	var _contentsection2 = _interopRequireDefault(_contentsection);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  components: {
+	    ContentContainer: _contentcontainer2.default,
+	    ContentSection: _contentsection2.default
+	  }
+	};
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('content-container', {
+	    attrs: {
+	      "title": "Un sogno mai realizzato: il Konix Multisystem",
+	      "anchor": "speciali-konixmultisystem"
+	    }
+	  }, [_vm._v("\ndi Darkj\n  ")])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-5a9d5d0e", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var disposed = false
@@ -16971,7 +17412,7 @@
 	  /* script */
 	  null,
 	  /* template */
-	  __webpack_require__(76),
+	  __webpack_require__(89),
 	  /* styles */
 	  null,
 	  /* scopeId */
@@ -17003,7 +17444,7 @@
 
 
 /***/ }),
-/* 76 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -17018,19 +17459,24 @@
 	}
 
 /***/ }),
-/* 77 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./content/diaries/diaries.js": 64,
-		"./content/diaries/zzap.js": 73,
-		"./contentcontainer/contentcontainer.js": 66,
-		"./contentsection/contentsection.js": 69,
+		"./content/diaries/diaries.js": 68,
+		"./content/diaries/zzap.js": 77,
+		"./content/speciali/pages/konixmultisystem.js": 86,
+		"./content/speciali/pages/leabbiamovistetutte.js": 83,
+		"./content/speciali/speciali.js": 80,
+		"./contentcontainer/contentcontainer.js": 70,
+		"./contentsection/contentsection.js": 73,
 		"./home/home.js": 10,
-		"./loader/loader.js": 59,
-		"./reader/reader.js": 56,
-		"./scanindex/scanindex.js": 20,
-		"./scanissue/scanissue.js": 50,
+		"./index/index.js": 18,
+		"./loader/loader.js": 63,
+		"./reader/reader.js": 60,
+		"./scanindex/scanindex.js": 24,
+		"./scanissue/scanissue.js": 54,
+		"./scrolllink/scrolllink.js": 20,
 		"./zzapheader/zzapheader.js": 12
 	};
 	function webpackContext(req) {
@@ -17044,7 +17490,7 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 77;
+	webpackContext.id = 90;
 
 
 /***/ })

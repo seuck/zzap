@@ -353,7 +353,8 @@ p + p {
   .scanindex__issues {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between; }
+    justify-content: space-between;
+    height: 900px; }
   .scanindex__link {
     width: 79px;
     display: block; }
