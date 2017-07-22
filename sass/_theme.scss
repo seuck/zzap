@@ -1,10 +1,10 @@
 @import "theme/colors";
 @import "theme/mixins";
 @import "theme/global";
-@import "theme/sections/header";
-@import "theme/sections/cover";
-@import "theme/sections/index";
-@import "theme/sections/scanindex";
-@import "theme/sections/scanissue";
-@import "theme/sections/content";
-@import "theme/sections/reader";
+@import "theme/components/header";
+@import "theme/components/cover";
+@import "theme/components/index";
+@import "theme/components/scanindex";
+@import "theme/components/scanissue";
+@import "theme/components/content";
+@import "theme/components/reader";
