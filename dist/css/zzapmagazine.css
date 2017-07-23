@@ -424,9 +424,21 @@ p + p {
   .scanissue__detaillink {
     display: flex;
     cursor: zoom-in; }
+  .scanissue__doublepage {
+    margin-bottom: 2px; }
   .scanissue__page {
     width: 50%;
     height: 100%; }
+    .scanissue__page[lazy=loading] {
+      background-image: url(/assets/c64_loader.gif);
+      height: 300px;
+      background-repeat: no-repeat;
+      background-size: 450px;
+      border: 0;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      image-rendering: -moz-crisp-edges;
+      -ms-interpolation-mode: nearest-neighbor; }
   .scanissue__contributorlist {
     margin: 0 46px; }
   .scanissue__contributor {

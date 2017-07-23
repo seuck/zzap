@@ -35,9 +35,24 @@
     cursor: zoom-in;
   }
 
+  &__doublepage {
+    margin-bottom: 2px;
+  }
+
   &__page {
     width: 50%;
     height: 100%;
+    &[lazy=loading] {
+      background-image: url(/assets/c64_loader.gif);
+      height: 300px;
+      background-repeat: no-repeat;
+      background-size: 450px;
+      border: 0;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      image-rendering: -moz-crisp-edges;
+      -ms-interpolation-mode: nearest-neighbor
+    }
   }
 
   &__contributorlist {

@@ -19,20 +19,20 @@
         </div>
       </div>
       <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[0].label)">
-        <img class="scanissue__page thumb" :src="buildPageThumbPath(issue.volumes[0].pages[0].label)">
+        <img class="scanissue__page thumb" v-lazy="buildPageThumbPath(issue.volumes[0].pages[0].label)">
       </a>
     </div>
 
     <div class="scanissue__content">
       <div class="scanissue__doublepage" v-for="page in doublePages">
         <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[page + 1].label)">
-          <img class="scanissue__page thumb" :src="buildPageThumbPath(issue.volumes[0].pages[page + 1].label)">
-          <img class="scanissue__page thumb" :src="buildPageThumbPath(issue.volumes[0].pages[page + 2].label)">
+          <img class="scanissue__page thumb" v-lazy="buildPageThumbPath(issue.volumes[0].pages[page + 1].label)">
+          <img class="scanissue__page thumb" v-lazy="buildPageThumbPath(issue.volumes[0].pages[page + 2].label)">
         </a>
       </div>
       <div class="scanissue__doublepage">
         <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
-          <img class="scanissue__page thumb" :src="buildPageThumbPath(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
+          <img class="scanissue__page thumb" v-lazy="buildPageThumbPath(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
         </a>
       </div>
     </div>
