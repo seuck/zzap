@@ -30,19 +30,6 @@
     width: 820px;
   }
 
-  #{$base}__container {
-    @include for-tablet-landscape-up {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-      align-content: flex-start;
-    }
-  }
-
-  #{$base}__section {
-    flex: 0 1 47%;
-  }
-
   #{$base}__section {
     &-image {
       &odd  #{$base}__image {

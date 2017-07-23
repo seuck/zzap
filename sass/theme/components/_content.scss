@@ -12,10 +12,6 @@
 
   &__section {
     padding-bottom: 60px;
-
-    @include for-tablet-landscape-up {
-      padding-bottom: 0;
-    }
   }
 
   &__imagelink {

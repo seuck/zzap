@@ -12,9 +12,12 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    // Workaround to fix element height so that viewport can correctly
-    // calculate position of following elements to scroll to
-    height: 900px;
+
+    @include for-tablet-landscape-up {
+      // Workaround to fix element height so that viewport can correctly
+      // calculate position of following elements to scroll to
+      height: 900px;
+    }
   }
 
   &__link {
