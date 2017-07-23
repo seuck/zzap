@@ -16438,6 +16438,12 @@
 	 */
 	
 	var COMPONENT_NAME = 'reader';
+	var KEY_EVENT = 'keydown';
+	var KEY_CODES = {
+	  esc: 27,
+	  left: 37,
+	  right: 39
+	};
 	
 	exports.default = {
 	  name: COMPONENT_NAME,
@@ -16447,7 +16453,8 @@
 	  },
 	  data: function data() {
 	    return {
-	      actualPage: ''
+	      actualPage: '',
+	      keyupEventListenerAtteched: false
 	    };
 	  },
 	
@@ -16472,6 +16479,23 @@
 	        this.actualPage = previousPage;
 	      }
 	    },
+	    keyboardEventHandler: function keyboardEventHandler(event) {
+	      switch (event.which) {
+	        case KEY_CODES.esc:
+	          this.close();
+	          event.preventDefault();
+	          break;
+	        case KEY_CODES.left:
+	          this.previousPage();
+	          event.preventDefault();
+	          break;
+	        case KEY_CODES.right:
+	          this.nextPage();
+	          event.preventDefault();
+	          break;
+	        default:
+	      }
+	    },
 	    initActualPage: function initActualPage(pageNumber) {
 	      if (this.actualPage === '' && typeof pageNumber !== 'undefined') {
 	        if (this.doesPageExist(pageNumber)) {
@@ -16479,9 +16503,15 @@
 	        } else {
 	          this.actualPage = 0;
 	        }
+	        if (!this.keyupEventListenerAtteched) {
+	          window.document.addEventListener(KEY_EVENT, this.keyboardEventHandler);
+	          this.keyupEventListenerAtteched = true;
+	        }
 	      }
 	    },
 	    close: function close() {
+	      window.document.removeEventListener(KEY_EVENT, this.keyboardEventHandler);
+	      this.keyupEventListenerAtteched = false;
 	      this.$emit(_events.EVENTS.closeReader);
 	      this.actualPage = '';
 	      (0, _scroll.scrollToClassWithDefaultOffset)('scanissue');

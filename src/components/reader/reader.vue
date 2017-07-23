@@ -2,7 +2,12 @@
   <section class="reader" v-if="hasContent">
     <header class="reader__navigator">
       <h2 class="reader__info">{{title}}</h2>
-      <a class="reader__close" title="Chiudi (Esc)" @click="close"><img class="reader__closeicon" src="assets/icons/zoom-out.svg"/></a>
+      <a
+        class="reader__close"
+        title="Chiudi (Esc)"
+        @click="close">
+        <img class="reader__closeicon" src="assets/icons/zoom-out.svg"/>
+      </a>
     </header>
     <div class="reader__content">
       <a class="reader__first" v-if="hasPage('first')" @click="previousPage">

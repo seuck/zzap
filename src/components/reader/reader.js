@@ -7,6 +7,12 @@ import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } fro
  */
 
 const COMPONENT_NAME = 'reader'
+const KEY_EVENT = 'keydown'
+const KEY_CODES = {
+  esc: 27,
+  left: 37,
+  right: 39
+}
 
 export default {
   name: COMPONENT_NAME,
@@ -16,7 +22,8 @@ export default {
   },
   data() {
     return {
-      actualPage: ''
+      actualPage: '',
+      keyupEventListenerAtteched: false
     }
   },
   computed: {
@@ -40,6 +47,23 @@ export default {
         this.actualPage = previousPage
       }
     },
+    keyboardEventHandler(event) {
+      switch (event.which) {
+        case KEY_CODES.esc:
+          this.close()
+          event.preventDefault()
+          break
+        case KEY_CODES.left:
+          this.previousPage()
+          event.preventDefault()
+          break
+        case KEY_CODES.right:
+          this.nextPage()
+          event.preventDefault()
+          break
+        default:
+      }
+    },
     initActualPage(pageNumber) {
       if (this.actualPage === '' && typeof pageNumber !== 'undefined') {
         if (this.doesPageExist(pageNumber)) {
@@ -47,9 +71,15 @@ export default {
         } else {
           this.actualPage = 0
         }
+        if (!this.keyupEventListenerAtteched) {
+          window.document.addEventListener(KEY_EVENT, this.keyboardEventHandler)
+          this.keyupEventListenerAtteched = true
+        }
       }
     },
     close() {
+      window.document.removeEventListener(KEY_EVENT, this.keyboardEventHandler)
+      this.keyupEventListenerAtteched = false
       this.$emit(EVENTS.closeReader)
       this.actualPage = ''
       _scrollToClassWithDefaultOffset('scanissue')
