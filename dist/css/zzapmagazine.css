@@ -422,11 +422,11 @@ p + p {
     display: flex;
     flex-direction: column; }
   .scanissue__detaillink {
-    display: flex; }
+    display: flex;
+    cursor: zoom-in; }
   .scanissue__page {
     width: 50%;
-    height: 100%;
-    cursor: url(/img/icons/24-zoom-in.png), auto; }
+    height: 100%; }
   .scanissue__contributorlist {
     margin: 0 46px; }
   .scanissue__contributor {
@@ -522,3 +522,9 @@ p + p {
     position: absolute;
     top: 20px;
     right: 20px; }
+  .reader__closeicon {
+    width: 26px; }
+  .reader__first {
+    cursor: w-resize; }
+  .reader__last {
+    cursor: e-resize; }

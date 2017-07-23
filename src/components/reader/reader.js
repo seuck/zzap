@@ -1,3 +1,4 @@
+import ReaderImage from 'components/reader/reader-image.vue'
 import { EVENTS } from 'constants/events'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
@@ -10,6 +11,9 @@ const COMPONENT_NAME = 'reader'
 export default {
   name: COMPONENT_NAME,
   props: ['pages', 'startPage', 'title'],
+  components: {
+    ReaderImage
+  },
   data() {
     return {
       actualPage: ''

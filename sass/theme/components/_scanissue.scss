@@ -32,12 +32,12 @@
 
   &__detaillink {
     display: flex;
+    cursor: zoom-in;
   }
 
   &__page {
     width: 50%;
     height: 100%;
-    cursor: url(/img/icons/24-zoom-in.png),auto;
   }
 
   &__contributorlist {
@@ -49,7 +49,7 @@
   }
 
   &__icon {
-    width: 26px;
+    width: $iconSize;
     display: inline-block;
     padding-right: 10px;
     vertical-align: middle;
