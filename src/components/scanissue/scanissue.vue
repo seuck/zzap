@@ -25,9 +25,9 @@
 
     <div class="scanissue__content">
       <div class="scanissue__doublepage" v-for="page in doublePages">
-        <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[page + 1].label)">
+        <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[page].label)">
+          <img class="scanissue__page thumb" v-lazy="buildPageThumbPath(issue.volumes[0].pages[page].label)">
           <img class="scanissue__page thumb" v-lazy="buildPageThumbPath(issue.volumes[0].pages[page + 1].label)">
-          <img class="scanissue__page thumb" v-lazy="buildPageThumbPath(issue.volumes[0].pages[page + 2].label)">
         </a>
       </div>
       <div class="scanissue__doublepage">

@@ -296,6 +296,14 @@ p + p {
     transform: rotate(-5deg); }
   .index .index__section-imageeven .index__image:nth-child(2) {
     transform: rotate(7deg); }
+  @media (min-width: 900px) {
+    .index__container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-content: flex-start; } }
+  .index__section {
+    flex: 0 1 47%; }
   .index__title {
     padding: 8px;
     background-color: #40A7E9;
@@ -400,7 +408,8 @@ p + p {
       width: 900px; } }
   .scanissue__cover {
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    margin-bottom: 2px; }
     .scanissue__cover .scanissue__detaillink {
       width: 50%; }
     .scanissue__cover .scanissue__page {

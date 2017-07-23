@@ -1,3 +1,5 @@
+$doublePageSeparation: 2px;
+
 .scanissue {
   @include fullpage;
 
@@ -7,6 +9,7 @@
   &__cover {
     display: flex;
     flex-direction: row;
+    margin-bottom: $doublePageSeparation;
 
     .scanissue__detaillink {
       width: 50%;
@@ -36,7 +39,7 @@
   }
 
   &__doublepage {
-    margin-bottom: 2px;
+    margin-bottom: $doublePageSeparation;
   }
 
   &__page {

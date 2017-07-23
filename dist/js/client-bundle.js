@@ -16186,20 +16186,26 @@
 	      if ((0, _object.isEmptyObject)(this.readerData)) {
 	        var data = {};
 	        data.title = this.issue.magazine.name + ' numero ' + this.issue.sequence + ' - ' + this.getMonth(this.issue.month) + ' ' + this.issue.year;
-	        data.startPage = startPage;
+	        // eslint-disable-next-line no-console
+	        console.log(startPage);
 	        data.pages = [];
 	
+	        // Cover
 	        data.pages.push(this.buildDoublePageForReader(undefined, this.issue.volumes[0].pages[0].label));
 	
+	        // Spreads
 	        this.doublePages.forEach(function (page) {
-	          data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[Number(page)].label, this.issue.volumes[0].pages[Number(page) + 1].label));
+	          data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[+page].label, this.issue.volumes[0].pages[+page + 1].label));
 	        }, this);
+	
+	        // Back cover
 	        data.pages.push(this.buildDoublePageForReader(this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1].label, undefined));
 	
 	        this.readerData = data;
 	        // eslint-disable-next-line no-console
 	        console.log(data);
 	      }
+	      this.readerData.startPage = Math.floor(+startPage / 2);
 	      return this.readerData;
 	    },
 	    buildDoublePageForReader: function buildDoublePageForReader(first, last) {
@@ -16354,23 +16360,23 @@
 	      staticClass: "scanissue__detaillink",
 	      on: {
 	        "click": function($event) {
-	          _vm.openReader(_vm.issue.volumes[0].pages[page + 1].label)
+	          _vm.openReader(_vm.issue.volumes[0].pages[page].label)
 	        }
 	      }
 	    }, [_c('img', {
 	      directives: [{
 	        name: "lazy",
 	        rawName: "v-lazy",
-	        value: (_vm.buildPageThumbPath(_vm.issue.volumes[0].pages[page + 1].label)),
-	        expression: "buildPageThumbPath(issue.volumes[0].pages[page + 1].label)"
+	        value: (_vm.buildPageThumbPath(_vm.issue.volumes[0].pages[page].label)),
+	        expression: "buildPageThumbPath(issue.volumes[0].pages[page].label)"
 	      }],
 	      staticClass: "scanissue__page thumb"
 	    }), _vm._v(" "), _c('img', {
 	      directives: [{
 	        name: "lazy",
 	        rawName: "v-lazy",
-	        value: (_vm.buildPageThumbPath(_vm.issue.volumes[0].pages[page + 2].label)),
-	        expression: "buildPageThumbPath(issue.volumes[0].pages[page + 2].label)"
+	        value: (_vm.buildPageThumbPath(_vm.issue.volumes[0].pages[page + 1].label)),
+	        expression: "buildPageThumbPath(issue.volumes[0].pages[page + 1].label)"
 	      }],
 	      staticClass: "scanissue__page thumb"
 	    })])])

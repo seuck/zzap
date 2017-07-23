@@ -77,19 +77,25 @@ export default {
       if (isEmptyObject(this.readerData)) {
         const data = {}
         data.title = `${this.issue.magazine.name} numero ${this.issue.sequence} - ${this.getMonth(this.issue.month)} ${this.issue.year}`
-        data.startPage = startPage
+        // eslint-disable-next-line no-console
+        console.log(startPage)
         data.pages = []
 
+        // Cover
         data.pages.push(this.buildDoublePageForReader(
           undefined,
-          this.issue.volumes[0].pages[0].label))
+          this.issue.volumes[0].pages[0].label)
+        )
 
+        // Spreads
         this.doublePages.forEach(function (page) {
           data.pages.push(this.buildDoublePageForReader(
-            this.issue.volumes[0].pages[Number(page)].label,
-            this.issue.volumes[0].pages[Number(page) + 1].label
+            this.issue.volumes[0].pages[+page].label,
+            this.issue.volumes[0].pages[+page + 1].label
           ))
         }, this)
+
+        // Back cover
         data.pages.push(this.buildDoublePageForReader(
           this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1].label,
           undefined
@@ -99,6 +105,7 @@ export default {
         // eslint-disable-next-line no-console
         console.log(data)
       }
+      this.readerData.startPage = Math.floor(+startPage / 2)
       return this.readerData
     },
     buildDoublePageForReader(first, last) {
