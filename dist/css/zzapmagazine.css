@@ -317,9 +317,6 @@ p + p {
     padding: 8px;
     background-color: #40A7E9;
     text-transform: uppercase; }
-    .index__title a {
-      box-shadow: inherit;
-      border-bottom: none; }
     .index__title:hover {
       background-color: #fea; }
   .index__listcontainer {
@@ -333,15 +330,16 @@ p + p {
     line-height: 1.3; }
   .index__item + .index__item {
     padding-top: 8px; }
-  .index__link {
-    background-color: #fea; }
-    .index__link:hover, .index__link:focus {
-      background-color: #fd0; }
+  .index .index__title a {
+    box-shadow: inherit;
+    border-bottom: none;
+    background-color: transparent; }
   .index .index__imagelink {
     box-shadow: inherit;
     border-bottom: none;
+    background-color: transparent;
     box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4);
-    background-color: #fd0;
+    background-color: #fea;
     margin: 12px -2px 0 0;
     height: 100%; }
     .index .index__imagelink:hover img {
@@ -381,6 +379,8 @@ p + p {
   .scanindex__link {
     width: 79px;
     display: block; }
+    .scanindex__link:hover .scanindex__issueinfo {
+      opacity: 1; }
   .scanindex__image {
     width: 79px; }
   .scanindex__issue {
@@ -392,14 +392,13 @@ p + p {
       @media (min-width: 900px) {
         .scanindex__issuepadding {
           display: block; } }
-  .scanindex__link:hover .scanindex__issueinfo {
+  .scanindex__issueinfo {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; }
-  .scanindex__issueinfo {
+    flex-direction: column;
     color: #ffffff;
-    display: none;
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -505,17 +504,14 @@ p + p {
     transform: rotate(-5deg); }
   .content .content__section-imageeven .content__imagelink:nth-child(2) {
     transform: rotate(7deg); }
-  .content__link {
-    background-color: #fea; }
-    .content__link:hover, .content__link:focus {
-      background-color: #fd0; }
   .content__section {
     padding-bottom: 60px; }
   .content .content__imagelink {
     box-shadow: inherit;
     border-bottom: none;
+    background-color: transparent;
     box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4);
-    background-color: #fd0;
+    background-color: #fea;
     display: table;
     margin-left: auto;
     margin-right: auto;

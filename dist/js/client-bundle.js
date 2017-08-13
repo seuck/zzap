@@ -13868,22 +13868,18 @@
 	  }), _vm._v(" "), _c('span', [_vm._v("Edizione online della rivista italiana più amata")])])]), _vm._v(" "), _c('nav', {
 	    staticClass: "cover__navigation"
 	  }, [_c('ul', [_c('li', [_c('a', {
-	    staticClass: "cover__link",
 	    attrs: {
 	      "href": "#"
 	    }
 	  }, [_c('span', [_vm._v("Scansioni")]), _c('small', [_vm._v("Sfoglia tutti i numeri di Zzap!")])])]), _vm._v(" "), _c('li', [_c('a', {
-	    staticClass: "cover__link",
 	    attrs: {
 	      "href": "#"
 	    }
 	  }, [_c('span', [_vm._v("Database")]), _c('small', [_vm._v("Tutti i dettagli delle recensioni")])])]), _vm._v(" "), _c('li', [_c('a', {
-	    staticClass: "cover__link",
 	    attrs: {
 	      "href": "#"
 	    }
 	  }, [_c('small', [_vm._v("Solo per temerari esploratori")]), _c('span', [_vm._v("Mappe")])])]), _vm._v(" "), _c('li', [_c('a', {
-	    staticClass: "cover__link",
 	    attrs: {
 	      "href": "#"
 	    }
@@ -14130,19 +14126,16 @@
 	  }, [_c('li', {
 	    staticClass: "index__item"
 	  }, [_c('a', {
-	    staticClass: "index__link",
 	    attrs: {
 	      "href": "#"
 	    }
 	  }, [_c('span', [_vm._v("Cauldron II")])])]), _vm._v(" "), _c('li', {
 	    staticClass: "index__item"
 	  }, [_vm._v("Bananas oranges pineabbles pommerades so "), _c('a', {
-	    staticClass: "index__link",
 	    attrs: {
 	      "href": "#"
 	    }
 	  }, [_vm._v("long")]), _vm._v(" it requires "), _c('a', {
-	    staticClass: "index__link",
 	    attrs: {
 	      "href": "#"
 	    }
@@ -17277,12 +17270,10 @@
 	      "src": "assets/games/screenshoots/cauldron_ii.gif"
 	    }
 	  })]), _vm._v(" "), _c('p', [_vm._v("Sono orgoglioso dei contenuti del Progetto Zzap! Italia, molto meno dell’involucro che li presenta. Il sito web attualmente online risale al lontanissimo 2004, ovvero separato dai giorni nostri da varie ere geologiche, considerando il rapido evolversi della tecnologia web.\nE nonostante qualcuno mi disse, azzeccandoci, che è così vecchio che il sito stesso, oltre che i contenuti, può ritenersi “vintage” (^_^), la mia professione è proprio quella di sviluppatore web e non posso certo mostrarlo come esempio delle mie capacità attuali.")]), _vm._v(" "), _c('p', [_vm._v("In realtà durante questi anni non sono stato totalmente ozioso. È del 2013 lo sviluppo parziale, in Ruby on Rails 2, di una API per rendere disponibili in formato JSON tutti i dati dei numeri di Zzap!, i giochi recensiti e in generale i dati disponibili nel Database del Progetto. Dell’anno successivo è invece un modulo per Wordpress, anche questo parziale, che aveva l’intenzione di aprire il sito web del Progetto a contenuti editoriali freschi sul mondo, più vivo che mai, del retrogaming e le sue evoluzioni.\nParallelamente ho creato i profili del Progetto sulle reti sociali "), _c('a', {
-	    staticClass: "content__link",
 	    attrs: {
 	      "href": "https://twitter.com/ZzapItalia"
 	    }
 	  }, [_vm._v("Twitter")]), _vm._v(" e "), _c('a', {
-	    staticClass: "content__link",
 	    attrs: {
 	      "href": "https://www.facebook.com/ProgettoZzapItalia"
 	    }
