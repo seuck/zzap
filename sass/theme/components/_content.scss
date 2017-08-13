@@ -1,44 +1,34 @@
 .content {
   @include contentpage(&);
 
-  &__link {
-    background-color: $selectionColor;
-
-    &:hover,
-    &:focus {
-      background-color: $selectionColorHover;
-    }
-  }
-
   &__section {
     padding-bottom: 60px;
   }
 
-  &__imagelink {
-    display: block;
-    padding: 8% 6% 10% 6%;
+  & .content__imagelink {
+    @include resettextlinkcontent;
+    @include imagelink;
+  
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    margin-bottom: 10%;
 
     @include for-tablet-portrait-up {
-      padding: 41px 31px 52px 31px;
+      margin-top: 41px;
+      margin-bottom: 52px;
     }
 
     @include for-tablet-landscape-up {
-      padding: 20px 20px 30px 20px;
+      margin-top: 20px;
+      margin-bottom: 30px;
     }
   }
 
   &__image {
-    @include imageshadow;
     width: 100%;
     margin: auto;
-
-    @include for-tablet-portrait-up {
-      width: 458px;
-    }
-
-    @include for-tablet-landscape-up {
-      width: 350px;
-    }
   }
 }
 

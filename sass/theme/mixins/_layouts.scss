@@ -1,0 +1,16 @@
+@mixin responsive-centered {
+  margin: 0 auto;
+  overflow: hidden;
+
+  @include for-tablet-landscape-up {
+    overflow: visible;
+  }
+}
+
+@mixin fullpage {
+  @include responsive-centered;
+
+  @include for-tablet-landscape-up {
+    width: 900px;
+  }
+}

@@ -9,10 +9,10 @@
     </div>
     <nav class="cover__navigation">
       <ul>
-        <li><a class="cover__link" href="#"><span>Scansioni</span><small>Sfoglia tutti i numeri di Zzap!</small></a></li>
-        <li><a class="cover__link" href="#"><span>Database</span><small>Tutti i dettagli delle recensioni</small></a></li>
-        <li><a class="cover__link" href="#"><small>Solo per temerari esploratori</small><span>Mappe</span></a></li>
-        <li><a class="cover__link" href="#"><span>Speciali</span><small>Rari ma imperdibili</small></a></li>
+        <li><a href="#"><span>Scansioni</span><small>Sfoglia tutti i numeri di Zzap!</small></a></li>
+        <li><a href="#"><span>Database</span><small>Tutti i dettagli delle recensioni</small></a></li>
+        <li><a href="#"><small>Solo per temerari esploratori</small><span>Mappe</span></a></li>
+        <li><a href="#"><span>Speciali</span><small>Rari ma imperdibili</small></a></li>
         <li class="cover__navigation__side"><a href="#"><small>Gioco caldo del mese</small><span>Uridium</span></a></li>
       </ul>
     </nav>

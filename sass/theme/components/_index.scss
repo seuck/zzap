@@ -18,6 +18,10 @@
     padding: 8px;
     background-color: $blue;
     text-transform: uppercase;
+
+    &:hover {
+      background-color: $linkColor;
+    }
   }
 
   &__listcontainer {
@@ -35,23 +39,24 @@
     line-height: 1.3;
   }
 
-  &__link {
-    background-color: $selectionColor;
-
-    &:hover,
-    &:focus {
-      background-color: $selectionColorHover;
-    }
+  &__item + &__item {
+    padding-top: 8px;
   }
 
-  &__imagelink {
+  & .index__title {
+    @include resettextlink;
+  }
+
+  & .index__imagelink {
+    @include resettextlinkcontent;
+    @include imagelink;
+
     margin: 12px -2px 0 0;
     height: 100%;
   }
 
   &__image {
     width: 120px;
-    @include imageshadow;
 
     @include for-tablet-landscape-up {
       width: 180px;

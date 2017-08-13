@@ -6,8 +6,8 @@
         <h3 class="index__title">Medaglie d'oro</h3>
         <div class="index__listcontainer">
           <ul class="index__list">
-            <li class="index__item"><a class="index__link" href="#"><span>Cauldron II</span></a></li>
-            <li class="index__item">Bananas oranges pineabbles pommerades so <a class="index__link" href="#">long</a> it requires <a class="index__link" href="#">two lines</a></li>
+            <li class="index__item"><a href="#"><span>Cauldron II</span></a></li>
+            <li class="index__item">Bananas oranges pineabbles pommerades so <a href="#">long</a> it requires <a href="#">two lines</a></li>
             <li class="index__item"><a href="#">Oranges</a></li>
           </ul>
           <a class="index__imagelink" href="#"><img class="index__image" src="assets/games/screenshoots/cauldron_ii.gif"></a>

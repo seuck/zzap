@@ -1,8 +1,8 @@
 $white: #fff;
 $darkGrey: #222;
 
-$selectionColor: #fea;
-$selectionColorHover: #fd0;
+$linkColor: #fea;
+$coverLinkColor: #fd0;
 
 
 // Cover colors
@@ -17,4 +17,5 @@ $lightBlue: #4ec0f5;
 
 $darkBlue: #3058a0;
 
-$translucentOverlay: rgba(0,0,0,0.6);
+$translucentOverlay: rgba(0, 0, 0, $overlayOpacity);
+$translucentShadow: rgba(0, 0, 0, $shadowOpacity);

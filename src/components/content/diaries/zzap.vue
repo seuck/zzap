@@ -23,7 +23,7 @@ Lo sviluppo infatti è per sempre, una meta la cui bellezza è proprio la non es
 E nonostante qualcuno mi disse, azzeccandoci, che è così vecchio che il sito stesso, oltre che i contenuti, può ritenersi “vintage” (^_^), la mia professione è proprio quella di sviluppatore web e non posso certo mostrarlo come esempio delle mie capacità attuali.</p>
 
         <p>In realtà durante questi anni non sono stato totalmente ozioso. È del 2013 lo sviluppo parziale, in Ruby on Rails 2, di una API per rendere disponibili in formato JSON tutti i dati dei numeri di Zzap!, i giochi recensiti e in generale i dati disponibili nel Database del Progetto. Dell’anno successivo è invece un modulo per Wordpress, anche questo parziale, che aveva l’intenzione di aprire il sito web del Progetto a contenuti editoriali freschi sul mondo, più vivo che mai, del retrogaming e le sue evoluzioni.
-Parallelamente ho creato i profili del Progetto sulle reti sociali <a class="content__link" href="https://twitter.com/ZzapItalia">Twitter</a> e <a class="content__link" href="https://www.facebook.com/ProgettoZzapItalia">Facebook</a>.
+Parallelamente ho creato i profili del Progetto sulle reti sociali <a href="https://twitter.com/ZzapItalia">Twitter</a> e <a href="https://www.facebook.com/ProgettoZzapItalia">Facebook</a>.
 </p>
 
         <p>L’ultima fatica, piacevolissima quando c’è Zzap! di mezzo, è iniziata a Natale 2016 con l’idea di rifare completamente il sito web del Progetto, iniziando dalla veste grafica e migliorandone l’accessibilitá, soprattutto per renderlo fruibile da dispositivi mobili (“responsive” web design).

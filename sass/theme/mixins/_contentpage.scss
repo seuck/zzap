@@ -1,26 +1,11 @@
-@mixin responsive-centered {
-  margin: 0 auto;
-  overflow: hidden;
-
-  @include for-tablet-landscape-up {
-    overflow: visible;
-  }
-}
-
-@mixin fullpage {
-  @include responsive-centered;
-
-  @include for-tablet-landscape-up {
-    width: 900px;
-  }
-}
-
 @mixin contentpage($base) {
   @include responsive-centered;
   
   color: $darkGrey;
   background-color: $white;
   padding: 30px 20px;
+
+  @include textlink;
 
   @include for-tablet-portrait-up {
     padding: 60px 40px;
@@ -32,7 +17,7 @@
 
   #{$base}__section {
     &-image {
-      &odd  #{$base}__image {
+      &odd  #{$base}__imagelink {
         &:nth-child(1) {
           transform: rotate(7deg);
         }
@@ -42,7 +27,7 @@
         }
       }
 
-      &even #{$base}__image {
+      &even #{$base}__imagelink {
         &:nth-child(1) {
           transform: rotate(-5deg);
         }
@@ -52,17 +37,5 @@
         }
       }
     }
-  }
-}
-
-@mixin imageshadow {
-  box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4);
-}
-
-@mixin infocomponent {
-  padding: 0 20px 30px 20px;
-
-  @include for-tablet-portrait-up {
-    padding: 0 40px 30px 40px;
   }
 }
