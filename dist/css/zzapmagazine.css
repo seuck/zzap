@@ -126,7 +126,7 @@ p + p {
   right: 0;
   background-color: #40A7E9;
   padding-left: 50px;
-  box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4); }
+  box-shadow: 7px 5px 30px 0px rgba(0, 0, 0, 0.4); }
   @media (min-width: 900px) {
     .header__navigation {
       width: 750px; } }
@@ -338,7 +338,7 @@ p + p {
     box-shadow: inherit;
     border-bottom: none;
     background-color: transparent;
-    box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 6px 18px 0px rgba(0, 0, 0, 0.4);
     background-color: #fea;
     margin: 12px -2px 0 0;
     height: 100%; }
@@ -510,7 +510,7 @@ p + p {
     box-shadow: inherit;
     border-bottom: none;
     background-color: transparent;
-    box-shadow: 7px 8px 8px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 6px 18px 0px rgba(0, 0, 0, 0.4);
     background-color: #fea;
     display: table;
     margin-left: auto;

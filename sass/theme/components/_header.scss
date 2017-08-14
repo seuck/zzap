@@ -37,7 +37,7 @@
     right: 0;
     background-color: $blue;
     padding-left: 50px;
-    @include imageshadow;
+    @include navigationshadow;
 
     @include for-tablet-landscape-up {
       width: 750px;
