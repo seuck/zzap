@@ -88,8 +88,22 @@ p {
 p + p {
   padding-top: 20px; }
 
+figure {
+  position: relative; }
+
 .lazy {
   display: none; }
+
+figcaption {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.3;
+  padding: 8px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6); }
 
 .header__container {
   margin: 0 auto;
@@ -149,10 +163,10 @@ p + p {
   margin-right: 40px; }
 
 .header__sociallink {
-  padding: 6px 12px; }
+  padding: 7px 12px; }
 
 .header__socialimage {
-  width: 23px; }
+  width: 22px; }
 
 @media (min-width: 600px) {
   .header--compact .header__navigation {
@@ -297,13 +311,13 @@ p + p {
   @media (min-width: 900px) {
     .index {
       width: 820px; } }
-  .index .index__section-imageodd .index__imagelink:nth-child(1) {
+  .index .index__section-imageodd .index__imagelink:nth-child(odd) {
     transform: rotate(7deg); }
-  .index .index__section-imageodd .index__imagelink:nth-child(2) {
+  .index .index__section-imageodd .index__imagelink:nth-child(even) {
     transform: rotate(-5deg); }
-  .index .index__section-imageeven .index__imagelink:nth-child(1) {
+  .index .index__section-imageeven .index__imagelink:nth-child(even) {
     transform: rotate(-5deg); }
-  .index .index__section-imageeven .index__imagelink:nth-child(2) {
+  .index .index__section-imageeven .index__imagelink:nth-child(odd) {
     transform: rotate(7deg); }
   @media (min-width: 900px) {
     .index__container {
@@ -496,16 +510,16 @@ p + p {
   @media (min-width: 900px) {
     .content {
       width: 820px; } }
-  .content .content__section-imageodd .content__imagelink:nth-child(1) {
+  .content .content__section-imageodd .content__imagelink:nth-child(odd) {
     transform: rotate(7deg); }
-  .content .content__section-imageodd .content__imagelink:nth-child(2) {
+  .content .content__section-imageodd .content__imagelink:nth-child(even) {
     transform: rotate(-5deg); }
-  .content .content__section-imageeven .content__imagelink:nth-child(1) {
+  .content .content__section-imageeven .content__imagelink:nth-child(even) {
     transform: rotate(-5deg); }
-  .content .content__section-imageeven .content__imagelink:nth-child(2) {
+  .content .content__section-imageeven .content__imagelink:nth-child(odd) {
     transform: rotate(7deg); }
   .content__section {
-    padding-bottom: 60px; }
+    padding-bottom: 40px; }
   .content .content__imagelink {
     box-shadow: inherit;
     border-bottom: none;
@@ -527,6 +541,12 @@ p + p {
       .content .content__imagelink {
         margin-top: 20px;
         margin-bottom: 30px; } }
+    .content .content__imagelink-right {
+      float: right;
+      margin: 20px; }
+    .content .content__imagelink-left {
+      float: left;
+      margin: 20px 40px 20px 20px; }
   .content__image {
     width: 100%;
     margin: auto; }

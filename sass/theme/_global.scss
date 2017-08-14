@@ -58,13 +58,29 @@ h3 {
 }
 
 p {
-    line-height: 1.3;
+  line-height: $lineHeight;
 }
 
 p + p {
-    padding-top: 20px;
+  padding-top: 20px;
+}
+
+figure {
+  position: relative;
 }
 
 .lazy {
-    display: none;
+  display: none;
+}
+
+figcaption {
+  color: $white;
+  font-size: 16px;
+  line-height: $lineHeight;
+  padding: 8px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background-color: $translucentOverlay;
 }
