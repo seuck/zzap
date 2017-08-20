@@ -23,8 +23,6 @@
 }
 
 @mixin imagelink {
-  @include imageshadow;
-
   background-color: $linkColor;
 
   &:hover img {

@@ -15,26 +15,24 @@
     width: 820px;
   }
 
-  #{$base}__section {
-    &-image {
-      &odd  #{$base}__imagelink {
-        &:nth-child(odd) {
-          transform: rotate(7deg);
-        }
+  #{$base}__image {
+    @include imageshadow;
 
-        &:nth-child(even) {
-          transform: rotate(-5deg);
-        }
+    &- {
+      &cw {
+        transform: rotate(7deg);
       }
 
-      &even #{$base}__imagelink {
-        &:nth-child(even) {
-          transform: rotate(-5deg);
-        }
+      &cc {
+        transform: rotate(-5deg);
+      }
 
-        &:nth-child(odd) {
-          transform: rotate(7deg);
-        }
+      &right {
+        float: right;
+      }
+  
+      &left {
+        float: left;
       }
     }
   }

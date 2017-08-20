@@ -1,4 +1,4 @@
 export default {
   name: 'content-section',
-  props: ['title', 'imageStyle']
+  props: ['title']
 }

@@ -2,7 +2,6 @@
   <content-container
     title="Le abbiamo viste tutte, di Paolo Besser"
     anchor="speciali-leabbiamovistetutte">
-
     <content-section>
       <p>Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,
         giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,
@@ -40,13 +39,13 @@
         tantissimo entusiasmo...</p>
     </content-section>
 
-    <content-section title="Le origini" image-style="content__section-imageodd">
-      <a class="content__imagelink content__imagelink-right" href="#">
-        <figure>
-          <img class="content__image" src="assets/content/speciali/leabbiamovistetutte/numero1.jpg">
-          <figcaption>La copertina del primo numero di Zzap!</figcaption>
-        </figure>
-      </a>
+    <content-section title="Le origini">
+      <content-image
+        imagePath="assets/content/speciali/leabbiamovistetutte/numero1.jpg"
+        caption="La copertina del primo numero di Zzap!"
+        align="right"
+        rotation="cw"
+      ></content-image>
       <p>Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con
         gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un
         Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente
@@ -104,62 +103,64 @@
     </content-section>
 
     <content-section title="Un &quot;dualismo&quot; persistente" >
+      <content-image
+        imagePath="assets/content/speciali/leabbiamovistetutte/numero14.jpg"
+        caption="Il numero 14 in tutto lo splendore della quadricromia"
+        align="left"
+      ></content-image>
       <p>Dal punto di vista informatico, invece, assistiamo a uno strano fenomeno: le prime console erano state praticamente seppellite dai computer a otto bit già due anni prima, e l’epoca ci permetteva ancora di dire "solo due anni prima", poiché i sistemi informatici erano nati per durare: si comprava un computer, e lo si teneva per anni, così com’era, giacché espanderne le potenzialità era impossibile. Al massimo gli si attaccava un drive per floppy disk (da 5" e ¼) che, all’epoca, costava come un odierno disco fisso da cinque giga e mezzo, e, velocità e capacità di memorizzazione a parte, svolgeva bene o male le stesse funzioni. Eppure, già s’intravvedeva il passo da gigante compiuto dal progresso: erano anche gli esordi di Amiga e Atari ST. Zzap! accolse con un certo entusiasmo il cambiamento che avveniva, noi lettori un po’ meno, tuttavia le recensioni rimasero ancora a lungo coi piedi saldamente fissati sulla terra ferma degli 8 bit. Riccardo Albini, comunque, già agl’inizi del 1987 ci ammoniva del futuro sempre più nero delle tecnologie dell’epoca, anche se quelle successive ci avrebbero impiegato almeno un paio d’anni ancora prima di affermarsi e, sul piano software, diventare veramente competitive col buon vecchio Commodore.</p>
-      <p>
-        <a class="content__imagelink content__imagelink-left" href="#">
-          <figure>
-            <img class="content__image" src="assets/content/speciali/leabbiamovistetutte/numero14.jpg">
-            <figcaption>Il numero 14 in tutto lo splendore della quadricromia</figcaption>
-          </figure>
-        </a>
-        Nell’estate dell’87 arrivò per Zzap! la prima vera rivoluzione, con l’introduzione del Macintosh in Redazione: finalmente era possibile utilizzare un programma di DTP per l’impaginazione, e, seppur con tantissimi errori qua e là, il numero 14 rappresentò un vero e proprio salto di qualità per tutto il lato grafico della testata. Si completò così quel processo che era iniziato già il mese prima, con la conversione al colore di tutte le fotografie e con l’avvento delle prime recensioni "a 16 bit". A quel punto, fu evidente che il mercato iniziava a evolversi e ad espandersi, e i riflessi sulla rivista sembravano andare di pari passo: il numero 14 rappresentò a tutti gli effetti il passaggio alla piena quadricromia per tutte le pagine della rivista.</p>
+      <p>Nell’estate dell’87 arrivò per Zzap! la prima vera rivoluzione, con l’introduzione del Macintosh in Redazione: finalmente era possibile utilizzare un programma di DTP per l’impaginazione, e, seppur con tantissimi errori qua e là, il numero 14 rappresentò un vero e proprio salto di qualità per tutto il lato grafico della testata. Si completò così quel processo che era iniziato già il mese prima, con la conversione al colore di tutte le fotografie e con l’avvento delle prime recensioni "a 16 bit". A quel punto, fu evidente che il mercato iniziava a evolversi e ad espandersi, e i riflessi sulla rivista sembravano andare di pari passo: il numero 14 rappresentò a tutti gli effetti il passaggio alla piena quadricromia per tutte le pagine della rivista.</p>
       <p>Era comunque l’anno d’oro del Commodore 64: i primi veri e propri capolavori si susseguivano con una regolarità davvero incredibile. In pochi mesi sono usciti Gunship, Wizball, World Class Leaderboard, Last Ninja, California Games, Bubble Bobble, l’incredibile Shoot ‘em up Construction Kit, Renegade, International Karate +, Buggy Boy, Nebulus e Maniac Mansion. Ognuno di questi titoli rappresentò non solo un grande successo commerciale, ma anche l’inizio di qualcosa (si pensi alle fortune della LucasArts, allora Lucasfilm Games, che seguirono a Maniac Mansion), oppure la piena realizzazione di un filone di successo (IK+, California Games, WC Leadeboard), persino le conversioni diventarono molto più accurate e ‘simili’ agli originali (Bubble Bobble, Road Runner, Buggy Boy). E per una macchina che moriva per sempre (il Commodore 16, a cui fu regalato un bellissimo speciale di ben sette pagine, sul numero di settembre), inziavano i confronti tra i due 68000 per eccellenza (dicembre).</p>
       <p>Possiamo infine considerare i primi mesi del 1988 come un’appendice dell’anno precedente, visto che a maggio ci aspetterà un cambiamento davvero inatteso. Ne parleremo comunque a tempo debito, per adesso ci preme mettere in evidenza la continuità con cui i titoloni per Commodore 64, nonostante le ombre gettate dai nuovi computer, piovevano sotto gli occhi straniti di noi lettori: Tetris non ha di certo bisogno di commenti, Platoon fu forse il più bel tie-in della storia, Apollo 18 lasciò un segno in orbita, e con uno specialone sul software a 16 bit e sui giochi scritti dai lettori con il SEUCK, si chiuse ad aprile il primo capitolo della storia di Zzap!: Riccardo Albini e tutto lo Studio VIT salutarono per sempre la rivista, ‘restituendo’ alle allora Edizioni Hobby il compito di portarla avanti.</p>
     </content-section>
 
     <content-section title="&quot;L'era Di Bello&quot;">
-      <a class="content__imagelink content__imagelink-right" href="#">
-        <figure>
-          <img class="content__image" src="assets/content/speciali/leabbiamovistetutte/numero23.jpg">
-          <figcaption>Il numero 23 segna il passaggio dalla direzione di Riccardo Albini a quella di Bonaventura Di Bello</figcaption>
-        </figure>
-      </a>
+      <content-image
+        imagePath="assets/content/speciali/leabbiamovistetutte/numero23.jpg"
+        caption="Il numero 23 segna il passaggio dalla direzione di Riccardo Albini a quella di Bonaventura Di Bello"
+        align="right"
+        rotation="cc"
+      ></content-image>
       <p>L’enfasi con cui Riccardo salutò noi tutti, c’era da aspettarselo, generò un comprensibile sgomento: la rivista sarebbe rimasta, ma a curarla non sarebbe stato più chi invece se n’era occupato tutti i mesi prima. Non vi dico lo shock, quando al posto della solita opera d’arte di Oliver Frey, mi ritrovai in mano la copertina del numero 23: per quanto simpatico, un Pac Man terribilmente piatto su sfondo a pallini non gettò certo le migliori premesse per Zzap! "nuova gestione". A rassicurarci, comunque, ci pensò l’allora sconosciuto Bonaventura Di Bello, spectrumista convinto, reduce dalle pubblicazioni "avventurose" della Xenia. Frey si era solo ammalato, il mese successivo sarebbe tornato al suo posto, e così effettivamente fu. I cambiamenti grafici, comunque, non furono grandissimi e la rivista proseguì il suo lavoro con sostanziale continuità, per fortuna mancarono le perdite qualitative che solitamente seguono i cambi repentini di redazione, e dal punto di vista "giochi recensiti" figuravano Pac Land, Arkanoid II, Rolling Thunder, Target Renegade e Winter Games II tutti lo stesso mese... Piatto ricco...
 Che la rivista, però, lentamente stesse cambiando pelle, apparì chiaro quando la nuova redazione abbandonò il sottotitolo "edizione italiana della rivista inglese più venduta" con un più amichevole e ‘patriota’ "la rivista di videogiochi più venduta in Italia". Uscivano, intanto, Impossible Mission 2, Alien Syndrome, Skate Crazy, Last Ninja II e Great Giana Sisters, primo ‘gioco scandalo’ della Rainbow Arts, software house che iniziò scopiazzando i giochi più belli a disposizione, ma che fu consacrata da nomi quali Chris Huelsbeck e Manfred Trenz: i successivi Turrican rimarranno per sempre una delle più belle saghe mai apparse. Con il numero di ottobre (27), poi, sparì la scritta verticale "VIDEOGIOCHI" che da sempre aveva caratterizzato le copertine di Zzap!, fin dall’ormai lontanissimo numero 1.</p>
       <p>Intanto, iniziava finalmente a formarsi il primo nucleo della redazione italiana: al lavoro (monumentale) di sostanziale traduzione e integrazione dei testi inglesi ad opera di Bonaventura, si affiancarono Fabio Rossi (caporedattore) e i primi collaboratori, tra cui l’oggi ingegnere Stefano Giorgi. La grafica della rivista si era intanto fatta un po’ meno briosa e colorata, in favore a un registro più tradizionale e serioso, eppure la quantità di bianco iniziava a diminuire drammaticamente: appaiono timidamente i primi fondini, aumentano le rubriche, ma continuano a mancare le caricature dei redattori italiani. Intanto, tra novembre e dicembre, si chiude il 1988 e i botti non mancano. Arrivano infatti Cybernoid II, Armalyte, la conversione per C64 di Sinbad, Bombuzal e l’ineguagliato capolavoro della Lucas Zak McKracken and the Alien Mindbenders. Il prezzo aumenta a 4000 lire e per Zzap! è il culmine della sua storia: da un paio di mesi, infine, tutto il materiale al di fuori degli 8 bit fa le valigie e approda sulla neonata The Games Machine.</p>
     </content-section>
 
     <content-section title="La fine degli anni '80, e il declino degli 8 bit">
+      <content-image
+        imagePath="assets/content/speciali/leabbiamovistetutte/numero33.jpg"
+        caption="L'&quot;esclusiva&quot; del numro 33: la recensione di &quot;Zak McKracken 2&quot;"
+        align="left"
+        rotation="cc"
+      ></content-image>
       <p>All’inizio del 1989, Zzap! apre alla grande superando, per la prima volta, il tetto delle 100 pagine. Carne da mettere al fuoco ce n’è a chili: in un solo mese superano il 90% Microprose Soccer, Total Eclypse, Thunder Blade, Neuromancer, Robocop, R-Type e Bat Man. Il 30 rimarrà a tutti gli effetti un numero ‘storico’, poiché i suoi record non furono mai più superati in futuro. Compaiono, finalmente, le facce dei redattori nostrani (e non sono delle belle facce... ;-).</p>
-      <p>
-        <a class="content__imagelink content__imagelink-right" href="#">
-          <figure>
-            <img class="content__image" src="assets/content/speciali/leabbiamovistetutte/numero33.jpg">
-            <figcaption>L'&quot;esclusiva&quot; del numro 33: la recensione di &quot;Zak McKracken 2&quot;</figcaption>
-          </figure>
-        </a>
-        Il numero 33, quello di Aprile, rimarrà per sempre segnato come "quello di Zak McKracken 2": per la prima volta, una rivista d’informatica confezionerà il "pesce d’aprile" che, negli anni successivi, sarebbe diventato una tradizione per tutte le testate, in particolare TGM. Visto che è attualmente on line, non sto qui a replicare nulla, semplicemente leggetevela (e divertitevi) cliccando qui.</p>
+      <p>Il numero 33, quello di Aprile, rimarrà per sempre segnato come "quello di Zak McKracken 2": per la prima volta, una rivista d’informatica confezionerà il "pesce d’aprile" che, negli anni successivi, sarebbe diventato una tradizione per tutte le testate, in particolare TGM. Visto che è attualmente on line, non sto qui a replicare nulla, semplicemente leggetevela (e divertitevi) cliccando qui.</p>
       <p>Da qui alla fine dell’anno, i titoloni continuano a uscire, ma iniziano a scarseggiare e a mancare di quell’originalità e di quell’entusiasmo che aveva caratterizzato i loro predecessori: Renegade 3 viene abbondantemente sopravvalutato, Denaris (Katakis) è il secondo titolo-fotocopia della Rainbow Arts, Silkworm una bella conversione. E poi ancora: Speedball, Phobia, Project Firestart, Rainbow Islands, Power Drift, Tusker, New Zealand Story, Batman The Movie, The Untouchables, Myth, Stunt Car Racer, Turbo Out Run e Chase HQ... Il numero di ottobre, poi, sarà caratterizzato dall’onnipresenza di tre caricature italiane in stile fumettoso, quelle di Marco Auletta, Antonello Jannone, Stefano Gallarini e, in un tempo immediatamente successivo, Max Reynaud. La redazione si era intanto ampliata, e comparivano – oltre ai succitati – anche i nomi di Giorgio Baratto, Matteo Bittanti (il "misterioso" MBF), Paolo Cardillo, Simone Crosignani, William e Giorgio Baldaccini. Cambio radicale della guardia, infine, per la redazione inglese: i vari Gordon Houghton, Paul Glancey, Julian Rignall e Katy Hamza a cui eravamo abituati, lasciano il posto a Phil King e a Robin Hogg. Per quanto i loro predecessori non fossero mai stati degli adoni, questi erano francamente molto più brutti...</p>
-      <p>Il nuovo decennio inizia all’insegna della violenza digitale, con una bella copertina di Oliver Frey ispirata a Operation Thunderbolt. Tornano intanto le console (comunque presenti anche su TGM), e Super Mario Bors 2 si cucca immediatamente la medaglia (con tanto di faccione entusiasta di Marco Auletta, forse allora conosciuto maggiormente per le sue iniziali...); si prosegue con Vendetta sul numero di Febbraio, e, sul numero di Marzo, appare il primo tocco di fig...liuola in copertina della storia di Zzap!: 4th Dimension, compilation unica nel suo genere in quanto la Hewson ha messo in una sola scatola quattro giochi molto ma mooolto belli e, soprattutto, inediti.
-        <content-image
-          path="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
-          caption="La splendida protagonista di &quot;Insects is Space&quot; creata da Sensible Software"
-          style="left"
-        ></content-image>
-        <a class="content__imagelink content__imagelink-left" href="#">
-          <figure>
-            <img class="content__image" src="assets/content/speciali/leabbiamovistetutte/numero43.jpg">
-            <figcaption>La splendida protagonista di &quot;Insects is Space&quot; creata da Sensible Software</figcaption>
-          </figure>
-        </a>
-      </p>
+      <content-image
+        imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+        caption="La splendida protagonista di &quot;Insects is Space&quot; creata da Sensible Software"
+        align="right"
+        rotation="cw"
+      ></content-image>
+      <p>Il nuovo decennio inizia all’insegna della violenza digitale, con una bella copertina di Oliver Frey ispirata a Operation Thunderbolt. Tornano intanto le console (comunque presenti anche su TGM), e Super Mario Bors 2 si cucca immediatamente la medaglia (con tanto di faccione entusiasta di Marco Auletta, forse allora conosciuto maggiormente per le sue iniziali...); si prosegue con Vendetta sul numero di Febbraio, e, sul numero di Marzo, appare il primo tocco di fig...liuola in copertina della storia di Zzap!: 4th Dimension, compilation unica nel suo genere in quanto la Hewson ha messo in una sola scatola quattro giochi molto ma mooolto belli e, soprattutto, inediti.</p>
       <p>Posta davvero un po’ particolare questo mese: dallo scandalo degli annali (con due persone che se ne contendono la paternità) si arriva per le considerazioni filosofiche di Giò Peccati, passando naturalmente per... l’angolo di BovaByte!!! Ebbene sì, risale a questo mese il primo articolo di una serie destinata a imperversare ancora oggi sulle pagine di TGM. Ricordatevelo bene: se adesso sono qui a tediarvi, è solo grazie alla risposta che ci diede il Bittanti proprio su quel lontanissimo numero di Zzap!.. Ad Aprile il pesce ce lo fa Frey, ma stavolta lo freghiamo noi! Turrican fa bella mostra di sé e passa immediatamente dopo alla storia; a maggio arriva il PC Engine e tutti sbaviamo, tranne MA che, con il suo solito fare dispotico, è riuscito a mettergli le mani sopra e a non farlo più toccare a nessuno. A giungo arriva Fighter Bomber per Spectrum, ed è subito medaglia d’oro, mentre a luglio la copertina è tutta per Secret Agent. A settembre arriva una notizia tragica: Frey non avrebbe più ‘firmato’ l’immagine di copertina, ma per fortuna si tratta solo di una sola. Chi lo sostituisce, comunque, riesce a fare un pessimo lavoro su Time Machine, la cui preview è a tutti gli effetti l’articolo più importante del mese. Va necessariamente detto che il 1990 non è un bell’anno per Zzap!: poche idee, poco software, e soprattutto un’impaginazione ripetitiva tendono a rendere la rivista ancor più scialba di quella che effettivamente era... La posta passa in mano a Carlo Santagostino.</p>
       <p>Il 1990 si trascina senza troppi entusiasmi fino a dicembre (i fasti di due anni prima sembrano lontani un secolo), quando uno speciale 50° numero in ritardo di un mese (siamo infatti al 51) contiene le recensioni di Lupo Alberto, Creatures, Chase HQ 2, Midnight Resistance, Shadow of the Beast e Ghouls’n’Ghost (per Megadrive). Un redazionale di quelli memorabili ricorda, brevemente, tutte le medaglie d’oro assegnate fino allora.</p>
     </content-section>
 
     <content-section title="I '90: anni &quot;bui&quot;">
+      <content-image
+        imagePath="assets/content/speciali/leabbiamovistetutte/numero53.jpg"
+        caption="Medaglia d'oro a Turrican 2"
+        align="left"
+      ></content-image>
       <p>Che il 1991 non sarebbe stato un anno molto più esaltante del precedente, lo si vide sin dalla prima copertina: le Tartarughe Ninja non sono infatti il soggetto più felice ma, a onor del vero, va riconosciuto che il gioco è anche peggio. Appaiono le prime due recensioni per Neo Geo, e sono ovviamente due medaglie d’oro, mentre il Commodore ci riserva solo Robocop II e Ninja Remix, vittima di un’agonia che sembra regalare l’ultimo momento di lucidità a febbraio: ben ventitrè giochi recensiti, tra cui l’immortale Turrican 2 e il maniacale Klax. Arriva anche Shadow of the Beast per il 64, ma più interessante è l’avventura grafica Mean Streets, forse l’unica che portò l’agente Tex Murphy anche sugli otto bit. A marzo inizia quella che verrà definita "la diaspora" dei redattori di Zzap! e TGM: Stefano Gallarini un bel giorno decide di fare piazza pulita dei collaboratori, e di tutti gli arrivi più recenti se ne salveranno solo due... indovinate quali... Comunque sia, ancora due mesi e Zzap! cambierà completamente pelle: la direzione della rivista passa in mano completamente a Stefano, Bonvantura Di Bello uscirà improvvisamente di scena dopo un ultimo editoriale nostalgico, e con lui se ne va anche la vecchia impaginazione. La nuova ‘faccia’ prevede molte più pagine colorate, commenti tondeggianti e caricature un po’ deformi... non piace gran che e nei mesi successivi subisce continue modifiche.
 Per qualche mese Gabriele Pasquali ricopre la carica di caporedattore, dopodiché quest’ultima passa in mano a Giancarlo Calzetta. Il buon JH si applica, ma è anche l’epoca del buco redazionale e del "non sono d’accordo con te, Paolo", frase che mi sentirò ripetere nei suoi commenti almeno seicento volte. Con la seconda metà del 91, arrivano Mercs, Bonanza Bros, Wrath of the Demon, Rubicon, Out Run Europa, Terminator II e Spot. Fallisce la Newsfield Publications e Zzap! perde tutti i legami con il suo passato anglosassone, diventando a tutti gli effetti una rivista italiana. In quel periodo, nasce anche Consolemania, e la redazione si amplia: arrivano anche Stefano Petrullo, Emanuele Scihilone e Giovanni Papandrea. Nasce anche un nuovo "redattore pirla": è Geims Tonn, personaggio creato tempo addietro da Paolo Besser e Andrea Cavallotti sul giornale del Liceo, poi approdato tra le recensioni di Zzap!</p>
+      <content-image
+        imagePath="assets/content/speciali/leabbiamovistetutte/numero65.jpg"
+        caption="Il peggior numero della storia di Zzap!"
+        align="right"
+        rotation="cc"
+      ></content-image>
       <p>Nel 1992 iniziano gli articoli ‘storici', più una serie di nuove rubriche nate con il chiaro scopo di riempire lo spazio lasciato inesorabilmente vuoto dalla penuria – ormai cronica – di software per gli otto bit. Eppure, sul numero di Febbraio Stefano Gallarini riesce a tirare fuori ben otto pagine di giochi Amstrad, mentre a Marzo uscirà "il peggior numero della storia di Zzap!", come lo definimmo tutti dopo averlo visto in redazione: l’impaginazione passa, per la prima e anche ultima volta, a una società che stravolgerà completamente il progetto originario, riporterà dei voti assolutamente a caso in alcune pagelle, tra cui anche quella del meraviglioso Catalypse (uno shoot’em up tutto italiano davvero ganzo), e ci regalerà i box del Top Secret in assoluto più ridicoli mai apparsi (ce n’erano alcuni che sembravano dei manifestini funebri...). Davvero incredibile la finta pubblicità del Nuvenia Socket, "il detergente intimo del disk drive", con cui BovaByte fa davvero centro: qualcuno andrà anche a cercarlo nei negozi. La posta, nonostante la ‘firma’ sia ancora quella di Ricki, passa in mano al malefico duo: i Bovas, che già da qualche mese curavano quella di Consolemania. Ad Aprile la grafica torna in mano a Carlo e Alessandra Gandolfi, e i risultati si vedono: pur mantenendo il progetto elaborato dai disgraziati del mese prima, fondini ultracolor e scontorni qua e là abbellirano le recensioni di Indy Heat, PP Hammer, Mille Miglia e Lemmings per Spectrum. Parte il concorso con cui Zzap! regalerà 300 orologi personalizzati. A maggio arrivano sul Commodore 64 Chuck Rock, Space Gun, e una vera e propria invasione di budget games. Intanto i mesi passano, e si avvicina la ‘fine’ di Zzap! intesa come rivista a sé stante: gli ultimi sussulti sono rappresentati da Alien World, Winter Camp, Creatures 2, Robocod (James Pond 2), Bonanza Bros, The Cool Crock Twins e Budokan. Il numero di Novembre sarà il primo con la mia firma come caporedattore (Giancarlo Calzetta era partito per militare), e con me tornano le copertine ‘violente’: sarà infatti Elvira 2, 99%, a fare da gran finale per la storia del C64: col numero successivo, infatti, si chiude per sempre un ciclo.</p>
     </content-section>
 
@@ -167,6 +168,11 @@ Per qualche mese Gabriele Pasquali ricopre la carica di caporedattore, dopodich�
       <p>"Avete visto la novità? Adesso BovaByte vi regala anche The Games Machine! Sì, perché voi eravate convinti che fosse Zzap! ad avere, al suo interno, BovaByte. E invece era l’esatto opposto! E ora che Zzap! è contenuto in TGM, allora BovaByte, oltre a Zzap!, ha al suo esterno anche The Games Machine! Siete convinti? No? Beh, in fondo è solo questione di punti di vista". Con questa autoironica, ma anche amara battuta sulle pagine di BovaByte, e con una copertina davvero acidissima e ultrademenziale, si apre un nuovo capitolo nella storia di Zzap!, ormai ridotto a 16 pagine e incluso come inserto al centro di The Games Machine.
 Seppur bioridotta, la rivista riesce comunque a mantenere inalterato il suo spirito goliardico e indipendente, e in questi mesi riesce ancora a proporre le recensioni di Cool World, Rampart, Street Fighter 2, Lethal Waepon, 3D World Tennis, Smash, Wrath of The Demon, The First Samurai, Sleepwalker, Nobby the Aardwark, Trolls, Ugh! e Alien 3. Non mancano i momenti epici, tipo quando ci è arrivata la protesta di un gruppo di mamme perché un ragazzino, dopo aver letto un angolo di BovaByte, è stato sospeso da scuola in quanto brascato a giocare con una console portatile; oppure anche l’ultimo, strappalacrime editoriale con cui redattori vecchi e nuovi salutavano ‘per sempre’ una rivista che aveva rappresentato un’epoca.</p>
       <p>La redazione è formata essenzialmente da me, Davide Corrado, Silvia Patanè, Giancarlo Albertinazzi, Cristiana Marchini, Varia Vilardo, Luca Reynaud, Stefano Petrullo ed Emanuele Scihilone. Le caricature, tutte estremamente tondeggianti e per la prima volta unificate nello stile, sono opera di Rudy Mascheretti. In precedenza, erano state disegnate anche da me e da Eloisa Scihilone.</p>
+      <content-image
+        imagePath="assets/content/speciali/leabbiamovistetutte/numero74.jpg"
+        caption="Il primo Zzap!, ridotto a 16 pagine, allegato a The Games Machine"
+        rotation="cw"
+      ></content-image>
     </content-section>
 
     <content-section title="Estate 1996: la rinascita">

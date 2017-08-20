@@ -92,7 +92,7 @@
 	});
 	
 	// Include all *.js files in the "components" folder but exclude .test files
-	var components = __webpack_require__(97);
+	var components = __webpack_require__(100);
 	components.keys().forEach(components);
 
 /***/ }),
@@ -13395,6 +13395,10 @@
 	
 	var _notfoundcomponent2 = _interopRequireDefault(_notfoundcomponent);
 	
+	var _image = __webpack_require__(97);
+	
+	var _image2 = _interopRequireDefault(_image);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	/*
@@ -13420,8 +13424,8 @@
 	      content: _diaries2.default
 	    }
 	  }, {
-	    path: 'diari/zzap',
 	    name: 'diari-zzap',
+	    path: 'diari/zzap',
 	    components: {
 	      content: _diaries2.default,
 	      followup: _zzap2.default
@@ -13433,18 +13437,24 @@
 	      content: _speciali2.default
 	    }
 	  }, {
-	    path: 'speciali/leabbiamovistetutte',
 	    name: 'speciali-leabbiamovistetutte',
+	    path: 'speciali/leabbiamovistetutte',
 	    components: {
 	      content: _speciali2.default,
 	      followup: _leabbiamovistetutte2.default
 	    }
 	  }, {
-	    path: 'speciali/konixmultisystem',
 	    name: 'speciali-konixmultisystem',
+	    path: 'speciali/konixmultisystem',
 	    components: {
 	      content: _speciali2.default,
 	      followup: _konixmultisystem2.default
+	    }
+	  }, {
+	    name: 'demo-content-image',
+	    path: 'demo/content/image',
+	    components: {
+	      content: _image2.default
 	    }
 	  }]
 	}, {
@@ -13452,6 +13462,7 @@
 	  component: _notfoundcomponent2.default
 	}];
 	
+	// Demo
 	exports.routes = routes;
 
 /***/ }),
@@ -17105,7 +17116,7 @@
 	});
 	exports.default = {
 	  name: 'content-section',
-	  props: ['title', 'imageStyle']
+	  props: ['title']
 	};
 
 /***/ }),
@@ -17114,8 +17125,7 @@
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('section', {
-	    staticClass: "content__section",
-	    class: _vm.imageStyle
+	    staticClass: "content__section"
 	  }, [(_vm.title) ? _c('h3', {
 	    staticClass: "content__title"
 	  }, [_vm._v(_vm._s(_vm.title))]) : _vm._e(), _vm._v(" "), _vm._t("default")], 2)
@@ -17231,8 +17241,7 @@
 	    }
 	  }, [_c('content-section', {
 	    attrs: {
-	      "title": "Martedì 11 Aprile 2017: 1 - Il galeone",
-	      "image-style": "content__section-imageodd"
+	      "title": "Martedì 11 Aprile 2017: 1 - Il galeone"
 	    }
 	  }, [_c('a', {
 	    staticClass: "content__imagelink",
@@ -17256,8 +17265,7 @@
 	    }
 	  })]), _vm._v(" "), _c('p', [_vm._v("Scrivo queste righe proprio per raccontare la tappa successiva che sta per raggiungere il sito web del Progetto Zzap! Italia.")])]), _vm._v(" "), _c('content-section', {
 	    attrs: {
-	      "title": "Mercoledì 12 Aprile 2017: 2 - Dove siamo",
-	      "image-style": "content__section-imageodd"
+	      "title": "Mercoledì 12 Aprile 2017: 2 - Dove siamo"
 	    }
 	  }, [_c('a', {
 	    staticClass: "content__imagelink",
@@ -17399,11 +17407,11 @@
 	    attrs: {
 	      "anchor": "speciali-leabbiamovistetutte"
 	    }
-	  }, [_vm._v("\"Le abbiamo viste tutte\", di Paolo Besser")])], 1), _vm._v(" "), _c('li', [_c('scroll-link', {
+	  }, [_vm._v("\"Le abbiamo viste tutte\"")])], 1), _vm._v(" "), _c('li', [_vm._v("Un sogno mai realizzato: il "), _c('scroll-link', {
 	    attrs: {
 	      "anchor": "speciali-konixmultisystem"
 	    }
-	  }, [_vm._v("Un sogno mai realizzato: il Konix Multisystem, di Darkj")])], 1)])])
+	  }, [_vm._v("Konix Multisystem")]), _vm._v(", di Darkj")], 1)])])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -17535,22 +17543,31 @@
 	  value: true
 	});
 	/**
-	 * style: left | right
+	 * align: left | right
+	 * rotation: cw, cc
 	 */
 	
 	exports.default = {
-	  name: 'content-image',
-	  props: ['path', 'linkUrl', 'caption', 'style'],
+	  name: 'content__image',
+	  props: ['imagePath', 'linkUrl', 'caption', 'align', 'rotation'],
 	  computed: {
 	    fullStyle: function fullStyle() {
-	      var fullStyle = '';
-	      var baseStyle = 'content__imagelink';
-	      if (typeof this.style !== 'undefined') {
-	        fullStyle = baseStyle + ' ' + baseStyle + '-' + this.style;
-	      } else {
-	        fullStyle = baseStyle;
+	      var styles = [];
+	      var baseStyle = 'content__image';
+	      styles.push(baseStyle);
+	
+	      if (typeof this.linkUrl !== 'undefined') {
+	        styles.push(baseStyle + '-link');
 	      }
-	      return fullStyle;
+	      if (typeof this.align !== 'undefined') {
+	        styles.push(baseStyle + '-' + this.align);
+	      }
+	
+	      if (typeof this.rotation !== 'undefined') {
+	        styles.push(baseStyle + '-' + this.rotation);
+	      }
+	
+	      return styles.join(' ');
 	    }
 	  }
 	};
@@ -17560,17 +17577,21 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('a', {
-	    class: _vm.fullStyle,
+	  return _c('figure', {
+	    class: _vm.fullStyle
+	  }, [(_vm.linkUrl) ? _c('a', {
 	    attrs: {
 	      "href": _vm.linkUrl
 	    }
-	  }, [_c('figure', [_c('img', {
-	    staticClass: "content__image",
+	  }, [_c('img', {
 	    attrs: {
-	      "src": _vm.path
+	      "src": _vm.imagePath
 	    }
-	  }), _vm._v(" "), (_vm.caption) ? _c('figcaption', [_vm._v(_vm._s(_vm.caption))]) : _vm._e()])])
+	  })]) : _c('img', {
+	    attrs: {
+	      "src": _vm.imagePath
+	    }
+	  }), _vm._v(" "), (_vm.caption) ? _c('figcaption', [_vm._v(_vm._s(_vm.caption))]) : _vm._e()])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -17592,86 +17613,82 @@
 	    }
 	  }, [_c('content-section', [_c('p', [_vm._v("Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,\n        giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,\n        un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.\n        A meno che, ovviamente, debba scrivere un’autobiografia.\n        E questo tipo di manoscritti, per quanto affascinante, è sempre filtrato dai\n        ricordi, dalle emozioni vissute, dal desiderio di rimediare gli errori\n        compiuti, dalla voglia di giustificazione o di riscatto.\n        Parlare della rivista per cui si lavora, per fortuna, è sostanzialmente\n        diverso: ciò ch’è stato è stato, da qualche parte rimarrà scritto,\n        e troverai sempre il vecchio lettore pronto a contraddirti,\n        e poi c’è quella parte visibile, oggettiva, che rimarrà a tutti gli effetti\n        l’unica cosa che la gente ricorderà. Perché in fondo chi scrive non lo fa\n        solo per informare, ma anche nella speranza che qualcosa di suo rimanga in\n        eterno.\n        Laddove l’informazione è consumo, però, è una speranza difficile da realizzare.\n        Vale per il singolo giornalista, ma anche per la testata in cui scrive.\n        Quanti giornali sono nati, morti, rivissuti, e finiti un’altra volta?\n        Noi di Zzap!, questo tipo di processo, lo conosciamo bene, giacché almeno tre\n        sono state le nostre \"reincarnazioni\", di cui un paio cartacee. Una storia un\n        po’ controversa la nostra, ma che merita un approfondimento, partendo, stavolta,\n        dall’interno.")]), _vm._v(" "), _c('p', [_vm._v("Quella che leggerete di seguito, sarà una storia veramente strana.\n        Perché a conclusione della medesima verrà per forza da chiedersi cosa sia rimasto,\n        effettivamente del vecchio Zzap!, e soprattutto, di quale dei \"tanti\", perché\n        molta è la gente che ha varcato la soglia della Redazione e altrettanta è quella\n        che può dire di aver \"scritto su Zzap!\", una rivista che ha cambiato spesso\n        vertici e collaboratori. E da ognuno di essi ha preso qualcosa. Lo Zzap! di\n        Riccardo Albini è certamente diverso da quello di Fabio Rossi, ed entrambi sono\n        molto diversi da quelli di Giorgio Baratto, Stefano Gallarini, Gabriele Pasquali,\n        Giancarlo Calzetta e, ovviamente, Paolo Besser. Eppure oltre a quel logo che non\n        ha mai rispettato le leggi della prospettiva, c'è sempre stato un filo conduttore\n        composto, se non mi sbaglio, da una vena ironica irrinunciabile e da tanto,\n        tantissimo entusiasmo...")])]), _vm._v(" "), _c('content-section', {
 	    attrs: {
-	      "title": "Le origini",
-	      "image-style": "content__section-imageodd"
+	      "title": "Le origini"
 	    }
-	  }, [_c('a', {
-	    staticClass: "content__imagelink content__imagelink-right",
+	  }, [_c('content-image', {
 	    attrs: {
-	      "href": "#"
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero1.jpg",
+	      "caption": "La copertina del primo numero di Zzap!",
+	      "align": "right",
+	      "rotation": "cw"
 	    }
-	  }, [_c('figure', [_c('img', {
-	    staticClass: "content__image",
-	    attrs: {
-	      "src": "assets/content/speciali/leabbiamovistetutte/numero1.jpg"
-	    }
-	  }), _vm._v(" "), _c('figcaption', [_vm._v("La copertina del primo numero di Zzap!")])])]), _vm._v(" "), _c('p', [_vm._v("Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con\n        gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un\n        Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente\n        bruciassero... Avevano tutti i giochi di questo mondo, loro, e riuscivano a\n        procurarseli con una facilità davvero incredibile. Erano i tempi della pirateria\n        da edicola, e di seguire mensilmente una pubblicazione, ovviamente come lettore,\n        nemmeno se ne parlava: come per la maggior parte dei bambini di allora, erano i\n        genitori a stabilire se fosse il caso d’investire quelle poche lire in una nuova\n        \"cassettina\" per il computer, strumento per altro visto con diffidenza e disprezzo,\n        eppure, ciò non m’impedì di leggere qualche numero di VideoGiochi, a tutti gli\n        effetti la prima rivista italiana dedicata espressamente all’argomento. Ricordo\n        che la curava lo Studio Vit, all’epoca legato al Gruppo Editoriale Jackson, e che\n        improvvisamente le uscite della testata iniziarono a perdere in fatto di regolarità.\n        Non me ne rendevo conto, ma era già finita un’epoca, e i videogiocatori un po’ più\n        grandicelli si apprestavano a seguire le evoluzioni del mercato su una nuova rivista,\n        \"edizione italiana\" di quella \"inglese più venduta\": Zzap!.")]), _vm._v(" "), _c('p', [_vm._v("Zzap! uscì in sordina, nel lontano maggio del 1986, tanto in sordina che non tutte\n        le edicole ne furono provviste. Tant’è che il mio primo contatto con la nuova\n        pubblicazione avvenne solo otto mesi più tardi, nel dicembre dello stesso anno:\n        il mio C16 fu soppiantato a Natale da un più potente Commodore 128, e finalmente mi\n        mettevo nelle condizioni di \"recuperare\" tutto il tempo perduto: VideoGiochi si era\n        nel frattempo trasformata in VideoGiochi News e aveva fatto in tempo a morire per\n        la seconda volta, e improvvisamente tra le tante pubblicazioni dedicate all’argomento\n        \"computer\" intravidi un logo nuovo e attraente, quello stesso che capeggia tuttora\n        sulle copertine disegnate da Vera Gentinetta: Zzap!. Più che una parola, un sibilo.\n        Il verso dei laser. Ci misi gli anni a capire come diavolo si pronunciasse, ma dopo\n        sole poche ore quella sarebbe diventata la \"mia\" rivista, quella per la quale avrei\n        rotto le balle all’edicolante ogni santo mese, \"è uscito Zzap!?\", un leitmotiv a\n        cui si saranno abituati in tanti.")]), _vm._v(" "), _c('p', [_vm._v("Solo in seguito riuscii a recuperare i sei numeri che mancavano alla mia collezione:\n        cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più\n        tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me\n        lo spedì in regalo.")]), _vm._v(" "), _c('p', [_vm._v("Zzap!, all’epoca, aveva tantissimi pregi sul lato contenutistico, ma un sacco di\n        difetti dal punto di vista estetico. Era fatta con i pochi mezzi di chi si sta\n        lanciando con molta cautela su un mercato nuovo, e si vedeva da lontano: pagine a\n        colori con foto in bianco e nero, box letteralmente \"incollati\" alle pagine, poche\n        delicatezze in fotolito. Ma a noi, patiti del joystick e abituati al nulla più assoluto,\n        non importava gran che, visto che la passione con cui leggevamo la rivista arrivava\n        quasi al fanatismo: nomi, date, programmatori, giochi... A volte mi sorprendo a\n        ricordare ancora tutta questa ridda di nozioni, quando invece quelle apprese a scuola\n        tendono ad affondare sempre di più nella nebbia dei ricordi più obsoleti, quelli che\n        diventano sempre più indistinti e corrotti proprio per la scarsità del loro utilizzo.\n        Che importanza poteva avere, poi, se i commenti avevano come fondo piatto uno solo dei\n        colori fondamentali della quadricromia? O se qua e là si vedevano i segni dello scotch\n        con cui le pellicole erano tenute assieme? Tutto, su Zzap!, era magico: l’humour\n        imperava, certi commenti sprezzanti facevano addirittura piegare in due dal ridere, la\n        posta spesso si distingueva per i \"flame\" del polemico di turno. Come dimenticare le\n        lettere di Marco Spadini, o quelle di FFS, o comunque dell’esaltato del mese che, per\n        intenderci, non mancava mai? Noi videogiocatori, \"commodoristi o spectrumisti\" che\n        fossimo, avevamo finalmente trovato la nostra rivista, ci eravamo ritagliati quello\n        spazio di cui sentivamo il bisogno, in un mondo che ci osservava sempre con ostilità\n        (\"sempre lì attaccati\", \"sfigati\", \"ma cercatevi una ragazza!\", \"occhio che diventate\n        ciechi e asociali\").")])]), _vm._v(" "), _c('content-section', {
+	  }), _vm._v(" "), _c('p', [_vm._v("Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con\n        gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un\n        Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente\n        bruciassero... Avevano tutti i giochi di questo mondo, loro, e riuscivano a\n        procurarseli con una facilità davvero incredibile. Erano i tempi della pirateria\n        da edicola, e di seguire mensilmente una pubblicazione, ovviamente come lettore,\n        nemmeno se ne parlava: come per la maggior parte dei bambini di allora, erano i\n        genitori a stabilire se fosse il caso d’investire quelle poche lire in una nuova\n        \"cassettina\" per il computer, strumento per altro visto con diffidenza e disprezzo,\n        eppure, ciò non m’impedì di leggere qualche numero di VideoGiochi, a tutti gli\n        effetti la prima rivista italiana dedicata espressamente all’argomento. Ricordo\n        che la curava lo Studio Vit, all’epoca legato al Gruppo Editoriale Jackson, e che\n        improvvisamente le uscite della testata iniziarono a perdere in fatto di regolarità.\n        Non me ne rendevo conto, ma era già finita un’epoca, e i videogiocatori un po’ più\n        grandicelli si apprestavano a seguire le evoluzioni del mercato su una nuova rivista,\n        \"edizione italiana\" di quella \"inglese più venduta\": Zzap!.")]), _vm._v(" "), _c('p', [_vm._v("Zzap! uscì in sordina, nel lontano maggio del 1986, tanto in sordina che non tutte\n        le edicole ne furono provviste. Tant’è che il mio primo contatto con la nuova\n        pubblicazione avvenne solo otto mesi più tardi, nel dicembre dello stesso anno:\n        il mio C16 fu soppiantato a Natale da un più potente Commodore 128, e finalmente mi\n        mettevo nelle condizioni di \"recuperare\" tutto il tempo perduto: VideoGiochi si era\n        nel frattempo trasformata in VideoGiochi News e aveva fatto in tempo a morire per\n        la seconda volta, e improvvisamente tra le tante pubblicazioni dedicate all’argomento\n        \"computer\" intravidi un logo nuovo e attraente, quello stesso che capeggia tuttora\n        sulle copertine disegnate da Vera Gentinetta: Zzap!. Più che una parola, un sibilo.\n        Il verso dei laser. Ci misi gli anni a capire come diavolo si pronunciasse, ma dopo\n        sole poche ore quella sarebbe diventata la \"mia\" rivista, quella per la quale avrei\n        rotto le balle all’edicolante ogni santo mese, \"è uscito Zzap!?\", un leitmotiv a\n        cui si saranno abituati in tanti.")]), _vm._v(" "), _c('p', [_vm._v("Solo in seguito riuscii a recuperare i sei numeri che mancavano alla mia collezione:\n        cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più\n        tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me\n        lo spedì in regalo.")]), _vm._v(" "), _c('p', [_vm._v("Zzap!, all’epoca, aveva tantissimi pregi sul lato contenutistico, ma un sacco di\n        difetti dal punto di vista estetico. Era fatta con i pochi mezzi di chi si sta\n        lanciando con molta cautela su un mercato nuovo, e si vedeva da lontano: pagine a\n        colori con foto in bianco e nero, box letteralmente \"incollati\" alle pagine, poche\n        delicatezze in fotolito. Ma a noi, patiti del joystick e abituati al nulla più assoluto,\n        non importava gran che, visto che la passione con cui leggevamo la rivista arrivava\n        quasi al fanatismo: nomi, date, programmatori, giochi... A volte mi sorprendo a\n        ricordare ancora tutta questa ridda di nozioni, quando invece quelle apprese a scuola\n        tendono ad affondare sempre di più nella nebbia dei ricordi più obsoleti, quelli che\n        diventano sempre più indistinti e corrotti proprio per la scarsità del loro utilizzo.\n        Che importanza poteva avere, poi, se i commenti avevano come fondo piatto uno solo dei\n        colori fondamentali della quadricromia? O se qua e là si vedevano i segni dello scotch\n        con cui le pellicole erano tenute assieme? Tutto, su Zzap!, era magico: l’humour\n        imperava, certi commenti sprezzanti facevano addirittura piegare in due dal ridere, la\n        posta spesso si distingueva per i \"flame\" del polemico di turno. Come dimenticare le\n        lettere di Marco Spadini, o quelle di FFS, o comunque dell’esaltato del mese che, per\n        intenderci, non mancava mai? Noi videogiocatori, \"commodoristi o spectrumisti\" che\n        fossimo, avevamo finalmente trovato la nostra rivista, ci eravamo ritagliati quello\n        spazio di cui sentivamo il bisogno, in un mondo che ci osservava sempre con ostilità\n        (\"sempre lì attaccati\", \"sfigati\", \"ma cercatevi una ragazza!\", \"occhio che diventate\n        ciechi e asociali\").")])], 1), _vm._v(" "), _c('content-section', {
 	    attrs: {
 	      "title": "Un \"dualismo\" persistente"
 	    }
-	  }, [_c('p', [_vm._v("Dal punto di vista informatico, invece, assistiamo a uno strano fenomeno: le prime console erano state praticamente seppellite dai computer a otto bit già due anni prima, e l’epoca ci permetteva ancora di dire \"solo due anni prima\", poiché i sistemi informatici erano nati per durare: si comprava un computer, e lo si teneva per anni, così com’era, giacché espanderne le potenzialità era impossibile. Al massimo gli si attaccava un drive per floppy disk (da 5\" e ¼) che, all’epoca, costava come un odierno disco fisso da cinque giga e mezzo, e, velocità e capacità di memorizzazione a parte, svolgeva bene o male le stesse funzioni. Eppure, già s’intravvedeva il passo da gigante compiuto dal progresso: erano anche gli esordi di Amiga e Atari ST. Zzap! accolse con un certo entusiasmo il cambiamento che avveniva, noi lettori un po’ meno, tuttavia le recensioni rimasero ancora a lungo coi piedi saldamente fissati sulla terra ferma degli 8 bit. Riccardo Albini, comunque, già agl’inizi del 1987 ci ammoniva del futuro sempre più nero delle tecnologie dell’epoca, anche se quelle successive ci avrebbero impiegato almeno un paio d’anni ancora prima di affermarsi e, sul piano software, diventare veramente competitive col buon vecchio Commodore.")]), _vm._v(" "), _c('p', [_c('a', {
-	    staticClass: "content__imagelink content__imagelink-left",
+	  }, [_c('content-image', {
 	    attrs: {
-	      "href": "#"
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero14.jpg",
+	      "caption": "Il numero 14 in tutto lo splendore della quadricromia",
+	      "align": "left"
 	    }
-	  }, [_c('figure', [_c('img', {
-	    staticClass: "content__image",
-	    attrs: {
-	      "src": "assets/content/speciali/leabbiamovistetutte/numero14.jpg"
-	    }
-	  }), _vm._v(" "), _c('figcaption', [_vm._v("Il numero 14 in tutto lo splendore della quadricromia")])])]), _vm._v("\n        Nell’estate dell’87 arrivò per Zzap! la prima vera rivoluzione, con l’introduzione del Macintosh in Redazione: finalmente era possibile utilizzare un programma di DTP per l’impaginazione, e, seppur con tantissimi errori qua e là, il numero 14 rappresentò un vero e proprio salto di qualità per tutto il lato grafico della testata. Si completò così quel processo che era iniziato già il mese prima, con la conversione al colore di tutte le fotografie e con l’avvento delle prime recensioni \"a 16 bit\". A quel punto, fu evidente che il mercato iniziava a evolversi e ad espandersi, e i riflessi sulla rivista sembravano andare di pari passo: il numero 14 rappresentò a tutti gli effetti il passaggio alla piena quadricromia per tutte le pagine della rivista.")]), _vm._v(" "), _c('p', [_vm._v("Era comunque l’anno d’oro del Commodore 64: i primi veri e propri capolavori si susseguivano con una regolarità davvero incredibile. In pochi mesi sono usciti Gunship, Wizball, World Class Leaderboard, Last Ninja, California Games, Bubble Bobble, l’incredibile Shoot ‘em up Construction Kit, Renegade, International Karate +, Buggy Boy, Nebulus e Maniac Mansion. Ognuno di questi titoli rappresentò non solo un grande successo commerciale, ma anche l’inizio di qualcosa (si pensi alle fortune della LucasArts, allora Lucasfilm Games, che seguirono a Maniac Mansion), oppure la piena realizzazione di un filone di successo (IK+, California Games, WC Leadeboard), persino le conversioni diventarono molto più accurate e ‘simili’ agli originali (Bubble Bobble, Road Runner, Buggy Boy). E per una macchina che moriva per sempre (il Commodore 16, a cui fu regalato un bellissimo speciale di ben sette pagine, sul numero di settembre), inziavano i confronti tra i due 68000 per eccellenza (dicembre).")]), _vm._v(" "), _c('p', [_vm._v("Possiamo infine considerare i primi mesi del 1988 come un’appendice dell’anno precedente, visto che a maggio ci aspetterà un cambiamento davvero inatteso. Ne parleremo comunque a tempo debito, per adesso ci preme mettere in evidenza la continuità con cui i titoloni per Commodore 64, nonostante le ombre gettate dai nuovi computer, piovevano sotto gli occhi straniti di noi lettori: Tetris non ha di certo bisogno di commenti, Platoon fu forse il più bel tie-in della storia, Apollo 18 lasciò un segno in orbita, e con uno specialone sul software a 16 bit e sui giochi scritti dai lettori con il SEUCK, si chiuse ad aprile il primo capitolo della storia di Zzap!: Riccardo Albini e tutto lo Studio VIT salutarono per sempre la rivista, ‘restituendo’ alle allora Edizioni Hobby il compito di portarla avanti.")])]), _vm._v(" "), _c('content-section', {
+	  }), _vm._v(" "), _c('p', [_vm._v("Dal punto di vista informatico, invece, assistiamo a uno strano fenomeno: le prime console erano state praticamente seppellite dai computer a otto bit già due anni prima, e l’epoca ci permetteva ancora di dire \"solo due anni prima\", poiché i sistemi informatici erano nati per durare: si comprava un computer, e lo si teneva per anni, così com’era, giacché espanderne le potenzialità era impossibile. Al massimo gli si attaccava un drive per floppy disk (da 5\" e ¼) che, all’epoca, costava come un odierno disco fisso da cinque giga e mezzo, e, velocità e capacità di memorizzazione a parte, svolgeva bene o male le stesse funzioni. Eppure, già s’intravvedeva il passo da gigante compiuto dal progresso: erano anche gli esordi di Amiga e Atari ST. Zzap! accolse con un certo entusiasmo il cambiamento che avveniva, noi lettori un po’ meno, tuttavia le recensioni rimasero ancora a lungo coi piedi saldamente fissati sulla terra ferma degli 8 bit. Riccardo Albini, comunque, già agl’inizi del 1987 ci ammoniva del futuro sempre più nero delle tecnologie dell’epoca, anche se quelle successive ci avrebbero impiegato almeno un paio d’anni ancora prima di affermarsi e, sul piano software, diventare veramente competitive col buon vecchio Commodore.")]), _vm._v(" "), _c('p', [_vm._v("Nell’estate dell’87 arrivò per Zzap! la prima vera rivoluzione, con l’introduzione del Macintosh in Redazione: finalmente era possibile utilizzare un programma di DTP per l’impaginazione, e, seppur con tantissimi errori qua e là, il numero 14 rappresentò un vero e proprio salto di qualità per tutto il lato grafico della testata. Si completò così quel processo che era iniziato già il mese prima, con la conversione al colore di tutte le fotografie e con l’avvento delle prime recensioni \"a 16 bit\". A quel punto, fu evidente che il mercato iniziava a evolversi e ad espandersi, e i riflessi sulla rivista sembravano andare di pari passo: il numero 14 rappresentò a tutti gli effetti il passaggio alla piena quadricromia per tutte le pagine della rivista.")]), _vm._v(" "), _c('p', [_vm._v("Era comunque l’anno d’oro del Commodore 64: i primi veri e propri capolavori si susseguivano con una regolarità davvero incredibile. In pochi mesi sono usciti Gunship, Wizball, World Class Leaderboard, Last Ninja, California Games, Bubble Bobble, l’incredibile Shoot ‘em up Construction Kit, Renegade, International Karate +, Buggy Boy, Nebulus e Maniac Mansion. Ognuno di questi titoli rappresentò non solo un grande successo commerciale, ma anche l’inizio di qualcosa (si pensi alle fortune della LucasArts, allora Lucasfilm Games, che seguirono a Maniac Mansion), oppure la piena realizzazione di un filone di successo (IK+, California Games, WC Leadeboard), persino le conversioni diventarono molto più accurate e ‘simili’ agli originali (Bubble Bobble, Road Runner, Buggy Boy). E per una macchina che moriva per sempre (il Commodore 16, a cui fu regalato un bellissimo speciale di ben sette pagine, sul numero di settembre), inziavano i confronti tra i due 68000 per eccellenza (dicembre).")]), _vm._v(" "), _c('p', [_vm._v("Possiamo infine considerare i primi mesi del 1988 come un’appendice dell’anno precedente, visto che a maggio ci aspetterà un cambiamento davvero inatteso. Ne parleremo comunque a tempo debito, per adesso ci preme mettere in evidenza la continuità con cui i titoloni per Commodore 64, nonostante le ombre gettate dai nuovi computer, piovevano sotto gli occhi straniti di noi lettori: Tetris non ha di certo bisogno di commenti, Platoon fu forse il più bel tie-in della storia, Apollo 18 lasciò un segno in orbita, e con uno specialone sul software a 16 bit e sui giochi scritti dai lettori con il SEUCK, si chiuse ad aprile il primo capitolo della storia di Zzap!: Riccardo Albini e tutto lo Studio VIT salutarono per sempre la rivista, ‘restituendo’ alle allora Edizioni Hobby il compito di portarla avanti.")])], 1), _vm._v(" "), _c('content-section', {
 	    attrs: {
 	      "title": "\"L'era Di Bello\""
 	    }
-	  }, [_c('a', {
-	    staticClass: "content__imagelink content__imagelink-right",
+	  }, [_c('content-image', {
 	    attrs: {
-	      "href": "#"
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero23.jpg",
+	      "caption": "Il numero 23 segna il passaggio dalla direzione di Riccardo Albini a quella di Bonaventura Di Bello",
+	      "align": "right",
+	      "rotation": "cc"
 	    }
-	  }, [_c('figure', [_c('img', {
-	    staticClass: "content__image",
-	    attrs: {
-	      "src": "assets/content/speciali/leabbiamovistetutte/numero23.jpg"
-	    }
-	  }), _vm._v(" "), _c('figcaption', [_vm._v("Il numero 23 segna il passaggio dalla direzione di Riccardo Albini a quella di Bonaventura Di Bello")])])]), _vm._v(" "), _c('p', [_vm._v("L’enfasi con cui Riccardo salutò noi tutti, c’era da aspettarselo, generò un comprensibile sgomento: la rivista sarebbe rimasta, ma a curarla non sarebbe stato più chi invece se n’era occupato tutti i mesi prima. Non vi dico lo shock, quando al posto della solita opera d’arte di Oliver Frey, mi ritrovai in mano la copertina del numero 23: per quanto simpatico, un Pac Man terribilmente piatto su sfondo a pallini non gettò certo le migliori premesse per Zzap! \"nuova gestione\". A rassicurarci, comunque, ci pensò l’allora sconosciuto Bonaventura Di Bello, spectrumista convinto, reduce dalle pubblicazioni \"avventurose\" della Xenia. Frey si era solo ammalato, il mese successivo sarebbe tornato al suo posto, e così effettivamente fu. I cambiamenti grafici, comunque, non furono grandissimi e la rivista proseguì il suo lavoro con sostanziale continuità, per fortuna mancarono le perdite qualitative che solitamente seguono i cambi repentini di redazione, e dal punto di vista \"giochi recensiti\" figuravano Pac Land, Arkanoid II, Rolling Thunder, Target Renegade e Winter Games II tutti lo stesso mese... Piatto ricco...\nChe la rivista, però, lentamente stesse cambiando pelle, apparì chiaro quando la nuova redazione abbandonò il sottotitolo \"edizione italiana della rivista inglese più venduta\" con un più amichevole e ‘patriota’ \"la rivista di videogiochi più venduta in Italia\". Uscivano, intanto, Impossible Mission 2, Alien Syndrome, Skate Crazy, Last Ninja II e Great Giana Sisters, primo ‘gioco scandalo’ della Rainbow Arts, software house che iniziò scopiazzando i giochi più belli a disposizione, ma che fu consacrata da nomi quali Chris Huelsbeck e Manfred Trenz: i successivi Turrican rimarranno per sempre una delle più belle saghe mai apparse. Con il numero di ottobre (27), poi, sparì la scritta verticale \"VIDEOGIOCHI\" che da sempre aveva caratterizzato le copertine di Zzap!, fin dall’ormai lontanissimo numero 1.")]), _vm._v(" "), _c('p', [_vm._v("Intanto, iniziava finalmente a formarsi il primo nucleo della redazione italiana: al lavoro (monumentale) di sostanziale traduzione e integrazione dei testi inglesi ad opera di Bonaventura, si affiancarono Fabio Rossi (caporedattore) e i primi collaboratori, tra cui l’oggi ingegnere Stefano Giorgi. La grafica della rivista si era intanto fatta un po’ meno briosa e colorata, in favore a un registro più tradizionale e serioso, eppure la quantità di bianco iniziava a diminuire drammaticamente: appaiono timidamente i primi fondini, aumentano le rubriche, ma continuano a mancare le caricature dei redattori italiani. Intanto, tra novembre e dicembre, si chiude il 1988 e i botti non mancano. Arrivano infatti Cybernoid II, Armalyte, la conversione per C64 di Sinbad, Bombuzal e l’ineguagliato capolavoro della Lucas Zak McKracken and the Alien Mindbenders. Il prezzo aumenta a 4000 lire e per Zzap! è il culmine della sua storia: da un paio di mesi, infine, tutto il materiale al di fuori degli 8 bit fa le valigie e approda sulla neonata The Games Machine.")])]), _vm._v(" "), _c('content-section', {
+	  }), _vm._v(" "), _c('p', [_vm._v("L’enfasi con cui Riccardo salutò noi tutti, c’era da aspettarselo, generò un comprensibile sgomento: la rivista sarebbe rimasta, ma a curarla non sarebbe stato più chi invece se n’era occupato tutti i mesi prima. Non vi dico lo shock, quando al posto della solita opera d’arte di Oliver Frey, mi ritrovai in mano la copertina del numero 23: per quanto simpatico, un Pac Man terribilmente piatto su sfondo a pallini non gettò certo le migliori premesse per Zzap! \"nuova gestione\". A rassicurarci, comunque, ci pensò l’allora sconosciuto Bonaventura Di Bello, spectrumista convinto, reduce dalle pubblicazioni \"avventurose\" della Xenia. Frey si era solo ammalato, il mese successivo sarebbe tornato al suo posto, e così effettivamente fu. I cambiamenti grafici, comunque, non furono grandissimi e la rivista proseguì il suo lavoro con sostanziale continuità, per fortuna mancarono le perdite qualitative che solitamente seguono i cambi repentini di redazione, e dal punto di vista \"giochi recensiti\" figuravano Pac Land, Arkanoid II, Rolling Thunder, Target Renegade e Winter Games II tutti lo stesso mese... Piatto ricco...\nChe la rivista, però, lentamente stesse cambiando pelle, apparì chiaro quando la nuova redazione abbandonò il sottotitolo \"edizione italiana della rivista inglese più venduta\" con un più amichevole e ‘patriota’ \"la rivista di videogiochi più venduta in Italia\". Uscivano, intanto, Impossible Mission 2, Alien Syndrome, Skate Crazy, Last Ninja II e Great Giana Sisters, primo ‘gioco scandalo’ della Rainbow Arts, software house che iniziò scopiazzando i giochi più belli a disposizione, ma che fu consacrata da nomi quali Chris Huelsbeck e Manfred Trenz: i successivi Turrican rimarranno per sempre una delle più belle saghe mai apparse. Con il numero di ottobre (27), poi, sparì la scritta verticale \"VIDEOGIOCHI\" che da sempre aveva caratterizzato le copertine di Zzap!, fin dall’ormai lontanissimo numero 1.")]), _vm._v(" "), _c('p', [_vm._v("Intanto, iniziava finalmente a formarsi il primo nucleo della redazione italiana: al lavoro (monumentale) di sostanziale traduzione e integrazione dei testi inglesi ad opera di Bonaventura, si affiancarono Fabio Rossi (caporedattore) e i primi collaboratori, tra cui l’oggi ingegnere Stefano Giorgi. La grafica della rivista si era intanto fatta un po’ meno briosa e colorata, in favore a un registro più tradizionale e serioso, eppure la quantità di bianco iniziava a diminuire drammaticamente: appaiono timidamente i primi fondini, aumentano le rubriche, ma continuano a mancare le caricature dei redattori italiani. Intanto, tra novembre e dicembre, si chiude il 1988 e i botti non mancano. Arrivano infatti Cybernoid II, Armalyte, la conversione per C64 di Sinbad, Bombuzal e l’ineguagliato capolavoro della Lucas Zak McKracken and the Alien Mindbenders. Il prezzo aumenta a 4000 lire e per Zzap! è il culmine della sua storia: da un paio di mesi, infine, tutto il materiale al di fuori degli 8 bit fa le valigie e approda sulla neonata The Games Machine.")])], 1), _vm._v(" "), _c('content-section', {
 	    attrs: {
 	      "title": "La fine degli anni '80, e il declino degli 8 bit"
 	    }
-	  }, [_c('p', [_vm._v("All’inizio del 1989, Zzap! apre alla grande superando, per la prima volta, il tetto delle 100 pagine. Carne da mettere al fuoco ce n’è a chili: in un solo mese superano il 90% Microprose Soccer, Total Eclypse, Thunder Blade, Neuromancer, Robocop, R-Type e Bat Man. Il 30 rimarrà a tutti gli effetti un numero ‘storico’, poiché i suoi record non furono mai più superati in futuro. Compaiono, finalmente, le facce dei redattori nostrani (e non sono delle belle facce... ;-).")]), _vm._v(" "), _c('p', [_c('a', {
-	    staticClass: "content__imagelink content__imagelink-right",
+	  }, [_c('content-image', {
 	    attrs: {
-	      "href": "#"
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero33.jpg",
+	      "caption": "L'\"esclusiva\" del numro 33: la recensione di \"Zak McKracken 2\"",
+	      "align": "left",
+	      "rotation": "cc"
 	    }
-	  }, [_c('figure', [_c('img', {
-	    staticClass: "content__image",
+	  }), _vm._v(" "), _c('p', [_vm._v("All’inizio del 1989, Zzap! apre alla grande superando, per la prima volta, il tetto delle 100 pagine. Carne da mettere al fuoco ce n’è a chili: in un solo mese superano il 90% Microprose Soccer, Total Eclypse, Thunder Blade, Neuromancer, Robocop, R-Type e Bat Man. Il 30 rimarrà a tutti gli effetti un numero ‘storico’, poiché i suoi record non furono mai più superati in futuro. Compaiono, finalmente, le facce dei redattori nostrani (e non sono delle belle facce... ;-).")]), _vm._v(" "), _c('p', [_vm._v("Il numero 33, quello di Aprile, rimarrà per sempre segnato come \"quello di Zak McKracken 2\": per la prima volta, una rivista d’informatica confezionerà il \"pesce d’aprile\" che, negli anni successivi, sarebbe diventato una tradizione per tutte le testate, in particolare TGM. Visto che è attualmente on line, non sto qui a replicare nulla, semplicemente leggetevela (e divertitevi) cliccando qui.")]), _vm._v(" "), _c('p', [_vm._v("Da qui alla fine dell’anno, i titoloni continuano a uscire, ma iniziano a scarseggiare e a mancare di quell’originalità e di quell’entusiasmo che aveva caratterizzato i loro predecessori: Renegade 3 viene abbondantemente sopravvalutato, Denaris (Katakis) è il secondo titolo-fotocopia della Rainbow Arts, Silkworm una bella conversione. E poi ancora: Speedball, Phobia, Project Firestart, Rainbow Islands, Power Drift, Tusker, New Zealand Story, Batman The Movie, The Untouchables, Myth, Stunt Car Racer, Turbo Out Run e Chase HQ... Il numero di ottobre, poi, sarà caratterizzato dall’onnipresenza di tre caricature italiane in stile fumettoso, quelle di Marco Auletta, Antonello Jannone, Stefano Gallarini e, in un tempo immediatamente successivo, Max Reynaud. La redazione si era intanto ampliata, e comparivano – oltre ai succitati – anche i nomi di Giorgio Baratto, Matteo Bittanti (il \"misterioso\" MBF), Paolo Cardillo, Simone Crosignani, William e Giorgio Baldaccini. Cambio radicale della guardia, infine, per la redazione inglese: i vari Gordon Houghton, Paul Glancey, Julian Rignall e Katy Hamza a cui eravamo abituati, lasciano il posto a Phil King e a Robin Hogg. Per quanto i loro predecessori non fossero mai stati degli adoni, questi erano francamente molto più brutti...")]), _vm._v(" "), _c('content-image', {
 	    attrs: {
-	      "src": "assets/content/speciali/leabbiamovistetutte/numero33.jpg"
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "caption": "La splendida protagonista di \"Insects is Space\" creata da Sensible Software",
+	      "align": "right",
+	      "rotation": "cw"
 	    }
-	  }), _vm._v(" "), _c('figcaption', [_vm._v("L'\"esclusiva\" del numro 33: la recensione di \"Zak McKracken 2\"")])])]), _vm._v("\n        Il numero 33, quello di Aprile, rimarrà per sempre segnato come \"quello di Zak McKracken 2\": per la prima volta, una rivista d’informatica confezionerà il \"pesce d’aprile\" che, negli anni successivi, sarebbe diventato una tradizione per tutte le testate, in particolare TGM. Visto che è attualmente on line, non sto qui a replicare nulla, semplicemente leggetevela (e divertitevi) cliccando qui.")]), _vm._v(" "), _c('p', [_vm._v("Da qui alla fine dell’anno, i titoloni continuano a uscire, ma iniziano a scarseggiare e a mancare di quell’originalità e di quell’entusiasmo che aveva caratterizzato i loro predecessori: Renegade 3 viene abbondantemente sopravvalutato, Denaris (Katakis) è il secondo titolo-fotocopia della Rainbow Arts, Silkworm una bella conversione. E poi ancora: Speedball, Phobia, Project Firestart, Rainbow Islands, Power Drift, Tusker, New Zealand Story, Batman The Movie, The Untouchables, Myth, Stunt Car Racer, Turbo Out Run e Chase HQ... Il numero di ottobre, poi, sarà caratterizzato dall’onnipresenza di tre caricature italiane in stile fumettoso, quelle di Marco Auletta, Antonello Jannone, Stefano Gallarini e, in un tempo immediatamente successivo, Max Reynaud. La redazione si era intanto ampliata, e comparivano – oltre ai succitati – anche i nomi di Giorgio Baratto, Matteo Bittanti (il \"misterioso\" MBF), Paolo Cardillo, Simone Crosignani, William e Giorgio Baldaccini. Cambio radicale della guardia, infine, per la redazione inglese: i vari Gordon Houghton, Paul Glancey, Julian Rignall e Katy Hamza a cui eravamo abituati, lasciano il posto a Phil King e a Robin Hogg. Per quanto i loro predecessori non fossero mai stati degli adoni, questi erano francamente molto più brutti...")]), _vm._v(" "), _c('p', [_vm._v("Il nuovo decennio inizia all’insegna della violenza digitale, con una bella copertina di Oliver Frey ispirata a Operation Thunderbolt. Tornano intanto le console (comunque presenti anche su TGM), e Super Mario Bors 2 si cucca immediatamente la medaglia (con tanto di faccione entusiasta di Marco Auletta, forse allora conosciuto maggiormente per le sue iniziali...); si prosegue con Vendetta sul numero di Febbraio, e, sul numero di Marzo, appare il primo tocco di fig...liuola in copertina della storia di Zzap!: 4th Dimension, compilation unica nel suo genere in quanto la Hewson ha messo in una sola scatola quattro giochi molto ma mooolto belli e, soprattutto, inediti.\n        "), _c('content-image', {
-	    staticStyle: {},
-	    attrs: {
-	      "path": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
-	      "caption": "La splendida protagonista di \"Insects is Space\" creata da Sensible Software"
-	    }
-	  }), _vm._v(" "), _c('a', {
-	    staticClass: "content__imagelink content__imagelink-left",
-	    attrs: {
-	      "href": "#"
-	    }
-	  }, [_c('figure', [_c('img', {
-	    staticClass: "content__image",
-	    attrs: {
-	      "src": "assets/content/speciali/leabbiamovistetutte/numero43.jpg"
-	    }
-	  }), _vm._v(" "), _c('figcaption', [_vm._v("La splendida protagonista di \"Insects is Space\" creata da Sensible Software")])])])], 1), _vm._v(" "), _c('p', [_vm._v("Posta davvero un po’ particolare questo mese: dallo scandalo degli annali (con due persone che se ne contendono la paternità) si arriva per le considerazioni filosofiche di Giò Peccati, passando naturalmente per... l’angolo di BovaByte!!! Ebbene sì, risale a questo mese il primo articolo di una serie destinata a imperversare ancora oggi sulle pagine di TGM. Ricordatevelo bene: se adesso sono qui a tediarvi, è solo grazie alla risposta che ci diede il Bittanti proprio su quel lontanissimo numero di Zzap!.. Ad Aprile il pesce ce lo fa Frey, ma stavolta lo freghiamo noi! Turrican fa bella mostra di sé e passa immediatamente dopo alla storia; a maggio arriva il PC Engine e tutti sbaviamo, tranne MA che, con il suo solito fare dispotico, è riuscito a mettergli le mani sopra e a non farlo più toccare a nessuno. A giungo arriva Fighter Bomber per Spectrum, ed è subito medaglia d’oro, mentre a luglio la copertina è tutta per Secret Agent. A settembre arriva una notizia tragica: Frey non avrebbe più ‘firmato’ l’immagine di copertina, ma per fortuna si tratta solo di una sola. Chi lo sostituisce, comunque, riesce a fare un pessimo lavoro su Time Machine, la cui preview è a tutti gli effetti l’articolo più importante del mese. Va necessariamente detto che il 1990 non è un bell’anno per Zzap!: poche idee, poco software, e soprattutto un’impaginazione ripetitiva tendono a rendere la rivista ancor più scialba di quella che effettivamente era... La posta passa in mano a Carlo Santagostino.")]), _vm._v(" "), _c('p', [_vm._v("Il 1990 si trascina senza troppi entusiasmi fino a dicembre (i fasti di due anni prima sembrano lontani un secolo), quando uno speciale 50° numero in ritardo di un mese (siamo infatti al 51) contiene le recensioni di Lupo Alberto, Creatures, Chase HQ 2, Midnight Resistance, Shadow of the Beast e Ghouls’n’Ghost (per Megadrive). Un redazionale di quelli memorabili ricorda, brevemente, tutte le medaglie d’oro assegnate fino allora.")])]), _vm._v(" "), _c('content-section', {
+	  }), _vm._v(" "), _c('p', [_vm._v("Il nuovo decennio inizia all’insegna della violenza digitale, con una bella copertina di Oliver Frey ispirata a Operation Thunderbolt. Tornano intanto le console (comunque presenti anche su TGM), e Super Mario Bors 2 si cucca immediatamente la medaglia (con tanto di faccione entusiasta di Marco Auletta, forse allora conosciuto maggiormente per le sue iniziali...); si prosegue con Vendetta sul numero di Febbraio, e, sul numero di Marzo, appare il primo tocco di fig...liuola in copertina della storia di Zzap!: 4th Dimension, compilation unica nel suo genere in quanto la Hewson ha messo in una sola scatola quattro giochi molto ma mooolto belli e, soprattutto, inediti.")]), _vm._v(" "), _c('p', [_vm._v("Posta davvero un po’ particolare questo mese: dallo scandalo degli annali (con due persone che se ne contendono la paternità) si arriva per le considerazioni filosofiche di Giò Peccati, passando naturalmente per... l’angolo di BovaByte!!! Ebbene sì, risale a questo mese il primo articolo di una serie destinata a imperversare ancora oggi sulle pagine di TGM. Ricordatevelo bene: se adesso sono qui a tediarvi, è solo grazie alla risposta che ci diede il Bittanti proprio su quel lontanissimo numero di Zzap!.. Ad Aprile il pesce ce lo fa Frey, ma stavolta lo freghiamo noi! Turrican fa bella mostra di sé e passa immediatamente dopo alla storia; a maggio arriva il PC Engine e tutti sbaviamo, tranne MA che, con il suo solito fare dispotico, è riuscito a mettergli le mani sopra e a non farlo più toccare a nessuno. A giungo arriva Fighter Bomber per Spectrum, ed è subito medaglia d’oro, mentre a luglio la copertina è tutta per Secret Agent. A settembre arriva una notizia tragica: Frey non avrebbe più ‘firmato’ l’immagine di copertina, ma per fortuna si tratta solo di una sola. Chi lo sostituisce, comunque, riesce a fare un pessimo lavoro su Time Machine, la cui preview è a tutti gli effetti l’articolo più importante del mese. Va necessariamente detto che il 1990 non è un bell’anno per Zzap!: poche idee, poco software, e soprattutto un’impaginazione ripetitiva tendono a rendere la rivista ancor più scialba di quella che effettivamente era... La posta passa in mano a Carlo Santagostino.")]), _vm._v(" "), _c('p', [_vm._v("Il 1990 si trascina senza troppi entusiasmi fino a dicembre (i fasti di due anni prima sembrano lontani un secolo), quando uno speciale 50° numero in ritardo di un mese (siamo infatti al 51) contiene le recensioni di Lupo Alberto, Creatures, Chase HQ 2, Midnight Resistance, Shadow of the Beast e Ghouls’n’Ghost (per Megadrive). Un redazionale di quelli memorabili ricorda, brevemente, tutte le medaglie d’oro assegnate fino allora.")])], 1), _vm._v(" "), _c('content-section', {
 	    attrs: {
 	      "title": "I '90: anni \"bui\""
 	    }
-	  }, [_c('p', [_vm._v("Che il 1991 non sarebbe stato un anno molto più esaltante del precedente, lo si vide sin dalla prima copertina: le Tartarughe Ninja non sono infatti il soggetto più felice ma, a onor del vero, va riconosciuto che il gioco è anche peggio. Appaiono le prime due recensioni per Neo Geo, e sono ovviamente due medaglie d’oro, mentre il Commodore ci riserva solo Robocop II e Ninja Remix, vittima di un’agonia che sembra regalare l’ultimo momento di lucidità a febbraio: ben ventitrè giochi recensiti, tra cui l’immortale Turrican 2 e il maniacale Klax. Arriva anche Shadow of the Beast per il 64, ma più interessante è l’avventura grafica Mean Streets, forse l’unica che portò l’agente Tex Murphy anche sugli otto bit. A marzo inizia quella che verrà definita \"la diaspora\" dei redattori di Zzap! e TGM: Stefano Gallarini un bel giorno decide di fare piazza pulita dei collaboratori, e di tutti gli arrivi più recenti se ne salveranno solo due... indovinate quali... Comunque sia, ancora due mesi e Zzap! cambierà completamente pelle: la direzione della rivista passa in mano completamente a Stefano, Bonvantura Di Bello uscirà improvvisamente di scena dopo un ultimo editoriale nostalgico, e con lui se ne va anche la vecchia impaginazione. La nuova ‘faccia’ prevede molte più pagine colorate, commenti tondeggianti e caricature un po’ deformi... non piace gran che e nei mesi successivi subisce continue modifiche.\nPer qualche mese Gabriele Pasquali ricopre la carica di caporedattore, dopodiché quest’ultima passa in mano a Giancarlo Calzetta. Il buon JH si applica, ma è anche l’epoca del buco redazionale e del \"non sono d’accordo con te, Paolo\", frase che mi sentirò ripetere nei suoi commenti almeno seicento volte. Con la seconda metà del 91, arrivano Mercs, Bonanza Bros, Wrath of the Demon, Rubicon, Out Run Europa, Terminator II e Spot. Fallisce la Newsfield Publications e Zzap! perde tutti i legami con il suo passato anglosassone, diventando a tutti gli effetti una rivista italiana. In quel periodo, nasce anche Consolemania, e la redazione si amplia: arrivano anche Stefano Petrullo, Emanuele Scihilone e Giovanni Papandrea. Nasce anche un nuovo \"redattore pirla\": è Geims Tonn, personaggio creato tempo addietro da Paolo Besser e Andrea Cavallotti sul giornale del Liceo, poi approdato tra le recensioni di Zzap!")]), _vm._v(" "), _c('p', [_vm._v("Nel 1992 iniziano gli articoli ‘storici', più una serie di nuove rubriche nate con il chiaro scopo di riempire lo spazio lasciato inesorabilmente vuoto dalla penuria – ormai cronica – di software per gli otto bit. Eppure, sul numero di Febbraio Stefano Gallarini riesce a tirare fuori ben otto pagine di giochi Amstrad, mentre a Marzo uscirà \"il peggior numero della storia di Zzap!\", come lo definimmo tutti dopo averlo visto in redazione: l’impaginazione passa, per la prima e anche ultima volta, a una società che stravolgerà completamente il progetto originario, riporterà dei voti assolutamente a caso in alcune pagelle, tra cui anche quella del meraviglioso Catalypse (uno shoot’em up tutto italiano davvero ganzo), e ci regalerà i box del Top Secret in assoluto più ridicoli mai apparsi (ce n’erano alcuni che sembravano dei manifestini funebri...). Davvero incredibile la finta pubblicità del Nuvenia Socket, \"il detergente intimo del disk drive\", con cui BovaByte fa davvero centro: qualcuno andrà anche a cercarlo nei negozi. La posta, nonostante la ‘firma’ sia ancora quella di Ricki, passa in mano al malefico duo: i Bovas, che già da qualche mese curavano quella di Consolemania. Ad Aprile la grafica torna in mano a Carlo e Alessandra Gandolfi, e i risultati si vedono: pur mantenendo il progetto elaborato dai disgraziati del mese prima, fondini ultracolor e scontorni qua e là abbellirano le recensioni di Indy Heat, PP Hammer, Mille Miglia e Lemmings per Spectrum. Parte il concorso con cui Zzap! regalerà 300 orologi personalizzati. A maggio arrivano sul Commodore 64 Chuck Rock, Space Gun, e una vera e propria invasione di budget games. Intanto i mesi passano, e si avvicina la ‘fine’ di Zzap! intesa come rivista a sé stante: gli ultimi sussulti sono rappresentati da Alien World, Winter Camp, Creatures 2, Robocod (James Pond 2), Bonanza Bros, The Cool Crock Twins e Budokan. Il numero di Novembre sarà il primo con la mia firma come caporedattore (Giancarlo Calzetta era partito per militare), e con me tornano le copertine ‘violente’: sarà infatti Elvira 2, 99%, a fare da gran finale per la storia del C64: col numero successivo, infatti, si chiude per sempre un ciclo.")])]), _vm._v(" "), _c('content-section', {
+	  }, [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero53.jpg",
+	      "caption": "Medaglia d'oro a Turrican 2",
+	      "align": "left"
+	    }
+	  }), _vm._v(" "), _c('p', [_vm._v("Che il 1991 non sarebbe stato un anno molto più esaltante del precedente, lo si vide sin dalla prima copertina: le Tartarughe Ninja non sono infatti il soggetto più felice ma, a onor del vero, va riconosciuto che il gioco è anche peggio. Appaiono le prime due recensioni per Neo Geo, e sono ovviamente due medaglie d’oro, mentre il Commodore ci riserva solo Robocop II e Ninja Remix, vittima di un’agonia che sembra regalare l’ultimo momento di lucidità a febbraio: ben ventitrè giochi recensiti, tra cui l’immortale Turrican 2 e il maniacale Klax. Arriva anche Shadow of the Beast per il 64, ma più interessante è l’avventura grafica Mean Streets, forse l’unica che portò l’agente Tex Murphy anche sugli otto bit. A marzo inizia quella che verrà definita \"la diaspora\" dei redattori di Zzap! e TGM: Stefano Gallarini un bel giorno decide di fare piazza pulita dei collaboratori, e di tutti gli arrivi più recenti se ne salveranno solo due... indovinate quali... Comunque sia, ancora due mesi e Zzap! cambierà completamente pelle: la direzione della rivista passa in mano completamente a Stefano, Bonvantura Di Bello uscirà improvvisamente di scena dopo un ultimo editoriale nostalgico, e con lui se ne va anche la vecchia impaginazione. La nuova ‘faccia’ prevede molte più pagine colorate, commenti tondeggianti e caricature un po’ deformi... non piace gran che e nei mesi successivi subisce continue modifiche.\nPer qualche mese Gabriele Pasquali ricopre la carica di caporedattore, dopodiché quest’ultima passa in mano a Giancarlo Calzetta. Il buon JH si applica, ma è anche l’epoca del buco redazionale e del \"non sono d’accordo con te, Paolo\", frase che mi sentirò ripetere nei suoi commenti almeno seicento volte. Con la seconda metà del 91, arrivano Mercs, Bonanza Bros, Wrath of the Demon, Rubicon, Out Run Europa, Terminator II e Spot. Fallisce la Newsfield Publications e Zzap! perde tutti i legami con il suo passato anglosassone, diventando a tutti gli effetti una rivista italiana. In quel periodo, nasce anche Consolemania, e la redazione si amplia: arrivano anche Stefano Petrullo, Emanuele Scihilone e Giovanni Papandrea. Nasce anche un nuovo \"redattore pirla\": è Geims Tonn, personaggio creato tempo addietro da Paolo Besser e Andrea Cavallotti sul giornale del Liceo, poi approdato tra le recensioni di Zzap!")]), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero65.jpg",
+	      "caption": "Il peggior numero della storia di Zzap!",
+	      "align": "right",
+	      "rotation": "cc"
+	    }
+	  }), _vm._v(" "), _c('p', [_vm._v("Nel 1992 iniziano gli articoli ‘storici', più una serie di nuove rubriche nate con il chiaro scopo di riempire lo spazio lasciato inesorabilmente vuoto dalla penuria – ormai cronica – di software per gli otto bit. Eppure, sul numero di Febbraio Stefano Gallarini riesce a tirare fuori ben otto pagine di giochi Amstrad, mentre a Marzo uscirà \"il peggior numero della storia di Zzap!\", come lo definimmo tutti dopo averlo visto in redazione: l’impaginazione passa, per la prima e anche ultima volta, a una società che stravolgerà completamente il progetto originario, riporterà dei voti assolutamente a caso in alcune pagelle, tra cui anche quella del meraviglioso Catalypse (uno shoot’em up tutto italiano davvero ganzo), e ci regalerà i box del Top Secret in assoluto più ridicoli mai apparsi (ce n’erano alcuni che sembravano dei manifestini funebri...). Davvero incredibile la finta pubblicità del Nuvenia Socket, \"il detergente intimo del disk drive\", con cui BovaByte fa davvero centro: qualcuno andrà anche a cercarlo nei negozi. La posta, nonostante la ‘firma’ sia ancora quella di Ricki, passa in mano al malefico duo: i Bovas, che già da qualche mese curavano quella di Consolemania. Ad Aprile la grafica torna in mano a Carlo e Alessandra Gandolfi, e i risultati si vedono: pur mantenendo il progetto elaborato dai disgraziati del mese prima, fondini ultracolor e scontorni qua e là abbellirano le recensioni di Indy Heat, PP Hammer, Mille Miglia e Lemmings per Spectrum. Parte il concorso con cui Zzap! regalerà 300 orologi personalizzati. A maggio arrivano sul Commodore 64 Chuck Rock, Space Gun, e una vera e propria invasione di budget games. Intanto i mesi passano, e si avvicina la ‘fine’ di Zzap! intesa come rivista a sé stante: gli ultimi sussulti sono rappresentati da Alien World, Winter Camp, Creatures 2, Robocod (James Pond 2), Bonanza Bros, The Cool Crock Twins e Budokan. Il numero di Novembre sarà il primo con la mia firma come caporedattore (Giancarlo Calzetta era partito per militare), e con me tornano le copertine ‘violente’: sarà infatti Elvira 2, 99%, a fare da gran finale per la storia del C64: col numero successivo, infatti, si chiude per sempre un ciclo.")])], 1), _vm._v(" "), _c('content-section', {
 	    attrs: {
 	      "title": "1993: l'anno di TGM"
 	    }
-	  }, [_c('p', [_vm._v("\"Avete visto la novità? Adesso BovaByte vi regala anche The Games Machine! Sì, perché voi eravate convinti che fosse Zzap! ad avere, al suo interno, BovaByte. E invece era l’esatto opposto! E ora che Zzap! è contenuto in TGM, allora BovaByte, oltre a Zzap!, ha al suo esterno anche The Games Machine! Siete convinti? No? Beh, in fondo è solo questione di punti di vista\". Con questa autoironica, ma anche amara battuta sulle pagine di BovaByte, e con una copertina davvero acidissima e ultrademenziale, si apre un nuovo capitolo nella storia di Zzap!, ormai ridotto a 16 pagine e incluso come inserto al centro di The Games Machine.\nSeppur bioridotta, la rivista riesce comunque a mantenere inalterato il suo spirito goliardico e indipendente, e in questi mesi riesce ancora a proporre le recensioni di Cool World, Rampart, Street Fighter 2, Lethal Waepon, 3D World Tennis, Smash, Wrath of The Demon, The First Samurai, Sleepwalker, Nobby the Aardwark, Trolls, Ugh! e Alien 3. Non mancano i momenti epici, tipo quando ci è arrivata la protesta di un gruppo di mamme perché un ragazzino, dopo aver letto un angolo di BovaByte, è stato sospeso da scuola in quanto brascato a giocare con una console portatile; oppure anche l’ultimo, strappalacrime editoriale con cui redattori vecchi e nuovi salutavano ‘per sempre’ una rivista che aveva rappresentato un’epoca.")]), _vm._v(" "), _c('p', [_vm._v("La redazione è formata essenzialmente da me, Davide Corrado, Silvia Patanè, Giancarlo Albertinazzi, Cristiana Marchini, Varia Vilardo, Luca Reynaud, Stefano Petrullo ed Emanuele Scihilone. Le caricature, tutte estremamente tondeggianti e per la prima volta unificate nello stile, sono opera di Rudy Mascheretti. In precedenza, erano state disegnate anche da me e da Eloisa Scihilone.")])]), _vm._v(" "), _c('content-section', {
+	  }, [_c('p', [_vm._v("\"Avete visto la novità? Adesso BovaByte vi regala anche The Games Machine! Sì, perché voi eravate convinti che fosse Zzap! ad avere, al suo interno, BovaByte. E invece era l’esatto opposto! E ora che Zzap! è contenuto in TGM, allora BovaByte, oltre a Zzap!, ha al suo esterno anche The Games Machine! Siete convinti? No? Beh, in fondo è solo questione di punti di vista\". Con questa autoironica, ma anche amara battuta sulle pagine di BovaByte, e con una copertina davvero acidissima e ultrademenziale, si apre un nuovo capitolo nella storia di Zzap!, ormai ridotto a 16 pagine e incluso come inserto al centro di The Games Machine.\nSeppur bioridotta, la rivista riesce comunque a mantenere inalterato il suo spirito goliardico e indipendente, e in questi mesi riesce ancora a proporre le recensioni di Cool World, Rampart, Street Fighter 2, Lethal Waepon, 3D World Tennis, Smash, Wrath of The Demon, The First Samurai, Sleepwalker, Nobby the Aardwark, Trolls, Ugh! e Alien 3. Non mancano i momenti epici, tipo quando ci è arrivata la protesta di un gruppo di mamme perché un ragazzino, dopo aver letto un angolo di BovaByte, è stato sospeso da scuola in quanto brascato a giocare con una console portatile; oppure anche l’ultimo, strappalacrime editoriale con cui redattori vecchi e nuovi salutavano ‘per sempre’ una rivista che aveva rappresentato un’epoca.")]), _vm._v(" "), _c('p', [_vm._v("La redazione è formata essenzialmente da me, Davide Corrado, Silvia Patanè, Giancarlo Albertinazzi, Cristiana Marchini, Varia Vilardo, Luca Reynaud, Stefano Petrullo ed Emanuele Scihilone. Le caricature, tutte estremamente tondeggianti e per la prima volta unificate nello stile, sono opera di Rudy Mascheretti. In precedenza, erano state disegnate anche da me e da Eloisa Scihilone.")]), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero74.jpg",
+	      "caption": "Il primo Zzap!, ridotto a 16 pagine, allegato a The Games Machine",
+	      "rotation": "cw"
+	    }
+	  })], 1), _vm._v(" "), _c('content-section', {
 	    attrs: {
 	      "title": "Estate 1996: la rinascita"
 	    }
@@ -17743,12 +17760,17 @@
 	
 	var _contentsection2 = _interopRequireDefault(_contentsection);
 	
+	var _contentimage = __webpack_require__(88);
+	
+	var _contentimage2 = _interopRequireDefault(_contentimage);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
 	  components: {
 	    ContentContainer: _contentcontainer2.default,
-	    ContentSection: _contentsection2.default
+	    ContentSection: _contentsection2.default,
+	    ContentImage: _contentimage2.default
 	  }
 	};
 
@@ -17759,10 +17781,37 @@
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('content-container', {
 	    attrs: {
-	      "title": "Un sogno mai realizzato: il Konix Multisystem",
+	      "title": "Un sogno mai realizzato: il Konix Multisystem, di Darkj",
 	      "anchor": "speciali-konixmultisystem"
 	    }
-	  }, [_vm._v("\ndi Darkj\n  ")])
+	  }, [_c('content-section', [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/konixmultisystem/speedking.jpg",
+	      "caption": "Lo Speedking, il rivoluzionario joystick della Konix.",
+	      "align": "right"
+	    }
+	  }), _vm._v(" "), _c('p', [_vm._v("Chi di voi, che avete vissuto l'era 8 bit, non si ricorda della mitica Konix? Ripensando ai tempi in cui ci si ritrovava i pomeriggi a casa degli amici a giocare con il C64 (intervallando purtroppo con qualche minuto di studio) non posso non ricordare il migliore compagno di noi videogiocatori dell'epoca, lo SPEEDKING. Il joystick della suddetta casa inglese che fu una vera e propria rivoluzione rispetto ai controller utilizzati fino ad allora, rozzi, squadrati e scomodi!!! Lo speedking aveva una forma ergonomica che permetteva la presa dello stesso e la pressione del fire con la mano sinistra lasciando alla mano destra il controllo della leva.\nNon mi sento di esagerare dicendo che un buon 90% dei possessori di C64 in breve tempo avevano fatto loro questo nuovo ed utile accessorio che, oltre che per per la comodità si contraddistingueva anche per la solidità e robustezza, pensate che il mio è passato attraverso migliaia di partite a decathlon (lo spacca joystick per eccellenza) ed a cadute da varie altezze tanto da resistere addirittura fino al passaggio C64 - Amiga.\nVisto il grande successo dello speedking la Konix ne realizzò versioni per PC e per alcune consolle fra le quali ricordo il Nintendo Entertainment System e il Sega Master System che però non ebbero il successo dell'originale.")]), _vm._v(" "), _c('p', [_vm._v("Nel 1988 Konix si associò ad un'altra compagnia inglese la Flare, che aveva già sviluppato un prototipo di computer il Flare One, per lo sviluppo di una console basata sull'hardware di quest'ultimo, chiamata Konix Multisystem. Le foto sulle preview delle riviste del settore furono tali da fare sbavare qualsiasi appassionato di videogiochi e ancor di più chi già aveva testato la qualità dei prodotti Konix. Lasciando a dopo le specifiche tecniche della console, ciò che subito saltava all'occhio era proprio la forma di quest'ultima che appariva come un volante d'auto perfetto per i giochi automobilistici (considerate che ai tempi non esistevano tutti gli accessori che esistono oggi per le console) che all'occorrenza con semplici operazioni poteva trasformarsi in manubrio da moto/bike o in cloche per le simulazioni di volo. In più venivano sponsorizzate una serie di periferche accessiorie quali la lightgun, la sedia meccanica(!!!). Insomma c'era di tutto per fare sognare noi ingenui ragazzini dell'epoca.")]), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/konixmultisystem/konixcloche.jpg",
+	      "caption": "Il Konix Multisystem in configurazione cloche"
+	    }
+	  }), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/konixmultisystem/konixauto3.jpg",
+	      "caption": "Configuarazione volante, con a destra la pedaliera fornita con la console"
+	    }
+	  }), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/konixmultisystem/konixmoto2.jpg",
+	      "caption": "Configurazione motorbike"
+	    }
+	  }), _vm._v(" "), _c('p', [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/konixmultisystem/konixsedia.jpg",
+	      "caption": "La sedia meccanica",
+	      "align": "right"
+	    }
+	  }), _vm._v("\n        Ma purtroppo la console non vide mai la luce a parte forse qualche esemplare dimostrativo per una serie di motivi fra i quali i continui cambiamenti dell'hardware e i continui posticipi della data di uscita che scoraggiarono le software house dall'investire risorse sullo sviluppo per questa macchina. Ad esempio la memoria ram dela consolle doveva essere inizialmente di 128k per poi essere portata a 256k con la possibilità di espansione fino a 512k dopo le critiche subite da parte di alcune software house, quindi ai definitivi 512k negli ultimi modelli.")], 1), _vm._v(" "), _c('p', [_vm._v("Vediamo dunque le specifiche tecniche della console:\n        "), _c('ol', [_c('li', [_vm._v("Il "), _c('strong', [_vm._v("processore")]), _vm._v(" era un 8086 a 16 bit affiancato da un coprocessore custom ASIC a 12mhz comprendente video generator, colour palette, disk controller, Blitter, ROM, fast RAM, 12 MIP Arithmetic and Logic Unit, RISC Digital Signal Processor, stereo compact disk DACs and digital and analogue ports.")]), _vm._v(" "), _c('li', [_vm._v("La "), _c('strong', [_vm._v("memoria")]), _vm._v(" ram come già detto era di 256k (512k successivamente).")]), _vm._v(" "), _c('li', [_vm._v("Le "), _c('strong', [_vm._v("risoluzioni")]), _vm._v(" grafiche 256x200 a 256 colori, 256x200 a 16 colori e 512x200 a 16 colori il tutto da una paletta di 4096 colori.")]), _vm._v(" "), _c('li', [_vm._v("Il "), _c('strong', [_vm._v("sonoro")]), _vm._v(" stereo a 25 canali con qualità CD ed output via TV o cuffie.")]), _vm._v(" "), _c('li', [_c('strong', [_vm._v("Uscite video")]), _vm._v(" standard Tv o RGB composito.")]), _vm._v(" "), _c('li', [_vm._v("Il "), _c('strong', [_vm._v("software")]), _vm._v(" risiedeva su dischetti da 3,5 con capacità da 880k o su cartuccia.")])]), _vm._v("\n        Dopo il fallimento del Konix multisystem e lo scioglimento delle due società la Flare continuò lo sviluppo dell'hardware del Flare One producendo il Flare Two che fu poi venduto ad Atari e diventò l'"), _c('strong', [_vm._v("Atari Jaguar")]), _vm._v(".\n      ")])], 1)], 1)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -17831,6 +17880,185 @@
 /* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	var disposed = false
+	var Component = __webpack_require__(7)(
+	  /* script */
+	  __webpack_require__(98),
+	  /* template */
+	  __webpack_require__(99),
+	  /* styles */
+	  null,
+	  /* scopeId */
+	  null,
+	  /* moduleIdentifier (server only) */
+	  null
+	)
+	Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/demo/content/image.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] image.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-54fdb75a", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-54fdb75a", Component.options)
+	  }
+	  module.hot.dispose(function (data) {
+	    disposed = true
+	  })
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _contentcontainer = __webpack_require__(73);
+	
+	var _contentcontainer2 = _interopRequireDefault(_contentcontainer);
+	
+	var _contentsection = __webpack_require__(76);
+	
+	var _contentsection2 = _interopRequireDefault(_contentsection);
+	
+	var _contentimage = __webpack_require__(88);
+	
+	var _contentimage2 = _interopRequireDefault(_contentimage);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  components: {
+	    ContentContainer: _contentcontainer2.default,
+	    ContentSection: _contentsection2.default,
+	    ContentImage: _contentimage2.default
+	  }
+	};
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('content-container', {
+	    attrs: {
+	      "title": "Le abbiamo viste tutte, di Paolo Besser",
+	      "anchor": "speciali-leabbiamovistetutte"
+	    }
+	  }, [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+	    }
+	  }), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "linkUrl": "#",
+	      "caption": "Centred and linked"
+	    }
+	  }), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "rotation": "cw",
+	      "caption": "Centred CW"
+	    }
+	  }), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "caption": "Centred CC",
+	      "rotation": "cc"
+	    }
+	  }), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "caption": "Centred with long caption, la splendida protagonista di \"Insects is Space\" creata da Sensible Software"
+	    }
+	  }), _vm._v(" "), _c('content-section', {
+	    attrs: {
+	      "title": "Le origini"
+	    }
+	  }, [_c('p', [_vm._v("Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,\n      giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,\n      un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.\n      A meno che, ovviamente, debba scrivere un’autobiografia.")])]), _vm._v(" "), _c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "linkUrl": "#",
+	      "caption": "Centred, linked, between sections"
+	    }
+	  }), _vm._v(" "), _c('content-section', {
+	    attrs: {
+	      "title": "Il seguito"
+	    }
+	  }, [_c('p', [_vm._v("Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,\n      giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,\n      un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.\n      A meno che, ovviamente, debba scrivere un’autobiografia.\n      E questo tipo di manoscritti, per quanto affascinante, è sempre filtrato dai\n      ricordi, dalle emozioni vissute, dal desiderio di rimediare gli errori\n      compiuti, dalla voglia di giustificazione o di riscatto.\n      Parlare della rivista per cui si lavora, per fortuna, è sostanzialmente\n      diverso: ciò ch’è stato è stato, da qualche parte rimarrà scritto,\n      e troverai sempre il vecchio lettore pronto a contraddirti,\n      e poi c’è quella parte visibile, oggettiva, che rimarrà a tutti gli effetti\n      l’unica cosa che la gente ricorderà. Perché in fondo chi scrive non lo fa\n      solo per informare, ma anche nella speranza che qualcosa di suo rimanga in\n      eterno.")])]), _vm._v(" "), _c('content-section', {
+	    attrs: {
+	      "title": "Le origini"
+	    }
+	  }, [_c('p', [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "rotation": "cw",
+	      "caption": "Centred, CW, at the beginning of a paragraph"
+	    }
+	  }), _vm._v("\n      Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con\n      gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un\n      Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente\n      bruciassero... Avevano tutti i giochi di questo mondo, loro, e riuscivano a\n      procurarseli con una facilità davvero incredibile. Erano i tempi della pirateria\n      da edicola, e di seguire mensilmente una pubblicazione, ovviamente come lettore,\n      nemmeno se ne parlava: come per la maggior parte dei bambini di allora, erano i\n      genitori a stabilire se fosse il caso d’investire quelle poche lire in una nuova\n      \"cassettina\" per il computer, strumento per altro visto con diffidenza e disprezzo,\n      eppure, ciò non m’impedì di leggere qualche numero di VideoGiochi, a tutti gli\n      effetti la prima rivista italiana dedicata espressamente all’argomento. Ricordo\n      che la curava lo Studio Vit, all’epoca legato al Gruppo Editoriale Jackson, e che\n      improvvisamente le uscite della testata iniziarono a perdere in fatto di regolarità.\n      Non me ne rendevo conto, ma era già finita un’epoca, e i videogiocatori un po’ più\n      grandicelli si apprestavano a seguire le evoluzioni del mercato su una nuova rivista,\n      \"edizione italiana\" di quella \"inglese più venduta\": Zzap!.")], 1)]), _vm._v(" "), _c('content-section', {
+	    attrs: {
+	      "title": "Le origini"
+	    }
+	  }, [_c('p', [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "caption": "Left, at the beginning of a paragraph",
+	      "align": "left"
+	    }
+	  }), _vm._v("\n      Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con\n      gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un\n      Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente\n      bruciassero... Avevano tutti i giochi di questo mondo, loro, e riuscivano a\n      procurarseli con una facilità davvero incredibile. Erano i tempi della pirateria\n      da edicola, e di seguire mensilmente una pubblicazione, ovviamente come lettore,\n      nemmeno se ne parlava: come per la maggior parte dei bambini di allora, erano i\n      genitori a stabilire se fosse il caso d’investire quelle poche lire in una nuova\n      \"cassettina\" per il computer, strumento per altro visto con diffidenza e disprezzo,\n      eppure, ciò non m’impedì di leggere qualche numero di VideoGiochi, a tutti gli\n      effetti la prima rivista italiana dedicata espressamente all’argomento. Ricordo\n      che la curava lo Studio Vit, all’epoca legato al Gruppo Editoriale Jackson, e che\n      improvvisamente le uscite della testata iniziarono a perdere in fatto di regolarità.\n      Non me ne rendevo conto, ma era già finita un’epoca, e i videogiocatori un po’ più\n      grandicelli si apprestavano a seguire le evoluzioni del mercato su una nuova rivista,\n      \"edizione italiana\" di quella \"inglese più venduta\": Zzap!.")], 1), _vm._v(" "), _c('p', [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "caption": "Right, linked, at the beginning of a paragraph",
+	      "align": "right",
+	      "linkUrl": "#"
+	    }
+	  }), _vm._v("\n      Zzap! uscì in sordina, nel lontano maggio del 1986, tanto in sordina che non tutte\n      le edicole ne furono provviste. Tant’è che il mio primo contatto con la nuova\n      pubblicazione avvenne solo otto mesi più tardi, nel dicembre dello stesso anno:\n      il mio C16 fu soppiantato a Natale da un più potente Commodore 128, e finalmente mi\n      mettevo nelle condizioni di \"recuperare\" tutto il tempo perduto: VideoGiochi si era\n      nel frattempo trasformata in VideoGiochi News e aveva fatto in tempo a morire per\n      la seconda volta, e improvvisamente tra le tante pubblicazioni dedicate all’argomento\n      \"computer\" intravidi un logo nuovo e attraente, quello stesso che capeggia tuttora\n      sulle copertine disegnate da Vera Gentinetta: Zzap!. Più che una parola, un sibilo.\n      Il verso dei laser. Ci misi gli anni a capire come diavolo si pronunciasse, ma dopo\n      sole poche ore quella sarebbe diventata la \"mia\" rivista, quella per la quale avrei\n      rotto le balle all’edicolante ogni santo mese, \"è uscito Zzap!?\", un leitmotiv a\n      cui si saranno abituati in tanti.")], 1), _vm._v(" "), _c('p', [_vm._v("Solo in seguito riuscii a recuperare i sei numeri che mancavano alla mia collezione:\n      cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più\n      tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me\n      lo spedì in regalo.")])]), _vm._v(" "), _c('content-section', {
+	    attrs: {
+	      "title": "Le origini"
+	    }
+	  }, [_c('p', [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "caption": "Left, CC, at the beginning of a paragraph",
+	      "align": "left",
+	      "rotation": "cc"
+	    }
+	  }), _vm._v("\n      Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con\n      gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un\n      Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente\n      bruciassero... Avevano tutti i giochi di questo mondo, loro, e riuscivano a\n      procurarseli con una facilità davvero incredibile. Erano i tempi della pirateria\n      da edicola, e di seguire mensilmente una pubblicazione, ovviamente come lettore,\n      nemmeno se ne parlava: come per la maggior parte dei bambini di allora, erano i\n      genitori a stabilire se fosse il caso d’investire quelle poche lire in una nuova\n      \"cassettina\" per il computer, strumento per altro visto con diffidenza e disprezzo,\n      eppure, ciò non m’impedì di leggere qualche numero di VideoGiochi, a tutti gli\n      effetti la prima rivista italiana dedicata espressamente all’argomento. Ricordo\n      che la curava lo Studio Vit, all’epoca legato al Gruppo Editoriale Jackson, e che\n      improvvisamente le uscite della testata iniziarono a perdere in fatto di regolarità.\n      Non me ne rendevo conto, ma era già finita un’epoca, e i videogiocatori un po’ più\n      grandicelli si apprestavano a seguire le evoluzioni del mercato su una nuova rivista,\n      \"edizione italiana\" di quella \"inglese più venduta\": Zzap!.")], 1), _vm._v(" "), _c('p', [_c('content-image', {
+	    attrs: {
+	      "imagePath": "assets/content/speciali/leabbiamovistetutte/numero43.jpg",
+	      "caption": "Right,CW, linked, at the beginning of a paragraph",
+	      "align": "right",
+	      "rotation": "cw",
+	      "linkUrl": "#"
+	    }
+	  }), _vm._v("\n      Zzap! uscì in sordina, nel lontano maggio del 1986, tanto in sordina che non tutte\n      le edicole ne furono provviste. Tant’è che il mio primo contatto con la nuova\n      pubblicazione avvenne solo otto mesi più tardi, nel dicembre dello stesso anno:\n      il mio C16 fu soppiantato a Natale da un più potente Commodore 128, e finalmente mi\n      mettevo nelle condizioni di \"recuperare\" tutto il tempo perduto: VideoGiochi si era\n      nel frattempo trasformata in VideoGiochi News e aveva fatto in tempo a morire per\n      la seconda volta, e improvvisamente tra le tante pubblicazioni dedicate all’argomento\n      \"computer\" intravidi un logo nuovo e attraente, quello stesso che capeggia tuttora\n      sulle copertine disegnate da Vera Gentinetta: Zzap!. Più che una parola, un sibilo.\n      Il verso dei laser. Ci misi gli anni a capire come diavolo si pronunciasse, ma dopo\n      sole poche ore quella sarebbe diventata la \"mia\" rivista, quella per la quale avrei\n      rotto le balle all’edicolante ogni santo mese, \"è uscito Zzap!?\", un leitmotiv a\n      cui si saranno abituati in tanti.")], 1), _vm._v(" "), _c('p', [_vm._v("Solo in seguito riuscii a recuperare i sei numeri che mancavano alla mia collezione:\n      cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più\n      tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me\n      lo spedì in regalo.")])])], 1)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-54fdb75a", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	var map = {
 		"./content/diaries/diaries.js": 72,
 		"./content/diaries/zzap.js": 81,
@@ -17840,6 +18068,7 @@
 		"./contentcontainer/contentcontainer.js": 74,
 		"./contentimage/contentimage.js": 89,
 		"./contentsection/contentsection.js": 77,
+		"./demo/content/image.js": 98,
 		"./home/home.js": 11,
 		"./index/index.js": 19,
 		"./loader/loader.js": 67,
@@ -17861,7 +18090,7 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 97;
+	webpackContext.id = 100;
 
 
 /***/ })

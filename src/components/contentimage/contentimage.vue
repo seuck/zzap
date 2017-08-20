@@ -1,10 +1,11 @@
 <template>
-  <a :class="fullStyle" :href="linkUrl">
-    <figure>
-      <img class="content__image" :src="path">
-      <figcaption v-if="caption">{{caption}}</figcaption>
-    </figure>
-  </a>
+  <figure :class="fullStyle">
+    <a v-if="linkUrl" :href="linkUrl">
+      <img :src="imagePath">
+    </a>
+    <img v-else :src="imagePath">
+    <figcaption v-if="caption">{{caption}}</figcaption>
+  </figure>
 </template>
 
 <script src="./contentimage.js"></script>

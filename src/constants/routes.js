@@ -7,6 +7,9 @@ import SpecialiLeabbiamovistetutte from 'components/content/speciali/pages/leabb
 import SpecialiKonixmultisystem from 'components/content/speciali/pages/konixmultisystem.vue'
 import NotFoundComponent from 'components/notfoundcomponent/notfoundcomponent.vue'
 
+// Demo
+import DemoContentImages from 'components/demo/content/image.vue'
+
 /*
  * For semantic reasons, please localise both names and routes
  * according to content language.
@@ -34,8 +37,8 @@ const routes = [
         }
       },
       {
-        path: 'diari/zzap',
         name: 'diari-zzap',
+        path: 'diari/zzap',
         components: {
           content: Diaries,
           followup: ZzapDiary
@@ -49,19 +52,26 @@ const routes = [
         }
       },
       {
-        path: 'speciali/leabbiamovistetutte',
         name: 'speciali-leabbiamovistetutte',
+        path: 'speciali/leabbiamovistetutte',
         components: {
           content: Speciali,
           followup: SpecialiLeabbiamovistetutte
         }
       },
       {
-        path: 'speciali/konixmultisystem',
         name: 'speciali-konixmultisystem',
+        path: 'speciali/konixmultisystem',
         components: {
           content: Speciali,
           followup: SpecialiKonixmultisystem
+        }
+      },
+      {
+        name: 'demo-content-image',
+        path: 'demo/content/image',
+        components: {
+          content: DemoContentImages
         }
       }
     ]

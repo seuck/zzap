@@ -1,6 +1,6 @@
 <template>
   <content-container title="Diario di una Pasqua creativa" anchor="diari-zzap">
-      <content-section title="Martedì 11 Aprile 2017: 1 - Il galeone" image-style="content__section-imageodd">
+      <content-section title="Martedì 11 Aprile 2017: 1 - Il galeone">
         <a class="content__imagelink" href="#"><img class="content__image" src="assets/games/screenshoots/cauldron_ii.gif"></a>
 
         <p>Durante la mia adolescenza i fumetti di Dylan Dog hanno affiancato la lettura di Zzap! In entrambi i casi si trattava di una lettura mensile vorace. Ma mentre una volta terminato “l’albo” dell’indagatore dell’incubo non sempre ritornavo a leggerlo, colpa anche di una qualità sempre più discontinua col passare degli anni, Zzap! lo consumavo fino al punto da metterne a dura prova la precaria rilegatura graffettata.
@@ -16,7 +16,7 @@ Lo sviluppo infatti è per sempre, una meta la cui bellezza è proprio la non es
         <p>Scrivo queste righe proprio per raccontare la tappa successiva che sta per raggiungere il sito web del Progetto Zzap! Italia.</p>
       </content-section>
 
-      <content-section title="Mercoledì 12 Aprile 2017: 2 - Dove siamo" image-style="content__section-imageodd">
+      <content-section title="Mercoledì 12 Aprile 2017: 2 - Dove siamo">
         <a class="content__imagelink" href="#"><img class="content__image" src="assets/games/screenshoots/cauldron_ii.gif"></a>
 
         <p>Sono orgoglioso dei contenuti del Progetto Zzap! Italia, molto meno dell’involucro che li presenta. Il sito web attualmente online risale al lontanissimo 2004, ovvero separato dai giorni nostri da varie ere geologiche, considerando il rapido evolversi della tecnologia web.

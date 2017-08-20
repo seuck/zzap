@@ -1,20 +1,29 @@
 /**
- * style: left | right
+ * align: left | right
+ * rotation: cw, cc
  */
 
 export default {
-  name: 'content-image',
-  props: ['path', 'linkUrl', 'caption', 'style'],
+  name: 'content__image',
+  props: ['imagePath', 'linkUrl', 'caption', 'align', 'rotation'],
   computed: {
     fullStyle() {
-      let fullStyle = ''
-      const baseStyle = 'content__imagelink'
-      if (typeof this.style !== 'undefined') {
-        fullStyle = `${baseStyle} ${baseStyle}-${this.style}`
-      } else {
-        fullStyle = baseStyle
+      const styles = []
+      const baseStyle = 'content__image'
+      styles.push(baseStyle)
+
+      if (typeof this.linkUrl !== 'undefined') {
+        styles.push(`${baseStyle}-link`)
       }
-      return fullStyle
+      if (typeof this.align !== 'undefined') {
+        styles.push(`${baseStyle}-${this.align}`)
+      }
+
+      if (typeof this.rotation !== 'undefined') {
+        styles.push(`${baseStyle}-${this.rotation}`)
+      }
+
+      return styles.join(' ')
     }
   }
 }
