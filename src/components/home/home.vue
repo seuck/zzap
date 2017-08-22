@@ -17,6 +17,8 @@
     <router-view name="issue" magazineId="1" @openReader="initReader($event)"></router-view>
     <router-view name="content"></router-view>
     <router-view name="followup"></router-view>
+
+    <zzap-footer></zzap-footer>
   </div>
 </template>
 

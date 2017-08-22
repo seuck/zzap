@@ -5,6 +5,7 @@ import Scanindex from 'components/scanindex/scanindex.vue'
 import Scanissue from 'components/scanissue/scanissue.vue'
 import Reader from 'components/reader/reader.vue'
 import Loader from 'components/loader/loader.vue'
+import ZzapFooter from 'components/zzapfooter/zzapfooter.vue'
 
 import { CLASSES as GLOBALCLASSES } from 'constants/classes'
 
@@ -14,6 +15,7 @@ export default {
   name: COMPONENT_NAME,
   components: {
     Cover,
+    ZzapFooter,
     Index,
     Loader,
     Reader,

@@ -590,3 +590,13 @@ figcaption {
     cursor: w-resize; }
   .reader__last {
     cursor: e-resize; }
+
+.footer {
+  margin: 0 auto;
+  overflow: hidden; }
+  @media (min-width: 900px) {
+    .footer {
+      overflow: visible; } }
+  @media (min-width: 900px) {
+    .footer {
+      width: 900px; } }
