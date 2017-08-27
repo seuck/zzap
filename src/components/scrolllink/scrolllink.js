@@ -1,11 +1,11 @@
 import { scrollToClassWithDefaultOffset } from 'utils/scroll'
 
 export default {
-  name: 'scroll-link',
-  props: ['anchor', 'target'],
+  name: `scroll-link`,
+  props: [`anchor`, `target`],
   data() {
     return {
-      linkTarget: 'content'
+      linkTarget: `content`
     }
   },
   methods: {
@@ -16,7 +16,7 @@ export default {
     }
   },
   mounted() {
-    if (typeof this.target !== 'undefined') {
+    if (typeof this.target !== `undefined`) {
       this.linkTarget = this.target
     }
   }

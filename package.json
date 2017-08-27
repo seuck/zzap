@@ -34,59 +34,23 @@
     "cross-env": "^5.0.0",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
-    "eslint": "^3.12.2",
-    "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-scanjs-rules": "^0.1.5",
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-scanjs-rules": "^0.2.1",
     "file-loader": "^0.9.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-eslint": "^4.0.0",
     "gulp-sass": "^3.1.0",
     "vue-loader": "^12.2.2",
     "vue-template-compiler": "^2.4.1",
-    "webpack": "^2.4.1",
-    "webpack-stream": "^3.2.0"
+    "webpack": "^3.5.5",
+    "webpack-stream": "^4.0.0"
   },
   "babel": {
     "presets": [
-      "es2015"
+      "env"
     ]
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": "airbnb-base",
-    "plugin": [
-      "scanjs-rules",
-      "import"
-    ],
-    "env": {
-      "jest": true,
-      "browser": true
-    },
-    "rules": {
-      "no-param-reassign": [
-        "error",
-        {
-          "props": false
-        }
-      ],
-      "no-underscore-dangle": "off",
-      "no-plusplus": "off",
-      "comma-dangle": [
-        "error",
-        "never"
-      ],
-      "global-require": "off",
-      "import/extensions": "off",
-      "import/prefer-default-export": "off",
-      "import/no-extraneous-dependencies": "off",
-      "import/no-unresolved": "off",
-      "semi": [
-        "error",
-        "never"
-      ],
-      "func-names": "off"
-    }
   }
 }

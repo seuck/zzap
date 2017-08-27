@@ -5,11 +5,11 @@ import { ENTITIES as ZZAPI } from 'api/zzapi'
 import * as localeDate from 'locales/localedate'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
-const COMPONENT_NAME = 'scanissue'
+const COMPONENT_NAME = `scanissue`
 
 export default {
   name: COMPONENT_NAME,
-  props: ['magazineId', 'issueId'],
+  props: [`magazineId`, `issueId`],
   data() {
     return {
       issue: {},
@@ -32,6 +32,7 @@ export default {
     doublePages() {
       if (this.doublePagesCache.length === 0) {
         const doublePageArray = []
+
         if (this.isIssueId) {
           for (let i = 1; i < this.issue.volumes[0].pages.length - 1; i += 2) {
             doublePageArray.push(i)
@@ -39,25 +40,28 @@ export default {
         }
         this.doublePagesCache = doublePageArray
       }
+
       return this.doublePagesCache
     }
   },
   methods: {
     loadIssue(issueId) {
-      if (issueId !== '') {
+      if (issueId !== ``) {
         axios.get(ZZAPI.issue(this.magazineId, this.issueId))
-        .then((response) => {
-          this.issue = response.data
-        })
-        .catch(e => this.errors.push(e))
+          .then((response) => {
+            this.issue = response.data
+          })
+          .catch(e => this.errors.push(e))
       }
     },
     buildPageThumbPath(pageNumber) {
-      const normalisedNumber = this.addLeftPadding(pageNumber, '0', 2)
+      const normalisedNumber = this.addLeftPadding(pageNumber, `0`, 2)
+
       return `/img/thumbs/zzap/${this.issue.id}/${normalisedNumber}.jpg`
     },
     buildScanPath(pageNumber) {
-      const normalisedNumber = this.addLeftPadding(pageNumber, '0', 2)
+      const normalisedNumber = this.addLeftPadding(pageNumber, `0`, 2)
+
       return `/zzap/${this.issue.id}/${normalisedNumber}.jpg`
     },
     buildContributorPath(contributorId) {
@@ -65,9 +69,11 @@ export default {
     },
     addLeftPadding(text, paddingChar, maxLength) {
       let paddedText = text.toString()
+
       while (paddedText.length < maxLength) {
         paddedText = `${paddingChar}${paddedText}`
       }
+
       return paddedText
     },
     getMonth(monthNumber) {
@@ -76,7 +82,9 @@ export default {
     getReaderData(startPage) {
       if (isEmptyObject(this.readerData)) {
         const data = {}
-        data.title = `${this.issue.magazine.name} numero ${this.issue.sequence} - ${this.getMonth(this.issue.month)} ${this.issue.year}`
+        const formattedDate = `${this.getMonth(this.issue.month)} ${this.issue.year}`
+
+        data.title = `${this.issue.magazine.name} numero ${this.issue.sequence} - ${formattedDate}`
         // eslint-disable-next-line no-console
         console.log(startPage)
         data.pages = []
@@ -106,22 +114,25 @@ export default {
         console.log(data)
       }
       this.readerData.startPage = Math.floor(+startPage / 2)
+
       return this.readerData
     },
     buildDoublePageForReader(first, last) {
       const doublePage = {}
-      if (typeof first !== 'undefined') {
+
+      if (typeof first !== `undefined`) {
         doublePage.first = {
           label: first,
           path: this.buildScanPath(first)
         }
       }
-      if (typeof last !== 'undefined') {
+      if (typeof last !== `undefined`) {
         doublePage.last = {
           label: last,
           path: this.buildScanPath(last)
         }
       }
+
       return doublePage
     },
     openReader(startPage) {

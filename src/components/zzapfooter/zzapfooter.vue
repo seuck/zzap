@@ -6,6 +6,12 @@
         Vuoi saperne di piú?
       </scroll-link>
     </p>
+    <nav>
+      <a href="progetto">Il Progetto</a>
+      <a href="redazione">Redazione</a>
+      <a href="rassegna-stampa">Rassegna stampa</a>
+      <a href="note-legali">Note legali</a>
+    </nav>
   </footer>
 </template>
 

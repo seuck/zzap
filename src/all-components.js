@@ -19,11 +19,12 @@ Vue.use(VueRouter)
 Vue.use(VueLazyload)
 // eslint-disable-next-line no-unused-vars
 const vueZzap = new Vue({
-  el: '.vueroot',
+  el: `.vueroot`,
   router,
   render: h => h(Basepage)
 })
 
 // Include all *.js files in the "components" folder but exclude .test files
-const components = require.context('./components', true, /^((?!test).)*\.js$/)
+const components = require.context(`./components`, true, /^((?!test).)*\.js$/)
+
 components.keys().forEach(components)

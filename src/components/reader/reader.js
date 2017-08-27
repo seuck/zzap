@@ -6,8 +6,8 @@ import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } fro
  * Scroll down for example data
  */
 
-const COMPONENT_NAME = 'reader'
-const KEY_EVENT = 'keydown'
+const COMPONENT_NAME = `reader`
+const KEY_EVENT = `keydown`
 const KEY_CODES = {
   esc: 27,
   left: 37,
@@ -16,13 +16,13 @@ const KEY_CODES = {
 
 export default {
   name: COMPONENT_NAME,
-  props: ['pages', 'startPage', 'title'],
+  props: [`pages`, `startPage`, `title`],
   components: {
     ReaderImage
   },
   data() {
     return {
-      actualPage: '',
+      actualPage: ``,
       keyupEventListenerAtteched: false
     }
   },
@@ -33,16 +33,18 @@ export default {
   },
   methods: {
     doesPageExist(pageNumber) {
-      return typeof this.pages[pageNumber] !== 'undefined'
+      return typeof this.pages[pageNumber] !== `undefined`
     },
     nextPage() {
       const nextPage = +this.actualPage + 1
+
       if (this.doesPageExist(nextPage)) {
         this.actualPage = nextPage
       }
     },
     previousPage() {
       const previousPage = +this.actualPage - 1
+
       if (this.doesPageExist(previousPage)) {
         this.actualPage = previousPage
       }
@@ -65,7 +67,7 @@ export default {
       }
     },
     initActualPage(pageNumber) {
-      if (this.actualPage === '' && typeof pageNumber !== 'undefined') {
+      if (this.actualPage === `` && typeof pageNumber !== `undefined`) {
         if (this.doesPageExist(pageNumber)) {
           this.actualPage = +pageNumber
         } else {
@@ -81,12 +83,12 @@ export default {
       window.document.removeEventListener(KEY_EVENT, this.keyboardEventHandler)
       this.keyupEventListenerAtteched = false
       this.$emit(EVENTS.closeReader)
-      this.actualPage = ''
-      _scrollToClassWithDefaultOffset('scanissue')
+      this.actualPage = ``
+      _scrollToClassWithDefaultOffset(`scanissue`)
     },
     hasPage(pageName) {
       return this.doesPageExist(this.actualPage) &&
-        typeof this.pages[this.actualPage][pageName] !== 'undefined'
+        typeof this.pages[this.actualPage][pageName] !== `undefined`
     }
   },
   beforeMount() {

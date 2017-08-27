@@ -1,7 +1,7 @@
 const EVENTS = {
-  openReader: 'openReader',
-  closeReader: 'closeReader',
-  selectedIssue: 'selectedIssue'
+  openReader: `openReader`,
+  closeReader: `closeReader`,
+  selectedIssue: `selectedIssue`
 }
 
 export {

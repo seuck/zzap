@@ -1,14 +1,31 @@
 import Home from 'components/home/home.vue'
 import Scanissue from 'components/scanissue/scanissue.vue'
 import Diaries from 'components/content/diaries/diaries.vue'
-import ZzapDiary from 'components/content/diaries/zzap.vue'
 import Speciali from 'components/content/speciali/speciali.vue'
-import SpecialiLeabbiamovistetutte from 'components/content/speciali/pages/leabbiamovistetutte.vue'
-import SpecialiKonixmultisystem from 'components/content/speciali/pages/konixmultisystem.vue'
 import NotFoundComponent from 'components/notfoundcomponent/notfoundcomponent.vue'
 
 // Demo
 import DemoContentImages from 'components/demo/content/image.vue'
+
+/*
+function buildAsyncCallback(componentSectionName, componentName) {
+  // const contentPath = 'components/content'
+  const pagesPath = 'pages'
+
+  let componentPath
+
+  if (typeof componentName !== 'undefined') {
+    componentPath = `${componentSectionName}/${pagesPath}/${componentName}`
+  } else {
+    componentPath = `${componentSectionName}/${componentSectionName}`
+  }
+
+  return (resolve) => {
+    // eslint-disable-next-line import/no-dynamic-require
+    require([`components/content/${componentPath}.vue`], resolve)
+  }
+}
+*/
 
 /*
  * For semantic reasons, please localise both names and routes
@@ -16,12 +33,12 @@ import DemoContentImages from 'components/demo/content/image.vue'
  */
 const routes = [
   {
-    path: '/',
+    path: `/`,
     component: Home,
     children: [
       {
-        name: 'numero',
-        path: '/numero/:issueId',
+        name: `numero`,
+        path: `/numero/:issueId`,
         components: {
           issue: Scanissue
         },
@@ -30,46 +47,55 @@ const routes = [
         }
       },
       {
-        name: 'diari',
-        path: 'diari',
+        name: `diari`,
+        path: `diari`,
         components: {
           content: Diaries
         }
       },
       {
-        name: 'diari-zzap',
-        path: 'diari/zzap',
+        name: `diari-zzap`,
+        path: `diari/zzap`,
         components: {
           content: Diaries,
-          followup: ZzapDiary
+          followup: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/content/diaries/zzap.vue`], resolve)
+          }
         }
       },
       {
-        name: 'speciali',
-        path: 'speciali',
+        name: `speciali`,
+        path: `speciali`,
         components: {
           content: Speciali
         }
       },
       {
-        name: 'speciali-leabbiamovistetutte',
-        path: 'speciali/leabbiamovistetutte',
+        name: `speciali-leabbiamovistetutte`,
+        path: `speciali/leabbiamovistetutte`,
         components: {
           content: Speciali,
-          followup: SpecialiLeabbiamovistetutte
+          followup: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/content/speciali/pages/leabbiamovistetutte.vue`], resolve)
+          }
         }
       },
       {
-        name: 'speciali-konixmultisystem',
-        path: 'speciali/konixmultisystem',
+        name: `speciali-konixmultisystem`,
+        path: `speciali/konixmultisystem`,
         components: {
           content: Speciali,
-          followup: SpecialiKonixmultisystem
+          followup: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/content/speciali/pages/konixmultisystem.vue`], resolve)
+          }
         }
       },
       {
-        name: 'demo-content-image',
-        path: 'demo/content/image',
+        name: `demo-content-image`,
+        path: `demo/content/image`,
         components: {
           content: DemoContentImages
         }
@@ -77,7 +103,7 @@ const routes = [
     ]
   },
   {
-    path: '*',
+    path: `*`,
     component: NotFoundComponent
   }
 ]

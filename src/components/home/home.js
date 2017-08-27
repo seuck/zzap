@@ -9,7 +9,7 @@ import ZzapFooter from 'components/zzapfooter/zzapfooter.vue'
 
 import { CLASSES as GLOBALCLASSES } from 'constants/classes'
 
-const COMPONENT_NAME = 'home'
+const COMPONENT_NAME = `home`
 
 export default {
   name: COMPONENT_NAME,
@@ -27,8 +27,8 @@ export default {
     return {
       readerData: {},
       homeClass: COMPONENT_NAME,
-      issueId: '',
-      contentComponent: ''
+      issueId: ``,
+      contentComponent: ``
     }
   },
   methods: {

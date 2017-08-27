@@ -1,5 +1,5 @@
 const CLASSES = {
-  overlay: 'overlay'
+  overlay: `overlay`
 }
 
 export {
