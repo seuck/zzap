@@ -15,13 +15,8 @@
   }
 
   &__title {
-    padding: 8px;
     background-color: $blue;
     text-transform: uppercase;
-
-    &:hover {
-      background-color: $linkColor;
-    }
   }
 
   &__listcontainer {
@@ -45,6 +40,11 @@
 
   & .index__title {
     @include resettextlink;
+
+    a {
+      display: block;
+      padding: 8px;
+    }
   }
 
   & .index__imagelink {

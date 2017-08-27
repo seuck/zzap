@@ -75,12 +75,12 @@ h1 {
 
 h2 {
   font-size: 140%;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
   font-weight: bold; }
 
 h3 {
   font-size: 120%;
-  padding-bottom: 20px; }
+  margin-bottom: 20px; }
 
 p {
   line-height: 1.3; }
@@ -333,11 +333,8 @@ figcaption {
   .index__section {
     flex: 0 1 47%; }
   .index__title {
-    padding: 8px;
     background-color: #40A7E9;
     text-transform: uppercase; }
-    .index__title:hover {
-      background-color: #fea; }
   .index__listcontainer {
     display: flex;
     flex-wrap: wrap;
@@ -351,12 +348,13 @@ figcaption {
     padding-top: 8px; }
   .index .index__title a {
     box-shadow: inherit;
-    border-bottom: none;
-    background-color: transparent; }
+    border-bottom: none; }
+  .index .index__title a {
+    display: block;
+    padding: 8px; }
   .index .index__imagelink {
     box-shadow: inherit;
     border-bottom: none;
-    background-color: transparent;
     background-color: #fea;
     margin: 12px -2px 0 0;
     height: 100%; }
