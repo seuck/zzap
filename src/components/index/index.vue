@@ -2,8 +2,8 @@
   <section class="index">
     <h2>Sommario</h2>
     <div class="index__container">
-      <section class="index__section index__section-imageodd">
-        <h3 class="index__title">Medaglie d'oro</h3>
+      <section class="index__section">
+        <h3 class="index__title"><scroll-link anchor="speciali">Medaglie d'oro</scroll-link></h3>
         <div class="index__listcontainer">
           <ul class="index__list">
             <li class="index__item"><a href="#"><span>Cauldron II</span></a></li>
@@ -15,7 +15,7 @@
       </section>
 
       <section class="index__section">
-        <h3 class="index__title">Giochi caldi</h3>
+        <h3 class="index__title"><scroll-link anchor="speciali">Giochi caldi</scroll-link></h3>
         <div class="index__listcontainer">
           <ul class="index__list">
             <li class="index__item"><a href="#">Bananas oranges pineabbles pommerades so long it requires two lines</a></li>
@@ -24,7 +24,7 @@
         </div>
       </section>
 
-      <section class="index__section index__section-imageeven">
+      <section class="index__section">
         <h3 class="index__title"><scroll-link anchor="speciali">Speciali</scroll-link></h3>
         <div class="index__listcontainer">
           <ul class="index__list">
@@ -36,7 +36,7 @@
         </div>
       </section>
 
-      <section class="index__section index__section-imageodd">
+      <section class="index__section">
         <h3 class="index__title"><scroll-link anchor="diari">Diari, interviste e SEUCK</scroll-link></h3>
         <div class="index__listcontainer">
           <ul class="index__list">
@@ -50,7 +50,7 @@
       </section>
 
       <section class="index__section">
-        <h3 class="index__title">I sempre presenti</h3>
+        <h3 class="index__title"><scroll-link anchor="speciali">I sempre presenti</scroll-link></h3>
         <div class="index__listcontainer">
           <ul class="index__list">
             <li class="index__item"><a href="#"><span>Cauldron II</span></a></li>
@@ -61,7 +61,7 @@
       </section>
 
       <section class="index__section">
-        <h3 class="index__title">Fumetti</h3>
+        <h3 class="index__title"><scroll-link anchor="speciali">Fumetti</scroll-link></h3>
         <div class="index__listcontainer">
           <ul class="index__list">
             <li class="index__item"><a href="#"><span>Cauldron II</span></a></li>
@@ -72,7 +72,7 @@
       </section>
 
       <section class="index__section">
-        <h3 class="index__title">Umore</h3>
+        <h3 class="index__title"><scroll-link anchor="speciali">Umore</scroll-link></h3>
         <div class="index__listcontainer">
           <ul class="index__list">
             <li class="index__item"><a href="#"><span>Cauldron II</span></a></li>
