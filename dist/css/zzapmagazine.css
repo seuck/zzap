@@ -578,7 +578,8 @@ figcaption {
     padding: 20px;
     text-align: center; }
   .reader__info {
-    padding: 0; }
+    padding: 0;
+    margin-bottom: 0; }
   .reader__close {
     position: absolute;
     top: 20px;

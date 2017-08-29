@@ -1,6 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const path = require(`path`)
-const pkgjson = require(`./package.json`)
+const webpack = require(`webpack`)
+
+const constants = require(`./webpack.constants`)
+const aliases = require(`./webpack.aliases`)
+
+const isProduction = process.env.NODE_ENV === `production`
 
 export default {
   entry: `./src/all-components.js`,
@@ -25,13 +29,40 @@ export default {
     ]
   },
   resolve: {
-    alias: {
-      vue: `vue/dist/vue.js`,
-      api: path.resolve(__dirname, pkgjson.paths.src, `api`),
-      components: path.resolve(__dirname, pkgjson.paths.src, `components`),
-      utils: path.resolve(__dirname, pkgjson.paths.src, `utils`),
-      locales: path.resolve(__dirname, pkgjson.paths.src, `locales`),
-      constants: path.resolve(__dirname, pkgjson.paths.src, `constants`)
-    }
-  }
+    alias: aliases
+  },
+  plugins: [
+    new webpack.DefinePlugin(constants),
+    new webpack.optimize.CommonsChunkPlugin({
+      minChunks: 2,
+      name: `common`,
+      filename: `common.js`
+    }),
+    // see http://lisperator.net/uglifyjs/compress
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        sequences: false, // join consecutive statemets with the “comma operator”
+        properties: false, // optimize property access: a["foo"] → a.foo
+        dead_code: true, // discard unreachable code
+        drop_debugger: !!isProduction, // discard “debugger” statements
+        unsafe: false, // some unsafe optimizations (see below)
+        conditionals: false, // optimize if-s and conditional expressions
+        comparisons: false, // optimize comparisons
+        evaluate: true, // evaluate constant expressions
+        booleans: false, // optimize boolean expressions
+        loops: false, // optimize loops
+        unused: true, // drop unused variables/functions
+        hoist_funs: false, // hoist function declarations
+        hoist_vars: false, // hoist variable declarations
+        if_return: false, // optimize if-s followed by return/continue
+        join_vars: false, // join var declarations
+        cascade: false, // try to cascade `right` into `left` in sequences
+        side_effects: true, // drop side-effect-free statements
+        warnings: false // warn about potentially dangerous optimizations/code
+      },
+      mangle: false,
+      beautify: true,
+      comments: true
+    })
+  ]
 }

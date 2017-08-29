@@ -12,8 +12,7 @@
   "scripts": {
     "start": "gulp",
     "validate": "gulp lint",
-    "dev": "cross-env NODE_ENV=development webpack",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "gulp prod"
   },
   "paths": {
     "src": "./src"

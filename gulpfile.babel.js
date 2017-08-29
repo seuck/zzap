@@ -51,3 +51,11 @@ gulp.task(`sass`, () =>
 )
 
 gulp.task(`default`, [`watch`, `main`])
+
+gulp.task(`prod`, () => {
+  process.env.NODE_ENV = `production`
+  gulp.src(paths.clientEntryPoint)
+    .pipe(webpack(webpackConfig))
+    .pipe(gulp.dest(paths.distJsDir))
+}
+)

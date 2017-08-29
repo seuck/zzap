@@ -60,7 +60,7 @@ const routes = [
           content: Diaries,
           followup: (resolve) => {
             // eslint-disable-next-line import/no-dynamic-require
-            require([`components/content/diaries/zzap.vue`], resolve)
+            require([`components/content/diaries/pages/zzap.vue`], resolve)
           }
         }
       },
