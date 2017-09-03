@@ -12,7 +12,7 @@
     <zzap-header></zzap-header>
     <cover></cover>
     <index></index>
-    <scanindex magazineId="1" @selectedIssue="initIssue($event)"></scanindex>
+    <scanindex magazineId="1"></scanindex>
 
     <router-view name="issue" magazineId="1" @openReader="initReader($event)"></router-view>
     <router-view name="content"></router-view>

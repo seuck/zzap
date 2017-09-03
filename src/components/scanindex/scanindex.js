@@ -43,7 +43,6 @@ export default {
         .catch(e => this.errors.push(e))
     },
     selectIssue(issueId) {
-      // this.$emit(EVENTS.selectedIssue, issueId)
       this.$root.$router.push({ name: `numero`, params: { issueId } })
       _scrollToClassWithDefaultOffset(`scanissue`)
     },

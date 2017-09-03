@@ -4,7 +4,7 @@ webpackJsonp([ 0 ], {
     function(module, exports, __webpack_require__) {
         var disposed = false;
         var Component = __webpack_require__(0)(/* script */
-        __webpack_require__(34), /* template */
+        __webpack_require__(33), /* template */
         __webpack_require__(103), /* styles */
         null, /* scopeId */
         null, /* moduleIdentifier (server only) */

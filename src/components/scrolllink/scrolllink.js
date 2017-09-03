@@ -10,8 +10,6 @@ export default {
   },
   methods: {
     scrollToAnchor() {
-      // eslint-disable-next-line no-console
-      console.log(`${this.linkTarget}__${this.anchor}`)
       scrollToClassWithDefaultOffset(`${this.linkTarget}__${this.anchor}`)
     }
   },

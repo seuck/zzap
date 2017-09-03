@@ -85,8 +85,6 @@ export default {
         const formattedDate = `${this.getMonth(this.issue.month)} ${this.issue.year}`
 
         data.title = `${this.issue.magazine.name} numero ${this.issue.sequence} - ${formattedDate}`
-        // eslint-disable-next-line no-console
-        console.log(startPage)
         data.pages = []
 
         // Cover
@@ -110,8 +108,6 @@ export default {
         ))
 
         this.readerData = data
-        // eslint-disable-next-line no-console
-        console.log(data)
       }
       this.readerData.startPage = Math.floor(+startPage / 2)
 

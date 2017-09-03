@@ -2,7 +2,6 @@ import ZzapHeader from 'components/zzapheader/zzapheader.vue'
 import Cover from 'components/cover/cover.vue'
 import Index from 'components/index/index.vue'
 import Scanindex from 'components/scanindex/scanindex.vue'
-import Scanissue from 'components/scanissue/scanissue.vue'
 import Reader from 'components/reader/reader.vue'
 import Loader from 'components/loader/loader.vue'
 import ZzapFooter from 'components/zzapfooter/zzapfooter.vue'
@@ -20,14 +19,12 @@ export default {
     Loader,
     Reader,
     Scanindex,
-    Scanissue,
     ZzapHeader
   },
   data() {
     return {
       readerData: {},
       homeClass: COMPONENT_NAME,
-      issueId: ``,
       contentComponent: ``
     }
   },
@@ -39,9 +36,6 @@ export default {
     resetReader() {
       this.readerData = {}
       this.homeClass = COMPONENT_NAME
-    },
-    initIssue(issueId) {
-      this.issueId = issueId
     }
   }
 }

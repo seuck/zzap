@@ -2,17 +2,34 @@ webpackJsonp([ 1 ], {
     /***/
     101: /***/
     function(module, exports, __webpack_require__) {
+        var disposed = false;
         var Component = __webpack_require__(0)(/* script */
-        __webpack_require__(35), /* template */
+        __webpack_require__(34), /* template */
         __webpack_require__(104), /* styles */
         null, /* scopeId */
         null, /* moduleIdentifier (server only) */
         null);
+        Component.options.__file = "/Users/antonio/Dev/zzap/frontend-stack/src/components/content/speciali/pages/konixmultisystem.vue";
+        if (Component.esModule && Object.keys(Component.esModule).some(function(key) {
+            return "default" !== key && "__" !== key.substr(0, 2);
+        })) console.error("named exports are not supported in *.vue files.");
+        if (Component.options.functional) console.error("[vue-loader] konixmultisystem.vue: functional components are not supported with templates, they should use render functions.");
+        /* hot reload */
+        if (false) !function() {
+            var hotAPI = require("vue-hot-reload-api");
+            hotAPI.install(require("vue"), false);
+            if (!hotAPI.compatible) return;
+            module.hot.accept();
+            if (!module.hot.data) hotAPI.createRecord("data-v-5a9d5d0e", Component.options); else hotAPI.reload("data-v-5a9d5d0e", Component.options);
+            module.hot.dispose(function(data) {
+                disposed = true;
+            });
+        }();
         module.exports = Component.exports;
     },
     /***/
     104: /***/
-    function(module, exports) {
+    function(module, exports, __webpack_require__) {
         module.exports = {
             render: function() {
                 var _vm = this;
@@ -54,5 +71,10 @@ webpackJsonp([ 1 ], {
             },
             staticRenderFns: []
         };
+        module.exports.render._withStripped = true;
+        if (false) {
+            module.hot.accept();
+            if (module.hot.data) require("vue-hot-reload-api").rerender("data-v-5a9d5d0e", module.exports);
+        }
     }
 });
