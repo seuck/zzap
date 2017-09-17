@@ -1,0 +1,47 @@
+$bookmarkWidth: 40;
+
+.dynamicnavigation {
+
+  @include fullpage;
+
+  position: relative;
+  z-index: 1;
+
+  &__container {
+    position: fixed;
+    top: 110px;
+    left: 50%;
+    transform: translate(450px);
+  }
+
+  &__bookmark {
+    width: #{$bookmarkWidth}px;
+    height: 40px;
+    background-color: $blue;
+    border-radius: 0 6px 6px 0;
+
+    a {
+      position: absolute;
+      right: 0;
+      padding: 11px;
+      width: max-content;
+      text-align: right;
+      background-color: $blue;
+      border-radius: 6px;
+      opacity: 0;
+      clip-path: polygon(
+        calc(100% - #{$bookmarkWidth}px) 0%, 100% 0%,
+        100% 100%, calc(100% - #{$bookmarkWidth}px) 100%);
+
+      &:hover {
+        opacity: 1;
+        clip-path: none;
+      }
+    }
+  }
+
+  &__bookmark + &__bookmark {
+    margin-top: 20px;
+  }
+
+}

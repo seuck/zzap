@@ -14,9 +14,11 @@
     <index></index>
     <scanindex magazineId="1"></scanindex>
 
+    <dynamic-navigation :sections="dynamicNavSections"></dynamic-navigation>
+
     <router-view name="issue" magazineId="1" @openReader="initReader($event)"></router-view>
-    <router-view name="content"></router-view>
-    <router-view name="followup"></router-view>
+    <router-view name="content" @announceBookmark="addDynamicNavSection($event)"></router-view>
+    <router-view name="followup" @announceBookmark="addDynamicNavSection($event)"></router-view>
 
     <zzap-footer></zzap-footer>
   </div>

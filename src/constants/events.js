@@ -1,9 +1,6 @@
-const EVENTS = {
+export default {
   openReader: `openReader`,
   closeReader: `closeReader`,
-  selectedIssue: `selectedIssue`
-}
-
-export {
-  EVENTS
+  selectedIssue: `selectedIssue`,
+  announceBookmark: `announceBookmark`
 }

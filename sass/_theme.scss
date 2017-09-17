@@ -9,10 +9,12 @@
 @import "theme/mixins/contentpage";
 
 @import "theme/global";
+@import "theme/components/home";
 @import "theme/components/header";
 @import "theme/components/cover";
 @import "theme/components/index";
 @import "theme/components/scanindex";
+@import "theme/components/dynamicnavigation";
 @import "theme/components/scanissue";
 @import "theme/components/content";
 @import "theme/components/reader";

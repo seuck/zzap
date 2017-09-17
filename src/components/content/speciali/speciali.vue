@@ -1,5 +1,8 @@
 <template>
-  <content-container title="Speciali" anchor="speciali">
+  <content-container
+    title="Speciali"
+    anchor="speciali"
+    @announceBookmark="announceBookmark($event)">
     <ul>
       <li>Un mega articolone storico di Paolo Besser scritto in occasione della temporanea
         "rinascita" di Zzap! sul web nel 1996.

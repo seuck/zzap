@@ -1,3 +1,4 @@
+import EVENTS from 'constants/events'
 import {
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
 } from 'utils/scroll'
@@ -15,5 +16,10 @@ export default {
   },
   mounted() {
     _scrollToClassWithDefaultOffset(`${CLASS_NAME}__${this.anchor}`)
+
+    this.$emit(EVENTS.announceBookmark, {
+      title: this.title,
+      anchor: this.anchor
+    })
   }
 }

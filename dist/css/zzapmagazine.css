@@ -108,6 +108,9 @@ figcaption {
   right: 0;
   background-color: rgba(0, 0, 0, 0.6); }
 
+.home {
+  position: relative; }
+
 .header__container {
   margin: 0 auto;
   overflow: hidden; }
@@ -430,6 +433,43 @@ figcaption {
 
 .overlay .scanindex {
   display: none; }
+
+.dynamicnavigation {
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 1; }
+  @media (min-width: 900px) {
+    .dynamicnavigation {
+      overflow: visible; } }
+  @media (min-width: 900px) {
+    .dynamicnavigation {
+      width: 900px; } }
+  .dynamicnavigation__container {
+    position: fixed;
+    top: 110px;
+    left: 50%;
+    transform: translate(450px); }
+  .dynamicnavigation__bookmark {
+    width: 40px;
+    height: 40px;
+    background-color: #40A7E9;
+    border-radius: 0 6px 6px 0; }
+    .dynamicnavigation__bookmark a {
+      position: absolute;
+      right: 0;
+      padding: 11px;
+      width: max-content;
+      text-align: right;
+      background-color: #40A7E9;
+      border-radius: 6px;
+      opacity: 0;
+      clip-path: polygon(calc(100% - 40px) 0%, 100% 0%, 100% 100%, calc(100% - 40px) 100%); }
+      .dynamicnavigation__bookmark a:hover {
+        opacity: 1;
+        clip-path: none; }
+  .dynamicnavigation__bookmark + .dynamicnavigation__bookmark {
+    margin-top: 20px; }
 
 .scanissue {
   margin: 0 auto;

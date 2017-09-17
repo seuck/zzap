@@ -1,5 +1,5 @@
 import ReaderImage from 'components/reader/reader-image.vue'
-import { EVENTS } from 'constants/events'
+import EVENTS from 'constants/events'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
 /*

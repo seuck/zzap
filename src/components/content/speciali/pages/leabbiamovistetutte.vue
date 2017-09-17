@@ -1,7 +1,8 @@
 <template>
   <content-container
     title="Le abbiamo viste tutte, di Paolo Besser"
-    anchor="speciali-leabbiamovistetutte">
+    anchor="speciali-leabbiamovistetutte"
+    @announceBookmark="announceBookmark($event)">
     <content-section>
       <p>Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,
         giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,

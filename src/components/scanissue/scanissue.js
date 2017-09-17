@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { EVENTS } from 'constants/events'
+import EVENTS from 'constants/events'
 import { isEmptyObject } from 'utils/object'
 import { ENTITIES as ZZAPI } from 'api/zzapi'
 import * as localeDate from 'locales/localedate'
