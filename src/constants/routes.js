@@ -4,9 +4,6 @@ import Diaries from 'components/content/diaries/diaries.vue'
 import Speciali from 'components/content/speciali/speciali.vue'
 import NotFoundComponent from 'components/notfoundcomponent/notfoundcomponent.vue'
 
-// Demo
-import DemoContentImages from 'components/demo/content/image.vue'
-
 /*
 function buildAsyncCallback(componentSectionName, componentName) {
   // const contentPath = 'components/content'
@@ -97,7 +94,10 @@ const routes = [
         name: `demo-content-image`,
         path: `demo/content/image`,
         components: {
-          content: DemoContentImages
+          content: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/demo/content/image.vue`], resolve)
+          }
         }
       }
     ]
