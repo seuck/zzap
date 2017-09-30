@@ -1,5 +1,7 @@
 import gulp from 'gulp'
 import sass from 'gulp-sass'
+import postcss from 'gulp-postcss'
+import autoprefixer from 'autoprefixer'
 import del from 'del'
 import eslint from 'gulp-eslint'
 import webpack from 'webpack-stream'
@@ -22,7 +24,7 @@ gulp.task(`clean`, () => del([
   paths.distCssDir
 ]))
 
-gulp.task(`main`, [`sass`, `lint`, `clean`], () =>
+gulp.task(`main`, [`css`, `lint`, `clean`], () =>
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(paths.distJsDir))
@@ -30,7 +32,7 @@ gulp.task(`main`, [`sass`, `lint`, `clean`], () =>
 
 gulp.task(`watch`, () => {
   gulp.watch(paths.allSrcToWatch, [`main`])
-  gulp.watch(paths.allSass, [`sass`])
+  gulp.watch(paths.allSass, [`css`])
 })
 
 gulp.task(`lint`, () =>
@@ -44,9 +46,10 @@ gulp.task(`lint`, () =>
     .pipe(eslint.failAfterError())
 )
 
-gulp.task(`sass`, () =>
+gulp.task(`css`, () =>
   gulp.src(paths.allSass)
     .pipe(sass().on(`error`, sass.logError))
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest(paths.distCssDir))
 )
 

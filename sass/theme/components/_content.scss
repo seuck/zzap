@@ -1,6 +1,5 @@
 .content {
   @include contentpage(&);
-  min-height: 400px; // TODO check after final footer height
 
   ol {
     margin: 20px;

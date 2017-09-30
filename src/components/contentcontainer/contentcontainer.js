@@ -17,7 +17,16 @@ export default {
   mounted() {
     _scrollToClassWithDefaultOffset(`${CLASS_NAME}__${this.anchor}`)
 
-    this.$emit(EVENTS.announceBookmark, {
+    // Gives time to destroyed pages to close their bookmarks
+    window.setTimeout(() => {
+      this.$emit(EVENTS.announceBookmark, {
+        title: this.title,
+        anchor: this.anchor
+      })
+    }, 500)
+  },
+  beforeDestroy() {
+    this.$emit(EVENTS.dismissBookmark, {
       title: this.title,
       anchor: this.anchor
     })

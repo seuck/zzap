@@ -1,4 +1,4 @@
-webpackJsonp([ 2 ], {
+webpackJsonp([ 3 ], {
     /***/
     102: /***/
     function(module, __webpack_exports__, __webpack_require__) {
@@ -7,11 +7,11 @@ webpackJsonp([ 2 ], {
             value: true
         });
         /* harmony import */
-        var __WEBPACK_IMPORTED_MODULE_0__babel_loader_zzap_js__ = __webpack_require__(33);
+        var __WEBPACK_IMPORTED_MODULE_0__babel_loader_zzap_js__ = __webpack_require__(34);
         /* harmony import */
         var __WEBPACK_IMPORTED_MODULE_0__babel_loader_zzap_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_zzap_js__);
         /* harmony import */
-        var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eb8093d0_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_zzap_vue__ = __webpack_require__(105);
+        var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eb8093d0_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_zzap_vue__ = __webpack_require__(106);
         var disposed = false;
         var normalizeComponent = __webpack_require__(0);
         var Component = normalizeComponent(__WEBPACK_IMPORTED_MODULE_0__babel_loader_zzap_js___default.a, __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eb8093d0_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_zzap_vue__["a"], null, null, null);
@@ -35,7 +35,7 @@ webpackJsonp([ 2 ], {
         __webpack_exports__["default"] = Component.exports;
     },
     /***/
-    105: /***/
+    106: /***/
     function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         var render = function() {
@@ -46,6 +46,14 @@ webpackJsonp([ 2 ], {
                 attrs: {
                     title: "Diario di una Pasqua creativa",
                     anchor: "diari-zzap"
+                },
+                on: {
+                    announceBookmark: function($event) {
+                        _vm.announceBookmark($event);
+                    },
+                    dismissBookmark: function($event) {
+                        _vm.dismissBookmark($event);
+                    }
                 }
             }, [ _c("content-section", {
                 attrs: {

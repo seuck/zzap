@@ -1,9 +1,4 @@
-import ContentContainer from 'components/contentcontainer/contentcontainer.vue'
-import ContentSection from 'components/contentsection/contentsection.vue'
+import extend from 'extend'
+import basecontent from 'components/content/basecontent'
 
-export default {
-  components: {
-    ContentContainer,
-    ContentSection
-  }
-}
+export default extend(true, {}, basecontent)

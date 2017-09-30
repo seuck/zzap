@@ -1,4 +1,4 @@
-webpackJsonp([ 1 ], {
+webpackJsonp([ 2 ], {
     /***/
     104: /***/
     function(module, __webpack_exports__, __webpack_require__) {
@@ -7,11 +7,11 @@ webpackJsonp([ 1 ], {
             value: true
         });
         /* harmony import */
-        var __WEBPACK_IMPORTED_MODULE_0__babel_loader_konixmultisystem_js__ = __webpack_require__(35);
+        var __WEBPACK_IMPORTED_MODULE_0__babel_loader_konixmultisystem_js__ = __webpack_require__(36);
         /* harmony import */
         var __WEBPACK_IMPORTED_MODULE_0__babel_loader_konixmultisystem_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_konixmultisystem_js__);
         /* harmony import */
-        var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5a9d5d0e_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_konixmultisystem_vue__ = __webpack_require__(107);
+        var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5a9d5d0e_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_konixmultisystem_vue__ = __webpack_require__(108);
         var disposed = false;
         var normalizeComponent = __webpack_require__(0);
         var Component = normalizeComponent(__WEBPACK_IMPORTED_MODULE_0__babel_loader_konixmultisystem_js___default.a, __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5a9d5d0e_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_konixmultisystem_vue__["a"], null, null, null);
@@ -35,7 +35,7 @@ webpackJsonp([ 1 ], {
         __webpack_exports__["default"] = Component.exports;
     },
     /***/
-    107: /***/
+    108: /***/
     function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         var render = function() {
@@ -46,6 +46,14 @@ webpackJsonp([ 1 ], {
                 attrs: {
                     title: "Un sogno mai realizzato: il Konix Multisystem, di Darkj",
                     anchor: "speciali-konixmultisystem"
+                },
+                on: {
+                    announceBookmark: function($event) {
+                        _vm.announceBookmark($event);
+                    },
+                    dismissBookmark: function($event) {
+                        _vm.dismissBookmark($event);
+                    }
                 }
             }, [ _c("content-section", [ _c("content-image", {
                 attrs: {

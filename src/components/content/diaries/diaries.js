@@ -1,11 +1,4 @@
-import ContentContainer from 'components/contentcontainer/contentcontainer.vue'
-import ContentSection from 'components/contentsection/contentsection.vue'
-import ScrollLink from 'components/scrolllink/scrolllink.vue'
+import extend from 'extend'
+import basecontent from 'components/content/basecontent'
 
-export default {
-  components: {
-    ContentContainer,
-    ContentSection,
-    ScrollLink
-  }
-}
+export default extend(true, {}, basecontent)

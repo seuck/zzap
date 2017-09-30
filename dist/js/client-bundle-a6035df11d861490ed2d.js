@@ -1,4 +1,4 @@
-webpackJsonp([ 0 ], {
+webpackJsonp([ 1 ], {
     /***/
     103: /***/
     function(module, __webpack_exports__, __webpack_require__) {
@@ -7,11 +7,11 @@ webpackJsonp([ 0 ], {
             value: true
         });
         /* harmony import */
-        var __WEBPACK_IMPORTED_MODULE_0__babel_loader_leabbiamovistetutte_js__ = __webpack_require__(34);
+        var __WEBPACK_IMPORTED_MODULE_0__babel_loader_leabbiamovistetutte_js__ = __webpack_require__(35);
         /* harmony import */
         var __WEBPACK_IMPORTED_MODULE_0__babel_loader_leabbiamovistetutte_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_leabbiamovistetutte_js__);
         /* harmony import */
-        var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4bc6779b_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_leabbiamovistetutte_vue__ = __webpack_require__(106);
+        var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4bc6779b_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_leabbiamovistetutte_vue__ = __webpack_require__(107);
         var disposed = false;
         var normalizeComponent = __webpack_require__(0);
         var Component = normalizeComponent(__WEBPACK_IMPORTED_MODULE_0__babel_loader_leabbiamovistetutte_js___default.a, __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4bc6779b_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_leabbiamovistetutte_vue__["a"], null, null, null);
@@ -35,7 +35,7 @@ webpackJsonp([ 0 ], {
         __webpack_exports__["default"] = Component.exports;
     },
     /***/
-    106: /***/
+    107: /***/
     function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         var render = function() {
@@ -50,6 +50,9 @@ webpackJsonp([ 0 ], {
                 on: {
                     announceBookmark: function($event) {
                         _vm.announceBookmark($event);
+                    },
+                    dismissBookmark: function($event) {
+                        _vm.dismissBookmark($event);
                     }
                 }
             }, [ _c("content-section", [ _c("p", [ _vm._v('Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,\n        giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,\n        un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.\n        A meno che, ovviamente, debba scrivere un’autobiografia.\n        E questo tipo di manoscritti, per quanto affascinante, è sempre filtrato dai\n        ricordi, dalle emozioni vissute, dal desiderio di rimediare gli errori\n        compiuti, dalla voglia di giustificazione o di riscatto.\n        Parlare della rivista per cui si lavora, per fortuna, è sostanzialmente\n        diverso: ciò ch’è stato è stato, da qualche parte rimarrà scritto,\n        e troverai sempre il vecchio lettore pronto a contraddirti,\n        e poi c’è quella parte visibile, oggettiva, che rimarrà a tutti gli effetti\n        l’unica cosa che la gente ricorderà. Perché in fondo chi scrive non lo fa\n        solo per informare, ma anche nella speranza che qualcosa di suo rimanga in\n        eterno.\n        Laddove l’informazione è consumo, però, è una speranza difficile da realizzare.\n        Vale per il singolo giornalista, ma anche per la testata in cui scrive.\n        Quanti giornali sono nati, morti, rivissuti, e finiti un’altra volta?\n        Noi di Zzap!, questo tipo di processo, lo conosciamo bene, giacché almeno tre\n        sono state le nostre "reincarnazioni", di cui un paio cartacee. Una storia un\n        po’ controversa la nostra, ma che merita un approfondimento, partendo, stavolta,\n        dall’interno.') ]), _vm._v(" "), _c("p", [ _vm._v('Quella che leggerete di seguito, sarà una storia veramente strana.\n        Perché a conclusione della medesima verrà per forza da chiedersi cosa sia rimasto,\n        effettivamente del vecchio Zzap!, e soprattutto, di quale dei "tanti", perché\n        molta è la gente che ha varcato la soglia della Redazione e altrettanta è quella\n        che può dire di aver "scritto su Zzap!", una rivista che ha cambiato spesso\n        vertici e collaboratori. E da ognuno di essi ha preso qualcosa. Lo Zzap! di\n        Riccardo Albini è certamente diverso da quello di Fabio Rossi, ed entrambi sono\n        molto diversi da quelli di Giorgio Baratto, Stefano Gallarini, Gabriele Pasquali,\n        Giancarlo Calzetta e, ovviamente, Paolo Besser. Eppure oltre a quel logo che non\n        ha mai rispettato le leggi della prospettiva, c\'è sempre stato un filo conduttore\n        composto, se non mi sbaglio, da una vena ironica irrinunciabile e da tanto,\n        tantissimo entusiasmo...') ]) ]), _vm._v(" "), _c("content-section", {

@@ -41,6 +41,20 @@ export default {
     },
     addDynamicNavSection(section) {
       this.dynamicNavSections.push(section)
+    },
+    removeDynamicNavSection(section) {
+      let indexToRemove
+
+      for (let i = 0; i < this.dynamicNavSections.length; i++) {
+        if (this.dynamicNavSections[i].anchor === section.anchor) {
+          indexToRemove = i
+          break
+        }
+      }
+
+      if (typeof indexToRemove !== `undefined`) {
+        this.dynamicNavSections.splice(indexToRemove, 1)
+      }
     }
   }
 }

@@ -7,5 +7,24 @@ export default {
   props: [`sections`],
   components: {
     ScrollLink
+  },
+  data() {
+    return {
+      closedBookmark: ``
+    }
+  },
+  methods: {
+    getBookmarkClass(anchor) {
+      let closedClass = ``
+
+      if (anchor === this.closeBookmark) {
+        closedClass = `dynamicnavigation__bookmark--closed`
+      }
+
+      return `dynamicnavigation__bookmark ${closedClass}`
+    },
+    closeBookmark(anchor) {
+      this.closedBookmark = anchor
+    }
   }
 }

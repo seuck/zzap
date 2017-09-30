@@ -9,7 +9,7 @@ $bookmarkWidth: 40;
 
   &__container {
     position: fixed;
-    top: 110px;
+    top: 170px;
     left: 50%;
     transform: translate(450px);
   }
@@ -19,6 +19,8 @@ $bookmarkWidth: 40;
     height: 40px;
     background-color: $blue;
     border-radius: 0 6px 6px 0;
+    animation-duration: 0.5s;
+    animation-name: bookmark-in;
 
     a {
       position: absolute;
@@ -26,7 +28,7 @@ $bookmarkWidth: 40;
       padding: 11px;
       width: max-content;
       text-align: right;
-      background-color: $blue;
+      background-color: inherit;
       border-radius: 6px;
       opacity: 0;
       clip-path: polygon(
@@ -42,6 +44,16 @@ $bookmarkWidth: 40;
 
   &__bookmark + &__bookmark {
     margin-top: 20px;
+  }
+
+  @keyframes bookmark-in {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 40px;
+    }
   }
 
 }

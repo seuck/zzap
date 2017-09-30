@@ -1,7 +1,9 @@
 <template>
   <content-container
     title="Un sogno mai realizzato: il Konix Multisystem, di Darkj"
-    anchor="speciali-konixmultisystem">
+    anchor="speciali-konixmultisystem"
+    @announceBookmark="announceBookmark($event)"
+    @dismissBookmark="dismissBookmark($event)">
     <content-section>
       <content-image
         imagePath="assets/content/speciali/konixmultisystem/speedking.jpg"

@@ -376,6 +376,7 @@ figcaption {
   margin: 0 auto;
   overflow: hidden;
   color: #fff;
+  background-color: #1e355e;
   padding: 60px 0; }
   @media (min-width: 900px) {
     .scanindex {
@@ -447,29 +448,41 @@ figcaption {
       width: 900px; } }
   .dynamicnavigation__container {
     position: fixed;
-    top: 110px;
+    top: 170px;
     left: 50%;
     transform: translate(450px); }
   .dynamicnavigation__bookmark {
     width: 40px;
     height: 40px;
     background-color: #40A7E9;
-    border-radius: 0 6px 6px 0; }
+    border-radius: 0 6px 6px 0;
+    animation-duration: 0.5s;
+    animation-name: bookmark-in; }
     .dynamicnavigation__bookmark a {
       position: absolute;
       right: 0;
       padding: 11px;
+      width: -webkit-max-content;
+      width: -moz-max-content;
       width: max-content;
       text-align: right;
-      background-color: #40A7E9;
+      background-color: inherit;
       border-radius: 6px;
       opacity: 0;
-      clip-path: polygon(calc(100% - 40px) 0%, 100% 0%, 100% 100%, calc(100% - 40px) 100%); }
+      -webkit-clip-path: polygon(calc(100% - 40px) 0%, 100% 0%, 100% 100%, calc(100% - 40px) 100%);
+              clip-path: polygon(calc(100% - 40px) 0%, 100% 0%, 100% 100%, calc(100% - 40px) 100%); }
       .dynamicnavigation__bookmark a:hover {
         opacity: 1;
-        clip-path: none; }
+        -webkit-clip-path: none;
+                clip-path: none; }
   .dynamicnavigation__bookmark + .dynamicnavigation__bookmark {
     margin-top: 20px; }
+
+@keyframes bookmark-in {
+  from {
+    width: 0; }
+  to {
+    width: 40px; } }
 
 .scanissue {
   margin: 0 auto;
@@ -536,8 +549,7 @@ figcaption {
   overflow: hidden;
   color: #222;
   background-color: #fff;
-  padding: 30px 20px;
-  min-height: 400px; }
+  padding: 30px 20px; }
   @media (min-width: 900px) {
     .content {
       overflow: visible; } }
