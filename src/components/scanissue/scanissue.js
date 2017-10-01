@@ -1,5 +1,6 @@
 import axios from 'axios'
 import EVENTS from 'constants/events'
+import ANIMATIONS from 'constants/animations'
 import { isEmptyObject } from 'utils/object'
 import { ENTITIES as ZZAPI } from 'api/zzapi'
 import * as localeDate from 'locales/localedate'
@@ -133,6 +134,18 @@ export default {
     },
     openReader(startPage) {
       this.$emit(EVENTS.openReader, this.getReaderData(startPage))
+    },
+    getContentClass(pageData) {
+      const baseClass = `page`
+      const classes = [baseClass]
+
+      if (pageData.content.length > 0) {
+        pageData.content.forEach((content) => {
+          classes.push(`content-type-${content.content_type_id}`)
+        })
+      }
+
+      return classes.map(cls => `${COMPONENT_NAME}__${cls}`).join(` `)
     }
   },
   updated() {
@@ -141,5 +154,27 @@ export default {
   mounted() {
     this.loadIssue(this.issueId)
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
+
+    // Gives time to destroyed pages to close their bookmarks
+    window.setTimeout(() => {
+      this.$emit(EVENTS.announceBookmark, [
+        {
+          title: `Copertina`,
+          anchor: `cover`,
+          target: COMPONENT_NAME
+        },
+        {
+          title: `Sommario`,
+          anchor: `content-type-1`,
+          target: COMPONENT_NAME
+        }
+      ])
+    }, ANIMATIONS.bookmarkCloseDelay)
+  },
+  beforeDestroy() {
+    this.$emit(EVENTS.dismissBookmark, [
+      `cover`,
+      `content-type-1`
+    ])
   }
 }

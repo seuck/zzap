@@ -1,4 +1,5 @@
 import { scrollToClassWithDefaultOffset } from 'utils/scroll'
+import { CLASS_NAME as contentContainer } from 'components/contentcontainer/contentcontainer'
 
 export default {
   name: `scroll-link`,
@@ -19,7 +20,7 @@ export default {
   },
   data() {
     return {
-      linkTarget: `content`
+      linkTarget: contentContainer
     }
   },
   methods: {

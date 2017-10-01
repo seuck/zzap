@@ -1,4 +1,5 @@
 import EVENTS from 'constants/events'
+import ANIMATIONS from 'constants/animations'
 import {
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
 } from 'utils/scroll'
@@ -19,16 +20,20 @@ export default {
 
     // Gives time to destroyed pages to close their bookmarks
     window.setTimeout(() => {
-      this.$emit(EVENTS.announceBookmark, {
-        title: this.title,
-        anchor: this.anchor
-      })
-    }, 500)
+      this.$emit(EVENTS.announceBookmark, [
+        {
+          title: this.title,
+          anchor: this.anchor,
+          target: CLASS_NAME
+        }
+      ])
+    }, ANIMATIONS.bookmarkCloseDelay)
   },
   beforeDestroy() {
-    this.$emit(EVENTS.dismissBookmark, {
-      title: this.title,
-      anchor: this.anchor
-    })
+    this.$emit(EVENTS.dismissBookmark, [this.anchor])
   }
+}
+
+export {
+  CLASS_NAME
 }

@@ -6,6 +6,7 @@
         v-for="section in sections">
         <scroll-link
           :anchor="section.anchor"
+          :target="section.target"
           :is-scroll-only="true">{{section.title}}</scroll-link>
       </li>
     </ol>

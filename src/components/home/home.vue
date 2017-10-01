@@ -16,12 +16,20 @@
 
     <dynamic-navigation :sections="dynamicNavSections"></dynamic-navigation>
 
-    <router-view name="issue" magazineId="1" @openReader="initReader($event)"></router-view>
-    <router-view name="content"
+    <router-view
+      name="issue"
+      magazineId="1"
+      @openReader="initReader($event)"
       @announceBookmark="addDynamicNavSection($event)"
       @dismissBookmark="removeDynamicNavSection($event)"
     ></router-view>
-    <router-view name="followup"
+    <router-view
+      name="content"
+      @announceBookmark="addDynamicNavSection($event)"
+      @dismissBookmark="removeDynamicNavSection($event)"
+    ></router-view>
+    <router-view
+      name="followup"
       @announceBookmark="addDynamicNavSection($event)"
       @dismissBookmark="removeDynamicNavSection($event)"
     ></router-view>

@@ -39,21 +39,16 @@ export default {
       this.readerData = {}
       this.homeClass = COMPONENT_NAME
     },
-    addDynamicNavSection(section) {
-      this.dynamicNavSections.push(section)
+    addDynamicNavSection(sections) {
+      sections.forEach((section) => {
+        this.dynamicNavSections.push(section)
+      })
     },
-    removeDynamicNavSection(section) {
-      let indexToRemove
-
-      for (let i = 0; i < this.dynamicNavSections.length; i++) {
-        if (this.dynamicNavSections[i].anchor === section.anchor) {
-          indexToRemove = i
-          break
+    removeDynamicNavSection(sections) {
+      for (let i = this.dynamicNavSections.length - 1; i >= 0; i--) {
+        if (sections.indexOf(this.dynamicNavSections[i].anchor) !== -1) {
+          this.dynamicNavSections.splice(i, 1)
         }
-      }
-
-      if (typeof indexToRemove !== `undefined`) {
-        this.dynamicNavSections.splice(indexToRemove, 1)
       }
     }
   }
