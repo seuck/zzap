@@ -10,9 +10,9 @@
     "url": "https://twitter.com/seuck"
   },
   "scripts": {
-    "start": "gulp",
+    "build": "gulp",
     "validate": "gulp lint",
-    "build": "gulp prod"
+    "prod": "cross-env NODE_ENV=${NODE_ENV:=production} gulp prod"
   },
   "paths": {
     "src": "./src"

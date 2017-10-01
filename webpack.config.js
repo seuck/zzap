@@ -4,7 +4,8 @@ const webpack = require(`webpack`)
 const constants = require(`./webpack.constants`)
 const aliases = require(`./webpack.aliases`)
 
-const isProduction = process.env.NODE_ENV === `production`
+// There's mysterious a bug here and I can only solve it now negating the logic
+const isProduction = process.env.NODE_ENV !== `production`
 
 export default {
   entry: `./src/all-components.js`,
@@ -14,7 +15,6 @@ export default {
     filename: `client-bundle.js`,
     chunkFilename: `client-bundle-[chunkhash].js`
   },
-  devtool: `source-map`,
   module: {
     loaders: [
       {
@@ -44,7 +44,7 @@ export default {
         sequences: false, // join consecutive statemets with the “comma operator”
         properties: false, // optimize property access: a["foo"] → a.foo
         dead_code: true, // discard unreachable code
-        drop_debugger: !!isProduction, // discard “debugger” statements
+        drop_debugger: isProduction, // discard “debugger” statements
         unsafe: false, // some unsafe optimizations (see below)
         conditionals: false, // optimize if-s and conditional expressions
         comparisons: false, // optimize comparisons
@@ -60,9 +60,9 @@ export default {
         side_effects: true, // drop side-effect-free statements
         warnings: false // warn about potentially dangerous optimizations/code
       },
-      mangle: false,
-      beautify: true,
-      comments: true
+      mangle: isProduction,
+      beautify: isProduction,
+      comments: isProduction
     })
   ]
 }

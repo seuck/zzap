@@ -24,12 +24,6 @@ gulp.task(`clean`, () => del([
   paths.distCssDir
 ]))
 
-gulp.task(`main`, [`css`, `lint`, `clean`], () =>
-  gulp.src(paths.clientEntryPoint)
-    .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest(paths.distJsDir))
-)
-
 gulp.task(`watch`, () => {
   gulp.watch(paths.allSrcToWatch, [`main`])
   gulp.watch(paths.allSass, [`css`])
@@ -53,12 +47,12 @@ gulp.task(`css`, () =>
     .pipe(gulp.dest(paths.distCssDir))
 )
 
-gulp.task(`default`, [`watch`, `main`])
-
-gulp.task(`prod`, () => {
-  process.env.NODE_ENV = `production`
+gulp.task(`main`, [`css`, `lint`, `clean`], () =>
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(paths.distJsDir))
-}
 )
+
+gulp.task(`prod`, [`main`])
+
+gulp.task(`default`, [`watch`, `main`])
