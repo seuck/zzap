@@ -17,10 +17,29 @@ $bookmarkWidth: 40;
   &__bookmark {
     width: #{$bookmarkWidth}px;
     height: 40px;
-    background-color: $blue;
     border-radius: 0 6px 6px 0;
     animation-duration: 0.5s;
     animation-name: bookmark-in;
+
+    &:nth-child(5n + 1) {
+      background-color: $rainbow1;
+    }
+
+    &:nth-child(5n + 2) {
+      background-color: $rainbow2;
+    }
+
+    &:nth-child(5n + 3) {
+      background-color: $rainbow3;
+    }
+
+    &:nth-child(5n + 4) {
+      background-color: $rainbow4;
+    }
+
+    &:nth-child(5n) {
+      background-color: $rainbow5;
+    }
 
     a {
       position: absolute;
@@ -56,4 +75,8 @@ $bookmarkWidth: 40;
     }
   }
 
+}
+
+.overlay .dynamicnavigation {
+  display: none;
 }

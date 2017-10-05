@@ -15,6 +15,17 @@ const MONTHS = {
   ]
 }
 
+const CONTENT_TYPES = {
+  it: [
+    `Copertina`,
+    `Sommario`,
+    `Posta`,
+    `Top Secret`,
+    // Insert new content types here
+    `Quarta di copertina` // Always last content type
+  ]
+}
+
 export {
-  MONTHS
+  MONTHS, CONTENT_TYPES
 }

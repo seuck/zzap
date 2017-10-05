@@ -35,7 +35,7 @@
       </div>
       <div class="scanissue__doublepage">
         <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
-          <img class="scanissue__page" v-lazy="buildPageThumbPath(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
+          <img class="scanissue__page scanissue__backcover" v-lazy="buildPageThumbPath(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
         </a>
       </div>
     </div>

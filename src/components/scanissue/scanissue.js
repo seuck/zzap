@@ -3,7 +3,7 @@ import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
 import { isEmptyObject } from 'utils/object'
 import { ENTITIES as ZZAPI } from 'api/zzapi'
-import * as localeDate from 'locales/localedate'
+import * as i18n from 'locales/localedate'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
 const COMPONENT_NAME = `scanissue`
@@ -16,7 +16,11 @@ export default {
       issue: {},
       readerData: {},
       doublePagesCache: [],
-      errors: []
+      errors: [],
+      specialBookmarks: {
+        cover: `cover`,
+        backcover: `backcover`
+      }
     }
   },
   watch: {
@@ -51,6 +55,7 @@ export default {
         axios.get(ZZAPI.issue(this.magazineId, this.issueId))
           .then((response) => {
             this.issue = response.data
+            this.announceBookmarks()
           })
           .catch(e => this.errors.push(e))
       }
@@ -78,7 +83,7 @@ export default {
       return paddedText
     },
     getMonth(monthNumber) {
-      return localeDate.MONTHS.it[monthNumber]
+      return i18n.MONTHS.it[monthNumber]
     },
     getReaderData(startPage) {
       if (isEmptyObject(this.readerData)) {
@@ -146,6 +151,37 @@ export default {
       }
 
       return classes.map(cls => `${COMPONENT_NAME}__${cls}`).join(` `)
+    },
+    getBookmarks() {
+      const bookmarks = [{
+        title: i18n.CONTENT_TYPES.it[0],
+        anchor: this.specialBookmarks.cover,
+        target: COMPONENT_NAME
+      }]
+
+      this.issue.volumes[0].pages.forEach((page) => {
+        page.content.forEach((content) => {
+          bookmarks.push({
+            title: i18n.CONTENT_TYPES.it[content.content_type_id],
+            anchor: `content-type-${content.content_type_id}`,
+            target: COMPONENT_NAME
+          })
+        })
+      })
+
+      bookmarks.push({
+        title: i18n.CONTENT_TYPES.it[i18n.CONTENT_TYPES.it.length - 1],
+        anchor: this.specialBookmarks.backcover,
+        target: COMPONENT_NAME
+      })
+
+      return bookmarks
+    },
+    announceBookmarks() {
+      // Gives time to destroyed pages to close their bookmarks
+      window.setTimeout(() => {
+        this.$emit(EVENTS.announceBookmark, this.getBookmarks())
+      }, ANIMATIONS.bookmarkCloseDelay)
     }
   },
   updated() {
@@ -154,22 +190,6 @@ export default {
   mounted() {
     this.loadIssue(this.issueId)
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
-
-    // Gives time to destroyed pages to close their bookmarks
-    window.setTimeout(() => {
-      this.$emit(EVENTS.announceBookmark, [
-        {
-          title: `Copertina`,
-          anchor: `cover`,
-          target: COMPONENT_NAME
-        },
-        {
-          title: `Sommario`,
-          anchor: `content-type-1`,
-          target: COMPONENT_NAME
-        }
-      ])
-    }, ANIMATIONS.bookmarkCloseDelay)
   },
   beforeDestroy() {
     this.$emit(EVENTS.dismissBookmark, [
