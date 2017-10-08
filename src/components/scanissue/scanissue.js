@@ -51,11 +51,16 @@ export default {
     }
   },
   methods: {
+    resetLoadedIssue() {
+      this.doublePagesCache = []
+      this.readerData = {}
+      this.dismissBookmarks()
+    },
     loadIssue(issueId) {
       if (issueId !== ``) {
         axios.get(ZZAPI.issue(this.magazineId, this.issueId))
           .then((response) => {
-            this.dismissBookmarks()
+            this.resetLoadedIssue()
             this.issue = response.data
             this.bookmarks = this.getBookmarks()
             this.announceBookmarks()
@@ -63,15 +68,11 @@ export default {
           .catch(e => this.errors.push(e))
       }
     },
-    buildPageThumbPath(pageNumber) {
-      const normalisedNumber = this.addLeftPadding(pageNumber, `0`, 2)
-
-      return `/img/thumbs/zzap/${this.issue.id}/${normalisedNumber}.jpg`
+    buildPageThumbPath(imagePath) {
+      return `/img/thumbs/${imagePath}`
     },
-    buildScanPath(pageNumber) {
-      const normalisedNumber = this.addLeftPadding(pageNumber, `0`, 2)
-
-      return `/zzap/${this.issue.id}/${normalisedNumber}.jpg`
+    buildScanPath(imagePath) {
+      return `/img/scans/${imagePath}`
     },
     buildContributorPath(contributorId) {
       return `/contributor/${contributorId}`
@@ -86,12 +87,12 @@ export default {
       return paddedText
     },
     getMonth(monthNumber) {
-      return i18n.MONTHS.it[monthNumber]
+      return i18n.MONTHS.it[monthNumber - 1]
     },
     getReaderData(startPage) {
       if (isEmptyObject(this.readerData)) {
         const data = {}
-        const formattedDate = `${this.getMonth(this.issue.month)} ${this.issue.year}`
+        const formattedDate = `${this.getMonth(+this.issue.month)} ${this.issue.year}`
 
         data.title = `${this.issue.magazine.name} numero ${this.issue.sequence} - ${formattedDate}`
         data.pages = []
@@ -99,20 +100,20 @@ export default {
         // Cover
         data.pages.push(this.buildDoublePageForReader(
           undefined,
-          this.issue.volumes[0].pages[0].label)
+          this.issue.volumes[0].pages[0].scan.path)
         )
 
         // Spreads
         this.doublePages.forEach(function (page) {
           data.pages.push(this.buildDoublePageForReader(
-            this.issue.volumes[0].pages[+page].label,
-            this.issue.volumes[0].pages[+page + 1].label
+            this.issue.volumes[0].pages[+page].scan.path,
+            this.issue.volumes[0].pages[+page + 1].scan.path
           ))
         }, this)
 
         // Back cover
         data.pages.push(this.buildDoublePageForReader(
-          this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1].label,
+          this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1].scan.path,
           undefined
         ))
 
@@ -145,7 +146,10 @@ export default {
     },
     getContentClass(pageData) {
       const baseClass = `page`
-      const classes = [baseClass]
+      const classes = [
+        baseClass,
+        pageData.label
+      ]
 
       if (pageData.content.length > 0) {
         pageData.content.forEach((content) => {

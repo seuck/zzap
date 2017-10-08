@@ -1,6 +1,5 @@
 import ReaderImage from 'components/reader/reader-image.vue'
 import EVENTS from 'constants/events'
-import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
 /*
  * Scroll down for example data
@@ -84,7 +83,6 @@ export default {
       this.keyupEventListenerAtteched = false
       this.$emit(EVENTS.closeReader)
       this.actualPage = ``
-      _scrollToClassWithDefaultOffset(`scanissue`)
     },
     hasPage(pageName) {
       return this.doesPageExist(this.actualPage) &&

@@ -21,6 +21,7 @@ const CONTENT_TYPES = {
     `Sommario`,
     `Posta`,
     `Top Secret`,
+    `Coin-op`,
     // Insert new content types here
     `Quarta di copertina` // Always last content type
   ]
