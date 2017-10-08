@@ -20,7 +20,8 @@ export default {
       specialBookmarks: {
         cover: `cover`,
         backcover: `backcover`
-      }
+      },
+      bookmarks: []
     }
   },
   watch: {
@@ -54,7 +55,9 @@ export default {
       if (issueId !== ``) {
         axios.get(ZZAPI.issue(this.magazineId, this.issueId))
           .then((response) => {
+            this.dismissBookmarks()
             this.issue = response.data
+            this.bookmarks = this.getBookmarks()
             this.announceBookmarks()
           })
           .catch(e => this.errors.push(e))
@@ -180,8 +183,13 @@ export default {
     announceBookmarks() {
       // Gives time to destroyed pages to close their bookmarks
       window.setTimeout(() => {
-        this.$emit(EVENTS.announceBookmark, this.getBookmarks())
+        this.$emit(EVENTS.announceBookmark, this.bookmarks)
       }, ANIMATIONS.bookmarkCloseDelay)
+    },
+    dismissBookmarks() {
+      const anchors = this.bookmarks.map(bookmark => bookmark.anchor)
+
+      this.$emit(EVENTS.dismissBookmark, anchors)
     }
   },
   updated() {
@@ -190,11 +198,5 @@ export default {
   mounted() {
     this.loadIssue(this.issueId)
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
-  },
-  beforeDestroy() {
-    this.$emit(EVENTS.dismissBookmark, [
-      `cover`,
-      `content-type-1`
-    ])
   }
 }
