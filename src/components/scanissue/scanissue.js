@@ -48,6 +48,9 @@ export default {
       }
 
       return this.doublePagesCache
+    },
+    anchors() {
+      return this.bookmarks.map(bookmark => bookmark.anchor)
     }
   },
   methods: {
@@ -191,16 +194,17 @@ export default {
       }, ANIMATIONS.bookmarkCloseDelay)
     },
     dismissBookmarks() {
-      const anchors = this.bookmarks.map(bookmark => bookmark.anchor)
-
-      this.$emit(EVENTS.dismissBookmark, anchors)
+      this.$emit(EVENTS.dismissBookmark, this.anchors)
     }
-  },
-  updated() {
-    _scrollToClassWithDefaultOffset(COMPONENT_NAME)
   },
   mounted() {
     this.loadIssue(this.issueId)
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
+  },
+  updated() {
+    _scrollToClassWithDefaultOffset(COMPONENT_NAME)
+  },
+  beforeDestroy() {
+    this.dismissBookmarks()
   }
 }
