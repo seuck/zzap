@@ -18,7 +18,7 @@
   #{$base}__image {
     @include imageshadow;
 
-    &- {
+    &-- {
       &cw {
         transform: rotate(7deg);
       }
@@ -33,6 +33,9 @@
   
       &left {
         float: left;
+      }
+      &no-shadow {
+        box-shadow: initial;
       }
     }
   }

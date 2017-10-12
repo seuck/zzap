@@ -91,6 +91,28 @@ const routes = [
         }
       },
       {
+        name: `speciali-elitesystems`,
+        path: `speciali/elitesystems`,
+        components: {
+          content: Speciali,
+          followup: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/content/speciali/pages/elitesystems.vue`], resolve)
+          }
+        }
+      },
+      {
+        name: `speciali-bovabyte`,
+        path: `speciali/bovabyte`,
+        components: {
+          content: Speciali,
+          followup: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/content/speciali/pages/bovabyte.vue`], resolve)
+          }
+        }
+      },
+      {
         name: `demo-content-image`,
         path: `demo/content/image`,
         components: {

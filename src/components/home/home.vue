@@ -25,11 +25,13 @@
     ></router-view>
     <router-view
       name="content"
+      @openReader="initReader($event)"
       @announceBookmark="addDynamicNavSection($event)"
       @dismissBookmark="removeDynamicNavSection($event)"
     ></router-view>
     <router-view
       name="followup"
+      @openReader="initReader($event)"
       @announceBookmark="addDynamicNavSection($event)"
       @dismissBookmark="removeDynamicNavSection($event)"
     ></router-view>

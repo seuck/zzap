@@ -3,7 +3,7 @@ import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
 import { isEmptyObject } from 'utils/object'
 import { ENTITIES as ZZAPI } from 'api/zzapi'
-import * as i18n from 'locales/localedate'
+import * as I18N from 'locales/localedate'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
 const COMPONENT_NAME = `scanissue`
@@ -80,44 +80,35 @@ export default {
     buildContributorPath(contributorId) {
       return `/contributor/${contributorId}`
     },
-    addLeftPadding(text, paddingChar, maxLength) {
-      let paddedText = text.toString()
-
-      while (paddedText.length < maxLength) {
-        paddedText = `${paddingChar}${paddedText}`
-      }
-
-      return paddedText
-    },
     getMonth(monthNumber) {
-      return i18n.MONTHS.it[monthNumber - 1]
+      return I18N.MONTHS.it[monthNumber - 1]
     },
     getReaderData(startPage) {
       if (isEmptyObject(this.readerData)) {
         const data = {}
         const formattedDate = `${this.getMonth(+this.issue.month)} ${this.issue.year}`
 
-        data.title = `${this.issue.magazine.name} numero ${this.issue.sequence} - ${formattedDate}`
+        // eslint-disable-next-line max-len
+        data.title = `${this.issue.magazine.name} ${I18N.TEXTS.it.issue} ${this.issue.sequence} - ${formattedDate}`
         data.pages = []
 
         // Cover
         data.pages.push(this.buildDoublePageForReader(
           undefined,
-          this.issue.volumes[0].pages[0].scan.path)
-        )
+          this.issue.volumes[0].pages[0]
+        ))
 
         // Spreads
-        this.doublePages.forEach(function (page) {
+        this.doublePages.forEach((page) => {
           data.pages.push(this.buildDoublePageForReader(
-            this.issue.volumes[0].pages[+page].scan.path,
-            this.issue.volumes[0].pages[+page + 1].scan.path
+            this.issue.volumes[0].pages[+page],
+            this.issue.volumes[0].pages[+page + 1]
           ))
-        }, this)
+        })
 
         // Back cover
         data.pages.push(this.buildDoublePageForReader(
-          this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1].scan.path,
-          undefined
+          this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1]
         ))
 
         this.readerData = data
@@ -126,19 +117,19 @@ export default {
 
       return this.readerData
     },
-    buildDoublePageForReader(first, last) {
+    buildDoublePageForReader(firstPage, lastPage) {
       const doublePage = {}
 
-      if (typeof first !== `undefined`) {
+      if (typeof firstPage !== `undefined`) {
         doublePage.first = {
-          label: first,
-          path: this.buildScanPath(first)
+          label: firstPage.label,
+          path: this.buildScanPath(firstPage.scan.path)
         }
       }
-      if (typeof last !== `undefined`) {
+      if (typeof lastPage !== `undefined`) {
         doublePage.last = {
-          label: last,
-          path: this.buildScanPath(last)
+          label: lastPage.label,
+          path: this.buildScanPath(lastPage.scan.path)
         }
       }
 
@@ -164,7 +155,7 @@ export default {
     },
     getBookmarks() {
       const bookmarks = [{
-        title: i18n.CONTENT_TYPES.it[0],
+        title: I18N.CONTENT_TYPES.it[0],
         anchor: this.specialBookmarks.cover,
         target: COMPONENT_NAME
       }]
@@ -172,7 +163,7 @@ export default {
       this.issue.volumes[0].pages.forEach((page) => {
         page.content.forEach((content) => {
           bookmarks.push({
-            title: i18n.CONTENT_TYPES.it[content.content_type_id],
+            title: I18N.CONTENT_TYPES.it[content.content_type_id],
             anchor: `content-type-${content.content_type_id}`,
             target: COMPONENT_NAME
           })
@@ -180,7 +171,7 @@ export default {
       })
 
       bookmarks.push({
-        title: i18n.CONTENT_TYPES.it[i18n.CONTENT_TYPES.it.length - 1],
+        title: I18N.CONTENT_TYPES.it[I18N.CONTENT_TYPES.it.length - 1],
         anchor: this.specialBookmarks.backcover,
         target: COMPONENT_NAME
       })

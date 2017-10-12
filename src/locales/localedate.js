@@ -15,6 +15,12 @@ const MONTHS = {
   ]
 }
 
+const TEXTS = {
+  it: {
+    issue: `numero`
+  }
+}
+
 const CONTENT_TYPES = {
   it: [
     `Copertina`,
@@ -28,5 +34,5 @@ const CONTENT_TYPES = {
 }
 
 export {
-  MONTHS, CONTENT_TYPES
+  CONTENT_TYPES, MONTHS, TEXTS
 }

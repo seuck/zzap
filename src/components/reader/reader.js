@@ -103,22 +103,27 @@ Example data for pages prop:
 [
   {
     first: {
+      label: '1',
       path: '/img/thumbs/zzap/1/01.jpg'
     }
   },
   {
     first: {
+      label: '2',
       path: '/img/thumbs/zzap/1/02.jpg'
     },
     last: {
+      label: '3',
       path: '/img/thumbs/zzap/1/03.jpg'
     }
   },
   {
     first: {
+      label: '4',
       path: '/img/thumbs/zzap/1/04.jpg'
     },
     last: {
+      label: '5',
       path: '/img/thumbs/zzap/1/05.jpg'
     }
   }

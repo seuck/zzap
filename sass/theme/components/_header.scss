@@ -27,7 +27,8 @@
   }
 
   &__navigation {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     color: $white;
     position: fixed;
     z-index: 99;
@@ -81,7 +82,8 @@
   &--compact {
     .header__navigation {
       @include for-tablet-portrait-up {
-        display: block;
+        visibility: visible;
+        opacity: 1;
       }
     }
 
