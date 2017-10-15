@@ -3,8 +3,7 @@ export default {
   props: {
     path: ``,
     label: ``,
-    labelPrefix: ``,
-    totalPages: ``
+    labelPrefix: ``
   },
   data() {
     return {
@@ -23,9 +22,6 @@ export default {
         } else {
           label = `${this.defaultLabelPrefix}: ${this.label}`
         }
-      }
-      if (typeof this.totalPages !== `undefined`) {
-        label = `${label} ${this.pageNumberSeparator} ${this.totalPages}`
       }
 
       return label

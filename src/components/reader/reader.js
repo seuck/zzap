@@ -88,14 +88,17 @@ export default {
       return this.doesPageExist(this.actualPage) &&
         typeof this.pages[this.actualPage][pageName] !== `undefined`
     },
-    lastPageLabel() {
-      const last = this.pages[this.pages.length - 1].last
+    navigationClass(index) {
+      const classes = []
+      const baseClass = `reader__navigation-page`
+      const selectedClass = `reader__navigation-page-actual`
 
-      if (typeof last !== `undefined`) {
-        return last.label
+      classes.push(baseClass)
+      if (index === this.actualPage) {
+        classes.push(selectedClass)
       }
 
-      return this.pages[this.pages.length - 1].first.label
+      return classes
     }
   },
   beforeMount() {

@@ -3,7 +3,7 @@
 
   &__content {
     display: flex;
-    margin-top: 65px;
+    margin-top: 101px;
   }
 
   &__navigator {
@@ -23,8 +23,35 @@
 
   &__close {
     position: absolute;
-    top: 20px;
+    top: calc(50% - 13px);
     right: 20px;
+  }
+
+  &__navigation {
+    margin: 20px 46px 0;   
+
+    &-page {
+      flex-basis: 22px;
+      opacity: $readerNavigationPageOpacity;
+      
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+
+      &-actual {
+        opacity: 1;
+      }
+
+      img {
+        width: 16px;
+      }
+
+      &-container {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
 
   &__closeicon {
