@@ -43,9 +43,27 @@ export default extend(true, {}, basecontent, {
     },
     getReaderData() {
       return {
-        title: `Antologia di Bovabyte`,
+        title: `Antologia di BovaByte`,
         startPage: 0,
         pages: this.generateReaderPages(`/assets/content/speciali/bovabyte/bva/`, `.jpg`, 36)
+      }
+    },
+    getBovaByte2ReaderData(issue) {
+      return {
+        title: `BovaByte 2 - Numero ${issue}`,
+        startPage: 0,
+        pages: [
+          {
+            first: {
+              label: `Fronte`,
+              path: `/assets/content/speciali/bovabyte/bv2/bovabyte2-${issue}-1.jpg`
+            },
+            last: {
+              label: `Retro`,
+              path: `/assets/content/speciali/bovabyte/bv2/bovabyte2-${issue}-2.jpg`
+            }
+          }
+        ]
       }
     },
     openReader(readerData) {
