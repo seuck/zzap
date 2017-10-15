@@ -13,12 +13,14 @@
       <a class="reader__first" v-if="hasPage('first')" @click="previousPage">
         <reader-image
           :path="pages[actualPage].first.path"
-          :label="pages[actualPage].first.label"/>
+          :label="pages[actualPage].first.label"
+          :totalPages="lastPageLabel()"/>
       </a>
       <a class="reader__last" v-if="hasPage('last')" @click="nextPage">
         <reader-image
           :path="pages[actualPage].last.path"
-          :label="pages[actualPage].last.label"/>
+          :label="pages[actualPage].last.label"
+          :totalPages="lastPageLabel()"/>
       </a>
     </div>
   </section>

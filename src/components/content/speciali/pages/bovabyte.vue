@@ -60,12 +60,13 @@
           @openReader="openReader($event)"
           imagePath="assets/content/speciali/bovabyte/antologia-di-bovabyte-copertina.jpg"
           caption="La copertina dell'Antologia di Bovabyte"
-          align="left"
+          align="right"
+          rotation="cw"
           :readerData="getReaderData()"
         ></content-image>
-      <strong>Antologia di BovaByte</strong> (36 pagine, un record per i Bovas) contiene articoli inediti ed una selezione del meglio di BovaByte in versione fanzine. I nuovi articoli sono la realizzazione di un sogno della redazione, seguire la storia di un videogioco in tutte le sue fasi: l'ideazione (che fa il verso ai famosi diari dei programmatori di Zzap!), le recensioni e la soluzione (con tanto di mappa). Superfluo precisare che questo gioco, nato dalla mente malata del "Pastore", è un'assoluta schifezza.
-Antologia di BovaByte è stata presentata anche sulle pagine di Zzap! nel numero 64 del Febbraio 1992.</p>
-
+      L'ambiziosa <strong>Antologia di BovaByte</strong> di ben 36 pagine, un record per i Bovas, contiene articoli inediti ed una selezione del meglio di BovaByte in versione fanzine.</br>
+      I nuovi articoli sono la realizzazione di un sogno della redazione, seguire la storia di un videogioco in tutte le sue fasi: l'ideazione (che fa il verso ai famosi diari dei programmatori di Zzap!), le recensioni e la soluzione (con tanto di mappa). Superfluo precisare che questo gioco, nato dalla mente malata del "Pastore", è un'assoluta schifezza.</br>
+      Antologia di BovaByte è stata presentata anche sulle pagine di Zzap! nel numero 64 del Febbraio 1992.</p>
     </content-section>
   </content-container>
 </template>

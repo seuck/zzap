@@ -5,35 +5,39 @@ import { addLeftPadding } from 'utils/text.js'
 
 export default extend(true, {}, basecontent, {
   methods: {
-    generatePages() {
+    generateReaderPages(basePath, extension, length) {
       const pages = []
 
       pages.push({
         last: {
           label: `1`,
-          path: `/assets/content/speciali/bovabyte/bva/01.jpg`
+          path: `${basePath}${addLeftPadding(1, `0`, 2)}${extension}`
         }
       })
 
-      for (let i = 2; i <= 34; i += 2) {
+      if (length > 2) {
+        for (let i = 2; i <= length - 2; i += 2) {
+          pages.push({
+            first: {
+              label: `${i}`,
+              path: `${basePath}${addLeftPadding(i, `0`, 2)}${extension}`
+            },
+            last: {
+              label: `${i + 1}`,
+              path: `${basePath}${addLeftPadding(i + 1, `0`, 2)}${extension}`
+            }
+          })
+        }
+      }
+
+      if (length > 1) {
         pages.push({
           first: {
-            label: `${i}`,
-            path: `/assets/content/speciali/bovabyte/bva/${addLeftPadding(i, `0`, 2)}.jpg`
-          },
-          last: {
-            label: `${i + 1}`,
-            path: `/assets/content/speciali/bovabyte/bva/${addLeftPadding(i + 1, `0`, 2)}.jpg`
+            label: length,
+            path: `${basePath}${addLeftPadding(length, `0`, 2)}${extension}`
           }
         })
       }
-
-      pages.push({
-        first: {
-          label: `36`,
-          path: `/assets/content/speciali/bovabyte/bva/36.jpg`
-        }
-      })
 
       return pages
     },
@@ -41,7 +45,7 @@ export default extend(true, {}, basecontent, {
       return {
         title: `Antologia di Bovabyte`,
         startPage: 0,
-        pages: this.generatePages()
+        pages: this.generateReaderPages(`/assets/content/speciali/bovabyte/bva/`, `.jpg`, 36)
       }
     },
     openReader(readerData) {

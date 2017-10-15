@@ -87,6 +87,15 @@ export default {
     hasPage(pageName) {
       return this.doesPageExist(this.actualPage) &&
         typeof this.pages[this.actualPage][pageName] !== `undefined`
+    },
+    lastPageLabel() {
+      const last = this.pages[this.pages.length - 1].last
+
+      if (typeof last !== `undefined`) {
+        return last.label
+      }
+
+      return this.pages[this.pages.length - 1].first.label
     }
   },
   beforeMount() {

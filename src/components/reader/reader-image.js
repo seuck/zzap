@@ -3,12 +3,14 @@ export default {
   props: {
     path: ``,
     label: ``,
-    labelPrefix: ``
+    labelPrefix: ``,
+    totalPages: ``
   },
   data() {
     return {
       defaultLabelPrefix: `Pagina`,
-      navigationHint: `Premi per sfogliare`
+      navigationHint: `Premi per sfogliare`,
+      pageNumberSeparator: `di`
     }
   },
   computed: {
@@ -21,6 +23,9 @@ export default {
         } else {
           label = `${this.defaultLabelPrefix}: ${this.label}`
         }
+      }
+      if (typeof this.totalPages !== `undefined`) {
+        label = `${label} ${this.pageNumberSeparator} ${this.totalPages}`
       }
 
       return label
