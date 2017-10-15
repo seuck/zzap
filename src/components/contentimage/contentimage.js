@@ -1,4 +1,5 @@
 import EVENTS from 'constants/events'
+import { getRetinaPath } from 'utils/image'
 
 /**
  * align: left | right
@@ -7,7 +8,9 @@ import EVENTS from 'constants/events'
 
 export default {
   name: `content__image`,
-  props: [`imagePath`, `linkUrl`, `caption`, `align`, `rotation`, `readerData`, `noShadow`],
+  props: [
+    `imagePath`, `linkUrl`, `caption`, `align`, `rotation`, `readerData`, `noShadow`, `noSrcset`
+  ],
   computed: {
     fullStyle() {
       const styles = []
@@ -31,6 +34,13 @@ export default {
       }
 
       return styles.join(` `)
+    },
+    srcset() {
+      if (typeof this.noSrcset !== `undefined`) {
+        return ``
+      }
+
+      return getRetinaPath(this.imagePath)
     }
   },
   methods: {

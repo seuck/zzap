@@ -3,6 +3,7 @@ import { ENTITIES as ZZAPI } from 'api/zzapi'
 import {
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
 } from 'utils/scroll'
+import { getRetinaPath } from 'utils/image'
 
 const COMPONENT_NAME = `scanindex`
 
@@ -48,6 +49,9 @@ export default {
     },
     buildCoverThumbPath(issue) {
       return `/img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`
+    },
+    buildRetinaCoverThumbPath(issue) {
+      return getRetinaPath(this.buildCoverThumbPath(issue))
     }
   },
   mounted() {

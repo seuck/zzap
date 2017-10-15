@@ -8,6 +8,7 @@
       <content-image
           imagePath="assets/content/speciali/bovabyte/speciale-bovabyte.jpg"
           noShadow="true"
+          noSrcset="true"
         ></content-image>
       <p><strong>BovaByte</strong> nasce nel 1988 tra i banchi di scuola di un liceo di Vigevano (PV) un pò per prendere in giro i sedicenti sapientoni del computer ma soprattutto per procurarsi un buon motivo per non studiare il latino. La fanzine è assemblata con colla e graffette da <strong>Paolo Besser</strong> e <strong>Davide Corrado</strong> mettendo insieme articoli scritti a mano.</p>
 

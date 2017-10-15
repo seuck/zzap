@@ -650,7 +650,7 @@ figcaption {
   position: relative; }
   .reader__content {
     display: flex;
-    margin-top: 65px; }
+    margin-top: 101px; }
   .reader__navigator {
     position: fixed;
     top: 0;
@@ -664,8 +664,22 @@ figcaption {
     margin-bottom: 0; }
   .reader__close {
     position: absolute;
-    top: 20px;
+    top: calc(50% - 13px);
     right: 20px; }
+  .reader__navigation {
+    margin: 20px 46px 0; }
+    .reader__navigation-page {
+      flex-basis: 22px;
+      opacity: 0.5; }
+      .reader__navigation-page:hover, .reader__navigation-page:focus {
+        opacity: 1; }
+      .reader__navigation-page-actual {
+        opacity: 1; }
+      .reader__navigation-page img {
+        width: 16px; }
+      .reader__navigation-page-container {
+        display: flex;
+        justify-content: center; }
   .reader__closeicon {
     width: 26px; }
   .reader__first {

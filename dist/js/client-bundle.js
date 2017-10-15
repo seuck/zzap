@@ -63,7 +63,7 @@ function(e, t) {
 function(e, t, r) {
     "use strict";
     var n = r(19);
-    var a = r(66);
+    var a = r(67);
     /*global toString:true*/
     // utils is a library of generic helper functions non-specific to axios
     var i = Object.prototype.toString;
@@ -233,7 +233,7 @@ function(e, t, r) {
  * @param {Object|Array} obj The object to iterate
  * @param {Function} fn The callback to invoke for each item
  */
-    function k(e, t) {
+    function C(e, t) {
         // Don't bother if no value provided
         if (null === e || "undefined" === typeof e) return;
         // Force an array if not already something iterable
@@ -260,12 +260,12 @@ function(e, t, r) {
  * @param {Object} obj1 Object to merge
  * @returns {Object} Result of all merge properties
  */
-    function C() {
+    function k() {
         var e = {};
         function t(t, r) {
-            if ("object" === typeof e[r] && "object" === typeof t) e[r] = C(e[r], t); else e[r] = t;
+            if ("object" === typeof e[r] && "object" === typeof t) e[r] = k(e[r], t); else e[r] = t;
         }
-        for (var r = 0, n = arguments.length; r < n; r++) k(arguments[r], t);
+        for (var r = 0, n = arguments.length; r < n; r++) C(arguments[r], t);
         return e;
     }
     /**
@@ -277,7 +277,7 @@ function(e, t, r) {
  * @return {Object} The resulting value of object a
  */
     function x(e, t, r) {
-        k(t, function(t, a) {
+        C(t, function(t, a) {
             if (r && "function" === typeof t) e[a] = n(t, r); else e[a] = t;
         });
         return e;
@@ -299,8 +299,8 @@ function(e, t, r) {
         isStream: y,
         isURLSearchParams: g,
         isStandardBrowserEnv: w,
-        forEach: k,
-        merge: C,
+        forEach: C,
+        merge: k,
         extend: x,
         trim: b
     };
@@ -313,11 +313,11 @@ function(e, t, r) {
     });
     var n = r(5);
     var a = p(n);
-    var i = r(29);
+    var i = r(30);
     var o = p(i);
-    var s = r(30);
+    var s = r(31);
     var u = p(s);
-    var l = r(32);
+    var l = r(33);
     var c = p(l);
     var f = r(6);
     var d = p(f);
@@ -454,7 +454,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(54);
+    var i = r(55);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -526,7 +526,7 @@ function(e, t, r) {
     /* WEBPACK VAR INJECTION */
     (function(t) {
         var n = r(1);
-        var a = r(69);
+        var a = r(70);
         var i = {
             "Content-Type": "application/x-www-form-urlencoded"
         };
@@ -582,7 +582,7 @@ function(e, t, r) {
             s.headers[e] = n.merge(i);
         });
         e.exports = s;
-    }).call(t, r(68));
+    }).call(t, r(69));
 }, /* 9 */
 /***/
 function(e, t, r) {
@@ -590,23 +590,23 @@ function(e, t, r) {
     Object.defineProperty(t, "__esModule", {
         value: true
     });
-    var n = r(51);
+    var n = r(52);
     var a = w(n);
-    var i = r(53);
+    var i = r(54);
     var o = w(i);
-    var s = r(56);
+    var s = r(57);
     var u = w(s);
-    var l = r(58);
+    var l = r(59);
     var c = w(l);
-    var f = r(60);
+    var f = r(61);
     var d = w(f);
-    var p = r(64);
+    var p = r(65);
     var v = w(p);
-    var h = r(85);
+    var h = r(86);
     var m = w(h);
-    var _ = r(87);
+    var _ = r(88);
     var y = w(_);
-    var g = r(89);
+    var g = r(90);
     var b = r(4);
     function w(e) {
         return e && e.__esModule ? e : {
@@ -777,7 +777,7 @@ function(e, t, r) {
     Object.defineProperty(t, "__esModule", {
         value: true
     });
-    var n = r(61);
+    var n = r(62);
     var a = s(n);
     var i = r(5);
     var o = s(i);
@@ -854,6 +854,12 @@ function(e, t, r) {
             },
             hasPage: function(e) {
                 return this.doesPageExist(this.actualPage) && "undefined" !== typeof this.pages[this.actualPage][e];
+            },
+            navigationClass: function(e) {
+                var t = [];
+                t.push("reader__navigation-page");
+                if (e === this.actualPage) t.push("reader__navigation-page-actual");
+                return t;
             }
         },
         beforeMount: function() {
@@ -880,7 +886,8 @@ function(e, t, r) {
         data: function() {
             return {
                 defaultLabelPrefix: "Pagina",
-                navigationHint: "Premi per sfogliare"
+                navigationHint: "Premi per sfogliare",
+                pageNumberSeparator: "di"
             };
         },
         computed: {
@@ -911,6 +918,7 @@ function(e, t, r) {
     }(n);
     var i = r(24);
     var o = r(4);
+    var s = r(25);
     t.default = {
         name: "scanindex",
         props: [ "magazineId" ],
@@ -953,6 +961,9 @@ function(e, t, r) {
             },
             buildCoverThumbPath: function(e) {
                 return "/img/issue_selector/" + this.magazineName + "/" + e.sequence + ".jpg";
+            },
+            buildRetinaCoverThumbPath: function(e) {
+                return (0, s.getRetinaPath)(this.buildCoverThumbPath(e));
             }
         },
         mounted: function() {
@@ -962,7 +973,7 @@ function(e, t, r) {
 }, /* 18 */
 /***/
 function(e, t, r) {
-    e.exports = r(65);
+    e.exports = r(66);
 }, /* 19 */
 /***/
 function(e, t, r) {
@@ -979,12 +990,12 @@ function(e, t, r) {
 function(e, t, r) {
     "use strict";
     var n = r(1);
-    var a = r(70);
-    var i = r(72);
-    var o = r(73);
-    var s = r(74);
+    var a = r(71);
+    var i = r(73);
+    var o = r(74);
+    var s = r(75);
     var u = r(21);
-    var l = "undefined" !== typeof window && window.btoa && window.btoa.bind(window) || r(75);
+    var l = "undefined" !== typeof window && window.btoa && window.btoa.bind(window) || r(76);
     e.exports = function(e) {
         return new Promise(function(t, c) {
             var f = e.data;
@@ -1054,7 +1065,7 @@ function(e, t, r) {
             // This is only done if running in a standard browser environment.
             // Specifically not if we're in a web worker, or react-native.
             if (n.isStandardBrowserEnv()) {
-                var y = r(76);
+                var y = r(77);
                 // Add xsrf header
                 var g = (e.withCredentials || s(e.url)) && e.xsrfCookieName ? y.read(e.xsrfCookieName) : void 0;
                 if (g) d[e.xsrfHeaderName] = g;
@@ -1096,7 +1107,7 @@ function(e, t, r) {
 /***/
 function(e, t, r) {
     "use strict";
-    var n = r(71);
+    var n = r(72);
     /**
  * Create an Error with the specified message, config, error code, request and response.
  *
@@ -1159,6 +1170,18 @@ function(e, t, r) {
     Object.defineProperty(t, "__esModule", {
         value: true
     });
+    t.getRetinaPath = function(e) {
+        var t = e.split(".");
+        t[t.length - 2] = t[t.length - 2] + "@2x";
+        return t.join(".") + " 2x";
+    };
+}, /* 26 */
+/***/
+function(e, t, r) {
+    "use strict";
+    Object.defineProperty(t, "__esModule", {
+        value: true
+    });
     var n = r(4);
     // A component can't be named as an HTML tag
     var a = "header";
@@ -1208,7 +1231,7 @@ function(e, t, r) {
             this.initScroll();
         }
     };
-}, /* 26 */
+}, /* 27 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1228,7 +1251,7 @@ function(e, t, r) {
             ScrollLink: a.default
         }
     };
-}, /* 27 */
+}, /* 28 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1241,9 +1264,9 @@ function(e, t, r) {
     var o = v(i);
     var s = r(12);
     var u = v(s);
-    var l = r(92);
+    var l = r(93);
     var c = r(24);
-    var f = r(93);
+    var f = r(94);
     var d = function(e) {
         if (e && e.__esModule) {
             return e;
@@ -1423,7 +1446,7 @@ function(e, t, r) {
             this.dismissBookmarks();
         }
     };
-}, /* 28 */
+}, /* 29 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1440,7 +1463,7 @@ function(e, t, r) {
         };
     }
     t.default = (0, a.default)(true, {}, o.default);
-}, /* 29 */
+}, /* 30 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1452,7 +1475,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(96);
+    var i = r(97);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -1474,7 +1497,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 30 */
+}, /* 31 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1482,11 +1505,11 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(31);
+    var n = r(32);
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(97);
+    var i = r(98);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -1508,7 +1531,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 31 */
+}, /* 32 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1519,7 +1542,7 @@ function(e, t, r) {
         name: "content-section",
         props: [ "title" ]
     };
-}, /* 32 */
+}, /* 33 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1527,11 +1550,11 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(33);
+    var n = r(34);
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(98);
+    var i = r(99);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -1553,7 +1576,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 33 */
+}, /* 34 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1566,13 +1589,14 @@ function(e, t, r) {
             default: e
         };
     }(n);
+    var i = r(25);
     /**
  * align: left | right
  * rotation: cw, cc
  */
     t.default = {
         name: "content__image",
-        props: [ "imagePath", "linkUrl", "caption", "align", "rotation", "readerData", "noShadow" ],
+        props: [ "imagePath", "linkUrl", "caption", "align", "rotation", "readerData", "noShadow", "noSrcset" ],
         computed: {
             fullStyle: function() {
                 var e = [];
@@ -1583,6 +1607,10 @@ function(e, t, r) {
                 if ("undefined" !== typeof this.rotation) e.push(t + "--" + this.rotation);
                 if ("undefined" !== typeof this.noShadow) e.push(t + "--no-shadow");
                 return e.join(" ");
+            },
+            srcset: function() {
+                if ("undefined" !== typeof this.noSrcset) return "";
+                return (0, i.getRetinaPath)(this.imagePath);
             }
         },
         methods: {
@@ -1591,23 +1619,6 @@ function(e, t, r) {
             }
         }
     };
-}, /* 34 */
-/***/
-function(e, t, r) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", {
-        value: true
-    });
-    var n = r(3);
-    var a = s(n);
-    var i = r(2);
-    var o = s(i);
-    function s(e) {
-        return e && e.__esModule ? e : {
-            default: e
-        };
-    }
-    t.default = (0, a.default)(true, {}, o.default);
 }, /* 35 */
 /***/
 function(e, t, r) {
@@ -1683,58 +1694,16 @@ function(e, t, r) {
     Object.defineProperty(t, "__esModule", {
         value: true
     });
-    var n = r(5);
-    var a = c(n);
-    var i = r(3);
-    var o = c(i);
-    var s = r(2);
-    var u = c(s);
-    var l = r(104);
-    function c(e) {
+    var n = r(3);
+    var a = s(n);
+    var i = r(2);
+    var o = s(i);
+    function s(e) {
         return e && e.__esModule ? e : {
             default: e
         };
     }
-    t.default = (0, o.default)(true, {}, u.default, {
-        methods: {
-            generatePages: function() {
-                var e = [];
-                e.push({
-                    last: {
-                        label: "1",
-                        path: "/assets/content/speciali/bovabyte/bva/01.jpg"
-                    }
-                });
-                for (var t = 2; t <= 34; t += 2) e.push({
-                    first: {
-                        label: "" + t,
-                        path: "/assets/content/speciali/bovabyte/bva/" + (0, l.addLeftPadding)(t, "0", 2) + ".jpg"
-                    },
-                    last: {
-                        label: "" + (t + 1),
-                        path: "/assets/content/speciali/bovabyte/bva/" + (0, l.addLeftPadding)(t + 1, "0", 2) + ".jpg"
-                    }
-                });
-                e.push({
-                    first: {
-                        label: "36",
-                        path: "/assets/content/speciali/bovabyte/bva/36.jpg"
-                    }
-                });
-                return e;
-            },
-            getReaderData: function() {
-                return {
-                    title: "Antologia di Bovabyte",
-                    startPage: 0,
-                    pages: this.generatePages()
-                };
-            },
-            openReader: function(e) {
-                this.$emit(a.default.openReader, e);
-            }
-        }
-    });
+    t.default = (0, a.default)(true, {}, o.default);
 }, /* 40 */
 /***/
 function(e, t, r) {
@@ -1742,11 +1711,86 @@ function(e, t, r) {
     Object.defineProperty(t, "__esModule", {
         value: true
     });
-    var n = r(29);
+    var n = r(5);
+    var a = c(n);
+    var i = r(3);
+    var o = c(i);
+    var s = r(2);
+    var u = c(s);
+    var l = r(105);
+    function c(e) {
+        return e && e.__esModule ? e : {
+            default: e
+        };
+    }
+    t.default = (0, o.default)(true, {}, u.default, {
+        methods: {
+            generateReaderPages: function(e, t, r) {
+                var n = [];
+                n.push({
+                    last: {
+                        label: "1",
+                        path: "" + e + (0, l.addLeftPadding)(1, "0", 2) + t
+                    }
+                });
+                if (r > 2) for (var a = 2; a <= r - 2; a += 2) n.push({
+                    first: {
+                        label: "" + a,
+                        path: "" + e + (0, l.addLeftPadding)(a, "0", 2) + t
+                    },
+                    last: {
+                        label: "" + (a + 1),
+                        path: "" + e + (0, l.addLeftPadding)(a + 1, "0", 2) + t
+                    }
+                });
+                if (r > 1) n.push({
+                    first: {
+                        label: r,
+                        path: "" + e + (0, l.addLeftPadding)(r, "0", 2) + t
+                    }
+                });
+                return n;
+            },
+            getReaderData: function() {
+                return {
+                    title: "Antologia di BovaByte",
+                    startPage: 0,
+                    pages: this.generateReaderPages("/assets/content/speciali/bovabyte/bva/", ".jpg", 36)
+                };
+            },
+            getBovaByte2ReaderData: function(e) {
+                return {
+                    title: "BovaByte 2 - Numero " + e,
+                    startPage: 0,
+                    pages: [ {
+                        first: {
+                            label: "Fronte",
+                            path: "/assets/content/speciali/bovabyte/bv2/bovabyte2-" + e + "-1.jpg"
+                        },
+                        last: {
+                            label: "Retro",
+                            path: "/assets/content/speciali/bovabyte/bv2/bovabyte2-" + e + "-2.jpg"
+                        }
+                    } ]
+                };
+            },
+            openReader: function(e) {
+                this.$emit(a.default.openReader, e);
+            }
+        }
+    });
+}, /* 41 */
+/***/
+function(e, t, r) {
+    "use strict";
+    Object.defineProperty(t, "__esModule", {
+        value: true
+    });
+    var n = r(30);
     var a = l(n);
-    var i = r(30);
+    var i = r(31);
     var o = l(i);
-    var s = r(32);
+    var s = r(33);
     var u = l(s);
     function l(e) {
         return e && e.__esModule ? e : {
@@ -1760,21 +1804,21 @@ function(e, t, r) {
             ContentImage: u.default
         }
     };
-}, /* 41 */
+}, /* 42 */
 /***/
 function(e, t, r) {
     "use strict";
-    var n = r(42);
+    var n = r(43);
     var a = v(n);
-    var i = r(44);
+    var i = r(45);
     var o = v(i);
-    var s = r(45);
+    var s = r(46);
     var u = v(s);
-    var l = r(46);
+    var l = r(47);
     var c = v(l);
-    var f = r(47);
+    var f = r(48);
     var d = v(f);
-    var p = r(49);
+    var p = r(50);
     function v(e) {
         return e && e.__esModule ? e : {
             default: e
@@ -1799,9 +1843,9 @@ function(e, t, r) {
         }
     });
     // Include all *.js files in the "components" folder but exclude .test files
-    var m = r(105);
+    var m = r(106);
     m.keys().forEach(m);
-}, /* 42 */
+}, /* 43 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -1927,7 +1971,7 @@ function(e, t, r) {
  * Camelize a hyphen-delimited string.
  */
         var w = /-(\w)/g;
-        var k = b(function(e) {
+        var C = b(function(e) {
             return e.replace(w, function(e, t) {
                 return t ? t.toUpperCase() : "";
             });
@@ -1935,7 +1979,7 @@ function(e, t, r) {
         /**
  * Capitalize a string.
  */
-        var C = b(function(e) {
+        var k = b(function(e) {
             return e.charAt(0).toUpperCase() + e.slice(1);
         });
         /**
@@ -2389,11 +2433,11 @@ function(e, t, r) {
         // watcher being evaluated at any time.
         be.target = null;
         var we = [];
-        function ke(e) {
+        function Ce(e) {
             if (be.target) we.push(be.target);
             be.target = e;
         }
-        function Ce() {
+        function ke() {
             be.target = we.pop();
         }
         /*
@@ -2742,7 +2786,7 @@ function(e, t, r) {
                 while (n--) {
                     a = t[n];
                     if ("string" === typeof a) {
-                        i = k(a);
+                        i = C(a);
                         r[i] = {
                             type: null
                         };
@@ -2750,7 +2794,7 @@ function(e, t, r) {
                 }
             } else if (l(t)) for (var o in t) {
                 a = t[o];
-                i = k(o);
+                i = C(o);
                 r[i] = l(a) ? a : {
                     type: a
                 };
@@ -2814,9 +2858,9 @@ function(e, t, r) {
             var a = e[t];
             // check local registration variations first
             if (g(a, r)) return a[r];
-            var i = k(r);
+            var i = C(r);
             if (g(a, i)) return a[i];
-            var o = C(i);
+            var o = k(i);
             if (g(a, o)) return a[o];
             // fallback to prototype chain
             var s = a[r] || a[i] || a[o];
@@ -2880,7 +2924,7 @@ function(e, t, r) {
                 }
             }
             if (!o) {
-                V('Invalid prop: type check failed for prop "' + t + '". Expected ' + s.map(C).join(", ") + ", got " + Object.prototype.toString.call(r).slice(8, -1) + ".", n);
+                V('Invalid prop: type check failed for prop "' + t + '". Expected ' + s.map(k).join(", ") + ", got " + Object.prototype.toString.call(r).slice(8, -1) + ".", n);
                 return;
             }
             var c = e.validator;
@@ -3128,7 +3172,7 @@ function(e, t, r) {
             e[t] = o;
         }
         /*  */
-        function kt(e, t, a) {
+        function Ct(e, t, a) {
             // we are only extracting raw values here.
             // validation and default values are handled in the child
             // component itself.
@@ -3143,11 +3187,11 @@ function(e, t, r) {
                     var f = l.toLowerCase();
                     if (l !== f && s && g(s, f)) W('Prop "' + f + '" is passed to component ' + Q(a || t) + ', but the declared prop name is "' + l + '". Note that HTML attributes are case-insensitive and camelCased props need to use their kebab-case equivalents when using in-DOM templates. You should probably use "' + c + '" instead of "' + l + '".');
                 }
-                Ct(o, u, l, c, true) || Ct(o, s, l, c, false);
+                kt(o, u, l, c, true) || kt(o, s, l, c, false);
             }
             return o;
         }
-        function Ct(e, t, r, a, i) {
+        function kt(e, t, r, a, i) {
             if (n(t)) if (g(t, r)) {
                 e[r] = t[r];
                 if (!i) delete t[r];
@@ -3628,7 +3672,7 @@ function(e, t, r) {
  * Evaluate the getter, and re-collect dependencies.
  */
         fr.prototype.get = function() {
-            ke(this);
+            Ce(this);
             var e;
             var t = this.vm;
             try {
@@ -3639,7 +3683,7 @@ function(e, t, r) {
                 // "touch" every property so they are all tracked as
                 // dependencies for deep watching
                 if (this.deep) pr(e);
-                Ce();
+                ke();
                 this.cleanupDeps();
             }
             return e;
@@ -3785,7 +3829,7 @@ function(e, t, r) {
             if (t.props) gr(e, t.props);
             if (t.methods) Ar(e, t.methods);
             if (t.data) br(e); else Se(e._data = {}, true);
-            if (t.computed) Cr(e, t.computed);
+            if (t.computed) kr(e, t.computed);
             if (t.watch && t.watch !== le) Er(e, t.watch);
         }
         function yr(e, t) {
@@ -3845,10 +3889,10 @@ function(e, t, r) {
                 return {};
             }
         }
-        var kr = {
+        var Cr = {
             lazy: true
         };
-        function Cr(e, t) {
+        function kr(e, t) {
             yr(e, "computed");
             var r = e._computedWatchers = Object.create(null);
             // computed properties are just getters during SSR
@@ -3858,7 +3902,7 @@ function(e, t, r) {
                 var o = "function" === typeof i ? i : i.get;
                 if (null == o) V('Getter is missing for computed property "' + a + '".', e);
                 if (!n) // create internal watcher for the computed property.
-                r[a] = new fr(e, o || T, T, kr);
+                r[a] = new fr(e, o || T, T, Cr);
                 // component-defined computed properties are already defined on the
                 // component prototype. We only need to define computed properties defined
                 // at instantiation here.
@@ -3991,7 +4035,7 @@ function(e, t, r) {
             return f;
         }
         function Mr(e, t) {
-            for (var r in t) e[k(r)] = t[r];
+            for (var r in t) e[C(r)] = t[r];
         }
         /*  */
         // hooks to be invoked on component VNodes during patch
@@ -4061,7 +4105,7 @@ function(e, t, r) {
             // transform component v-model data into props & events
             if (n(t.model)) Br(e.options, t);
             // extract props
-            var f = kt(t, e, u);
+            var f = Ct(t, e, u);
             // functional component
             if (a(e.options.functional)) return Pr(e, f, t, i, o);
             // extract listeners, since these needs to be treated as
@@ -4869,7 +4913,7 @@ function(e, t, r) {
                 return e;
             }
         };
-        var kn = {
+        var Cn = {
             KeepAlive: wn
         };
         !/*  */
@@ -4902,7 +4946,7 @@ function(e, t, r) {
             // this is used to identify the "base" constructor to extend all plain-object
             // components with in Weex's multi-instance scenarios.
             e.options._base = e;
-            $(e.options.components, kn);
+            $(e.options.components, Cn);
             cn(e);
             fn(e);
             dn(e);
@@ -4921,7 +4965,7 @@ function(e, t, r) {
         /*  */
         // these are reserved for web because they are directly compiled away
         // during template compilation
-        var Cn = v("style,class");
+        var kn = v("style,class");
         // attributes that should be using props for binding
         var xn = v("input,textarea,option,select,progress");
         var On = function(e, t, r) {
@@ -5220,7 +5264,7 @@ function(e, t, r) {
         }
         var wa = [ sa, va ];
         /*  */
-        function ka(e, t) {
+        function Ca(e, t) {
             var a = t.componentOptions;
             if (n(a) && false === a.Ctor.options.inheritAttrs) return;
             if (r(e.data.attrs) && r(t.data.attrs)) return;
@@ -5233,14 +5277,14 @@ function(e, t, r) {
             for (i in c) {
                 o = c[i];
                 s = l[i];
-                if (s !== o) Ca(u, i, o);
+                if (s !== o) ka(u, i, o);
             }
             // #4391: in IE9, setting type can reset value for input[type=radio]
             /* istanbul ignore if */
-            if (ae && c.value !== l.value) Ca(u, "value", c.value);
+            if (ae && c.value !== l.value) ka(u, "value", c.value);
             for (i in l) if (r(c[i])) if (jn(i)) u.removeAttributeNS($n, Tn(i)); else if (!An(i)) u.removeAttribute(i);
         }
-        function Ca(e, t, r) {
+        function ka(e, t, r) {
             if (En(t)) // set attribute for blank value
             // e.g. <option disabled>Select one</option>
             if (Sn(r)) e.removeAttribute(t); else {
@@ -5251,8 +5295,8 @@ function(e, t, r) {
             } else if (An(t)) e.setAttribute(t, Sn(r) || "false" === r ? "false" : "true"); else if (jn(t)) if (Sn(r)) e.removeAttributeNS($n, Tn(t)); else e.setAttributeNS($n, t, r); else if (Sn(r)) e.removeAttribute(t); else e.setAttribute(t, r);
         }
         var xa = {
-            create: ka,
-            update: ka
+            create: Ca,
+            update: Ca
         };
         /*  */
         function Oa(e, t) {
@@ -5448,7 +5492,7 @@ function(e, t, r) {
         var Ya;
         var Xa = b(function(e) {
             Ya = Ya || document.createElement("div").style;
-            e = k(e);
+            e = C(e);
             if ("filter" !== e && e in Ya) return e;
             var t = e.charAt(0).toUpperCase() + e.slice(1);
             for (var r = 0; r < Qa.length; r++) {
@@ -5671,8 +5715,8 @@ function(e, t, r) {
             var g = i.enterCancelled;
             var b = i.beforeAppear;
             var w = i.appear;
-            var k = i.afterAppear;
-            var C = i.appearCancelled;
+            var C = i.afterAppear;
+            var k = i.appearCancelled;
             var x = i.duration;
             // activeInstance will always be the <transition> component managing this
             // transition. One edge case to check is when the <transition> is placed
@@ -5691,12 +5735,12 @@ function(e, t, r) {
             var T = E && v ? v : c;
             var S = E ? b || m : m;
             var P = E ? "function" === typeof w ? w : _ : _;
-            var M = E ? k || y : y;
-            var R = E ? C || g : g;
+            var M = E ? C || y : y;
+            var R = E ? k || g : g;
             var I = p(s(x) ? x.enter : x);
             if (null != I) bi(I, "enter", e);
             var D = false !== o && !ae;
-            var N = ki(P);
+            var N = Ci(P);
             var z = a._enterCb = L(function() {
                 if (D) {
                     di(a, T);
@@ -5755,16 +5799,16 @@ function(e, t, r) {
             var _ = i.delayLeave;
             var y = i.duration;
             var g = false !== o && !ae;
-            var b = ki(v);
+            var b = Ci(v);
             var w = p(s(y) ? y.leave : y);
             if (n(w)) bi(w, "leave", e);
-            var k = a._leaveCb = L(function() {
+            var C = a._leaveCb = L(function() {
                 if (a.parentNode && a.parentNode._pending) a.parentNode._pending[e.key] = null;
                 if (g) {
                     di(a, c);
                     di(a, f);
                 }
-                if (k.cancelled) {
+                if (C.cancelled) {
                     if (g) di(a, l);
                     m && m(a);
                 } else {
@@ -5773,10 +5817,10 @@ function(e, t, r) {
                 }
                 a._leaveCb = null;
             });
-            if (_) _(C); else C();
-            function C() {
+            if (_) _(k); else k();
+            function k() {
                 // the delayed leave may have already been cancelled
-                if (k.cancelled) return;
+                if (C.cancelled) return;
                 // record leaving element
                 if (!e.data.show) (a.parentNode._pending || (a.parentNode._pending = {}))[e.key] = e;
                 d && d(a);
@@ -5786,11 +5830,11 @@ function(e, t, r) {
                     ci(function() {
                         fi(a, c);
                         di(a, l);
-                        if (!k.cancelled && !b) if (wi(w)) setTimeout(k, w); else pi(a, u, k);
+                        if (!C.cancelled && !b) if (wi(w)) setTimeout(C, w); else pi(a, u, C);
                     });
                 }
-                v && v(a, k);
-                if (!g && !b) k();
+                v && v(a, C);
+                if (!g && !b) C();
             }
         }
         // only used in dev mode
@@ -5806,18 +5850,18 @@ function(e, t, r) {
  * - a wrapped component method (check ._length)
  * - a plain function (.length)
  */
-        function ki(e) {
+        function Ci(e) {
             if (r(e)) return false;
             var t = e.fns;
             if (n(t)) // invoker
-            return ki(Array.isArray(t) ? t[0] : t); else return (e._length || e.length) > 1;
+            return Ci(Array.isArray(t) ? t[0] : t); else return (e._length || e.length) > 1;
         }
-        function Ci(e, t) {
+        function ki(e, t) {
             if (true !== t.data.show) yi(t);
         }
         var xi = te ? {
-            create: Ci,
-            activate: Ci,
+            create: ki,
+            activate: ki,
             remove: function(e, t) {
                 /* istanbul ignore else */
                 if (true !== e.data.show) gi(e, t); else t();
@@ -5866,9 +5910,9 @@ function(e, t, r) {
                         if (!p && !e.ns && !(z.ignoredElements.length && z.ignoredElements.indexOf(c) > -1) && z.isUnknownElement(c)) V("Unknown custom element: <" + c + '> - did you register the component correctly? For recursive components, make sure to provide the "name" option.', e.context);
                     }
                     e.elm = e.ns ? l.createElementNS(e.ns, c) : l.createElement(c, e);
-                    C(e);
+                    k(e);
                     b(e, u, t);
-                    if (n(s)) k(e, t);
+                    if (n(s)) C(e, t);
                     g(r, e.elm, i);
                     if (s && s.pre) p--;
                 } else if (a(e.isComment)) {
@@ -5902,8 +5946,8 @@ function(e, t, r) {
                 }
                 e.elm = e.componentInstance.$el;
                 if (w(e)) {
-                    k(e, t);
-                    C(e);
+                    C(e, t);
+                    k(e);
                 } else {
                     // empty component root.
                     // skip all element-related modules except for ref (#3455)
@@ -5943,7 +5987,7 @@ function(e, t, r) {
                 while (e.componentInstance) e = e.componentInstance._vnode;
                 return n(e.tag);
             }
-            function k(e, r) {
+            function C(e, r) {
                 for (var a = 0; a < s.create.length; ++a) s.create[a](la, e);
                 t = e.data.hook;
                 // Reuse variable
@@ -5955,7 +5999,7 @@ function(e, t, r) {
             // set scope id attribute for scoped CSS.
             // this is implemented as a special case to avoid the overhead
             // of going through the normal attribute patching process.
-            function C(e) {
+            function k(e) {
                 var t;
                 var r = e;
                 while (r) {
@@ -6164,7 +6208,7 @@ function(e, t, r) {
                         }
                     }
                     if (n(s)) for (var d in s) if (!M(d)) {
-                        k(r, i);
+                        C(r, i);
                         break;
                     }
                 } else if (e.data !== r.text) e.data = r.text;
@@ -6220,13 +6264,13 @@ function(e, t, r) {
                                 for (var b = 0; b < s.destroy.length; ++b) s.destroy[b](y);
                                 y.elm = t.elm;
                                 if (g) {
-                                    for (var k = 0; k < s.create.length; ++k) s.create[k](la, y);
+                                    for (var C = 0; C < s.create.length; ++C) s.create[C](la, y);
                                     // #6513
                                     // invoke insert hooks that may have been merged by create hooks.
                                     // e.g. for directives that uses the "inserted" hook.
-                                    var C = y.data.hook.insert;
-                                    if (C.merged) // start at index 1 to avoid re-invoking component mounted hook
-                                    for (var x = 1; x < C.fns.length; x++) C.fns[x]();
+                                    var k = y.data.hook.insert;
+                                    if (k.merged) // start at index 1 to avoid re-invoking component mounted hook
+                                    for (var x = 1; x < k.fns.length; x++) k.fns[x]();
                                 }
                                 y = y.parent;
                             }
@@ -6415,7 +6459,7 @@ function(e, t, r) {
             // events.
             // extract listeners and pass them directly to the transition methods
             var a = r._parentListeners;
-            for (var i in a) t[k(i)] = a[i];
+            for (var i in a) t[C(i)] = a[i];
             return t;
         }
         function Fi(e, t) {
@@ -6638,7 +6682,7 @@ function(e, t, r) {
         // install platform specific utils
         ln.config.mustUseProp = On;
         ln.config.isReservedTag = Fn;
-        ln.config.isReservedAttr = Cn;
+        ln.config.isReservedAttr = kn;
         ln.config.getTagNamespace = Un;
         ln.config.isUnknownElement = Vn;
         // install platform runtime directives & components
@@ -6660,8 +6704,8 @@ function(e, t, r) {
         /*  */
         /* harmony default export */
         t["default"] = ln;
-    }).call(t, r(43));
-}, /* 43 */
+    }).call(t, r(44));
+}, /* 44 */
 /***/
 function(e, t) {
     var r;
@@ -6680,7 +6724,7 @@ function(e, t) {
     // We return undefined, instead of nothing here, so it's
     // easier to handle this case. if(!global) { ...}
     e.exports = r;
-}, /* 44 */
+}, /* 45 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -6874,9 +6918,9 @@ function(e, t, r) {
         return (r || "/") + i(n) + a;
     }
     function w(e, t) {
-        if (t === y) return e === t; else if (!t) return false; else if (e.path && t.path) return e.path.replace(m, "") === t.path.replace(m, "") && e.hash === t.hash && k(e.query, t.query); else if (e.name && t.name) return e.name === t.name && e.hash === t.hash && k(e.query, t.query) && k(e.params, t.params); else return false;
+        if (t === y) return e === t; else if (!t) return false; else if (e.path && t.path) return e.path.replace(m, "") === t.path.replace(m, "") && e.hash === t.hash && C(e.query, t.query); else if (e.name && t.name) return e.name === t.name && e.hash === t.hash && C(e.query, t.query) && C(e.params, t.params); else return false;
     }
-    function k(e, t) {
+    function C(e, t) {
         if (void 0 === e) e = {};
         if (void 0 === t) t = {};
         var r = Object.keys(e);
@@ -6886,11 +6930,11 @@ function(e, t, r) {
             var n = e[r];
             var a = t[r];
             // check nested equality
-            if ("object" === typeof n && "object" === typeof a) return k(n, a);
+            if ("object" === typeof n && "object" === typeof a) return C(n, a);
             return String(n) === String(a);
         });
     }
-    function C(e, t) {
+    function k(e, t) {
         return 0 === e.path.replace(m, "/").indexOf(t.path.replace(m, "/")) && (!t.hash || e.hash === t.hash) && x(e.query, t.query);
     }
     function x(e, t) {
@@ -6940,7 +6984,7 @@ function(e, t, r) {
             var v = null == this.exactActiveClass ? d : this.exactActiveClass;
             var h = i.path ? _(null, i, null, r) : o;
             u[v] = w(n, h);
-            u[p] = this.exact ? u[v] : C(n, h);
+            u[p] = this.exact ? u[v] : k(n, h);
             var m = function(e) {
                 if ($(e)) if (t.replace) r.replace(i); else r.push(i);
             };
@@ -6964,9 +7008,9 @@ function(e, t, r) {
                 if (b) {
                     // in case the <a> is a static node
                     b.isStatic = false;
-                    var k = T.util.extend;
-                    (b.data = k({}, b.data)).on = y;
-                    (b.data.attrs = k({}, b.data.attrs)).href = s;
+                    var C = T.util.extend;
+                    (b.data = C({}, b.data)).on = y;
+                    (b.data.attrs = C({}, b.data.attrs)).href = s;
                 } else // doesn't have <a> child, apply listener to self
                 g.on = y;
             }
@@ -7150,7 +7194,7 @@ function(e, t, r) {
             var g = "+" === m || "*" === m;
             var b = "?" === m || "*" === m;
             var w = s[2] || o;
-            var k = v || h;
+            var C = v || h;
             r.push({
                 name: p || n++,
                 prefix: d || "",
@@ -7159,7 +7203,7 @@ function(e, t, r) {
                 repeat: g,
                 partial: y,
                 asterisk: !!_,
-                pattern: k ? X(k) : _ ? ".*" : "[^" + Y(w) + "]+?"
+                pattern: C ? X(C) : _ ? ".*" : "[^" + Y(w) + "]+?"
             });
         }
         // Match any characters still remaining.
@@ -7686,7 +7730,7 @@ function(e, t, r) {
                 var s = document.querySelector(n.selector);
                 if (s) {
                     var u = n.offset && "object" === typeof n.offset ? n.offset : {};
-                    u = ke(u);
+                    u = Ce(u);
                     e = ge(s, u);
                 } else if (be(n)) e = we(n);
             } else if (o && be(n)) e = we(n);
@@ -7714,21 +7758,21 @@ function(e, t, r) {
         };
     }
     function be(e) {
-        return Ce(e.x) || Ce(e.y);
+        return ke(e.x) || ke(e.y);
     }
     function we(e) {
         return {
-            x: Ce(e.x) ? e.x : window.pageXOffset,
-            y: Ce(e.y) ? e.y : window.pageYOffset
-        };
-    }
-    function ke(e) {
-        return {
-            x: Ce(e.x) ? e.x : 0,
-            y: Ce(e.y) ? e.y : 0
+            x: ke(e.x) ? e.x : window.pageXOffset,
+            y: ke(e.y) ? e.y : window.pageYOffset
         };
     }
     function Ce(e) {
+        return {
+            x: ke(e.x) ? e.x : 0,
+            y: ke(e.y) ? e.y : 0
+        };
+    }
+    function ke(e) {
         return "number" === typeof e;
     }
     /*  */
@@ -8352,7 +8396,7 @@ function(e, t, r) {
     if (P && window.Vue) window.Vue.use(nt);
     /* harmony default export */
     t["default"] = nt;
-}, /* 45 */
+}, /* 46 */
 /***/
 function(e, t, r) {
     /*!
@@ -8509,7 +8553,7 @@ function(e, t, r) {
                 }
                 return window;
             }
-        }, k = function() {
+        }, C = function() {
             function e(e, t) {
                 for (var r = 0; r < t.length; r++) {
                     var n = t[r];
@@ -8520,7 +8564,7 @@ function(e, t, r) {
             return function(t, r, n) {
                 return r && e(t.prototype, r), n && e(t, n), t;
             };
-        }(), C = {}, x = function() {
+        }(), k = {}, x = function() {
             function e(t) {
                 var r = t.el, n = t.src, a = t.error, i = t.loading, o = t.bindType, s = t.$parent, u = t.options, c = t.elRenderer;
                 l(this, e), this.el = r, this.src = n, this.error = a, this.loading = i, this.bindType = o, 
@@ -8532,7 +8576,7 @@ function(e, t, r) {
                 }, this.rect = r.getBoundingClientRect(), this.$parent = s, this.elRenderer = c, 
                 this.render("loading", !1);
             }
-            return k(e, [ {
+            return C(e, [ {
                 key: "initState",
                 value: function() {
                     this.state = {
@@ -8585,12 +8629,12 @@ function(e, t, r) {
                 key: "load",
                 value: function() {
                     var e = this;
-                    return this.attempt > this.options.attempt - 1 && this.state.error ? void (this.options.silent || console.log("VueLazyload log: " + this.src + " tried too more than " + this.options.attempt + " times")) : this.state.loaded || C[this.src] ? this.render("loaded", !0) : void this.renderLoading(function() {
+                    return this.attempt > this.options.attempt - 1 && this.state.error ? void (this.options.silent || console.log("VueLazyload log: " + this.src + " tried too more than " + this.options.attempt + " times")) : this.state.loaded || k[this.src] ? this.render("loaded", !0) : void this.renderLoading(function() {
                         e.attempt++, e.record("loadStart"), y({
                             src: e.src
                         }, function(t) {
                             e.naturalHeight = t.naturalHeight, e.naturalWidth = t.naturalWidth, e.state.loaded = !0, 
-                            e.state.error = !1, e.record("loadEnd"), e.render("loaded", !1), C[e.src] = 1;
+                            e.state.error = !1, e.record("loadEnd"), e.render("loaded", !1), k[e.src] = 1;
                         }, function(t) {
                             e.state.error = !0, e.state.loaded = !1, e.render("error", !1);
                         });
@@ -8952,7 +8996,7 @@ function(e, t, r) {
             }
         };
     });
-}, /* 46 */
+}, /* 47 */
 /***/
 function(e, t, r) {
     /*
@@ -9179,7 +9223,7 @@ function(e, t, r) {
         }; else // global
         a();
     }(window, document);
-}, /* 47 */
+}, /* 48 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9187,7 +9231,7 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(48);
+    var n = r(49);
     var a = false;
     var i = r(0);
     var o = i(null, n["a"], null, null, null);
@@ -9209,7 +9253,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = o.exports;
-}, /* 48 */
+}, /* 49 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9230,7 +9274,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-7665aae5", i);
     }
-}, /* 49 */
+}, /* 50 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9238,15 +9282,15 @@ function(e, t, r) {
         value: true
     });
     t.routes = void 0;
-    var n = r(50);
+    var n = r(51);
     var a = p(n);
-    var i = r(91);
+    var i = r(92);
     var o = p(i);
-    var s = r(95);
+    var s = r(96);
     var u = p(s);
-    var l = r(100);
+    var l = r(101);
     var c = p(l);
-    var f = r(102);
+    var f = r(103);
     var d = p(f);
     function p(e) {
         return e && e.__esModule ? e : {
@@ -9302,7 +9346,7 @@ function buildAsyncCallback(componentSectionName, componentName) {
                 followup: function(e) {
                     // eslint-disable-next-line import/no-dynamic-require
                     r.e(5).then(function() {
-                        var t = [ r(106) ];
+                        var t = [ r(107) ];
                         e.apply(null, t);
                     }.bind(this)).catch(r.oe);
                 }
@@ -9321,7 +9365,7 @@ function buildAsyncCallback(componentSectionName, componentName) {
                 followup: function(e) {
                     // eslint-disable-next-line import/no-dynamic-require
                     r.e(1).then(function() {
-                        var t = [ r(107) ];
+                        var t = [ r(108) ];
                         e.apply(null, t);
                     }.bind(this)).catch(r.oe);
                 }
@@ -9334,7 +9378,7 @@ function buildAsyncCallback(componentSectionName, componentName) {
                 followup: function(e) {
                     // eslint-disable-next-line import/no-dynamic-require
                     r.e(2).then(function() {
-                        var t = [ r(108) ];
+                        var t = [ r(109) ];
                         e.apply(null, t);
                     }.bind(this)).catch(r.oe);
                 }
@@ -9347,7 +9391,7 @@ function buildAsyncCallback(componentSectionName, componentName) {
                 followup: function(e) {
                     // eslint-disable-next-line import/no-dynamic-require
                     r.e(3).then(function() {
-                        var t = [ r(109) ];
+                        var t = [ r(110) ];
                         e.apply(null, t);
                     }.bind(this)).catch(r.oe);
                 }
@@ -9360,7 +9404,7 @@ function buildAsyncCallback(componentSectionName, componentName) {
                 followup: function(e) {
                     // eslint-disable-next-line import/no-dynamic-require
                     r.e(4).then(function() {
-                        var t = [ r(110) ];
+                        var t = [ r(111) ];
                         e.apply(null, t);
                     }.bind(this)).catch(r.oe);
                 }
@@ -9372,7 +9416,7 @@ function buildAsyncCallback(componentSectionName, componentName) {
                 content: function(e) {
                     // eslint-disable-next-line import/no-dynamic-require
                     r.e(0).then(function() {
-                        var t = [ r(111) ];
+                        var t = [ r(112) ];
                         e.apply(null, t);
                     }.bind(this)).catch(r.oe);
                 }
@@ -9383,7 +9427,7 @@ function buildAsyncCallback(componentSectionName, componentName) {
         component: d.default
     } ];
     t.routes = v;
-}, /* 50 */
+}, /* 51 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9395,7 +9439,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(90);
+    var i = r(91);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -9417,7 +9461,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 51 */
+}, /* 52 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9425,7 +9469,7 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(52);
+    var n = r(53);
     var a = false;
     var i = r(0);
     var o = i(null, n["a"], null, null, null);
@@ -9447,7 +9491,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = o.exports;
-}, /* 52 */
+}, /* 53 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9509,7 +9553,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-148f0b95", i);
     }
-}, /* 53 */
+}, /* 54 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9521,7 +9565,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(55);
+    var i = r(56);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -9543,7 +9587,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 54 */
+}, /* 55 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9580,7 +9624,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-f5cce476", i);
     }
-}, /* 55 */
+}, /* 56 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9621,7 +9665,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-2d85224d", i);
     }
-}, /* 56 */
+}, /* 57 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9633,7 +9677,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(57);
+    var i = r(58);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -9655,7 +9699,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 57 */
+}, /* 58 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9969,7 +10013,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-5fd94a8b", i);
     }
-}, /* 58 */
+}, /* 59 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -9981,7 +10025,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(59);
+    var i = r(60);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -10003,7 +10047,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 59 */
+}, /* 60 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10032,7 +10076,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-59235245", i);
     }
-}, /* 60 */
+}, /* 61 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10044,7 +10088,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(63);
+    var i = r(64);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -10066,7 +10110,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 61 */
+}, /* 62 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10078,7 +10122,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(62);
+    var i = r(63);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -10100,7 +10144,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 62 */
+}, /* 63 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10127,7 +10171,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-1db8dcd3", i);
     }
-}, /* 63 */
+}, /* 64 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10154,7 +10198,25 @@ function(e, t, r) {
             attrs: {
                 src: "assets/icons/zoom-out.svg"
             }
-        }) ]) ]), e._v(" "), r("div", {
+        }) ]), e._v(" "), r("nav", {
+            staticClass: "reader__navigation"
+        }, [ r("ol", {
+            staticClass: "reader__navigation-page-container"
+        }, e._l(e.pages, function(t, n) {
+            return r("li", {
+                class: e.navigationClass(n)
+            }, [ r("a", {
+                on: {
+                    click: function(t) {
+                        e.actualPage = n;
+                    }
+                }
+            }, [ r("img", {
+                attrs: {
+                    src: "assets/icons/paper-page.svg"
+                }
+            }) ]) ]);
+        })) ]) ]), e._v(" "), r("div", {
             staticClass: "reader__content"
         }, [ e.hasPage("first") ? r("a", {
             staticClass: "reader__first",
@@ -10190,7 +10252,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-5c782c45", i);
     }
-}, /* 64 */
+}, /* 65 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10202,7 +10264,7 @@ function(e, t, r) {
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(84);
+    var i = r(85);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -10224,13 +10286,13 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 65 */
+}, /* 66 */
 /***/
 function(e, t, r) {
     "use strict";
     var n = r(1);
     var a = r(19);
-    var i = r(67);
+    var i = r(68);
     var o = r(8);
     /**
  * Create an instance of Axios
@@ -10257,17 +10319,17 @@ function(e, t, r) {
     };
     // Expose Cancel & CancelToken
     u.Cancel = r(23);
-    u.CancelToken = r(82);
+    u.CancelToken = r(83);
     u.isCancel = r(22);
     // Expose all/spread
     u.all = function(e) {
         return Promise.all(e);
     };
-    u.spread = r(83);
+    u.spread = r(84);
     e.exports = u;
     // Allow use of default import syntax in TypeScript
     e.exports.default = u;
-}, /* 66 */
+}, /* 67 */
 /***/
 function(e, t) {
     /*!
@@ -10288,16 +10350,16 @@ function(e, t) {
     function n(e) {
         return "function" === typeof e.readFloatLE && "function" === typeof e.slice && r(e.slice(0, 0));
     }
-}, /* 67 */
+}, /* 68 */
 /***/
 function(e, t, r) {
     "use strict";
     var n = r(8);
     var a = r(1);
-    var i = r(77);
-    var o = r(78);
-    var s = r(80);
-    var u = r(81);
+    var i = r(78);
+    var o = r(79);
+    var s = r(81);
+    var u = r(82);
     /**
  * Create a new instance of Axios
  *
@@ -10360,7 +10422,7 @@ function(e, t, r) {
         };
     });
     e.exports = l;
-}, /* 68 */
+}, /* 69 */
 /***/
 function(e, t) {
     // shim for using process in browser
@@ -10504,7 +10566,7 @@ function(e, t) {
     r.umask = function() {
         return 0;
     };
-}, /* 69 */
+}, /* 70 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10517,7 +10579,7 @@ function(e, t, r) {
             }
         });
     };
-}, /* 70 */
+}, /* 71 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10534,7 +10596,7 @@ function(e, t, r) {
         // Note: status is not exposed by XDomainRequest
         if (!r.status || !a || a(r.status)) e(r); else t(n("Request failed with status code " + r.status, r.config, null, r.request, r));
     };
-}, /* 71 */
+}, /* 72 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10555,7 +10617,7 @@ function(e, t, r) {
         e.response = a;
         return e;
     };
-}, /* 72 */
+}, /* 73 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10590,7 +10652,7 @@ function(e, t, r) {
         if (i) e += (-1 === e.indexOf("?") ? "?" : "&") + i;
         return e;
     };
-}, /* 73 */
+}, /* 74 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10622,7 +10684,7 @@ function(e, t, r) {
         });
         return t;
     };
-}, /* 74 */
+}, /* 75 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10676,7 +10738,7 @@ function(e, t, r) {
             return true;
         };
     }();
-}, /* 75 */
+}, /* 76 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10704,7 +10766,7 @@ function(e, t, r) {
         return r;
     }
     e.exports = i;
-}, /* 76 */
+}, /* 77 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10739,7 +10801,7 @@ function(e, t, r) {
             remove: function() {}
         };
     }();
-}, /* 77 */
+}, /* 78 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10784,12 +10846,12 @@ function(e, t, r) {
         });
     };
     e.exports = a;
-}, /* 78 */
+}, /* 79 */
 /***/
 function(e, t, r) {
     "use strict";
     var n = r(1);
-    var a = r(79);
+    var a = r(80);
     var i = r(22);
     var o = r(8);
     /**
@@ -10829,7 +10891,7 @@ function(e, t, r) {
             return Promise.reject(t);
         });
     };
-}, /* 79 */
+}, /* 80 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10849,7 +10911,7 @@ function(e, t, r) {
         });
         return e;
     };
-}, /* 80 */
+}, /* 81 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10865,7 +10927,7 @@ function(e, t, r) {
         // by any combination of letters, digits, plus, period, or hyphen.
         return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(e);
     };
-}, /* 81 */
+}, /* 82 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10879,7 +10941,7 @@ function(e, t, r) {
     e.exports = function(e, t) {
         return t ? e.replace(/\/+$/, "") + "/" + t.replace(/^\/+/, "") : e;
     };
-}, /* 82 */
+}, /* 83 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10924,7 +10986,7 @@ function(e, t, r) {
         };
     };
     e.exports = a;
-}, /* 83 */
+}, /* 84 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10953,7 +11015,7 @@ function(e, t, r) {
             return e.apply(null, t);
         };
     };
-}, /* 84 */
+}, /* 85 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -10996,7 +11058,8 @@ function(e, t, r) {
             }, [ e._v(e._s(t.year)) ]) ]) ]), e._v(" "), r("img", {
                 staticClass: "scanindex__image",
                 attrs: {
-                    src: e.buildCoverThumbPath(t)
+                    src: e.buildCoverThumbPath(t),
+                    srcset: e.buildRetinaCoverThumbPath(t)
                 }
             }) ]) ]);
         }) ], 2) ]);
@@ -11013,7 +11076,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-6a436f91", i);
     }
-}, /* 85 */
+}, /* 86 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11021,11 +11084,11 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(25);
+    var n = r(26);
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(86);
+    var i = r(87);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -11047,7 +11110,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 86 */
+}, /* 87 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11140,7 +11203,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-80d21ab6", i);
     }
-}, /* 87 */
+}, /* 88 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11148,11 +11211,11 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(26);
+    var n = r(27);
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(88);
+    var i = r(89);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -11174,7 +11237,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 88 */
+}, /* 89 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11223,7 +11286,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-19f47de5", i);
     }
-}, /* 89 */
+}, /* 90 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11234,7 +11297,7 @@ function(e, t, r) {
         overlay: "overlay"
     };
     t.CLASSES = n;
-}, /* 90 */
+}, /* 91 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11326,7 +11389,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-29dbdfc5", i);
     }
-}, /* 91 */
+}, /* 92 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11334,11 +11397,11 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(27);
+    var n = r(28);
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(94);
+    var i = r(95);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -11360,14 +11423,14 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 92 */
+}, /* 93 */
 /***/
 function(e, t, r) {
     "use strict";
     e.exports.isEmptyObject = function(e) {
         return 0 === Object.keys(e).length && e.constructor === Object;
     };
-}, /* 93 */
+}, /* 94 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11389,7 +11452,7 @@ function(e, t, r) {
     t.CONTENT_TYPES = i;
     t.MONTHS = n;
     t.TEXTS = a;
-}, /* 94 */
+}, /* 95 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11532,7 +11595,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-b7ea0842", i);
     }
-}, /* 95 */
+}, /* 96 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11540,11 +11603,11 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(28);
+    var n = r(29);
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(99);
+    var i = r(100);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -11566,7 +11629,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 96 */
+}, /* 97 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11592,7 +11655,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-6c0b2e36", i);
     }
-}, /* 97 */
+}, /* 98 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11618,7 +11681,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-8f6dddb6", i);
     }
-}, /* 98 */
+}, /* 99 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11634,7 +11697,8 @@ function(e, t, r) {
             }
         }, [ r("img", {
             attrs: {
-                src: e.imagePath
+                src: e.imagePath,
+                srcset: e.srcset
             }
         }) ]) : e.readerData ? r("a", {
             on: {
@@ -11642,11 +11706,13 @@ function(e, t, r) {
             }
         }, [ r("img", {
             attrs: {
-                src: e.imagePath
+                src: e.imagePath,
+                srcset: e.srcset
             }
         }) ]) : r("img", {
             attrs: {
-                src: e.imagePath
+                src: e.imagePath,
+                srcset: e.srcset
             }
         }), e._v(" "), e.caption ? r("figcaption", [ e._v(e._s(e.caption)) ]) : e._e() ]);
     };
@@ -11662,7 +11728,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-69d4f6b6", i);
     }
-}, /* 99 */
+}, /* 100 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11701,7 +11767,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-33ac01d3", i);
     }
-}, /* 100 */
+}, /* 101 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11709,11 +11775,11 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(34);
+    var n = r(35);
     /* harmony import */
     var a = r.n(n);
     /* harmony import */
-    var i = r(101);
+    var i = r(102);
     var o = false;
     var s = r(0);
     var u = s(a.a, i["a"], null, null, null);
@@ -11735,7 +11801,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = u.exports;
-}, /* 101 */
+}, /* 102 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11786,7 +11852,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-0256c1cf", i);
     }
-}, /* 102 */
+}, /* 103 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11794,7 +11860,7 @@ function(e, t, r) {
         value: true
     });
     /* harmony import */
-    var n = r(103);
+    var n = r(104);
     var a = false;
     var i = r(0);
     var o = i(null, n["a"], null, null, null);
@@ -11816,7 +11882,7 @@ function(e, t, r) {
     }();
     /* harmony default export */
     t["default"] = o.exports;
-}, /* 103 */
+}, /* 104 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11837,7 +11903,7 @@ function(e, t, r) {
         e.hot.accept();
         if (e.hot.data) require("vue-hot-reload-api").rerender("data-v-fc854bfa", i);
     }
-}, /* 104 */
+}, /* 105 */
 /***/
 function(e, t, r) {
     "use strict";
@@ -11849,22 +11915,22 @@ function(e, t, r) {
         while (n.length < r) n = "" + t + n;
         return n;
     };
-}, /* 105 */
+}, /* 106 */
 /***/
 function(e, t, r) {
     var n = {
         "./content/basecontent.js": 2,
-        "./content/diaries/diaries.js": 28,
-        "./content/diaries/pages/zzap.js": 35,
-        "./content/speciali/pages/bovabyte.js": 39,
-        "./content/speciali/pages/elitesystems.js": 38,
-        "./content/speciali/pages/konixmultisystem.js": 37,
-        "./content/speciali/pages/leabbiamovistetutte.js": 36,
-        "./content/speciali/speciali.js": 34,
+        "./content/diaries/diaries.js": 29,
+        "./content/diaries/pages/zzap.js": 36,
+        "./content/speciali/pages/bovabyte.js": 40,
+        "./content/speciali/pages/elitesystems.js": 39,
+        "./content/speciali/pages/konixmultisystem.js": 38,
+        "./content/speciali/pages/leabbiamovistetutte.js": 37,
+        "./content/speciali/speciali.js": 35,
         "./contentcontainer/contentcontainer.js": 7,
-        "./contentimage/contentimage.js": 33,
-        "./contentsection/contentsection.js": 31,
-        "./demo/content/image.js": 40,
+        "./contentimage/contentimage.js": 34,
+        "./contentsection/contentsection.js": 32,
+        "./demo/content/image.js": 41,
         "./dynamicnavigation/dynamicnavigation.js": 10,
         "./home/home.js": 9,
         "./index/index.js": 13,
@@ -11872,10 +11938,10 @@ function(e, t, r) {
         "./reader/reader-image.js": 16,
         "./reader/reader.js": 15,
         "./scanindex/scanindex.js": 17,
-        "./scanissue/scanissue.js": 27,
+        "./scanissue/scanissue.js": 28,
         "./scrolllink/scrolllink.js": 11,
-        "./zzapfooter/zzapfooter.js": 26,
-        "./zzapheader/zzapheader.js": 25
+        "./zzapfooter/zzapfooter.js": 27,
+        "./zzapheader/zzapheader.js": 26
     };
     function a(e) {
         return r(i(e));
@@ -11891,5 +11957,5 @@ function(e, t, r) {
     };
     a.resolve = i;
     e.exports = a;
-    a.id = 105;
-} ], [ 41 ]);
+    a.id = 106;
+} ], [ 42 ]);

@@ -15,7 +15,10 @@
               <span class="scanindex__issueinfo__month">{{ issue.month }}</span>/<span class="scanindex__issueinfo__year">{{ issue.year }}</span>
             </p>
           </div>
-          <img class="scanindex__image" :src="buildCoverThumbPath(issue)">
+          <img
+            class="scanindex__image"
+            :src="buildCoverThumbPath(issue)"
+            :srcset="buildRetinaCoverThumbPath(issue)">
         </a>
       </div>
 
