@@ -28,6 +28,9 @@ const CONTENT_TYPES = {
     `Posta`,
     `Top Secret`,
     `Coin-op`,
+    `Adventure`,
+    `News / Anteprima`,
+    `Strategia`,
     // Insert new content types here
     `Quarta di copertina` // Always last content type
   ]

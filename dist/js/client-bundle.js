@@ -11446,7 +11446,7 @@ function(e, t, r) {
         }
     };
     var i = {
-        it: [ "Copertina", "Sommario", "Posta", "Top Secret", "Coin-op", // Insert new content types here
+        it: [ "Copertina", "Sommario", "Posta", "Top Secret", "Coin-op", "Adventure", "News / Anteprima", "Strategia", // Insert new content types here
         "Quarta di copertina" ]
     };
     t.CONTENT_TYPES = i;
