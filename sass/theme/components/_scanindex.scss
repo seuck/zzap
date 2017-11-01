@@ -28,6 +28,11 @@
     &:hover .scanindex__issueinfo {
       opacity: 1;
     }
+
+    &--selected .scanindex__issueinfo {
+      opacity: 1;
+      color: $coverLinkColor;
+    }
   }
 
   &__image {

@@ -233,7 +233,7 @@ function(e, t, r) {
  * @param {Object|Array} obj The object to iterate
  * @param {Function} fn The callback to invoke for each item
  */
-    function C(e, t) {
+    function k(e, t) {
         // Don't bother if no value provided
         if (null === e || "undefined" === typeof e) return;
         // Force an array if not already something iterable
@@ -260,12 +260,12 @@ function(e, t, r) {
  * @param {Object} obj1 Object to merge
  * @returns {Object} Result of all merge properties
  */
-    function k() {
+    function C() {
         var e = {};
         function t(t, r) {
-            if ("object" === typeof e[r] && "object" === typeof t) e[r] = k(e[r], t); else e[r] = t;
+            if ("object" === typeof e[r] && "object" === typeof t) e[r] = C(e[r], t); else e[r] = t;
         }
-        for (var r = 0, n = arguments.length; r < n; r++) C(arguments[r], t);
+        for (var r = 0, n = arguments.length; r < n; r++) k(arguments[r], t);
         return e;
     }
     /**
@@ -277,7 +277,7 @@ function(e, t, r) {
  * @return {Object} The resulting value of object a
  */
     function x(e, t, r) {
-        C(t, function(t, a) {
+        k(t, function(t, a) {
             if (r && "function" === typeof t) e[a] = n(t, r); else e[a] = t;
         });
         return e;
@@ -299,8 +299,8 @@ function(e, t, r) {
         isStream: y,
         isURLSearchParams: g,
         isStandardBrowserEnv: w,
-        forEach: C,
-        merge: k,
+        forEach: k,
+        merge: C,
         extend: x,
         trim: b
     };
@@ -964,6 +964,11 @@ function(e, t, r) {
             },
             buildRetinaCoverThumbPath: function(e) {
                 return (0, s.getRetinaPath)(this.buildCoverThumbPath(e));
+            },
+            getLinkClass: function(e) {
+                var t = [ "scanindex__link" ];
+                if (+this.$route.params.issueId === e) t.push("scanindex__link--selected");
+                return t.join(" ");
             }
         },
         mounted: function() {
@@ -1971,7 +1976,7 @@ function(e, t, r) {
  * Camelize a hyphen-delimited string.
  */
         var w = /-(\w)/g;
-        var C = b(function(e) {
+        var k = b(function(e) {
             return e.replace(w, function(e, t) {
                 return t ? t.toUpperCase() : "";
             });
@@ -1979,7 +1984,7 @@ function(e, t, r) {
         /**
  * Capitalize a string.
  */
-        var k = b(function(e) {
+        var C = b(function(e) {
             return e.charAt(0).toUpperCase() + e.slice(1);
         });
         /**
@@ -2433,11 +2438,11 @@ function(e, t, r) {
         // watcher being evaluated at any time.
         be.target = null;
         var we = [];
-        function Ce(e) {
+        function ke(e) {
             if (be.target) we.push(be.target);
             be.target = e;
         }
-        function ke() {
+        function Ce() {
             be.target = we.pop();
         }
         /*
@@ -2786,7 +2791,7 @@ function(e, t, r) {
                 while (n--) {
                     a = t[n];
                     if ("string" === typeof a) {
-                        i = C(a);
+                        i = k(a);
                         r[i] = {
                             type: null
                         };
@@ -2794,7 +2799,7 @@ function(e, t, r) {
                 }
             } else if (l(t)) for (var o in t) {
                 a = t[o];
-                i = C(o);
+                i = k(o);
                 r[i] = l(a) ? a : {
                     type: a
                 };
@@ -2858,9 +2863,9 @@ function(e, t, r) {
             var a = e[t];
             // check local registration variations first
             if (g(a, r)) return a[r];
-            var i = C(r);
+            var i = k(r);
             if (g(a, i)) return a[i];
-            var o = k(i);
+            var o = C(i);
             if (g(a, o)) return a[o];
             // fallback to prototype chain
             var s = a[r] || a[i] || a[o];
@@ -2924,7 +2929,7 @@ function(e, t, r) {
                 }
             }
             if (!o) {
-                V('Invalid prop: type check failed for prop "' + t + '". Expected ' + s.map(k).join(", ") + ", got " + Object.prototype.toString.call(r).slice(8, -1) + ".", n);
+                V('Invalid prop: type check failed for prop "' + t + '". Expected ' + s.map(C).join(", ") + ", got " + Object.prototype.toString.call(r).slice(8, -1) + ".", n);
                 return;
             }
             var c = e.validator;
@@ -3172,7 +3177,7 @@ function(e, t, r) {
             e[t] = o;
         }
         /*  */
-        function Ct(e, t, a) {
+        function kt(e, t, a) {
             // we are only extracting raw values here.
             // validation and default values are handled in the child
             // component itself.
@@ -3187,11 +3192,11 @@ function(e, t, r) {
                     var f = l.toLowerCase();
                     if (l !== f && s && g(s, f)) W('Prop "' + f + '" is passed to component ' + Q(a || t) + ', but the declared prop name is "' + l + '". Note that HTML attributes are case-insensitive and camelCased props need to use their kebab-case equivalents when using in-DOM templates. You should probably use "' + c + '" instead of "' + l + '".');
                 }
-                kt(o, u, l, c, true) || kt(o, s, l, c, false);
+                Ct(o, u, l, c, true) || Ct(o, s, l, c, false);
             }
             return o;
         }
-        function kt(e, t, r, a, i) {
+        function Ct(e, t, r, a, i) {
             if (n(t)) if (g(t, r)) {
                 e[r] = t[r];
                 if (!i) delete t[r];
@@ -3672,7 +3677,7 @@ function(e, t, r) {
  * Evaluate the getter, and re-collect dependencies.
  */
         fr.prototype.get = function() {
-            Ce(this);
+            ke(this);
             var e;
             var t = this.vm;
             try {
@@ -3683,7 +3688,7 @@ function(e, t, r) {
                 // "touch" every property so they are all tracked as
                 // dependencies for deep watching
                 if (this.deep) pr(e);
-                ke();
+                Ce();
                 this.cleanupDeps();
             }
             return e;
@@ -3829,7 +3834,7 @@ function(e, t, r) {
             if (t.props) gr(e, t.props);
             if (t.methods) Ar(e, t.methods);
             if (t.data) br(e); else Se(e._data = {}, true);
-            if (t.computed) kr(e, t.computed);
+            if (t.computed) Cr(e, t.computed);
             if (t.watch && t.watch !== le) Er(e, t.watch);
         }
         function yr(e, t) {
@@ -3889,10 +3894,10 @@ function(e, t, r) {
                 return {};
             }
         }
-        var Cr = {
+        var kr = {
             lazy: true
         };
-        function kr(e, t) {
+        function Cr(e, t) {
             yr(e, "computed");
             var r = e._computedWatchers = Object.create(null);
             // computed properties are just getters during SSR
@@ -3902,7 +3907,7 @@ function(e, t, r) {
                 var o = "function" === typeof i ? i : i.get;
                 if (null == o) V('Getter is missing for computed property "' + a + '".', e);
                 if (!n) // create internal watcher for the computed property.
-                r[a] = new fr(e, o || T, T, Cr);
+                r[a] = new fr(e, o || T, T, kr);
                 // component-defined computed properties are already defined on the
                 // component prototype. We only need to define computed properties defined
                 // at instantiation here.
@@ -4035,7 +4040,7 @@ function(e, t, r) {
             return f;
         }
         function Mr(e, t) {
-            for (var r in t) e[C(r)] = t[r];
+            for (var r in t) e[k(r)] = t[r];
         }
         /*  */
         // hooks to be invoked on component VNodes during patch
@@ -4105,7 +4110,7 @@ function(e, t, r) {
             // transform component v-model data into props & events
             if (n(t.model)) Br(e.options, t);
             // extract props
-            var f = Ct(t, e, u);
+            var f = kt(t, e, u);
             // functional component
             if (a(e.options.functional)) return Pr(e, f, t, i, o);
             // extract listeners, since these needs to be treated as
@@ -4913,7 +4918,7 @@ function(e, t, r) {
                 return e;
             }
         };
-        var Cn = {
+        var kn = {
             KeepAlive: wn
         };
         !/*  */
@@ -4946,7 +4951,7 @@ function(e, t, r) {
             // this is used to identify the "base" constructor to extend all plain-object
             // components with in Weex's multi-instance scenarios.
             e.options._base = e;
-            $(e.options.components, Cn);
+            $(e.options.components, kn);
             cn(e);
             fn(e);
             dn(e);
@@ -4965,7 +4970,7 @@ function(e, t, r) {
         /*  */
         // these are reserved for web because they are directly compiled away
         // during template compilation
-        var kn = v("style,class");
+        var Cn = v("style,class");
         // attributes that should be using props for binding
         var xn = v("input,textarea,option,select,progress");
         var On = function(e, t, r) {
@@ -5264,7 +5269,7 @@ function(e, t, r) {
         }
         var wa = [ sa, va ];
         /*  */
-        function Ca(e, t) {
+        function ka(e, t) {
             var a = t.componentOptions;
             if (n(a) && false === a.Ctor.options.inheritAttrs) return;
             if (r(e.data.attrs) && r(t.data.attrs)) return;
@@ -5277,14 +5282,14 @@ function(e, t, r) {
             for (i in c) {
                 o = c[i];
                 s = l[i];
-                if (s !== o) ka(u, i, o);
+                if (s !== o) Ca(u, i, o);
             }
             // #4391: in IE9, setting type can reset value for input[type=radio]
             /* istanbul ignore if */
-            if (ae && c.value !== l.value) ka(u, "value", c.value);
+            if (ae && c.value !== l.value) Ca(u, "value", c.value);
             for (i in l) if (r(c[i])) if (jn(i)) u.removeAttributeNS($n, Tn(i)); else if (!An(i)) u.removeAttribute(i);
         }
-        function ka(e, t, r) {
+        function Ca(e, t, r) {
             if (En(t)) // set attribute for blank value
             // e.g. <option disabled>Select one</option>
             if (Sn(r)) e.removeAttribute(t); else {
@@ -5295,8 +5300,8 @@ function(e, t, r) {
             } else if (An(t)) e.setAttribute(t, Sn(r) || "false" === r ? "false" : "true"); else if (jn(t)) if (Sn(r)) e.removeAttributeNS($n, Tn(t)); else e.setAttributeNS($n, t, r); else if (Sn(r)) e.removeAttribute(t); else e.setAttribute(t, r);
         }
         var xa = {
-            create: Ca,
-            update: Ca
+            create: ka,
+            update: ka
         };
         /*  */
         function Oa(e, t) {
@@ -5492,7 +5497,7 @@ function(e, t, r) {
         var Ya;
         var Xa = b(function(e) {
             Ya = Ya || document.createElement("div").style;
-            e = C(e);
+            e = k(e);
             if ("filter" !== e && e in Ya) return e;
             var t = e.charAt(0).toUpperCase() + e.slice(1);
             for (var r = 0; r < Qa.length; r++) {
@@ -5715,8 +5720,8 @@ function(e, t, r) {
             var g = i.enterCancelled;
             var b = i.beforeAppear;
             var w = i.appear;
-            var C = i.afterAppear;
-            var k = i.appearCancelled;
+            var k = i.afterAppear;
+            var C = i.appearCancelled;
             var x = i.duration;
             // activeInstance will always be the <transition> component managing this
             // transition. One edge case to check is when the <transition> is placed
@@ -5735,12 +5740,12 @@ function(e, t, r) {
             var T = E && v ? v : c;
             var S = E ? b || m : m;
             var P = E ? "function" === typeof w ? w : _ : _;
-            var M = E ? C || y : y;
-            var R = E ? k || g : g;
+            var M = E ? k || y : y;
+            var R = E ? C || g : g;
             var I = p(s(x) ? x.enter : x);
             if (null != I) bi(I, "enter", e);
             var D = false !== o && !ae;
-            var N = Ci(P);
+            var N = ki(P);
             var z = a._enterCb = L(function() {
                 if (D) {
                     di(a, T);
@@ -5799,16 +5804,16 @@ function(e, t, r) {
             var _ = i.delayLeave;
             var y = i.duration;
             var g = false !== o && !ae;
-            var b = Ci(v);
+            var b = ki(v);
             var w = p(s(y) ? y.leave : y);
             if (n(w)) bi(w, "leave", e);
-            var C = a._leaveCb = L(function() {
+            var k = a._leaveCb = L(function() {
                 if (a.parentNode && a.parentNode._pending) a.parentNode._pending[e.key] = null;
                 if (g) {
                     di(a, c);
                     di(a, f);
                 }
-                if (C.cancelled) {
+                if (k.cancelled) {
                     if (g) di(a, l);
                     m && m(a);
                 } else {
@@ -5817,10 +5822,10 @@ function(e, t, r) {
                 }
                 a._leaveCb = null;
             });
-            if (_) _(k); else k();
-            function k() {
+            if (_) _(C); else C();
+            function C() {
                 // the delayed leave may have already been cancelled
-                if (C.cancelled) return;
+                if (k.cancelled) return;
                 // record leaving element
                 if (!e.data.show) (a.parentNode._pending || (a.parentNode._pending = {}))[e.key] = e;
                 d && d(a);
@@ -5830,11 +5835,11 @@ function(e, t, r) {
                     ci(function() {
                         fi(a, c);
                         di(a, l);
-                        if (!C.cancelled && !b) if (wi(w)) setTimeout(C, w); else pi(a, u, C);
+                        if (!k.cancelled && !b) if (wi(w)) setTimeout(k, w); else pi(a, u, k);
                     });
                 }
-                v && v(a, C);
-                if (!g && !b) C();
+                v && v(a, k);
+                if (!g && !b) k();
             }
         }
         // only used in dev mode
@@ -5850,18 +5855,18 @@ function(e, t, r) {
  * - a wrapped component method (check ._length)
  * - a plain function (.length)
  */
-        function Ci(e) {
+        function ki(e) {
             if (r(e)) return false;
             var t = e.fns;
             if (n(t)) // invoker
-            return Ci(Array.isArray(t) ? t[0] : t); else return (e._length || e.length) > 1;
+            return ki(Array.isArray(t) ? t[0] : t); else return (e._length || e.length) > 1;
         }
-        function ki(e, t) {
+        function Ci(e, t) {
             if (true !== t.data.show) yi(t);
         }
         var xi = te ? {
-            create: ki,
-            activate: ki,
+            create: Ci,
+            activate: Ci,
             remove: function(e, t) {
                 /* istanbul ignore else */
                 if (true !== e.data.show) gi(e, t); else t();
@@ -5910,9 +5915,9 @@ function(e, t, r) {
                         if (!p && !e.ns && !(z.ignoredElements.length && z.ignoredElements.indexOf(c) > -1) && z.isUnknownElement(c)) V("Unknown custom element: <" + c + '> - did you register the component correctly? For recursive components, make sure to provide the "name" option.', e.context);
                     }
                     e.elm = e.ns ? l.createElementNS(e.ns, c) : l.createElement(c, e);
-                    k(e);
+                    C(e);
                     b(e, u, t);
-                    if (n(s)) C(e, t);
+                    if (n(s)) k(e, t);
                     g(r, e.elm, i);
                     if (s && s.pre) p--;
                 } else if (a(e.isComment)) {
@@ -5946,8 +5951,8 @@ function(e, t, r) {
                 }
                 e.elm = e.componentInstance.$el;
                 if (w(e)) {
-                    C(e, t);
-                    k(e);
+                    k(e, t);
+                    C(e);
                 } else {
                     // empty component root.
                     // skip all element-related modules except for ref (#3455)
@@ -5987,7 +5992,7 @@ function(e, t, r) {
                 while (e.componentInstance) e = e.componentInstance._vnode;
                 return n(e.tag);
             }
-            function C(e, r) {
+            function k(e, r) {
                 for (var a = 0; a < s.create.length; ++a) s.create[a](la, e);
                 t = e.data.hook;
                 // Reuse variable
@@ -5999,7 +6004,7 @@ function(e, t, r) {
             // set scope id attribute for scoped CSS.
             // this is implemented as a special case to avoid the overhead
             // of going through the normal attribute patching process.
-            function k(e) {
+            function C(e) {
                 var t;
                 var r = e;
                 while (r) {
@@ -6208,7 +6213,7 @@ function(e, t, r) {
                         }
                     }
                     if (n(s)) for (var d in s) if (!M(d)) {
-                        C(r, i);
+                        k(r, i);
                         break;
                     }
                 } else if (e.data !== r.text) e.data = r.text;
@@ -6264,13 +6269,13 @@ function(e, t, r) {
                                 for (var b = 0; b < s.destroy.length; ++b) s.destroy[b](y);
                                 y.elm = t.elm;
                                 if (g) {
-                                    for (var C = 0; C < s.create.length; ++C) s.create[C](la, y);
+                                    for (var k = 0; k < s.create.length; ++k) s.create[k](la, y);
                                     // #6513
                                     // invoke insert hooks that may have been merged by create hooks.
                                     // e.g. for directives that uses the "inserted" hook.
-                                    var k = y.data.hook.insert;
-                                    if (k.merged) // start at index 1 to avoid re-invoking component mounted hook
-                                    for (var x = 1; x < k.fns.length; x++) k.fns[x]();
+                                    var C = y.data.hook.insert;
+                                    if (C.merged) // start at index 1 to avoid re-invoking component mounted hook
+                                    for (var x = 1; x < C.fns.length; x++) C.fns[x]();
                                 }
                                 y = y.parent;
                             }
@@ -6459,7 +6464,7 @@ function(e, t, r) {
             // events.
             // extract listeners and pass them directly to the transition methods
             var a = r._parentListeners;
-            for (var i in a) t[C(i)] = a[i];
+            for (var i in a) t[k(i)] = a[i];
             return t;
         }
         function Fi(e, t) {
@@ -6682,7 +6687,7 @@ function(e, t, r) {
         // install platform specific utils
         ln.config.mustUseProp = On;
         ln.config.isReservedTag = Fn;
-        ln.config.isReservedAttr = kn;
+        ln.config.isReservedAttr = Cn;
         ln.config.getTagNamespace = Un;
         ln.config.isUnknownElement = Vn;
         // install platform runtime directives & components
@@ -6918,9 +6923,9 @@ function(e, t, r) {
         return (r || "/") + i(n) + a;
     }
     function w(e, t) {
-        if (t === y) return e === t; else if (!t) return false; else if (e.path && t.path) return e.path.replace(m, "") === t.path.replace(m, "") && e.hash === t.hash && C(e.query, t.query); else if (e.name && t.name) return e.name === t.name && e.hash === t.hash && C(e.query, t.query) && C(e.params, t.params); else return false;
+        if (t === y) return e === t; else if (!t) return false; else if (e.path && t.path) return e.path.replace(m, "") === t.path.replace(m, "") && e.hash === t.hash && k(e.query, t.query); else if (e.name && t.name) return e.name === t.name && e.hash === t.hash && k(e.query, t.query) && k(e.params, t.params); else return false;
     }
-    function C(e, t) {
+    function k(e, t) {
         if (void 0 === e) e = {};
         if (void 0 === t) t = {};
         var r = Object.keys(e);
@@ -6930,11 +6935,11 @@ function(e, t, r) {
             var n = e[r];
             var a = t[r];
             // check nested equality
-            if ("object" === typeof n && "object" === typeof a) return C(n, a);
+            if ("object" === typeof n && "object" === typeof a) return k(n, a);
             return String(n) === String(a);
         });
     }
-    function k(e, t) {
+    function C(e, t) {
         return 0 === e.path.replace(m, "/").indexOf(t.path.replace(m, "/")) && (!t.hash || e.hash === t.hash) && x(e.query, t.query);
     }
     function x(e, t) {
@@ -6984,7 +6989,7 @@ function(e, t, r) {
             var v = null == this.exactActiveClass ? d : this.exactActiveClass;
             var h = i.path ? _(null, i, null, r) : o;
             u[v] = w(n, h);
-            u[p] = this.exact ? u[v] : k(n, h);
+            u[p] = this.exact ? u[v] : C(n, h);
             var m = function(e) {
                 if ($(e)) if (t.replace) r.replace(i); else r.push(i);
             };
@@ -7008,9 +7013,9 @@ function(e, t, r) {
                 if (b) {
                     // in case the <a> is a static node
                     b.isStatic = false;
-                    var C = T.util.extend;
-                    (b.data = C({}, b.data)).on = y;
-                    (b.data.attrs = C({}, b.data.attrs)).href = s;
+                    var k = T.util.extend;
+                    (b.data = k({}, b.data)).on = y;
+                    (b.data.attrs = k({}, b.data.attrs)).href = s;
                 } else // doesn't have <a> child, apply listener to self
                 g.on = y;
             }
@@ -7194,7 +7199,7 @@ function(e, t, r) {
             var g = "+" === m || "*" === m;
             var b = "?" === m || "*" === m;
             var w = s[2] || o;
-            var C = v || h;
+            var k = v || h;
             r.push({
                 name: p || n++,
                 prefix: d || "",
@@ -7203,7 +7208,7 @@ function(e, t, r) {
                 repeat: g,
                 partial: y,
                 asterisk: !!_,
-                pattern: C ? X(C) : _ ? ".*" : "[^" + Y(w) + "]+?"
+                pattern: k ? X(k) : _ ? ".*" : "[^" + Y(w) + "]+?"
             });
         }
         // Match any characters still remaining.
@@ -7730,7 +7735,7 @@ function(e, t, r) {
                 var s = document.querySelector(n.selector);
                 if (s) {
                     var u = n.offset && "object" === typeof n.offset ? n.offset : {};
-                    u = Ce(u);
+                    u = ke(u);
                     e = ge(s, u);
                 } else if (be(n)) e = we(n);
             } else if (o && be(n)) e = we(n);
@@ -7758,21 +7763,21 @@ function(e, t, r) {
         };
     }
     function be(e) {
-        return ke(e.x) || ke(e.y);
+        return Ce(e.x) || Ce(e.y);
     }
     function we(e) {
         return {
-            x: ke(e.x) ? e.x : window.pageXOffset,
-            y: ke(e.y) ? e.y : window.pageYOffset
-        };
-    }
-    function Ce(e) {
-        return {
-            x: ke(e.x) ? e.x : 0,
-            y: ke(e.y) ? e.y : 0
+            x: Ce(e.x) ? e.x : window.pageXOffset,
+            y: Ce(e.y) ? e.y : window.pageYOffset
         };
     }
     function ke(e) {
+        return {
+            x: Ce(e.x) ? e.x : 0,
+            y: Ce(e.y) ? e.y : 0
+        };
+    }
+    function Ce(e) {
         return "number" === typeof e;
     }
     /*  */
@@ -8553,7 +8558,7 @@ function(e, t, r) {
                 }
                 return window;
             }
-        }, C = function() {
+        }, k = function() {
             function e(e, t) {
                 for (var r = 0; r < t.length; r++) {
                     var n = t[r];
@@ -8564,7 +8569,7 @@ function(e, t, r) {
             return function(t, r, n) {
                 return r && e(t.prototype, r), n && e(t, n), t;
             };
-        }(), k = {}, x = function() {
+        }(), C = {}, x = function() {
             function e(t) {
                 var r = t.el, n = t.src, a = t.error, i = t.loading, o = t.bindType, s = t.$parent, u = t.options, c = t.elRenderer;
                 l(this, e), this.el = r, this.src = n, this.error = a, this.loading = i, this.bindType = o, 
@@ -8576,7 +8581,7 @@ function(e, t, r) {
                 }, this.rect = r.getBoundingClientRect(), this.$parent = s, this.elRenderer = c, 
                 this.render("loading", !1);
             }
-            return C(e, [ {
+            return k(e, [ {
                 key: "initState",
                 value: function() {
                     this.state = {
@@ -8629,12 +8634,12 @@ function(e, t, r) {
                 key: "load",
                 value: function() {
                     var e = this;
-                    return this.attempt > this.options.attempt - 1 && this.state.error ? void (this.options.silent || console.log("VueLazyload log: " + this.src + " tried too more than " + this.options.attempt + " times")) : this.state.loaded || k[this.src] ? this.render("loaded", !0) : void this.renderLoading(function() {
+                    return this.attempt > this.options.attempt - 1 && this.state.error ? void (this.options.silent || console.log("VueLazyload log: " + this.src + " tried too more than " + this.options.attempt + " times")) : this.state.loaded || C[this.src] ? this.render("loaded", !0) : void this.renderLoading(function() {
                         e.attempt++, e.record("loadStart"), y({
                             src: e.src
                         }, function(t) {
                             e.naturalHeight = t.naturalHeight, e.naturalWidth = t.naturalWidth, e.state.loaded = !0, 
-                            e.state.error = !1, e.record("loadEnd"), e.render("loaded", !1), k[e.src] = 1;
+                            e.state.error = !1, e.record("loadEnd"), e.render("loaded", !1), C[e.src] = 1;
                         }, function(t) {
                             e.state.error = !0, e.state.loaded = !1, e.render("error", !1);
                         });
@@ -11039,7 +11044,7 @@ function(e, t, r) {
             return r("div", {
                 staticClass: "scanindex__issue"
             }, [ r("a", {
-                staticClass: "scanindex__link",
+                class: e.getLinkClass(t.id),
                 on: {
                     click: function(r) {
                         e.selectIssue(t.id);

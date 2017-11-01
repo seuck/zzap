@@ -8,7 +8,7 @@
       </div>
 
       <div v-for="issue in magazine.issues" class="scanindex__issue">
-        <a class="scanindex__link" @click="selectIssue(issue.id)" >
+        <a :class="getLinkClass(issue.id)" @click="selectIssue(issue.id)" >
           <div class="scanindex__issueinfo">
             <p class="scanindex__issueinfo__number">{{ issue.sequence }}</p>
             <p class="scanindex__issueinfo__date">

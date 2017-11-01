@@ -52,6 +52,16 @@ export default {
     },
     buildRetinaCoverThumbPath(issue) {
       return getRetinaPath(this.buildCoverThumbPath(issue))
+    },
+    getLinkClass(issueId) {
+      const baseClass = `scanindex__link`
+      const linkClasses = [baseClass]
+
+      if (+this.$route.params.issueId === issueId) {
+        linkClasses.push(`${baseClass}--selected`)
+      }
+
+      return linkClasses.join(` `)
     }
   },
   mounted() {
