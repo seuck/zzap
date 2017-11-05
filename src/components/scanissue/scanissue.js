@@ -142,7 +142,7 @@ export default {
       const baseClass = `page`
       const classes = [
         baseClass,
-        pageData.label
+        pageData.sequence
       ]
 
       if (pageData.content.length > 0) {

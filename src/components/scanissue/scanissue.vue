@@ -33,7 +33,7 @@
       </div>
       <a
         class="scanissue__detaillink"
-        @click="openReader(issue.volumes[0].pages[0].label)">
+        @click="openReader(issue.volumes[0].pages[0].sequence)">
         <img
           class="scanissue__page"
           v-lazy="buildPageThumbPath(issue.volumes[0].pages[0].scan.path)">
@@ -42,7 +42,7 @@
 
     <div class="scanissue__content">
       <div class="scanissue__doublepage" v-for="page in doublePages">
-        <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[page].label)">
+        <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[page].sequence)">
           <img
             :class="getContentClass(issue.volumes[0].pages[page])"
             v-lazy="buildPageThumbPath(issue.volumes[0].pages[page].scan.path)">
@@ -56,7 +56,7 @@
       <div class="scanissue__doublepage">
         <a
           class="scanissue__detaillink"
-          @click="openReader(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].label)">
+          @click="openReader(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].sequence)">
           <img
             class="scanissue__page scanissue__backcover"
             v-lazy="buildPageThumbPath(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].scan.path)">
