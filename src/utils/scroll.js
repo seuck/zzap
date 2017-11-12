@@ -1,31 +1,42 @@
-const SCROLL_BEHAVIOUR = `smooth`
-const DEFAULT_OFFSET = 55
+const SCROLL_BEHAVIOR = `smooth`
+const JUMP_BEHAVIOR = `auto`
+const CONTENT_OFFSET = 55
 
-function scrollToClass(className, offset) {
+/**
+ * @param {string} className 
+ * @param {object} [options] 
+ * @param {string} [options.behavior] `auto`|`smooth`
+ * @param {number} [options.offset] 
+ */
+export function scrollToClassWithOptions(className, options = {}) {
+  // eslint-disable-next-line no-console
+  console.log(`Scroll to: ${className}`)
+
   const element = document.querySelector(`.${className}`)
 
   if (element !== null) {
-    if (typeof offset !== `undefined`) {
+    if (typeof options.offset !== `undefined`) {
       window.scroll({
-        top: element.offsetTop - offset,
+        top: element.offsetTop - options.offset,
         left: 0,
-        behavior: SCROLL_BEHAVIOUR
+        behavior: options.behavior
       })
     } else {
-      element.scrollIntoView({
-        behavior: SCROLL_BEHAVIOUR
-      })
+      element.scrollIntoView(options)
     }
-    // eslint-disable-next-line no-console
-    console.log(className)
   }
 }
 
-function scrollToClassWithDefaultOffset(className) {
-  scrollToClass(className, DEFAULT_OFFSET)
+export function scrollToClassWithDefaultOffset(className) {
+  scrollToClassWithOptions(className, {
+    behavior: SCROLL_BEHAVIOR,
+    offset: CONTENT_OFFSET
+  })
 }
 
-export {
-  scrollToClass,
-  scrollToClassWithDefaultOffset
+export function jumpToClass(className) {
+  scrollToClassWithOptions(className, {
+    behavior: JUMP_BEHAVIOR,
+    offset: CONTENT_OFFSET
+  })
 }

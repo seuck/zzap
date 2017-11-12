@@ -1,16 +1,20 @@
 import {
-  scrollToClass as _scrollToClass,
+  scrollToClassWithOptions,
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
 } from 'utils/scroll'
 
 const COMPONENT_NAME = `zzap-header` // A component can't be named as an HTML tag
 const COMPONENT_CLASS = `header`
+const verticalThresholdMax = 250
 
 export default {
   name: COMPONENT_NAME,
   methods: {
-    scrollToClass(className) {
-      _scrollToClass(className)
+    scrollToCover() {
+      scrollToClassWithOptions(`cover`, {
+        behavior: `smooth`,
+        offset: -(verticalThresholdMax + 1)
+      })
     },
     scrollToClassWithDefaultOffset(className) {
       _scrollToClassWithDefaultOffset(className)
@@ -21,7 +25,6 @@ export default {
       const header = document.querySelector(`.${COMPONENT_CLASS}`)
       const minScale = 0.3
       const windowWidthMaxSize = 900
-      const verticalThresholdMax = 250
       let lastYOffset = -1
       let lastWindowWidth = -1
 

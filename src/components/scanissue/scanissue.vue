@@ -35,7 +35,7 @@
         class="scanissue__detaillink"
         @click="openReader(issue.volumes[0].pages[0].sequence)">
         <img
-          class="scanissue__page"
+          class="scanissue__page scanissue__0"
           v-lazy="buildPageThumbPath(issue.volumes[0].pages[0].scan.path)">
       </a>
     </div>
@@ -58,6 +58,7 @@
           class="scanissue__detaillink"
           @click="openReader(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].sequence)">
           <img
+            :class="getContentClass(issue.volumes[0].pages[issue.volumes[0].pages.length - 1])"
             class="scanissue__page scanissue__backcover"
             v-lazy="buildPageThumbPath(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].scan.path)">
         </a>

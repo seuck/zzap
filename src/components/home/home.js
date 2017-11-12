@@ -8,7 +8,7 @@ import ZzapHeader from 'components/zzapheader/zzapheader.vue'
 import ZzapFooter from 'components/zzapfooter/zzapfooter.vue'
 
 import { CLASSES as GLOBALCLASSES } from 'constants/classes'
-import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
+import { jumpToClass } from 'utils/scroll'
 
 const COMPONENT_NAME = `home`
 
@@ -43,7 +43,7 @@ export default {
       this.readerData = {}
 
       window.setTimeout(() => {
-        _scrollToClassWithDefaultOffset(`scanissue__${backToPage}`)
+        jumpToClass(`scanissue__${backToPage}`)
       }, 500)
     },
     addDynamicNavSection(sections) {

@@ -7,6 +7,7 @@ import * as I18N from 'locales/localedate'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
 const COMPONENT_NAME = `scanissue`
+const backcoverClass = `backcover`
 
 export default {
   name: COMPONENT_NAME,
@@ -19,7 +20,7 @@ export default {
       errors: [],
       specialBookmarks: {
         cover: `cover`,
-        backcover: `backcover`
+        backcover: backcoverClass
       },
       bookmarks: []
     }
@@ -78,7 +79,7 @@ export default {
       return `/img/scans/${imagePath}`
     },
     buildContributorPath(contributorId) {
-      return `/contributor/${contributorId}`
+      return `/redazione/${contributorId}`
     },
     getMonth(monthNumber) {
       return I18N.MONTHS.it[monthNumber - 1]
@@ -149,6 +150,10 @@ export default {
         pageData.content.forEach((content) => {
           classes.push(`content-type-${content.content_type_id}`)
         })
+      }
+
+      if (pageData.sequence === this.issue.volumes[0].pages) {
+        classes.push(backcoverClass)
       }
 
       return classes.map(cls => `${COMPONENT_NAME}__${cls}`).join(` `)
