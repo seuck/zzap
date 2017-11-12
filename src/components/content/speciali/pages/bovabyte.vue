@@ -22,7 +22,7 @@
 
       <p>Nel frattempo i nostri hanno fatto scuola e nel Luglio del 1991 <strong>Andrea Lanza</strong>, un fan di BovaByte, invia alla redazione di Zzap! il primo numero di "<strong>BovaByte 2</strong>", fanzine autoprodotta con i soliti mezzi artigianali. Trova subito spazio nella Posta di Zzap! e in seguito riceverà i più sinceri ringraziamenti dalla redazione originale di BovaByte per aver proseguito con immutata genuinità e follia la loro opera.</p>
 
-      <p>Il materiale inedito che vi presentiamo arriva direttamente dalla collezione personale di Andrea Lanza che ha fornito al "Progetto Zzap! Italia" le pagine originali della sua fanzine "BovaByte 2" e una delle poche copie esistenti dell'ultima (?) fanzine di BovaByte, "Antologia di BovaByte".</p>
+      <p>Il materiale inedito che vi presentiamo arriva direttamente dalla collezione personale di Andrea Lanza che ha fornito a Zzap.it le pagine originali della sua fanzine "BovaByte 2" e una delle poche copie esistenti dell'ultima (?) fanzine di BovaByte, "Antologia di BovaByte".</p>
 
       <p>Sono stati realizzati un totale di 6 numeri di BovaByte 2. Ciascun numero è "incollato" sulle due facciate di un foglio A4, formato non mantenuto nella versione pubblicata su Zzap!. La redazione infatti ha scelto di impaginare BovaByte 2 come una normale (e su questo aggettivo ci sarebbe da discutere...) lettera inviata alla Posta di Zzap! Il formato originale è quindi una novità anche per i vecchi lettori di Zzap! che apprezzeranno il suo stile casareccio con tanto di disegnini, cancellature e l'indirizzo della "redazione" scritto con il normografo.</p>
 

@@ -17,13 +17,13 @@ Lo sviluppo infatti è per sempre, una meta la cui bellezza è proprio la non es
 
       <a class="content__imagelink" href="#"><img class="content__image" src="assets/games/screenshoots/cauldron_ii.gif"></a>
 
-      <p>Scrivo queste righe proprio per raccontare la tappa successiva che sta per raggiungere il sito web del Progetto Zzap! Italia.</p>
+      <p>Scrivo queste righe proprio per raccontare la tappa successiva che sta per raggiungere il sito web di Zzap.it.</p>
     </content-section>
 
     <content-section title="Mercoledì 12 Aprile 2017: 2 - Dove siamo">
       <a class="content__imagelink" href="#"><img class="content__image" src="assets/games/screenshoots/cauldron_ii.gif"></a>
 
-      <p>Sono orgoglioso dei contenuti del Progetto Zzap! Italia, molto meno dell’involucro che li presenta. Il sito web attualmente online risale al lontanissimo 2004, ovvero separato dai giorni nostri da varie ere geologiche, considerando il rapido evolversi della tecnologia web.
+      <p>Sono orgoglioso dei contenuti si Zzap.it, molto meno dell’involucro che li presenta. Il sito web attualmente online risale al lontanissimo 2004, ovvero separato dai giorni nostri da varie ere geologiche, considerando il rapido evolversi della tecnologia web.
 E nonostante qualcuno mi disse, azzeccandoci, che è così vecchio che il sito stesso, oltre che i contenuti, può ritenersi “vintage” (^_^), la mia professione è proprio quella di sviluppatore web e non posso certo mostrarlo come esempio delle mie capacità attuali.</p>
 
       <p>In realtà durante questi anni non sono stato totalmente ozioso. È del 2013 lo sviluppo parziale, in Ruby on Rails 2, di una API per rendere disponibili in formato JSON tutti i dati dei numeri di Zzap!, i giochi recensiti e in generale i dati disponibili nel Database del Progetto. Dell’anno successivo è invece un modulo per Wordpress, anche questo parziale, che aveva l’intenzione di aprire il sito web del Progetto a contenuti editoriali freschi sul mondo, più vivo che mai, del retrogaming e le sue evoluzioni.

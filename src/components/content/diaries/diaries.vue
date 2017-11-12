@@ -5,7 +5,7 @@
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <ul>
-      <li>Anche il nuovo sito del Progetto Zzap! Italia ha il suo diario.
+      <li>Anche il nuovo sito di Zzap.it ha il suo diario.
         <scroll-link anchor="diari-zzap">"Il mio galeone", di Toni Bianchetti</scroll-link>
       </li>
     </ul>
