@@ -102,6 +102,17 @@ const routes = [
         }
       },
       {
+        name: `speciali-zzapretroedicola`,
+        path: `speciali/zzapretroedicola`,
+        components: {
+          content: Speciali,
+          followup: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/content/speciali/pages/zzapretroedicola.vue`], resolve)
+          }
+        }
+      },
+      {
         name: `speciali-bovabyte`,
         path: `speciali/bovabyte`,
         components: {

@@ -12,6 +12,7 @@
       <li>Un sogno mai realizzato: il <scroll-link anchor="speciali-konixmultisystem">Konix Multisystem</scroll-link>, di Darkj</li>
       <li>Speciale <scroll-link anchor="speciali-elitesystems">Elite Systems</scroll-link></li>
       <li><scroll-link anchor="speciali-bovabyte">Bovabyte</scroll-link>, la rivista per chi di computer non ci capisce niente</li>
+      <li>Uno <scroll-link anchor="speciali-zzapretroedicola">Zzap! tutto nuovo</scroll-link> creato dagli amici di Retroedicola</li>
     </ul>
   </content-container>
 </template>
