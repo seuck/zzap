@@ -7,12 +7,22 @@
     list-style: disc inside none;
   }
 
+  ul {
+    margin: 20px 0;
+  }
+
   li {
       line-height: $lineHeight;
   }
 
   li + li {
     margin-top: 20px;
+  }
+
+  &__date {
+    margin-bottom: 8px;
+    display: inline-block;
+    color: $lightBlue;
   }
 
   &__section {
