@@ -1,6 +1,7 @@
 <template>
   <content-container
     title="Retroedicola Videoludica presenta Zzap!"
+    date="Maggio 2015"
     anchor="speciali-zzapretroedicola"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">

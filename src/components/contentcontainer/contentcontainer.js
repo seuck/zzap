@@ -9,7 +9,7 @@ const CLASS_NAME = `content`
 
 export default {
   name: COMPONENT_NAME,
-  props: [`title`, `anchor`],
+  props: [`title`, `date`, `anchor`],
   data() {
     return {
       componentClass: `${CLASS_NAME} ${CLASS_NAME}__${this.anchor}`
