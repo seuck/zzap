@@ -8,7 +8,7 @@
     <content-section>
       <content-image
         imagePath="assets/content/speciali/zzap-retroedicola/zzap-retroedicola-copertina.jpg"
-        caption="Lo copertina di Zzap! Retroedicola."
+        caption="Lo copertina di Zzap! Retroedicola Videoludica"
         align="right"
         rotation="cw"
         linkUrl="assets/content/speciali/zzap-retroedicola/Retroedicola-Speciale-Zzap.pdf"
@@ -23,4 +23,4 @@
   </content-container>
 </template>
 
-<script src="./zzapretroedicola.js"></script>
+<script src="./retroedicola.js"></script>

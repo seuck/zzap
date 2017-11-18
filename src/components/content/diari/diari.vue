@@ -12,4 +12,4 @@
   </content-container>
 </template>
 
-<script src="./diaries.js"></script>
+<script src="./diari.js"></script>

@@ -1,7 +1,8 @@
 import Home from 'components/home/home.vue'
 import Scanissue from 'components/scanissue/scanissue.vue'
-import Diaries from 'components/content/diaries/diaries.vue'
+import Diari from 'components/content/diari/diari.vue'
 import Speciali from 'components/content/speciali/speciali.vue'
+import Zzap from 'components/content/zzap/zzap.vue'
 import Mappe from 'components/content/mappe/mappe.vue'
 import NotFoundComponent from 'components/notfoundcomponent/notfoundcomponent.vue'
 
@@ -48,17 +49,17 @@ const routes = [
         name: `diari`,
         path: `diari`,
         components: {
-          content: Diaries
+          content: Diari
         }
       },
       {
         name: `diari-zzap`,
         path: `diari/zzap`,
         components: {
-          content: Diaries,
+          content: Diari,
           followup: (resolve) => {
             // eslint-disable-next-line import/no-dynamic-require
-            require([`components/content/diaries/pages/zzap.vue`], resolve)
+            require([`components/content/diari/pages/zzap.vue`], resolve)
           }
         }
       },
@@ -103,17 +104,6 @@ const routes = [
         }
       },
       {
-        name: `speciali-zzapretroedicola`,
-        path: `speciali/zzapretroedicola`,
-        components: {
-          content: Speciali,
-          followup: (resolve) => {
-            // eslint-disable-next-line import/no-dynamic-require
-            require([`components/content/speciali/pages/zzapretroedicola.vue`], resolve)
-          }
-        }
-      },
-      {
         name: `speciali-bovabyte`,
         path: `speciali/bovabyte`,
         components: {
@@ -129,6 +119,17 @@ const routes = [
         path: `mappe`,
         components: {
           content: Mappe
+        }
+      },
+      {
+        name: `mappe-citadel`,
+        path: `mappe/citadel`,
+        components: {
+          content: Mappe,
+          followup: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/content/mappe/pages/citadel.vue`], resolve)
+          }
         }
       },
       {
@@ -149,6 +150,24 @@ const routes = [
           content: (resolve) => {
             // eslint-disable-next-line import/no-dynamic-require
             require([`components/demo/content/image.vue`], resolve)
+          }
+        }
+      },
+      {
+        name: `zzap`,
+        path: `zzap`,
+        components: {
+          content: Zzap
+        }
+      },
+      {
+        name: `zzap-retroedicola`,
+        path: `zzap/retroedicola`,
+        components: {
+          content: Zzap,
+          followup: (resolve) => {
+            // eslint-disable-next-line import/no-dynamic-require
+            require([`components/content/zzap/pages/retroedicola.vue`], resolve)
           }
         }
       }

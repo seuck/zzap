@@ -2,7 +2,7 @@
   <content-container
     title="Jack the nipper 2, di Toni Bianchetti"
     date="12 Agosto 2004"
-    anchor="speciali-elite"
+    anchor="mappe-jackthenipper2"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
