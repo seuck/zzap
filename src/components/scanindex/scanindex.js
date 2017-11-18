@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ENTITIES as ZZAPI } from 'api/zzapi'
+import { ZZAPI_RESOURCES } from 'api/zzapi'
 import {
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
 } from 'utils/scroll'
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     loadMagazine() {
-      axios.get(ZZAPI.magazine(this.magazineId))
+      axios.get(ZZAPI_RESOURCES.magazine(this.magazineId))
         .then((response) => {
           this.magazine = response.data
         })

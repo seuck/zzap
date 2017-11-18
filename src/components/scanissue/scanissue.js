@@ -2,7 +2,7 @@ import axios from 'axios'
 import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
 import { isEmptyObject } from 'utils/object'
-import { ENTITIES as ZZAPI } from 'api/zzapi'
+import { ZZAPI_RESOURCES } from 'api/zzapi'
 import * as I18N from 'locales/localedate'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
@@ -62,7 +62,7 @@ export default {
     },
     loadIssue(issueId) {
       if (issueId !== ``) {
-        axios.get(ZZAPI.issue(this.magazineId, this.issueId))
+        axios.get(ZZAPI_RESOURCES.issue(this.magazineId, this.issueId))
           .then((response) => {
             this.resetLoadedIssue()
             this.issue = response.data
