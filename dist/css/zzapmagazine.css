@@ -95,9 +95,6 @@ figcaption {
   right: 0;
   background-color: rgba(0, 0, 0, 0.6); }
 
-.home {
-  position: relative; }
-
 .header__container {
   margin: 0 auto;
   overflow: hidden; }
@@ -543,7 +540,7 @@ figcaption {
     width: 50%;
     height: 100%; }
     .scanissue__page[lazy=loading] {
-      background-image: url(/assets/c64_loader.gif);
+      background-image: url(../assets/c64_loader.gif);
       height: 300px;
       background-repeat: no-repeat;
       background-size: 450px;

@@ -77,10 +77,10 @@ export default {
       }
     },
     buildPageThumbPath(imagePath) {
-      return `/img/thumbs/${imagePath}`
+      return `img/thumbs/${imagePath}`
     },
     buildScanPath(imagePath) {
-      return `/img/scans/${imagePath}`
+      return `img/scans/${imagePath}`
     },
     getMonth(monthNumber) {
       return I18N.MONTHS.it[monthNumber - 1]

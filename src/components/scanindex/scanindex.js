@@ -48,7 +48,7 @@ export default {
       _scrollToClassWithDefaultOffset(`scanissue`)
     },
     buildCoverThumbPath(issue) {
-      return `/img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`
+      return `img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`
     },
     buildRetinaCoverThumbPath(issue) {
       return getRetinaPath(this.buildCoverThumbPath(issue))
