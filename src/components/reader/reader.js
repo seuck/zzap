@@ -15,7 +15,7 @@ const KEY_CODES = {
 
 export default {
   name: COMPONENT_NAME,
-  props: [`pages`, `startPage`, `title`],
+  props: [`pages`, `startPage`, `title`, `returnBookmark`],
   components: {
     ReaderImage
   },

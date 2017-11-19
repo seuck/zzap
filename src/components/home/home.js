@@ -37,13 +37,13 @@ export default {
       this.homeClass = `${COMPONENT_NAME} ${GLOBALCLASSES.overlay}`
     },
     resetReader() {
-      const backToPage = this.readerData.startPage * 2
+      const returnBookmark = this.readerData.returnBookmark
 
       this.homeClass = COMPONENT_NAME
       this.readerData = {}
 
       window.setTimeout(() => {
-        jumpToClass(`scanissue__${backToPage}`)
+        jumpToClass(returnBookmark)
       }, 500)
     },
     addDynamicNavSection(sections) {

@@ -1,4 +1,5 @@
 $doublePageSeparation: 2px;
+$minPageHeight: 660px;
 
 .scanissue {
   @include fullpage;
@@ -7,26 +8,14 @@ $doublePageSeparation: 2px;
   background-color: $darkerBlue;
   padding: 60px 0;
 
-  &__cover {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: $doublePageSeparation;
-
-    .scanissue__detaillink {
-      width: 50%;
-    }
-
-    .scanissue__page {
-      width: 100%;
-    }
-  }
-
-  &__infocontainer {
-    width: 50%;
-  }
-
   &__info {
     @include infocomponent;
+    flex-shrink: 0;
+    width: calc(50% - 40px);
+    
+    @include for-tablet-portrait-up {
+      width: calc(50% - 80px);
+    }
   }
 
   &__content {
@@ -41,6 +30,10 @@ $doublePageSeparation: 2px;
 
   &__doublepage {
     margin-bottom: $doublePageSeparation;
+
+    @include for-tablet-landscape-up {
+      min-height: $minPageHeight;
+    }
   }
 
   &__page {
@@ -57,10 +50,19 @@ $doublePageSeparation: 2px;
       image-rendering: -moz-crisp-edges;
       -ms-interpolation-mode: nearest-neighbor
     }
+
+    &.scanissue__cover {
+      width: 100%;
+      height: auto;
+    }
   }
 
   &__contributorlist {
-    margin: 0 46px;
+    margin: 0 20px;
+
+    @include for-tablet-portrait-up {
+      margin: 0 46px;
+    }
   }
 
   &__contributor {
@@ -69,9 +71,13 @@ $doublePageSeparation: 2px;
 
   &__icon {
     width: $iconSize;
-    display: inline-block;
-    padding-right: 10px;
+    display: block;
+    padding: 0 10px 10px 0;
     vertical-align: middle;
+
+    @include for-tablet-portrait-up {
+      display: inline-block;
+    }
   }
 }
 

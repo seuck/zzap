@@ -6,6 +6,7 @@
       :startPage="readerData.startPage"
       :title="readerData.title"
       :open="readerData.open"
+      :returnBookmark="readerData.returnBookmark"
       @closeReader="resetReader"
     ></reader>
     

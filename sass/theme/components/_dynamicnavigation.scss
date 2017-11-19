@@ -1,8 +1,13 @@
 $bookmarkWidth: 40;
 
 .dynamicnavigation {
-
   @include fullpage;
+
+  display: none;
+
+  @include for-tablet-landscape-up {
+    display: block
+  }
 
   position: relative;
   z-index: 1;

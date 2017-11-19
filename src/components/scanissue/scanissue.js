@@ -1,9 +1,10 @@
 import axios from 'axios'
 import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
+import ScanissueImage from 'components/scanissue/scanissue-info.vue'
+import * as I18N from 'locales/localedate'
 import { isEmptyObject } from 'utils/object'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
-import * as I18N from 'locales/localedate'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
 
 const COMPONENT_NAME = `scanissue`
@@ -12,6 +13,9 @@ const backcoverClass = `backcover`
 export default {
   name: COMPONENT_NAME,
   props: [`magazineId`, `issueId`],
+  components: {
+    ScanissueImage
+  },
   data() {
     return {
       issue: {},
@@ -78,9 +82,6 @@ export default {
     buildScanPath(imagePath) {
       return `/img/scans/${imagePath}`
     },
-    buildContributorPath(contributorId) {
-      return `/redazione/${contributorId}`
-    },
     getMonth(monthNumber) {
       return I18N.MONTHS.it[monthNumber - 1]
     },
@@ -115,6 +116,7 @@ export default {
         this.readerData = data
       }
       this.readerData.startPage = Math.floor(+startPage / 2)
+      this.readerData.returnBookmark = `${COMPONENT_NAME}__${startPage}`
 
       return this.readerData
     },

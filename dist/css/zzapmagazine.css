@@ -392,6 +392,9 @@ figcaption {
     display: block; }
     .scanindex__link:hover .scanindex__issueinfo {
       opacity: 1; }
+    .scanindex__link--selected .scanindex__issueinfo {
+      opacity: 1;
+      color: #fd0; }
   .scanindex__image {
     width: 79px; }
   .scanindex__issue {
@@ -429,6 +432,7 @@ figcaption {
 .dynamicnavigation {
   margin: 0 auto;
   overflow: hidden;
+  display: none;
   position: relative;
   z-index: 1; }
   @media (min-width: 900px) {
@@ -437,9 +441,12 @@ figcaption {
   @media (min-width: 900px) {
     .dynamicnavigation {
       width: 900px; } }
+  @media (min-width: 900px) {
+    .dynamicnavigation {
+      display: block; } }
   .dynamicnavigation__container {
     position: fixed;
-    top: 170px;
+    top: 150px;
     right: 0; }
     @media (min-width: 900px) {
       .dynamicnavigation__container {
@@ -511,22 +518,16 @@ figcaption {
   @media (min-width: 900px) {
     .scanissue {
       width: 900px; } }
-  .scanissue__cover {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 2px;
-    min-height: 660px; }
-    .scanissue__cover .scanissue__detaillink {
-      width: 50%; }
-    .scanissue__cover .scanissue__page {
-      width: 100%; }
-  .scanissue__infocontainer {
-    width: 50%; }
   .scanissue__info {
-    padding: 0 20px 30px 20px; }
+    padding: 0 20px 30px 20px;
+    flex-shrink: 0;
+    width: calc(50% - 40px); }
     @media (min-width: 600px) {
       .scanissue__info {
         padding: 0 40px 30px 40px; } }
+    @media (min-width: 600px) {
+      .scanissue__info {
+        width: calc(50% - 80px); } }
   .scanissue__content {
     display: flex;
     flex-direction: column; }
@@ -534,8 +535,10 @@ figcaption {
     display: flex;
     cursor: zoom-in; }
   .scanissue__doublepage {
-    margin-bottom: 2px;
-    min-height: 660px; }
+    margin-bottom: 2px; }
+    @media (min-width: 900px) {
+      .scanissue__doublepage {
+        min-height: 660px; } }
   .scanissue__page {
     width: 50%;
     height: 100%; }
@@ -549,15 +552,24 @@ figcaption {
       image-rendering: crisp-edges;
       image-rendering: -moz-crisp-edges;
       -ms-interpolation-mode: nearest-neighbor; }
+    .scanissue__page.scanissue__cover {
+      width: 100%;
+      height: auto; }
   .scanissue__contributorlist {
-    margin: 0 46px; }
+    margin: 0 20px; }
+    @media (min-width: 600px) {
+      .scanissue__contributorlist {
+        margin: 0 46px; } }
   .scanissue__contributor {
     line-height: 1.3; }
   .scanissue__icon {
     width: 26px;
-    display: inline-block;
-    padding-right: 10px;
+    display: block;
+    padding: 0 10px 10px 0;
     vertical-align: middle; }
+    @media (min-width: 600px) {
+      .scanissue__icon {
+        display: inline-block; } }
 
 .overlay .scanissue {
   display: none; }
@@ -602,10 +614,16 @@ figcaption {
   .content ol {
     margin: 20px;
     list-style: disc inside none; }
+  .content ul {
+    margin: 20px 0; }
   .content li {
     line-height: 1.3; }
   .content li + li {
     margin-top: 20px; }
+  .content__date {
+    margin-bottom: 8px;
+    display: inline-block;
+    color: #4ec0f5; }
   .content__section {
     padding-bottom: 40px; }
   .content .content__image--link {

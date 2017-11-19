@@ -2,7 +2,7 @@
   <content-container
     title="Speciale BovaByte, di Toni Bianchetti"
     date="22 Ottobre 2004"
-    anchor="speciali-elite"
+    anchor="speciali-bovabyte"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <content-section>

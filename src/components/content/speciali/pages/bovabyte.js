@@ -45,6 +45,7 @@ export default extend(true, {}, basecontent, {
       return {
         title: `Antologia di BovaByte`,
         startPage: 0,
+        returnBookmark: `content__speciali-bovabyte`,
         pages: this.generateReaderPages(`/assets/content/speciali/bovabyte/bva/`, `.jpg`, 36)
       }
     },
@@ -52,6 +53,7 @@ export default extend(true, {}, basecontent, {
       return {
         title: `BovaByte 2 - Numero ${issue}`,
         startPage: 0,
+        returnBookmark: `content__speciali-bovabyte`,
         pages: [
           {
             first: {
