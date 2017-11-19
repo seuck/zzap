@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "extends": ["airbnb-base"],
+  "rules": {
+    "quotes": ["error", "backtick"],
+    "no-param-reassign": ["error", { "props": false }],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+      { "blankLine": "any",    "prev": ["const", "let", "var"], "next": ["const", "let", "var"]},
+      { "blankLine": "always", "prev": "directive", "next": "*" },
+      { "blankLine": "any",    "prev": "directive", "next": "directive" }
+    ],
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "comma-dangle": ["error", "never"],
+    "global-require": "off",
+    "no-multiple-empty-lines": ["error", { "max": 1 } ],
+    "max-len": [
+      "error",
+      {
+        "ignoreUrls": true,
+        "code": 100
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "func-names": "off",
+    "import/extensions": "off",
+    "import/no-absolute-path": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-duplicates": "off",
+    "import/no-named-as-default": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/no-dynamic-require": "off"
+  },
+  "env": {
+    "browser": true
+  }
+}

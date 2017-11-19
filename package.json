@@ -3,63 +3,64 @@
   "version": "1.0.0",
   "description": "The modern incarnation of Zzap.it",
   "main": "index.js",
-  "author": "@seuck",
   "license": "MIT",
+  "author": {
+    "name": "Antonio Bianchetti",
+    "email": "abianchetti@yahoo.com",
+    "url": "https://twitter.com/seuck"
+  },
   "scripts": {
-    "start": "gulp",
-    "validate": "gulp lint"
+    "build": "cross-env gulp",
+    "validate": "gulp lint",
+    "prod": "cross-env NODE_ENV=${NODE_ENV:=production} gulp prod"
+  },
+  "paths": {
+    "src": "./src"
   },
   "dependencies": {
-    "babel-polyfill": "^6.20.0",
-    "immutable": "^3.8.1",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-redux": "^5.0.1",
-    "redux": "^3.6.0"
+    "axios": "^0.17.1",
+    "extend": "^3.0.1",
+    "gulp-postcss": "^7.0.0",
+    "postcss-normalize": "^4.0.0",
+    "smoothscroll-polyfill": "^0.4.0",
+    "vue": "^2.5.3",
+    "vue-lazyload": "^1.1.4",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    "babel-loader": "^6.2.10",
-    "babel-preset-latest": "^6.16.0",
-    "babel-preset-react": "^6.16.0",
-    "del": "^2.2.2",
-    "eslint": "^3.12.2",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "2.2.3",
-    "eslint-plugin-react": "^6.8.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "cross-env": "^5.1.1",
+    "css-loader": "^0.28.7",
+    "del": "^3.0.0",
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-scanjs-rules": "^0.2.1",
+    "file-loader": "^1.1.5",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1",
-    "webpack-stream": "^3.2.0"
+    "gulp-babel": "^7.0.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-sass": "^3.1.0",
+    "vue-loader": "^13.0.4",
+    "vue-template-compiler": "^2.5.3",
+    "webpack": "^3.8.1",
+    "webpack-stream": "^4.0.0"
   },
   "babel": {
     "presets": [
-      "latest",
-      "react"
+      "env"
     ]
   },
-  "eslintConfig": {
-    "extends": "airbnb",
-    "plugins": [
-      "import"
-    ],
-    "rules": {
-      "comma-dangle": [
-        "error",
-        "never"
-      ],
-      "new-cap": [
-        2,
-        {
-          "capIsNewExceptions": [
-            "Map",
-            "List"
-          ]
-        }
-      ]
-    },
-    "env": {
-      "browser": true
-    }
-  }
+  "browserslist": [
+    "Edge >= 14",
+    "Safari >= 10",
+    "Chrome >= 56",
+    "Firefox >= 50",
+    "Explorer >= 11",
+    "iOS >= 10.2.1",
+    "Android >= 5"
+  ]
 }

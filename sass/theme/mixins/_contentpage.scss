@@ -1,0 +1,42 @@
+@mixin contentpage($base) {
+  @include responsive-centered;
+  
+  color: $darkGrey;
+  background-color: $white;
+  padding: 30px 20px;
+
+  @include textlink;
+
+  @include for-tablet-portrait-up {
+    padding: 60px 40px;
+  }
+
+  @include for-tablet-landscape-up {
+    width: 820px;
+  }
+
+  #{$base}__image {
+    @include imageshadow;
+
+    &-- {
+      &cw {
+        transform: rotate(7deg);
+      }
+
+      &cc {
+        transform: rotate(-5deg);
+      }
+
+      &right {
+        float: right;
+      }
+  
+      &left {
+        float: left;
+      }
+      &no-shadow {
+        box-shadow: initial;
+      }
+    }
+  }
+}

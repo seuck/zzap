@@ -1,0 +1,68 @@
+.reader {
+  position: relative;
+
+  &__content {
+    display: flex;
+    margin-top: 101px;
+  }
+
+  &__navigator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.6);
+    padding: 20px;
+    text-align: center;
+  }
+
+  &__info {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  &__close {
+    position: absolute;
+    top: calc(50% - 13px);
+    right: 20px;
+  }
+
+  &__navigation {
+    margin: 20px 46px 0;   
+
+    &-page {
+      flex-basis: 22px;
+      opacity: $readerNavigationPageOpacity;
+      
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+
+      &-actual {
+        opacity: 1;
+      }
+
+      img {
+        width: 16px;
+      }
+
+      &-container {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__closeicon {
+    width: $iconSize;
+  }
+
+  &__first {
+    cursor: w-resize;
+  }
+
+  &__last {
+    cursor: e-resize;
+  }
+}

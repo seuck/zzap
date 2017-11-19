@@ -1,0 +1,7 @@
+@mixin imageshadow {
+  box-shadow: 5px 6px 18px 0px $translucentShadow;
+}
+
+@mixin navigationshadow {
+  box-shadow: 7px 5px 30px 0px $translucentShadow;
+}

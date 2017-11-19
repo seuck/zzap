@@ -1,0 +1,147 @@
+.cover {
+  @include fullpage;
+  height: 141vw;
+  position: relative;
+
+  background-image: url(../assets/cover/artworks/zzap-cover-daphne-dirk.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50% 0;
+  background-origin: padding-box;
+
+  @include for-tablet-landscape-up {
+    height: 1266px;
+    background-size: 900px;
+    overflow-x: hidden;
+  }
+
+  h2 {
+    display: none;
+  }
+
+  a:hover,
+  a:focus {
+      background-color: $coverLinkColor;
+  }
+
+  &__baloon {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &container {
+      transform: rotate(30deg);
+      position: absolute;
+      top: 6%;
+      right: -17px;
+      width: 178px;
+
+      @include for-tablet-portrait-up {
+        width: 270px;
+        right: -3%;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 17% 13%;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: bold;
+      color: red;
+
+      @include for-tablet-portrait-up {
+        font-size: 115%;
+      }
+    }
+  }
+
+  &__navigation {
+    font-size: 180%;
+    text-transform: uppercase;
+    margin-top: 45%;
+
+    @include for-tablet-landscape-up {
+      margin-top: 405px;
+    }
+
+    li {
+      margin-bottom: 3%;
+      margin-left: 5%;
+      margin-right: 5%;
+
+      @include for-tablet-landscape-up{
+        margin-bottom: 26px;
+        margin-left: 45px;
+        margin-right: 45px;
+      }
+
+      &:nth-child(1) a {
+        color: $red;
+        -webkit-text-fill-color: $red;
+      }
+
+      &:nth-child(2) a {
+        color: $yellow;
+        -webkit-text-fill-color: $yellow;
+      }
+
+      &:nth-child(3) a {
+        color: $green;
+        -webkit-text-fill-color: $green;
+      }
+
+      &:nth-child(4) a {
+        color: $lightPurple;
+        -webkit-text-fill-color: $lightPurple;
+      }
+
+      &:nth-child(5) a {
+        color: $blue;
+        -webkit-text-fill-color: $blue;
+      }
+
+      a {
+        font-weight: bold;
+
+        *:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+      }
+
+      span {
+        -webkit-text-stroke: 1.0px #000;
+      }
+
+      small {
+        font-size: 56%;
+        vertical-align: middle;
+        color: $white;
+        -webkit-text-fill-color: $white;
+
+        @include for-tablet-portrait-up {
+          -webkit-text-stroke: 1.0px #000;
+        }
+      }
+
+      &.cover__navigation__side {
+        float: right;
+        text-align: right;
+      }
+    }
+  }
+}
+
+.overlay .cover {
+  display: none;
+}

@@ -1,0 +1,86 @@
+$doublePageSeparation: 2px;
+$minPageHeight: 660px;
+
+.scanissue {
+  @include fullpage;
+
+  color: $white;
+  background-color: $darkerBlue;
+  padding: 60px 0;
+
+  &__info {
+    @include infocomponent;
+    flex-shrink: 0;
+    width: calc(50% - 40px);
+    
+    @include for-tablet-portrait-up {
+      width: calc(50% - 80px);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__detaillink {
+    display: flex;
+    cursor: zoom-in;
+  }
+
+  &__doublepage {
+    margin-bottom: $doublePageSeparation;
+
+    @include for-tablet-landscape-up {
+      min-height: $minPageHeight;
+    }
+  }
+
+  &__page {
+    width: 50%;
+    height: 100%;
+    &[lazy=loading] {
+      background-image: url(/assets/c64_loader.gif);
+      height: 300px;
+      background-repeat: no-repeat;
+      background-size: 450px;
+      border: 0;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      image-rendering: -moz-crisp-edges;
+      -ms-interpolation-mode: nearest-neighbor
+    }
+
+    &.scanissue__cover {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__contributorlist {
+    margin: 0 20px;
+
+    @include for-tablet-portrait-up {
+      margin: 0 46px;
+    }
+  }
+
+  &__contributor {
+    line-height: 1.3;
+  }
+
+  &__icon {
+    width: $iconSize;
+    display: block;
+    padding: 0 10px 10px 0;
+    vertical-align: middle;
+
+    @include for-tablet-portrait-up {
+      display: inline-block;
+    }
+  }
+}
+
+.overlay .scanissue {
+  display: none;
+}

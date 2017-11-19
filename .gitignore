@@ -2,4 +2,6 @@ npm-debug.log
 yarn-error.log
 node_modules/
 lib/
-/dist/client-bundle.js*
+/dist/js/client-bundle.js*
+/dist/css/main.css
+.DS_Store*

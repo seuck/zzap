@@ -1,0 +1,30 @@
+@mixin textlink {
+  a {
+    box-shadow: inset 0 -4px 0 $linkColor;
+    border-bottom: 3px solid $linkColor;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $linkColor;
+    }
+  }
+}
+
+@mixin resettextlinkcontent {
+  box-shadow: inherit;
+  border-bottom: none;
+}
+
+@mixin resettextlink {
+  a {
+    @include resettextlinkcontent;
+  }
+}
+
+@mixin imagelink {
+  background-color: $linkColor;
+
+  &:hover img {
+    opacity: 0.4
+  }
+}

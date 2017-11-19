@@ -1,0 +1,84 @@
+.scanindex {
+  @include fullpage;
+
+  color: $white;
+  background-color: $darkerBlue;
+  padding: 60px 0;
+
+  &__info {
+    @include infocomponent;
+  }
+
+  &__issues {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    @include for-tablet-landscape-up {
+      // Workaround to fix element height so that viewport can correctly
+      // calculate position of following elements to scroll to
+      height: 900px;
+    }
+  }
+
+  &__link {
+    width: 79px;
+    display: block;
+
+    &:hover .scanindex__issueinfo {
+      opacity: 1;
+    }
+
+    &--selected .scanindex__issueinfo {
+      opacity: 1;
+      color: $coverLinkColor;
+    }
+  }
+
+  &__image {
+    width: 79px; //Remove after resizing images
+  }
+
+  &__issue {
+    cursor: pointer;
+    position: relative;
+    padding: 1px;
+
+    &padding {
+      cursor: initial;
+
+      @include for-tablet-landscape-up {
+        display: block;
+      }
+    }
+  }
+
+  &__issueinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $translucentOverlay;
+    z-index: 5;
+
+    &__date {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__number {
+      font-size: 2em;
+    }
+  }
+}
+
+.overlay .scanindex {
+  display: none;
+}

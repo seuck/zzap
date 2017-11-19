@@ -1,0 +1,98 @@
+.header {
+
+  @mixin compact-logo {
+    width: 540px;
+    margin-top: -90px;
+    margin-left: -122px;
+  }
+
+  &__container {
+    @include fullpage;
+  }
+
+  &__logo {
+    width: 60%;
+    margin-top: -10%;
+    margin-left: -13.5%;
+    transform-origin: 23% 22%;
+    transform: scale(1);
+    position: fixed;
+    z-index: 100;
+
+    @include for-tablet-landscape-up {
+      width: 540px;
+      margin-top: -90px;
+      margin-left: -122px;
+    }
+  }
+
+  &__navigation {
+    visibility: hidden;
+    opacity: 0;
+    color: $white;
+    position: fixed;
+    z-index: 99;
+    margin: 0 auto;
+    top: 32px;
+    left: 100px;
+    right: 0;
+    background-color: $blue;
+    padding-left: 50px;
+    @include navigationshadow;
+
+    @include for-tablet-landscape-up {
+      width: 750px;
+    }
+  }
+
+  &__navigationelement,
+  &__socialelement {
+    display: inline-block;
+  }
+
+  &__navigationlink,
+  &__sociallink {
+    display: inline-block;
+
+    &:hover,
+    &:focus {
+      background-color: $darkBlue;
+    }
+  }
+
+  &__navigationlink {
+    padding: 9px 12px;
+  }
+
+  &__sociallist {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 40px;
+  }
+
+  &__sociallink {
+    padding: 7px 12px;
+  }
+
+  &__socialimage {
+    width: 22px;
+  }
+
+  &--compact {
+    .header__navigation {
+      @include for-tablet-portrait-up {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .header__logo {
+      @include compact-logo;
+    }
+  }
+}
+
+.overlay .header {
+  display: none;
+}

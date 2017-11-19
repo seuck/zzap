@@ -1,0 +1,7 @@
+.footer {
+  @include fullpage;
+}
+
+.overlay .footer {
+  display: none;
+}
