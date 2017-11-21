@@ -88,7 +88,7 @@ export default {
       return this.doesPageExist(this.actualPage) &&
         typeof this.pages[this.actualPage][pageName] !== `undefined`
     },
-    navigationClass(index) {
+    getNavigationClass(index) {
       const classes = []
       const baseClass = `reader__navigation-page`
       const selectedClass = `reader__navigation-page-actual`
@@ -98,7 +98,18 @@ export default {
         classes.push(selectedClass)
       }
 
-      return classes
+      return classes.join(` `)
+    },
+    getComponentClass() {
+      const baseClass = `reader`
+      const classes = [baseClass]
+      const singlePageClass = `singlepage`
+
+      if (this.pages.length === 1) {
+        classes.push(`${baseClass}--${singlePageClass}`)
+      }
+
+      return classes.join(` `)
     }
   },
   beforeMount() {

@@ -1,5 +1,5 @@
 <template>
-  <section class="reader" v-if="hasContent">
+  <section :class="getComponentClass()" v-if="hasContent">
     <header class="reader__navigator">
       <h2 class="reader__info">{{title}}</h2>
       <a
@@ -10,7 +10,7 @@
       </a>
       <nav class="reader__navigation">
         <ol class="reader__navigation-page-container">
-          <li :class="navigationClass(index)" v-for="(doublepage, index) in pages">
+          <li :class="getNavigationClass(index)" v-for="(doublepage, index) in pages">
             <a @click="actualPage = index">
               <img src="assets/icons/paper-page.svg"/>
             </a>

@@ -1,12 +1,12 @@
 import { scrollToClassWithDefaultOffset } from 'utils/scroll'
-import { CLASS_NAME as contentContainer } from 'components/contentcontainer/contentcontainer'
+import { CLASS_NAME as contentContainerClass } from 'components/contentcontainer/contentcontainer'
 
 export default {
   name: `scroll-link`,
   props: {
     anchor: {
       type: String,
-      required: true
+      required: false
     },
     target: {
       type: String,
@@ -20,12 +20,16 @@ export default {
   },
   data() {
     return {
-      linkTarget: contentContainer
+      linkTarget: contentContainerClass
     }
   },
   methods: {
     scrollToAnchor() {
-      scrollToClassWithDefaultOffset(`${this.linkTarget}__${this.anchor}`)
+      if (typeof this.anchor !== `undefined`) {
+        scrollToClassWithDefaultOffset(`${this.linkTarget}__${this.anchor}`)
+      } else {
+        scrollToClassWithDefaultOffset(`${this.linkTarget}`)
+      }
     }
   },
   mounted() {

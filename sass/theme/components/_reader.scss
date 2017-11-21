@@ -65,4 +65,14 @@
   &__last {
     cursor: e-resize;
   }
+
+  &--singlepage {
+    .reader__navigation {
+      display: none;
+    }
+
+    .reader__content {
+      margin-top: 65px;
+    }
+  }
 }
