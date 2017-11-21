@@ -12,6 +12,7 @@ export default {
   output: {
     path: path.resolve(`./dist/js`),
     publicPath: `/js/`,
+    // publicPath: `/beta/js/`,
     filename: `client-bundle.js`,
     chunkFilename: `client-bundle-[chunkhash].js`
   },
