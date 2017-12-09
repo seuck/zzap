@@ -13,6 +13,8 @@ $bookmarkWidth: 40;
   z-index: 1;
 
   &__container {
+    @include reset-lists;
+
     position: fixed;
     top: 150px;
     right: 0;
@@ -27,6 +29,7 @@ $bookmarkWidth: 40;
   &__bookmark {
     width: #{$bookmarkWidth}px;
     height: 40px;
+    line-height: 1;
     border-radius: 6px 0 0 6px;
     animation-duration: 0.5s;
     animation-name: bookmark-in;

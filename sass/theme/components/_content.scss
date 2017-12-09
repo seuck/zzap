@@ -2,12 +2,20 @@
   @include contentpage(&);
   @include clearfix;
 
+  h2 {
+    margin-top: 0;
+  }
+
   ol {
+    @include reset-lists;
+
     margin: 20px;
     list-style: disc inside none;
   }
 
   ul {
+    @include reset-lists;
+
     margin: 20px 0;
   }
 

@@ -1,6 +1,6 @@
 <template>
   <section class="cover">
-    <h2>Copertina</h2>
+    <h2 hidden>Copertina</h2>
     <div class="cover__baloon">
       <div class="cover__balooncontainer">
         <img src="assets/cover/baloon.svg" alt="baloon">
@@ -8,7 +8,7 @@
       </div>
     </div>
     <nav class="cover__navigation">
-      <ul>
+      <ul class="cover__navigationlist">
         <li><scroll-link target="scanindex" :isScrollOnly=true><span>Scansioni</span><small>Sfoglia Zzap! a tutto schermo</small></scroll-link></li>
         <li><scroll-link anchor="diari-zzap"><span>Diario</span><small>Com'è nato il nuovo Zzap.it</small></scroll-link></li>
         <li><scroll-link anchor="mappe"><small>Solo per temerari esploratori</small><span>Mappe</span></scroll-link></li>

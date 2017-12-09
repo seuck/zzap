@@ -15,6 +15,10 @@
     width: 820px;
   }
 
+  #{$base}__title {
+    margin-top: 0;
+  }
+
   #{$base}__image {
     @include imageshadow;
 

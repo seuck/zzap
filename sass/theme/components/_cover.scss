@@ -15,10 +15,6 @@
     overflow-x: hidden;
   }
 
-  h2 {
-    display: none;
-  }
-
   a:hover,
   a:focus {
       background-color: $coverLinkColor;
@@ -71,6 +67,11 @@
 
     @include for-tablet-landscape-up {
       margin-top: 405px;
+    }
+
+    &list {
+      @include reset-lists;
+      line-height: 1;
     }
 
     li {

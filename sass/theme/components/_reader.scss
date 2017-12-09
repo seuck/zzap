@@ -12,13 +12,13 @@
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,.6);
-    padding: 20px;
+    padding: 14px 20px;
     text-align: center;
   }
 
   &__info {
     padding: 0;
-    margin-bottom: 0;
+    margin: 0;
   }
 
   &__close {
@@ -28,7 +28,7 @@
   }
 
   &__navigation {
-    margin: 20px 46px 0;   
+    margin: 14px 46px 0;   
 
     &-page {
       flex-basis: 22px;
@@ -48,6 +48,8 @@
       }
 
       &-container {
+        @include reset-lists;
+
         display: flex;
         justify-content: center;
       }

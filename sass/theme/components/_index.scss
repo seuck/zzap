@@ -14,7 +14,10 @@
     flex: 0 1 47%;
   }
 
-  &__title {
+  &__listtitle {
+    margin-top: 0;
+    line-height: 1;
+    font-weight: normal;
     background-color: $blue;
     text-transform: uppercase;
   }
@@ -27,6 +30,8 @@
   }
 
   &__list {
+    @include reset-lists;
+
     flex: 1 1 50%;
   }
 
@@ -38,7 +43,7 @@
     padding-top: 8px;
   }
 
-  & .index__title {
+  & .index__listtitle {
     @include resettextlink;
 
     a {

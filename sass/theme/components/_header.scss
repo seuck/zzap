@@ -43,6 +43,16 @@
     @include for-tablet-landscape-up {
       width: 750px;
     }
+
+    &list {
+      @include reset-lists;
+
+      line-height: 1;
+    }
+  
+    &link {
+      padding: 9px 12px;
+    }
   }
 
   &__navigationelement,
@@ -60,11 +70,10 @@
     }
   }
 
-  &__navigationlink {
-    padding: 9px 12px;
-  }
-
   &__sociallist {
+    @include reset-lists;
+
+    line-height: 1;
     position: absolute;
     top: 0;
     right: 0;
