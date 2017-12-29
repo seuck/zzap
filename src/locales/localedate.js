@@ -32,6 +32,17 @@ const CONTENT_TYPES = {
     `News`,
     `Strategia`,
     `Anteprima`,
+    `A bit of fantasy`,
+    `The Word`,
+    `D.I.Y.`,
+    `Utility`,
+    `Bovabyte`,
+    `Hardware`,
+    `Creando creature`,
+    `Ri-creando creature`,
+    `Programmando s'impara`,
+    `Novità dal Sol Levante`,
+    `Scout`,
     // Insert new content types here
     `Quarta di copertina` // Always last content type
   ]
