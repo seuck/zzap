@@ -10,7 +10,7 @@
     <p class="scanissue__editorline">
       <img class="scanissue__icon" src="assets/icons/edit.svg" alt="matita">
       <span class="scanissue__editor">{{issueEditor}}</span>
-      </p>
+    </p>
     <p class="scanissue__contributorlabel">
       <img
         class="scanissue__icon"
@@ -22,6 +22,10 @@
           <a :href="buildContributorPath(contributor.id)">{{contributor.name}}</a>
         </li>
       </ul>
+    </p>
+    <p class="scanissue__pdfline">
+      <img class="scanissue__icon" src="assets/icons/pdf.svg" alt="matita">
+      <a class="scanissue__pdf" :href="pdf">Versione PDF</a> di <a href="http://www.retroedicola.it/">Retroedicola.it</a>
     </p>
   </div>
 </template>

@@ -8,8 +8,14 @@ $minPageHeight: 660px;
   background-color: $darkerBlue;
   padding: 60px 0;
 
+  &__numberline {
+    margin-top: 0;
+  }
+
   &__info {
     @include infocomponent;
+    @include textlink($blue, $white);
+
     flex-shrink: 0;
     width: calc(50% - 40px);
     
@@ -26,6 +32,10 @@ $minPageHeight: 660px;
   &__detaillink {
     display: flex;
     cursor: zoom-in;
+
+    &--intro {
+      cursor: initial;
+    }
   }
 
   &__doublepage {
@@ -58,6 +68,8 @@ $minPageHeight: 660px;
   }
 
   &__contributorlist {
+    @include reset-lists;
+
     margin: 0 20px;
 
     @include for-tablet-portrait-up {
@@ -78,6 +90,13 @@ $minPageHeight: 660px;
     @include for-tablet-portrait-up {
       display: inline-block;
     }
+  }
+
+  &__dateline,
+  &__editorline,
+  &__contributorlabel,
+  &__pdfline {
+    margin: 0;
   }
 }
 

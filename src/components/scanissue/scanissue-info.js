@@ -7,10 +7,11 @@ export default {
     `issueMonth`,
     `issueYear`,
     `issueEditor`,
-    `contributors`],
+    `contributors`,
+    `pdf`],
   methods: {
     buildContributorPath(contributorId) {
-      return `/redazione/${contributorId}`
+      return `redazione/${contributorId}`
     }
   }
 }

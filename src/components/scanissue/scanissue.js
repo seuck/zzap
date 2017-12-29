@@ -1,7 +1,7 @@
 import axios from 'axios'
 import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
-import ScanissueImage from 'components/scanissue/scanissue-info.vue'
+import ScanissueInfo from 'components/scanissue/scanissue-info.vue'
 import * as I18N from 'locales/localedate'
 import { isEmptyObject } from 'utils/object'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
@@ -14,7 +14,7 @@ export default {
   name: COMPONENT_NAME,
   props: [`magazineId`, `issueId`],
   components: {
-    ScanissueImage
+    ScanissueInfo
   },
   data() {
     return {
