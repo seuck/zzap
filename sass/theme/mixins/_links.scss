@@ -18,7 +18,13 @@
     @include external-link(encodecolor($textColor));
     background-repeat: no-repeat;
     background-position: center right;
-    padding-right: 30px;
+    padding-right: 24px;
+  }
+
+  @include for-tablet-portrait-up {
+    a[href*="//"]:after {
+      padding-right: 30px;
+    }
   }
 }
 
