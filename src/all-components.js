@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import VueLazyload from 'vue-lazyload'
 import SmoothscrollPolyfill from 'smoothscroll-polyfill'
 import Basepage from 'components/basepage/basepage.vue'
-import { routes } from 'constants/routes'
+import { routes } from 'routes/routes'
 
 // Init Polyfills
 SmoothscrollPolyfill.polyfill()

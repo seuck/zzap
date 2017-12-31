@@ -23,7 +23,7 @@
         </li>
       </ul>
     </p>
-    <p class="scanissue__pdfline">
+    <p v-if="pdf" class="scanissue__pdfline">
       <img class="scanissue__icon" src="assets/icons/pdf.svg" alt="matita">
       <a class="scanissue__pdf" :href="pdf">Versione PDF</a> di <a href="http://www.retroedicola.it/">Retroedicola.it</a>
     </p>

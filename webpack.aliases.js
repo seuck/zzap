@@ -6,5 +6,6 @@ module.exports = {
   components: path.resolve(__dirname, pkgjson.paths.src, `components`),
   utils: path.resolve(__dirname, pkgjson.paths.src, `utils`),
   locales: path.resolve(__dirname, pkgjson.paths.src, `locales`),
-  constants: path.resolve(__dirname, pkgjson.paths.src, `constants`)
+  constants: path.resolve(__dirname, pkgjson.paths.src, `constants`),
+  routes: path.resolve(__dirname, pkgjson.paths.src, `routes`)
 }

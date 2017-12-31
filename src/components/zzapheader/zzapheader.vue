@@ -2,7 +2,7 @@
   <header class="header">
     <h1>Zzap.it</h1>
     <div class="header__container">
-      <a @click="scrollToCover()"><img class="header__logo" src="assets/cover/zzap-logo.svg" alt="Logo di Zzap!"></a>
+      <a @click="scrollToCover()" title="Homepage"><img class="header__logo" src="assets/cover/zzap-logo.svg" alt="Logo di Zzap!"></a>
       <nav class="header__navigation">
         <ul class="header__navigationlist">
           <li class="header__navigationelement"><a class="header__navigationlink" @click="scrollToClassWithDefaultOffset('index')">Sommario</a></li>
