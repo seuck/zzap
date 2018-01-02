@@ -1,0 +1,35 @@
+.game {
+  @include contentpage(&);
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__property {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  &__genre {
+    display: inline;
+    padding-left: 0;
+  }
+
+  &__genreitem {
+    display: inline-block;
+  }
+
+  &__genreitem + &__genreitem {
+    margin-left: 10px;
+  }
+
+  &__thumbimage {
+    width: 225px;
+    height: 100%;
+  }
+}
+
+.overlay .game {
+  display: none;
+}

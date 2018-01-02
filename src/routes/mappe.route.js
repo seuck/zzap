@@ -1,5 +1,9 @@
 import Mappe from 'components/content/mappe/mappe.vue'
 
+/*
+ * For semantic reasons, please localise both names and routes
+ * according to content language.
+ */
 export default [
   {
     name: `mappe`,

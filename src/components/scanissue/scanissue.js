@@ -3,6 +3,10 @@ import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
 import ScanissueInfo from 'components/scanissue/scanissue-info.vue'
 import * as I18N from 'locales/localedate'
+import {
+  scanBasePath,
+  thumbBasePath
+} from 'constants/paths'
 import { isEmptyObject } from 'utils/object'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
@@ -77,10 +81,10 @@ export default {
       }
     },
     buildPageThumbPath(imagePath) {
-      return `img/thumbs/${imagePath}`
+      return `${thumbBasePath}${imagePath}`
     },
     buildScanPath(imagePath) {
-      return `img/scans/${imagePath}`
+      return `${scanBasePath}${imagePath}`
     },
     getMonth(monthNumber) {
       return I18N.MONTHS.it[monthNumber - 1]

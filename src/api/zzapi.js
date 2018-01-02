@@ -1,5 +1,9 @@
+const basePath = `api/v1/`
+
 export const ZZAPI_RESOURCES = {
-  issue: (magazineId, issueId) => `api/v1/magazine/${magazineId}/issue/${issueId}`,
-  magazine: magazineId => `api/v1/magazine/${magazineId}`
+  game: gameId => `${basePath}game/${gameId}`,
+  gameFinder: query => `${basePath}game/find/${query}`,
+  issue: (magazineId, issueId) => `${basePath}magazine/${magazineId}/issue/${issueId}`,
+  magazine: magazineId => `${basePath}magazine/${magazineId}`
 }
 

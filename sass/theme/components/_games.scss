@@ -1,0 +1,38 @@
+.games {
+  @include contentpage(&);
+
+  &__search {
+    display: flex;
+  }
+
+  &__searchfield {
+    padding: 10px;
+    flex-basis: 100%;
+  }
+
+  &__results {
+    padding-left: 20px;
+  }
+
+  &__resultsitem {
+    display: block;
+  }
+
+  &__resultsitem + &__resultsitem {
+    margin-top: 10px;
+  }
+
+  &__publisher {
+    padding-left: 10px;
+    color: $blue;
+
+    &::before {
+      content: "℗";
+      padding-right: 4px;
+    }
+  }
+}
+
+.overlay .games {
+  display: none;
+}

@@ -36,11 +36,11 @@
   }
 
   &__item {
-    line-height: 1.3;
+    line-height: $lineHeight;
   }
 
   &__item + &__item {
-    padding-top: 8px;
+    padding-top: 15px;
   }
 
   & .index__listtitle {
