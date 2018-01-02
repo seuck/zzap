@@ -1,5 +1,5 @@
 <template>
-  <section class="game">
+  <section class="game game__game">
     <h2>{{game.name}}</h2>
     <div class="game__content">
       <div class="game__details">

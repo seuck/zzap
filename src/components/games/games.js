@@ -1,4 +1,6 @@
 import axios from 'axios'
+import EVENTS from 'constants/events'
+import ANIMATIONS from 'constants/animations'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
 import {
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
@@ -43,5 +45,18 @@ export default {
   },
   mounted() {
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
+
+    window.setTimeout(() => {
+      this.$emit(EVENTS.announceBookmark, [
+        {
+          title: `Giochi`,
+          anchor: COMPONENT_NAME,
+          target: `game`
+        }
+      ])
+    }, ANIMATIONS.bookmarkCloseDelay)
+  },
+  beforeDestroy() {
+    this.$emit(EVENTS.dismissBookmark, [COMPONENT_NAME])
   }
 }

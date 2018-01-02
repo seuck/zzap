@@ -1,5 +1,5 @@
 <template>
-  <section class="games">
+  <section class="games game__games">
     <h2>Giochi</h2>
 
     <form class="games__search">
