@@ -18,8 +18,19 @@
     </div>
     <h3>Versioni</h3>
     <ul class="game__versions">
-      <li class="game_versionsitem" v-for="version in game.versions">
-        <h4>{{version.year}}</h4>
+      <li class="game__versionsitem" v-for="version in game.versions">
+        <h4>{{version.system.manufacturer.name}} {{version.system.name}}: {{version.media.name}}</h4>
+
+        <p v-if="version.reviews && version.reviews.length > 0">
+          <span class="game__property">Recensioni</span><ul class="game__review">
+            <li class="game__reviewitem" v-for="review in version.reviews">
+              <span>{{review.vote}}%</span>
+              <img class="game__thumbimage"
+                :src="buildPageThumbPath(review.page.scan.path)"
+                :srcset="buildPageThumbPath(review.page.scan.path, `2x`)">
+            </li>
+          </ul>
+        </p>
       </li>
     </ul>
   </section>
