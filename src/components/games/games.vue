@@ -2,15 +2,20 @@
   <section class="games game__games">
     <h2>Giochi</h2>
 
+    <p>Tutti i giochi recensiti sulla rivista o apparsi in pubblicitá</p>
+
     <form class="games__search">
       <input class="games__searchfield" v-model="gameQuery" placeholder="Cerca un titolo">
     </form>
 
-    <ul class="games__results" v-if="results.length > 0">
-      <li class="games__resultsitem" v-for="game in results">
+    <ul class="games__results" v-if="hasResults">
+      <li class="games__resultsitem" v-for="game in apiResponse.games">
         <a @click="goToGame(game.id)">{{game.name}}</a><span class="games__publisher" v-if="game.publisher">{{game.publisher.name}}</span>
       </li>
     </ul>
+    <p v-if="noResults">Non abbiamo trovato niente!</p>
+    <button v-if="moreToLoad" @click="loadMoreResults">Altri risultati</button>
+    <p v-if="tooManyResults">Ti abbiamo mostrato solo i primi risultati, prova a cercare qualcosa di piú specifico.</p>
   </section>
 </template>
 

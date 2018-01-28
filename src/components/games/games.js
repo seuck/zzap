@@ -7,22 +7,23 @@ import {
 } from 'utils/scroll'
 
 const COMPONENT_NAME = `games`
+const INITIAL_RESULTS_NUMBER = 15
 
 export default {
   name: COMPONENT_NAME,
   data() {
     return {
       gameQuery: ``,
-      results: []
+      apiResponse: {},
+      errors: []
     }
   },
   methods: {
     searchGames(query) {
       if (typeof query !== `undefined` && query.length >= 2) {
-        this.results = []
         axios.get(ZZAPI_RESOURCES.gameFinder(query))
           .then((response) => {
-            this.results = response.data
+            this.apiResponse = response.data
           })
           .catch(e => this.errors.push(e))
       }
@@ -34,13 +35,40 @@ export default {
       },
       _scrollToClassWithDefaultOffset(`game`)
       )
+    },
+    loadMoreResults() {
+      axios.get(ZZAPI_RESOURCES.gameFinderMore(this.gameQuery))
+        .then((response) => {
+          this.apiResponse.games = this.apiResponse.games.concat(response.data.games)
+        })
+        .catch(e => this.errors.push(e))
+    }
+  },
+  computed: {
+    noResults() {
+      return typeof this.apiResponse.totalEntries !== `undefined` &&
+        this.apiResponse.totalEntries === 0
+    },
+    hasResults() {
+      return typeof this.apiResponse.totalEntries !== `undefined` &&
+        this.apiResponse.totalEntries > 0
+    },
+    moreToLoad() {
+      return typeof this.apiResponse.totalEntries !== `undefined` &&
+        this.apiResponse.games.length <= INITIAL_RESULTS_NUMBER &&
+        this.apiResponse.games.length < this.apiResponse.totalEntries
+    },
+    tooManyResults() {
+      return typeof this.apiResponse.totalEntries !== `undefined` &&
+        this.apiResponse.totalEntries > this.apiResponse.games.length && !this.moreToLoad
     }
   },
   watch: {
     // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
     // eslint-disable-next-line object-shorthand
     gameQuery: function (val) {
-      return this.searchGames(val)
+      this.apiResponse = {}
+      this.searchGames(val)
     }
   },
   mounted() {
