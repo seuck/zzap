@@ -8,7 +8,7 @@
         <div class="scanissue__detaillink scanissue__detaillink--intro">
           <scanissue-info
             :issueNumber="issue.sequence"
-            :issueMonth="getMonth(issue.month)"
+            :issueMonth="getMonthNameFromNumber(issue.month)"
             :issueYear="issue.year"
             :issueEditor="issue.editor.name"
             :contributors="issue.volumes[0].scan_authors"
@@ -21,7 +21,7 @@
           </a>
         </div>
       </div>
-      <div class="scanissue__doublepage" v-for="page in doublePages">
+      <div class="scanissue__doublepage" v-for="page in getDoublePages()">
         <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[page].sequence)">
           <img
             :class="getContentClass(issue.volumes[0].pages[page])"

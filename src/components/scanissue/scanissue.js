@@ -3,13 +3,20 @@ import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
 import ScanissueInfo from 'components/scanissue/scanissue-info.vue'
 import * as I18N from 'locales/localedate'
-import {
-  scanBasePath,
-  thumbBasePath
-} from 'constants/paths'
 import { isEmptyObject } from 'utils/object'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
+import {
+  buildPageThumbPath,
+  buildScanPath
+} from 'utils/image'
+import {
+  doublePages,
+  getIssueReaderData
+} from 'utils/reader'
+import {
+  getMonthNameFromNumber
+} from 'utils/text'
 
 const COMPONENT_NAME = `scanissue`
 const backcoverClass = `backcover`
@@ -24,7 +31,6 @@ export default {
     return {
       issue: {},
       readerData: {},
-      doublePagesCache: [],
       errors: [],
       specialBookmarks: {
         cover: `cover`,
@@ -44,27 +50,12 @@ export default {
     isIssueId() {
       return !isEmptyObject(this.issue)
     },
-    doublePages() {
-      if (this.doublePagesCache.length === 0) {
-        const doublePageArray = []
-
-        if (this.isIssueId) {
-          for (let i = 1; i < this.issue.volumes[0].pages.length - 1; i += 2) {
-            doublePageArray.push(i)
-          }
-        }
-        this.doublePagesCache = doublePageArray
-      }
-
-      return this.doublePagesCache
-    },
     anchors() {
       return this.bookmarks.map(bookmark => bookmark.anchor)
     }
   },
   methods: {
     resetLoadedIssue() {
-      this.doublePagesCache = []
       this.readerData = {}
       this.dismissBookmarks()
     },
@@ -80,44 +71,21 @@ export default {
           .catch(e => this.errors.push(e))
       }
     },
+    getDoublePages() {
+      return doublePages(this.issue)
+    },
     buildPageThumbPath(imagePath) {
-      return `${thumbBasePath}${imagePath}`
+      return buildPageThumbPath(imagePath)
     },
     buildScanPath(imagePath) {
-      return `${scanBasePath}${imagePath}`
+      return buildScanPath(imagePath)
     },
-    getMonth(monthNumber) {
-      return I18N.MONTHS.it[monthNumber - 1]
+    getMonthNameFromNumber(monthNumber) {
+      return getMonthNameFromNumber(monthNumber)
     },
     getReaderData(startPage) {
       if (isEmptyObject(this.readerData)) {
-        const data = {}
-        const formattedDate = `${this.getMonth(+this.issue.month)} ${this.issue.year}`
-
-        // eslint-disable-next-line max-len
-        data.title = `${this.issue.magazine.name} ${I18N.TEXTS.it.issue} ${this.issue.sequence} - ${formattedDate}`
-        data.pages = []
-
-        // Cover
-        data.pages.push(this.buildDoublePageForReader(
-          undefined,
-          this.issue.volumes[0].pages[0]
-        ))
-
-        // Spreads
-        this.doublePages.forEach((page) => {
-          data.pages.push(this.buildDoublePageForReader(
-            this.issue.volumes[0].pages[+page],
-            this.issue.volumes[0].pages[+page + 1]
-          ))
-        })
-
-        // Back cover
-        data.pages.push(this.buildDoublePageForReader(
-          this.issue.volumes[0].pages[this.issue.volumes[0].pages.length - 1]
-        ))
-
-        this.readerData = data
+        this.readerData = getIssueReaderData(this.issue)
       }
       this.readerData.startPage = Math.floor(+startPage / 2)
       this.readerData.returnBookmark = `${COMPONENT_NAME}__${startPage}`

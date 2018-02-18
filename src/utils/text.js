@@ -1,3 +1,7 @@
+import {
+  MONTHS
+} from 'locales/localedate'
+
 export const addLeftPadding = function (text, paddingChar, maxLength) {
   let paddedText = text.toString()
 
@@ -6,4 +10,8 @@ export const addLeftPadding = function (text, paddingChar, maxLength) {
   }
 
   return paddedText
+}
+
+export function getMonthNameFromNumber(monthNumber) {
+  return MONTHS.it[monthNumber - 1]
 }
