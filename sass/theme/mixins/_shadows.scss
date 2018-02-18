@@ -5,3 +5,7 @@
 @mixin navigationshadow {
   box-shadow: 7px 5px 30px 0px $translucentShadow;
 }
+
+@mixin textoverlayshadow {
+  text-shadow: 0px 0px 10px $darkGrey;
+}

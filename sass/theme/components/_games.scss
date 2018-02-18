@@ -3,15 +3,18 @@
 
   &__search {
     display: flex;
+    margin: 20px 0;
   }
 
   &__searchfield {
-    padding: 10px;
     flex-basis: 100%;
+    padding: 8px 10px;
+    border: $blue solid 2px;
   }
 
   &__results {
-    padding-left: 20px;
+    padding: 0 20px;
+    margin: 40px 0;
   }
 
   &__resultsitem {
@@ -30,6 +33,10 @@
       content: "℗";
       padding-right: 4px;
     }
+  }
+
+  &__more {
+    @include button;
   }
 }
 

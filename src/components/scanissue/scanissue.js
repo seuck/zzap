@@ -12,7 +12,7 @@ import {
 } from 'utils/image'
 import {
   doublePages,
-  getIssueReaderData
+  buildIssueReaderData
 } from 'utils/reader'
 import {
   getMonthNameFromNumber
@@ -30,7 +30,6 @@ export default {
   data() {
     return {
       issue: {},
-      readerData: {},
       errors: [],
       specialBookmarks: {
         cover: `cover`,
@@ -56,7 +55,6 @@ export default {
   },
   methods: {
     resetLoadedIssue() {
-      this.readerData = {}
       this.dismissBookmarks()
     },
     loadIssue(issueId) {
@@ -84,13 +82,11 @@ export default {
       return getMonthNameFromNumber(monthNumber)
     },
     getReaderData(startPage) {
-      if (isEmptyObject(this.readerData)) {
-        this.readerData = getIssueReaderData(this.issue)
-      }
-      this.readerData.startPage = Math.floor(+startPage / 2)
-      this.readerData.returnBookmark = `${COMPONENT_NAME}__${startPage}`
+      const readerData = buildIssueReaderData(
+        this.issue, startPage, `${COMPONENT_NAME}__${startPage}`
+      )
 
-      return this.readerData
+      return readerData
     },
     buildDoublePageForReader(firstPage, lastPage) {
       const doublePage = {}

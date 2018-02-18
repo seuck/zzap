@@ -5,3 +5,15 @@
     padding: 0 40px 30px 40px;
   }
 }
+
+@mixin button {
+  margin-left: 20px;
+  padding: 8px 10px;
+  border: $blue solid 2px;
+  color: $blue;
+
+  &:hover {
+    color: #fff;
+    background-color: #40A7E9;
+  }
+}

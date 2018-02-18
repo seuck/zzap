@@ -12,25 +12,38 @@
         <p v-if="game.perspective"><span class="game__property">Prospettiva</span>{{game.perspective.name}}</p>
         <p v-if="game.setting"><span class="game__property">Ambientazione</span>{{game.setting.name}}</p>
       </div>
-      <img class="game__thumbimage" v-if="game.adverts && game.adverts.length > 0"
-        :src="buildPageThumbPath(game.adverts[0].page.scan.path)"
-        :srcset="buildPageThumbPath(game.adverts[0].page.scan.path, `2x`)">
+      <content-image v-if="game.adverts && game.adverts.length > 0"
+        extraClass="game__thumbimage"
+        namespace="game"
+        noSrcset="true"
+        align="right"
+        rotation="cw"
+        alt="advImageDescription()"
+        @openReader="openReader($event)"
+        :imagePath="buildPageThumbPath(game.adverts[0].page.scan.path)"
+        :readerData="getAdvData()"
+      ></content-image>
     </div>
     <h3>Versioni</h3>
     <ul class="game__versions">
       <li class="game__versionsitem" v-for="version in game.versions">
         <h4>{{version.system.manufacturer.name}} {{version.system.name}}: {{version.media.name}}</h4>
-
-        <p v-if="version.reviews && version.reviews.length > 0">
-          <span class="game__property">Recensioni</span><ul class="game__review">
-            <li class="game__reviewitem" v-for="review in version.reviews">
-              <span>{{review.vote}}%</span>
-              <img class="game__thumbimage"
-                :src="buildPageThumbPath(review.page.scan.path)"
-                :srcset="buildPageThumbPath(review.page.scan.path, `2x`)">
-            </li>
-          </ul>
-        </p>
+        <div class="game__review" v-if="version.reviews && version.reviews.length > 0">
+          <span class="game__global">Globale: {{version.reviews[0].vote}}%</span>
+          <content-image
+            extraClass="game__thumbimage"
+            namespace="game"
+            noSrcset="true"
+            align="left"
+            alt="reviewImageDescription()"
+            @openReader="openReader($event)"
+            :imagePath="buildPageThumbPath(version.reviews[0].page.scan.path)"
+            :readeDataMagazineId="1"
+            :readeDataIssueId="version.reviews[0].volume_id"
+            :readeDataStartPage="version.reviews[0].page.sequence"
+            readeDataReturnBookmark="game__game"
+          ></content-image>
+        </div>
       </li>
     </ul>
   </section>

@@ -2,7 +2,7 @@
   <section class="games game__games">
     <h2>Giochi</h2>
 
-    <p>Tutti i giochi recensiti sulla rivista o apparsi in pubblicitá</p>
+    <p>Cerca tra tutti i giochi recensiti e pubblicizzati sulla rivista.</p>
 
     <form class="games__search">
       <input class="games__searchfield" v-model="gameQuery" placeholder="Cerca un titolo">
@@ -14,7 +14,7 @@
       </li>
     </ul>
     <p v-if="noResults">Non abbiamo trovato niente!</p>
-    <button v-if="moreToLoad" @click="loadMoreResults">Altri risultati</button>
+    <button class="games__more" v-if="moreToLoad" @click="loadMoreResults">Mostra più risultati</button>
     <p v-if="tooManyResults">Ti abbiamo mostrato solo i primi risultati, prova a cercare qualcosa di piú specifico.</p>
   </section>
 </template>

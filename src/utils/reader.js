@@ -1,3 +1,6 @@
+import axios from 'axios'
+import EVENTS from 'constants/events'
+import { ZZAPI_RESOURCES } from 'api/zzapi'
 import {
   TEXTS
 } from 'locales/localedate'
@@ -41,7 +44,7 @@ export function doublePages(issue) {
   return doublePageArray
 }
 
-export function getIssueReaderData(issueData) {
+export function buildIssueReaderData(issueData, startPage, returnBookmark) {
   const data = {}
   const formattedDate = `${getMonthNameFromNumber(+issueData.month)} ${issueData.year}`
 
@@ -68,5 +71,20 @@ export function getIssueReaderData(issueData) {
     issueData.volumes[0].pages[issueData.volumes[0].pages.length - 1]
   ))
 
+  data.startPage = Math.floor(+startPage / 2)
+  data.returnBookmark = returnBookmark
+
   return data
 }
+
+export function getIssueReaderDataAndOpenReader(
+  magazineId, issueId, returnBookmark, startPage = 0) {
+  axios.get(ZZAPI_RESOURCES.issue(magazineId, issueId))
+    .then((response) => {
+      const readerData = buildIssueReaderData(response.data, startPage, returnBookmark)
+
+      // return Promise
+      // this.$emit(EVENTS.openReader, readerData)
+    })
+}
+

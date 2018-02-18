@@ -4,8 +4,8 @@
 
 @mixin textlink($color: $linkColor, $textColor: $darkGrey) {
   a {
-    box-shadow: inset 0 -4px 0 $color;
-    border-bottom: 3px solid $color;
+    box-shadow: inset 0 -2px 0 $color;
+    border-bottom: 2px solid $color;
     background-color: transparent;
 
     &:hover {

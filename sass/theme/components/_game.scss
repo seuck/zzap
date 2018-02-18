@@ -4,6 +4,12 @@
   &__content {
     display: flex;
     justify-content: space-between;
+    flex-flow: wrap;
+    padding-bottom: 20px;
+  }
+
+  &__details {
+    margin-bottom: 20px;
   }
 
   &__property {
@@ -24,9 +30,34 @@
     margin-left: 10px;
   }
 
-  &__thumbimage {
+  &__thumbimage img {
     width: 225px;
-    height: 100%;
+    height: auto;
+  }
+
+  &__versions {
+    padding: 0 20px;
+    margin: 0;
+  }
+
+  &__versionsitem {
+    list-style: none;
+  }
+
+  &__review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 225px;
+    height: auto;
+  }
+
+  &__global {
+    position: absolute;
+    z-index: 1;
+    font-size: 150%;
+    color: $white;
+    @include textoverlayshadow;
   }
 }
 

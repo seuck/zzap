@@ -1,9 +1,10 @@
 import axios from 'axios'
+import ContentImage from 'components/contentimage/contentimage.vue'
 import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
 import {
-  // scanBasePath,
+  scanBasePath,
   thumbBasePath
 } from 'constants/paths'
 import {
@@ -15,6 +16,9 @@ const COMPONENT_NAME = `game`
 export default {
   name: COMPONENT_NAME,
   props: [`gameId`],
+  components: {
+    ContentImage
+  },
   data() {
     return {
       game: {},
@@ -40,8 +44,17 @@ export default {
           .catch(e => this.errors.push(e))
       }
     },
+    buildPageScanPath(imagePath) {
+      return `${scanBasePath}${imagePath}`
+    },
     buildPageThumbPath(imagePath, xFactor = ``) {
       return `${thumbBasePath}${imagePath} ${xFactor}`
+    },
+    advImageDescription() {
+      return `Publicità di ${this.game.name}`
+    },
+    reviewImageDescription() {
+      return `Recensione di ${this.game.name}`
     },
     announceBookmarks() {
       // Gives time to destroyed pages to close their bookmarks
@@ -57,6 +70,24 @@ export default {
     },
     dismissBookmarks() {
       this.$emit(EVENTS.dismissBookmark, [COMPONENT_NAME])
+    },
+    getAdvData() {
+      return {
+        title: `Publicità - ${this.game.name}`,
+        startPage: 0,
+        returnBookmark: `${COMPONENT_NAME}__game`,
+        pages: [
+          {
+            first: {
+              label: `Publicità`,
+              path: this.buildPageScanPath(this.game.adverts[0].page.scan.path)
+            }
+          }
+        ]
+      }
+    },
+    openReader(readerData) {
+      this.$emit(EVENTS.openReader, readerData)
     }
   },
   mounted() {
