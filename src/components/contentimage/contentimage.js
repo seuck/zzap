@@ -1,7 +1,7 @@
 import EVENTS from 'constants/events'
 import { getRetinaPath } from 'utils/image'
 import {
-  getIssueReaderDataAndOpenReader
+  getIssueReaderDataAndCallCallback
 } from 'utils/reader'
 
 /**
@@ -67,12 +67,14 @@ export default {
   methods: {
     openReader() {
       if (typeof this.readeDataMagazineId !== `undefined`) {
-        getIssueReaderDataAndOpenReader(
-          this.readeDataMagazineId,
-          this.readeDataIssueId,
-          this.readeDataReturnBookmark,
-          this.readeDataStartPage
-        )
+        getIssueReaderDataAndCallCallback({
+          magazineId: this.readeDataMagazineId,
+          issueId: this.readeDataIssueId,
+          returnBookmark: this.readeDataReturnBookmark,
+          startPage: this.readeDataStartPage
+        }, (readerData) => {
+          this.$emit(EVENTS.openReader, readerData)
+        })
       } else {
         this.$emit(EVENTS.openReader, this.readerData)
       }

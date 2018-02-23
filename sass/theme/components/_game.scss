@@ -53,11 +53,12 @@
   }
 
   &__global {
+    @include textoverlayshadow;
     position: absolute;
     z-index: 1;
     font-size: 150%;
     color: $white;
-    @include textoverlayshadow;
+    pointer-events: none;
   }
 }
 

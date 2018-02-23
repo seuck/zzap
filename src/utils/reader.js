@@ -1,5 +1,4 @@
 import axios from 'axios'
-import EVENTS from 'constants/events'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
 import {
   TEXTS
@@ -77,14 +76,14 @@ export function buildIssueReaderData(issueData, startPage, returnBookmark) {
   return data
 }
 
-export function getIssueReaderDataAndOpenReader(
-  magazineId, issueId, returnBookmark, startPage = 0) {
+export function getIssueReaderDataAndCallCallback({
+  magazineId, issueId, returnBookmark, startPage = 0
+}, callback) {
   axios.get(ZZAPI_RESOURCES.issue(magazineId, issueId))
     .then((response) => {
       const readerData = buildIssueReaderData(response.data, startPage, returnBookmark)
 
-      // return Promise
-      // this.$emit(EVENTS.openReader, readerData)
+      callback(readerData)
     })
 }
 
