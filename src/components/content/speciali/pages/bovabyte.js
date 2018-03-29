@@ -41,19 +41,8 @@ export default extend(true, {}, basecontent, {
 
       return pages
     },
-    getReaderData() {
-      return {
-        title: `Antologia di BovaByte`,
-        startPage: 0,
-        returnBookmark: `content__speciali-bovabyte`,
-        pages: this.generateReaderPages(`assets/content/speciali/bovabyte/bva/`, `.jpg`, 36)
-      }
-    },
     getBovaByte2ReaderData(issue) {
       return {
-        title: `BovaByte 2 - Numero ${issue}`,
-        startPage: 0,
-        returnBookmark: `content__speciali-bovabyte`,
         pages: [
           {
             first: {
@@ -65,7 +54,18 @@ export default extend(true, {}, basecontent, {
               path: `assets/content/speciali/bovabyte/bv2/bovabyte2-${issue}-2.jpg`
             }
           }
-        ]
+        ],
+        returnBookmark: `content__speciali-bovabyte`,
+        startPage: 0,
+        title: `BovaByte 2 - Numero ${issue}`
+      }
+    },
+    getReaderData() {
+      return {
+        pages: this.generateReaderPages(`assets/content/speciali/bovabyte/bva/`, `.jpg`, 36),
+        returnBookmark: `content__speciali-bovabyte`,
+        startPage: 0,
+        title: `Antologia di BovaByte`
       }
     },
     openReader(readerData) {

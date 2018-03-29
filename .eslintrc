@@ -1,8 +1,38 @@
 {
   "root": true,
-  "extends": ["airbnb-base"],
+  "extends": [
+    "airbnb-base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "compat"
+  ],
+  "settings": {
+    "polyfills": ["promises"]
+  },
+  "globals": {
+    "WEBPACK_VARIABLE_IS_PRODUCTION": true
+  },
   "rules": {
-    "quotes": ["error", "backtick"],
+    "comma-dangle": ["error", "never"],
+    "max-len": [
+      "error",
+      {
+        "ignoreComments": false,
+        "ignorePattern": "^import*",
+        "ignoreRegExpLiterals": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreUrls": true,
+        "code": 100
+      }
+    ],
+    "max-lines": ["error", { "max": 400, "skipBlankLines": true, "skipComments": true}],
+    "max-params": ["error", 5],
+    "no-console": ["error"],
+    "no-multiple-empty-lines": ["error", { "max": 1 } ],
     "no-param-reassign": ["error", { "props": false }],
     "padding-line-between-statements": [
       "error",
@@ -12,23 +42,44 @@
       { "blankLine": "always", "prev": "directive", "next": "*" },
       { "blankLine": "any",    "prev": "directive", "next": "directive" }
     ],
-    "no-plusplus": "off",
-    "no-underscore-dangle": "off",
-    "comma-dangle": ["error", "never"],
-    "global-require": "off",
-    "no-multiple-empty-lines": ["error", { "max": 1 } ],
-    "max-len": [
-      "error",
-      {
-        "ignoreUrls": true,
-        "code": 100
-      }
-    ],
+    "quotes": ["error", "backtick"],
     "semi": [
       "error",
       "never"
     ],
+    "sort-keys": ["warn", "asc", {"caseSensitive": true, "natural": true}],
+    "valid-jsdoc": ["error", {
+      "prefer": { 
+        "arg": "param", 
+        "argument": "param", 
+        "class": "constructor", 
+        "return": "return", 
+        "virtual": "abstract" 
+      },
+      "preferType": { 
+        "Function": "function",
+        "Boolean": "boolean", 
+        "Number": "number", 
+        "object": "object", 
+        "String": "string" 
+      },
+      "requireReturn": false,
+      "requireParamDescription": false,
+      "requireReturnDescription": false
+    }],
+
+    // overwrite/extend airbnb-eslint rules
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    // deactivated airbnb-eslint rules
+    "function-paren-newline": "off",
+    "global-require": "off",
     "func-names": "off",
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "prefer-destructuring": "off",
+
+    // plugin-import
+    // deactivated rules, mostly because they doesn't play well with webpack
     "import/extensions": "off",
     "import/no-absolute-path": "off",
     "import/no-extraneous-dependencies": "off",
@@ -37,7 +88,10 @@
     "import/no-named-as-default": "off",
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
-    "import/no-dynamic-require": "off"
+    "import/no-dynamic-require": "off",
+
+    // plugin compat
+    "compat/compat": "error"
   },
   "env": {
     "browser": true

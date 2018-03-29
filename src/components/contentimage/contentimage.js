@@ -10,24 +10,6 @@ import {
  */
 
 export default {
-  name: `content__image`,
-  props: [
-    `align`,
-    `alt`,
-    `caption`,
-    `extraClass`,
-    `imagePath`,
-    `linkUrl`,
-    `namespace`,
-    `noShadow`,
-    `noSrcset`,
-    `readerData`,
-    `readeDataMagazineId`,
-    `readeDataIssueId`,
-    `readeDataReturnBookmark`,
-    `readeDataStartPage`,
-    `rotation`
-  ],
   computed: {
     fullStyle() {
       const styles = []
@@ -68,8 +50,8 @@ export default {
     openReader() {
       if (typeof this.readeDataMagazineId !== `undefined`) {
         getIssueReaderDataAndCallCallback({
-          magazineId: this.readeDataMagazineId,
           issueId: this.readeDataIssueId,
+          magazineId: this.readeDataMagazineId,
           returnBookmark: this.readeDataReturnBookmark,
           startPage: this.readeDataStartPage
         }, (readerData) => {
@@ -79,5 +61,23 @@ export default {
         this.$emit(EVENTS.openReader, this.readerData)
       }
     }
-  }
+  },
+  name: `content__image`,
+  props: [
+    `align`,
+    `alt`,
+    `caption`,
+    `extraClass`,
+    `imagePath`,
+    `linkUrl`,
+    `namespace`,
+    `noShadow`,
+    `noSrcset`,
+    `readerData`,
+    `readeDataMagazineId`,
+    `readeDataIssueId`,
+    `readeDataReturnBookmark`,
+    `readeDataStartPage`,
+    `rotation`
+  ]
 }

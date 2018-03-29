@@ -8,15 +8,15 @@ import webpack from 'webpack-stream'
 import webpackConfig from './webpack.config'
 
 const paths = {
+  allSass: `sass/**/*.scss`,
   allSrcJs: `src/**/*.js`,
   allSrcToWatch: `src/**/*.{js,vue}`,
-  clientEntryPoint: `src/all-components.js`,
-  allSass: `sass/**/*.scss`,
   clientBundle: `dist/client-bundle.js?(.map)`,
-  gulpFile: `gulpfile.babel.js`,
-  webpackFile: `webpack.config.js`,
+  clientEntryPoint: `src/all-components.js`,
   distCssDir: `dist/css`,
-  distJsDir: `dist/js`
+  distJsDir: `dist/js`,
+  gulpFile: `gulpfile.babel.js`,
+  webpackFile: `webpack.config.js`
 }
 
 gulp.task(`clean`, () => del([

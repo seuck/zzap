@@ -9,61 +9,61 @@ const isProduction = process.env.NODE_ENV !== `production`
 
 export default {
   entry: `./src/all-components.js`,
-  output: {
-    path: path.resolve(`./dist/js`),
-    publicPath: `/js/`,
-    // publicPath: `/beta/js/`,
-    filename: `client-bundle.js`,
-    chunkFilename: `client-bundle-[chunkhash].js`
-  },
   module: {
     loaders: [
       {
-        test: /\.vue$/,
-        loader: `vue-loader`
+        loader: `vue-loader`,
+        test: /\.vue$/
       },
       {
-        test: /\.js?$/,
+        exclude: [/node_modules/],
         loader: `babel-loader`,
-        exclude: [/node_modules/]
+        test: /\.js?$/
       }
     ]
   },
-  resolve: {
-    alias: aliases
+  output: {
+    chunkFilename: `client-bundle-[chunkhash].js`,
+    filename: `client-bundle.js`,
+    path: path.resolve(`./dist/js`),
+    publicPath: `/js/`
+    // publicPath: `/beta/js/`
   },
   plugins: [
     new webpack.DefinePlugin(constants),
     new webpack.optimize.CommonsChunkPlugin({
+      filename: `common.js`,
       minChunks: 2,
-      name: `common`,
-      filename: `common.js`
+      name: `common`
     }),
     // see http://lisperator.net/uglifyjs/compress
     new webpack.optimize.UglifyJsPlugin({
+      beautify: isProduction,
+      comments: isProduction,
       compress: {
-        sequences: false, // join consecutive statemets with the “comma operator”
-        properties: false, // optimize property access: a["foo"] → a.foo
+        booleans: false, // optimize boolean expressions
+        cascade: false, // try to cascade `right` into `left` in sequences
+        comparisons: false, // optimize comparisons
+        conditionals: false, // optimize if-s and conditional expressions
         dead_code: true, // discard unreachable code
         drop_debugger: isProduction, // discard “debugger” statements
-        unsafe: false, // some unsafe optimizations (see below)
-        conditionals: false, // optimize if-s and conditional expressions
-        comparisons: false, // optimize comparisons
         evaluate: true, // evaluate constant expressions
-        booleans: false, // optimize boolean expressions
-        loops: false, // optimize loops
-        unused: true, // drop unused variables/functions
         hoist_funs: false, // hoist function declarations
         hoist_vars: false, // hoist variable declarations
         if_return: false, // optimize if-s followed by return/continue
         join_vars: false, // join var declarations
-        cascade: false, // try to cascade `right` into `left` in sequences
+        loops: false, // optimize loops
+        properties: false, // optimize property access: a["foo"] → a.foo
+        sequences: false, // join consecutive statemets with the “comma operator”
         side_effects: true, // drop side-effect-free statements
+        unsafe: false, // some unsafe optimizations (see below)
+        unused: true, // drop unused variables/functions
         warnings: false // warn about potentially dangerous optimizations/code
       },
-      mangle: isProduction,
-      beautify: isProduction,
-      comments: isProduction
+      mangle: isProduction
     })
-  ]
+  ],
+  resolve: {
+    alias: aliases
+  }
 }

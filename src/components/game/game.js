@@ -14,25 +14,58 @@ import {
 const COMPONENT_NAME = `game`
 
 export default {
-  name: COMPONENT_NAME,
-  props: [`gameId`],
+  beforeDestroy() {
+    this.dismissBookmarks()
+  },
   components: {
     ContentImage
   },
   data() {
     return {
-      game: {},
-      errors: []
-    }
-  },
-  watch: {
-    // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
-    // eslint-disable-next-line object-shorthand
-    gameId: function (val) {
-      this.loadGame(val)
+      errors: [],
+      game: {}
     }
   },
   methods: {
+    advImageDescription() {
+      return `Publicità di ${this.game.name}`
+    },
+    announceBookmarks() {
+      // Gives time to destroyed pages to close their bookmarks
+      window.setTimeout(() => {
+        this.$emit(EVENTS.announceBookmark, [
+          {
+            anchor: COMPONENT_NAME,
+            target: `game`,
+            title: this.game.name
+          }
+        ])
+      }, ANIMATIONS.bookmarkCloseDelay)
+    },
+    buildPageScanPath(imagePath) {
+      return `${scanBasePath}${imagePath}`
+    },
+    buildPageThumbPath(imagePath, xFactor = ``) {
+      return `${thumbBasePath}${imagePath} ${xFactor}`
+    },
+    dismissBookmarks() {
+      this.$emit(EVENTS.dismissBookmark, [COMPONENT_NAME])
+    },
+    getAdvData() {
+      return {
+        pages: [
+          {
+            first: {
+              label: `Publicità`,
+              path: this.buildPageScanPath(this.game.adverts[0].page.scan.path)
+            }
+          }
+        ],
+        returnBookmark: `${COMPONENT_NAME}__game`,
+        startPage: 0,
+        title: `Publicità - ${this.game.name}`
+      }
+    },
     loadGame(gameId) {
       if (gameId !== ``) {
         axios.get(ZZAPI_RESOURCES.game(this.gameId))
@@ -44,57 +77,24 @@ export default {
           .catch(e => this.errors.push(e))
       }
     },
-    buildPageScanPath(imagePath) {
-      return `${scanBasePath}${imagePath}`
-    },
-    buildPageThumbPath(imagePath, xFactor = ``) {
-      return `${thumbBasePath}${imagePath} ${xFactor}`
-    },
-    advImageDescription() {
-      return `Publicità di ${this.game.name}`
+    openReader(readerData) {
+      this.$emit(EVENTS.openReader, readerData)
     },
     reviewImageDescription() {
       return `Recensione di ${this.game.name}`
-    },
-    announceBookmarks() {
-      // Gives time to destroyed pages to close their bookmarks
-      window.setTimeout(() => {
-        this.$emit(EVENTS.announceBookmark, [
-          {
-            title: this.game.name,
-            anchor: COMPONENT_NAME,
-            target: `game`
-          }
-        ])
-      }, ANIMATIONS.bookmarkCloseDelay)
-    },
-    dismissBookmarks() {
-      this.$emit(EVENTS.dismissBookmark, [COMPONENT_NAME])
-    },
-    getAdvData() {
-      return {
-        title: `Publicità - ${this.game.name}`,
-        startPage: 0,
-        returnBookmark: `${COMPONENT_NAME}__game`,
-        pages: [
-          {
-            first: {
-              label: `Publicità`,
-              path: this.buildPageScanPath(this.game.adverts[0].page.scan.path)
-            }
-          }
-        ]
-      }
-    },
-    openReader(readerData) {
-      this.$emit(EVENTS.openReader, readerData)
     }
   },
   mounted() {
     this.loadGame(this.gameId)
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
   },
-  beforeDestroy() {
-    this.dismissBookmarks()
+  name: COMPONENT_NAME,
+  props: [`gameId`],
+  watch: {
+    // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
+    // eslint-disable-next-line object-shorthand
+    gameId: function (val) {
+      this.loadGame(val)
+    }
   }
 }

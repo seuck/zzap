@@ -6,11 +6,11 @@ import Scanissue from 'components/scanissue/scanissue.vue'
  */
 export default [
   {
-    name: `numero`,
-    path: `/numero/:issueId`,
     components: {
       issue: Scanissue
     },
+    name: `numero`,
+    path: `/numero/:issueId`,
     props: {
       issue: true
     }

@@ -14,12 +14,12 @@ const innerRoutes = [].concat(Diari, Giochi, Mappe, Numero, Speciali, Zzap, Demo
 
 export const routes = [
   {
-    path: `/`,
+    children: innerRoutes,
     component: Home,
-    children: innerRoutes
+    path: `/`
   },
   {
-    path: `*`,
-    component: NotFoundComponent
+    component: NotFoundComponent,
+    path: `*`
   }
 ]

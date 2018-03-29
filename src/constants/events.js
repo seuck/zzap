@@ -1,7 +1,7 @@
 export default {
-  openReader: `openReader`,
-  closeReader: `closeReader`,
-  selectedIssue: `selectedIssue`,
   announceBookmark: `announceBookmark`,
-  dismissBookmark: `dismissBookmark`
+  closeReader: `closeReader`,
+  dismissBookmark: `dismissBookmark`,
+  openReader: `openReader`,
+  selectedIssue: `selectedIssue`
 }

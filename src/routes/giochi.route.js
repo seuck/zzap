@@ -6,22 +6,20 @@ import Games from 'components/games/games.vue'
  */
 export default [
   {
+    components: {
+      content: Games
+    },
     name: `giochi`,
-    path: `giochi`,
-    components: {
-      content: Games
-    }
+    path: `giochi`
   },
   {
+    components: {
+      content: Games
+    },
     name: `giochi-query`,
-    path: `giochi/:query`,
-    components: {
-      content: Games
-    }
+    path: `giochi/:query`
   },
   {
-    name: `gioco`,
-    path: `gioco/:gameId`,
     components: {
       content: Games,
       followup: (resolve) => {
@@ -29,6 +27,8 @@ export default [
         require([`components/game/game.vue`], resolve)
       }
     },
+    name: `gioco`,
+    path: `gioco/:gameId`,
     props: {
       followup: true
     }
