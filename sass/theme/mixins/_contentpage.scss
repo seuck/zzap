@@ -41,6 +41,10 @@
       &no-shadow {
         box-shadow: initial;
       }
+
+      &link-reader a {
+        cursor: zoom-in;
+      }
     }
   }
 }

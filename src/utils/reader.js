@@ -4,14 +4,14 @@ import {
   TEXTS
 } from 'locales/localedate'
 import {
-  scanBasePath
+  pathScans
 } from 'constants/paths'
 import {
   getMonthNameFromNumber
 } from 'utils/text'
 
 function buildScanPath(imagePath) {
-  return `${scanBasePath}${imagePath}`
+  return `${pathScans}${imagePath}`
 }
 
 function buildDoublePageForReader(firstPage, lastPage) {

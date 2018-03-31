@@ -18,6 +18,28 @@
       <p>Ho cercato di utilizzare solo i 16 colori della palette del C64, mai tutti visibili contemporaneamente nel gioco. Infatti come conseguenza della ben nota limitazione del modo multicolore del C64, lo sfondo utilizza solo quattro colori, tre fissi e uno alterabile per ciascun carattere. Per agiungere varietá alle varie zone, i tre colori fissi cambiano ogni volta che Jack entra in una nuova area, di solito attraversando un tunnel oscuro, e facendosi luce con una candela.</p>
 
       <p>Esiste inoltre una versione disegnata della mappa di "Jack the nipper 2" nel numero 21, Marzo 1988, di Zzap!</p>
+      <content-image
+        extraClass="map__thumbimage"
+        align="left"
+        alt="La mappa di Jack the nipper 2 su Zzap!"
+        @openReader="openReader($event)"
+        :imagePath="getScanPathForContent(`zzap/21/46.jpg`)"
+        :readeDataMagazineId="1"
+        :readeDataIssueId="21"
+        :readeDataStartPage="46"
+        readeDataReturnBookmark="content__mappe-jackthenipper2"
+      ></content-image>
+      <content-image
+        extraClass="map__thumbimage"
+        align="left"
+        alt="La mappa di Jack the nipper 2 su Zzap!"
+        @openReader="openReader($event)"
+        :imagePath="getScanPathForContent(`zzap/21/47.jpg`)"
+        :readeDataMagazineId="1"
+        :readeDataIssueId="21"
+        :readeDataStartPage="47"
+        readeDataReturnBookmark="content__mappe-jackthenipper2"
+      ></content-image>
     </content-section>
   </content-container>
 </template>

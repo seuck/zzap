@@ -3,29 +3,22 @@ import { ZZAPI_RESOURCES } from 'api/zzapi'
 import {
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
 } from 'utils/scroll'
+import { pathThumbsIssueSelector } from 'constants/paths'
 import { getRetinaPath } from 'utils/image'
 
 const COMPONENT_NAME = `scanindex`
 
 export default {
-  name: COMPONENT_NAME,
-  props: [`magazineId`],
-  data() {
-    return {
-      magazine: {},
-      errors: []
-    }
-  },
   computed: {
-    magazineName() {
-      return this.magazine.name.replace(/[^a-z0-9]/gi, ``).toLowerCase()
-    },
     issues() {
       if (typeof this.magazine !== `undefined`) {
         return this.magazine.issues
       }
 
       return []
+    },
+    magazineName() {
+      return this.magazine.name.replace(/[^a-z0-9]/gi, ``).toLowerCase()
     },
     paddingIssues() {
       if (typeof this.issues !== `undefined`) {
@@ -35,20 +28,15 @@ export default {
       return []
     }
   },
+  data() {
+    return {
+      errors: [],
+      magazine: {}
+    }
+  },
   methods: {
-    loadMagazine() {
-      axios.get(ZZAPI_RESOURCES.magazine(this.magazineId))
-        .then((response) => {
-          this.magazine = response.data
-        })
-        .catch(e => this.errors.push(e))
-    },
-    selectIssue(issueId) {
-      this.$root.$router.push({ name: `numero`, params: { issueId } })
-      _scrollToClassWithDefaultOffset(`scanissue`)
-    },
     buildCoverThumbPath(issue) {
-      return `img/issue_selector/${this.magazineName}/${issue.sequence}.jpg`
+      return `${pathThumbsIssueSelector}${this.magazineName}/${issue.sequence}.jpg`
     },
     buildRetinaCoverThumbPath(issue) {
       return getRetinaPath(this.buildCoverThumbPath(issue))
@@ -62,9 +50,22 @@ export default {
       }
 
       return linkClasses.join(` `)
+    },
+    loadMagazine() {
+      axios.get(ZZAPI_RESOURCES.magazine(this.magazineId))
+        .then((response) => {
+          this.magazine = response.data
+        })
+        .catch(e => this.errors.push(e))
+    },
+    selectIssue(issueId) {
+      this.$root.$router.push({ name: `numero`, params: { issueId } })
+      _scrollToClassWithDefaultOffset(`scanissue`)
     }
   },
   mounted() {
     this.loadMagazine()
-  }
+  },
+  name: COMPONENT_NAME,
+  props: [`magazineId`]
 }

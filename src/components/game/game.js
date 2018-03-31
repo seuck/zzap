@@ -4,8 +4,8 @@ import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
 import {
-  scanBasePath,
-  thumbBasePath
+  pathScans,
+  pathThumbsScan
 } from 'constants/paths'
 import {
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
@@ -43,10 +43,10 @@ export default {
       }, ANIMATIONS.bookmarkCloseDelay)
     },
     buildPageScanPath(imagePath) {
-      return `${scanBasePath}${imagePath}`
+      return `${pathScans}${imagePath}`
     },
     buildPageThumbPath(imagePath, xFactor = ``) {
-      return `${thumbBasePath}${imagePath} ${xFactor}`
+      return `${pathThumbsScan}${imagePath} ${xFactor}`
     },
     dismissBookmarks() {
       this.$emit(EVENTS.dismissBookmark, [COMPONENT_NAME])

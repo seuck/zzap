@@ -22,9 +22,12 @@ export default {
       if (typeof this.extraClass !== `undefined`) {
         styles.push(this.extraClass)
       }
-      if (typeof this.linkUrl !== `undefined` ||
-        typeof this.readerData !== `undefined`) {
+      if (typeof this.linkUrl !== `undefined`) {
         styles.push(`${baseStyle}--link`)
+      }
+      if (typeof this.readerData !== `undefined` ||
+          typeof this.readeDataMagazineId !== `undefined`) {
+        styles.push(`${baseStyle}--link-reader`)
       }
       if (typeof this.align !== `undefined`) {
         styles.push(`${baseStyle}--${this.align}`)

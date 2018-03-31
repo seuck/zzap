@@ -1,17 +1,4 @@
 export default {
-  name: `reader-image`,
-  props: {
-    path: ``,
-    label: ``,
-    labelPrefix: ``
-  },
-  data() {
-    return {
-      defaultLabelPrefix: `Pagina`,
-      navigationHint: `Premi per sfogliare`,
-      pageNumberSeparator: `di`
-    }
-  },
   computed: {
     decoratedLabel() {
       let label
@@ -35,5 +22,18 @@ export default {
 
       return labelWithNavigationHint
     }
+  },
+  data() {
+    return {
+      defaultLabelPrefix: `Pagina`,
+      navigationHint: `Premi per sfogliare`,
+      pageNumberSeparator: `di`
+    }
+  },
+  name: `reader-image`,
+  props: {
+    label: ``,
+    labelPrefix: ``,
+    path: ``
   }
 }

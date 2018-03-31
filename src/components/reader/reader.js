@@ -14,10 +14,19 @@ const KEY_CODES = {
 }
 
 export default {
-  name: COMPONENT_NAME,
-  props: [`pages`, `startPage`, `title`, `returnBookmark`],
+  beforeMount() {
+    this.initActualPage(this.startPage)
+  },
+  beforeUpdate() {
+    this.initActualPage(this.startPage)
+  },
   components: {
     ReaderImage
+  },
+  computed: {
+    hasContent() {
+      return this.pages && this.pages.length > 0
+    }
   },
   data() {
     return {
@@ -25,27 +34,54 @@ export default {
       keyupEventListenerAtteched: false
     }
   },
-  computed: {
-    hasContent() {
-      return this.pages && this.pages.length > 0
-    }
-  },
   methods: {
+    close() {
+      window.document.removeEventListener(KEY_EVENT, this.keyboardEventHandler)
+      this.keyupEventListenerAtteched = false
+      this.$emit(EVENTS.closeReader)
+      this.actualPage = ``
+    },
     doesPageExist(pageNumber) {
       return typeof this.pages[pageNumber] !== `undefined`
     },
-    nextPage() {
-      const nextPage = +this.actualPage + 1
+    getComponentClass() {
+      const baseClass = `reader`
+      const classes = [baseClass]
+      const singlePageClass = `singlepage`
 
-      if (this.doesPageExist(nextPage)) {
-        this.actualPage = nextPage
+      if (this.pages.length === 1) {
+        classes.push(`${baseClass}--${singlePageClass}`)
       }
-    },
-    previousPage() {
-      const previousPage = +this.actualPage - 1
 
-      if (this.doesPageExist(previousPage)) {
-        this.actualPage = previousPage
+      return classes.join(` `)
+    },
+    getNavigationClass(index) {
+      const classes = []
+      const baseClass = `reader__navigation-page`
+      const selectedClass = `reader__navigation-page-actual`
+
+      classes.push(baseClass)
+      if (index === this.actualPage) {
+        classes.push(selectedClass)
+      }
+
+      return classes.join(` `)
+    },
+    hasPage(pageName) {
+      return this.doesPageExist(this.actualPage) &&
+        typeof this.pages[this.actualPage][pageName] !== `undefined`
+    },
+    initActualPage(pageNumber) {
+      if (this.actualPage === `` && typeof pageNumber !== `undefined`) {
+        if (this.doesPageExist(pageNumber)) {
+          this.actualPage = +pageNumber
+        } else {
+          this.actualPage = 0
+        }
+        if (!this.keyupEventListenerAtteched) {
+          window.document.addEventListener(KEY_EVENT, this.keyboardEventHandler)
+          this.keyupEventListenerAtteched = true
+        }
       }
     },
     keyboardEventHandler(event) {
@@ -65,59 +101,23 @@ export default {
         default:
       }
     },
-    initActualPage(pageNumber) {
-      if (this.actualPage === `` && typeof pageNumber !== `undefined`) {
-        if (this.doesPageExist(pageNumber)) {
-          this.actualPage = +pageNumber
-        } else {
-          this.actualPage = 0
-        }
-        if (!this.keyupEventListenerAtteched) {
-          window.document.addEventListener(KEY_EVENT, this.keyboardEventHandler)
-          this.keyupEventListenerAtteched = true
-        }
+    nextPage() {
+      const nextPage = +this.actualPage + 1
+
+      if (this.doesPageExist(nextPage)) {
+        this.actualPage = nextPage
       }
     },
-    close() {
-      window.document.removeEventListener(KEY_EVENT, this.keyboardEventHandler)
-      this.keyupEventListenerAtteched = false
-      this.$emit(EVENTS.closeReader)
-      this.actualPage = ``
-    },
-    hasPage(pageName) {
-      return this.doesPageExist(this.actualPage) &&
-        typeof this.pages[this.actualPage][pageName] !== `undefined`
-    },
-    getNavigationClass(index) {
-      const classes = []
-      const baseClass = `reader__navigation-page`
-      const selectedClass = `reader__navigation-page-actual`
+    previousPage() {
+      const previousPage = +this.actualPage - 1
 
-      classes.push(baseClass)
-      if (index === this.actualPage) {
-        classes.push(selectedClass)
+      if (this.doesPageExist(previousPage)) {
+        this.actualPage = previousPage
       }
-
-      return classes.join(` `)
-    },
-    getComponentClass() {
-      const baseClass = `reader`
-      const classes = [baseClass]
-      const singlePageClass = `singlepage`
-
-      if (this.pages.length === 1) {
-        classes.push(`${baseClass}--${singlePageClass}`)
-      }
-
-      return classes.join(` `)
     }
   },
-  beforeMount() {
-    this.initActualPage(this.startPage)
-  },
-  beforeUpdate() {
-    this.initActualPage(this.startPage)
-  }
+  name: COMPONENT_NAME,
+  props: [`pages`, `startPage`, `title`]
 }
 
 /*

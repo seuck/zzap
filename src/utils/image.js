@@ -1,6 +1,6 @@
 import {
-  scanBasePath,
-  thumbBasePath
+  pathScans,
+  pathThumbsScan
 } from 'constants/paths'
 
 export const getRetinaPath = function (imagePath) {
@@ -13,9 +13,9 @@ export const getRetinaPath = function (imagePath) {
 }
 
 export function buildPageThumbPath(imagePath) {
-  return `${thumbBasePath}${imagePath}`
+  return `${pathThumbsScan}${imagePath}`
 }
 
 export function buildScanPath(imagePath) {
-  return `${scanBasePath}${imagePath}`
+  return `${pathScans}${imagePath}`
 }
