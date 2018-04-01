@@ -19,16 +19,21 @@
       </nav>
     </header>
     <div class="reader__content">
-      <a class="reader__first" v-if="hasPage('first')" @click="previousPage">
-        <reader-image
-          :path="pages[actualPage].first.path"
-          :label="pages[actualPage].first.label"/>
-      </a>
-      <a class="reader__last" v-if="hasPage('last')" @click="nextPage">
-        <reader-image
-          :path="pages[actualPage].last.path"
-          :label="pages[actualPage].last.label"/>
-      </a>
+      <div class="reader__side" v-if="infoPath">
+        <img :src="infoPath">
+      </div>
+      <div class="reader__spreads">
+        <a class="reader__first" v-if="hasPage('first')" @click="previousPage">
+          <reader-image
+            :path="pages[actualPage].first.path"
+            :label="pages[actualPage].first.label"/>
+        </a>
+        <a class="reader__last" v-if="hasPage('last')" @click="nextPage">
+          <reader-image
+            :path="pages[actualPage].last.path"
+            :label="pages[actualPage].last.label"/>
+        </a>
+      </div>
     </div>
   </section>
 </template>

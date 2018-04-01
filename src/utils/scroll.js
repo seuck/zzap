@@ -3,10 +3,10 @@ const JUMP_BEHAVIOR = `auto`
 const CONTENT_OFFSET = 55
 
 /**
- * @param {string} className 
- * @param {object} [options] 
+ * @param {string} className
+ * @param {object} [options]
  * @param {string} [options.behavior] `auto`|`smooth`
- * @param {number} [options.offset] 
+ * @param {number} [options.offset]
  */
 export function scrollToClassWithOptions(className, options = {}) {
   // eslint-disable-next-line no-console
@@ -17,9 +17,9 @@ export function scrollToClassWithOptions(className, options = {}) {
   if (element !== null) {
     if (typeof options.offset !== `undefined`) {
       window.scroll({
-        top: element.offsetTop - options.offset,
+        behavior: options.behavior,
         left: 0,
-        behavior: options.behavior
+        top: element.offsetTop - options.offset
       })
     } else {
       element.scrollIntoView(options)

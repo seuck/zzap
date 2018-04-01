@@ -5,7 +5,7 @@ import ContentImage from 'components/contentimage/contentimage.vue'
 export default {
   components: {
     ContentContainer,
-    ContentSection,
-    ContentImage
+    ContentImage,
+    ContentSection
   }
 }

@@ -3,27 +3,31 @@ import EVENTS from 'constants/events'
 import ContentContainer from 'components/contentcontainer/contentcontainer.vue'
 import ContentSection from 'components/contentsection/contentsection.vue'
 import ContentImage from 'components/contentimage/contentimage.vue'
+import DoubleSpread from 'components/doublespread/doublespread.vue'
+import SingleSpread from 'components/singlespread/singlespread.vue'
 import ScrollLink from 'components/scrolllink/scrolllink.vue'
 import {
-  pathThumbsContent
-} from 'constants/paths'
+  buildScanPathForContent
+} from 'utils/image'
 
 export default {
   components: {
     ContentContainer,
     ContentImage,
     ContentSection,
-    ScrollLink
+    DoubleSpread,
+    ScrollLink,
+    SingleSpread
   },
   methods: {
     announceBookmark(payload) {
       this.$emit(EVENTS.announceBookmark, payload)
     },
+    buildScanPathForContent(imagePath) {
+      return buildScanPathForContent(imagePath)
+    },
     dismissBookmark(payload) {
       this.$emit(EVENTS.dismissBookmark, payload)
-    },
-    getScanPathForContent(imagePath) {
-      return `${pathThumbsContent}${imagePath}`
     },
     openReader(readerData) {
       this.$emit(EVENTS.openReader, readerData)

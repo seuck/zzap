@@ -7,6 +7,7 @@
       :title="readerData.title"
       :open="readerData.open"
       :returnBookmark="readerData.returnBookmark"
+      :infoPath="readerData.infoPath"
       @closeReader="resetReader"
     ></reader>
     
