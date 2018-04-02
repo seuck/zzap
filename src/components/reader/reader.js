@@ -117,7 +117,7 @@ export default {
     }
   },
   name: COMPONENT_NAME,
-  props: [`pages`, `startPage`, `title`, `infoPath`]
+  props: [`labelPrefix`, `pages`, `startPage`, `title`, `infoPath`]
 }
 
 /*

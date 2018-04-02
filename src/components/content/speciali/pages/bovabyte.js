@@ -43,6 +43,7 @@ export default extend(true, {}, basecontent, {
     },
     getBovaByte2ReaderData(issue) {
       return {
+        labelPrefix: `Pagina`,
         pages: [
           {
             first: {

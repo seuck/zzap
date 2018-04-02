@@ -26,12 +26,16 @@
         <a class="reader__first" v-if="hasPage('first')" @click="previousPage">
           <reader-image
             :path="pages[actualPage].first.path"
-            :label="pages[actualPage].first.label"/>
+            :label="pages[actualPage].first.label"
+            :labelPrefix="labelPrefix"
+            :multi="pages.length > 1"/>
         </a>
         <a class="reader__last" v-if="hasPage('last')" @click="nextPage">
           <reader-image
             :path="pages[actualPage].last.path"
-            :label="pages[actualPage].last.label"/>
+            :label="pages[actualPage].last.label"
+            :labelPrefix="labelPrefix"
+            :multi="pages.length > 1"/>
         </a>
       </div>
     </div>

@@ -8,6 +8,7 @@
       :open="readerData.open"
       :returnBookmark="readerData.returnBookmark"
       :infoPath="readerData.infoPath"
+      :labelPrefix="readerData.labelPrefix"
       @closeReader="resetReader"
     ></reader>
     

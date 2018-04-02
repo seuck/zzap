@@ -5,9 +5,9 @@ export default {
 
       if (typeof this.label !== `undefined`) {
         if (typeof this.labelPrefix !== `undefined`) {
-          label = `${this.labelPrefix}: ${this.label}`
+          label = `${this.labelPrefix} ${this.label}`
         } else {
-          label = `${this.defaultLabelPrefix}: ${this.label}`
+          label = `${this.label}`
         }
       }
 
@@ -17,7 +17,11 @@ export default {
       let labelWithNavigationHint = ``
 
       if (typeof this.label !== `undefined`) {
-        labelWithNavigationHint = `${this.decoratedLabel} - ${this.navigationHint}`
+        labelWithNavigationHint = `${this.decoratedLabel}`
+
+        if (this.multi) {
+          labelWithNavigationHint = `${labelWithNavigationHint} - ${this.navigationHint}`
+        }
       }
 
       return labelWithNavigationHint
@@ -25,15 +29,14 @@ export default {
   },
   data() {
     return {
-      defaultLabelPrefix: `Pagina`,
-      navigationHint: `Premi per sfogliare`,
-      pageNumberSeparator: `di`
+      navigationHint: `Premi per sfogliare`
     }
   },
   name: `reader-image`,
   props: {
     label: ``,
     labelPrefix: ``,
+    multi: false,
     path: ``
   }
 }
