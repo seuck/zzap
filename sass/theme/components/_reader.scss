@@ -2,7 +2,6 @@
   position: relative;
 
   &__content {
-    margin-top: 101px;
     display: flex;
     position: fixed;
     top: 0;
@@ -14,6 +13,7 @@
   &__side {
     overflow-y: auto;
     flex-shrink: 0;
+    background-color: $black;
   }
 
   &__spreads {
@@ -21,14 +21,20 @@
     overflow: auto;
   }
 
+  &__spreads,
+  &__reader_side {
+    padding-top: 101px;
+  }
+
   &__navigator {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0,0,0,.6);
+    background-color: $translucentOverlay;
     padding: 14px 20px;
     text-align: center;
+    z-index: 1;
   }
 
   &__info {
@@ -88,8 +94,17 @@
       display: none;
     }
 
-    .reader__content {
-      margin-top: 65px;
+    .reader__spreads,
+    .reader__side {
+      padding-top: 65px;
+    }
+
+    .reader__first {
+      cursor: initial;
+    }
+  
+    .reader__last {
+      cursor: initial;
     }
   }
 }

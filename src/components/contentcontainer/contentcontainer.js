@@ -8,8 +8,9 @@ const COMPONENT_NAME = `content-container`
 const CLASS_NAME = `content`
 
 export default {
-  name: COMPONENT_NAME,
-  props: [`title`, `date`, `anchor`],
+  beforeDestroy() {
+    this.$emit(EVENTS.dismissBookmark, [this.anchor])
+  },
   data() {
     return {
       componentClass: `${CLASS_NAME} ${CLASS_NAME}__${this.anchor}`
@@ -29,9 +30,8 @@ export default {
       ])
     }, ANIMATIONS.bookmarkCloseDelay)
   },
-  beforeDestroy() {
-    this.$emit(EVENTS.dismissBookmark, [this.anchor])
-  }
+  name: COMPONENT_NAME,
+  props: [`title`, `date`, `anchor`]
 }
 
 export {
