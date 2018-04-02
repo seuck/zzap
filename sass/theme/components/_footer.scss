@@ -1,5 +1,17 @@
 .footer {
-  @include fullpage;
+  @include contentpage(&);
+  @include textlink($blue, $white);
+
+  color: $white;
+  background-image: url(../assets/crt.jpg);
+
+  &__navigation {
+    margin-top: 20px;
+
+    a + a {
+      margin-left: 10px;
+    }
+  }
 }
 
 .overlay .footer {

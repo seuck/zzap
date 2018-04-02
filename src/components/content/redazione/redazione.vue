@@ -10,8 +10,7 @@
 
     <p>Ma non saremmo arrivati da nessuna parte senza il prezioso aiuto dei tanti appassionati di Zzap!<br>
       Chi sta dietro all'immane lavoro di scansione di tutti i numeri della rivista?<br>
-      Ben tredici volenterosi <scroll-link anchor="redazione-maghidelloscanner">maghi dello scanner</scroll-link>,
-      con il beneplacido di Paolo Besser.</p>
+      Ben tredici volenterosi <scroll-link anchor="redazione-maghidelloscanner">maghi dello scanner</scroll-link>!</p>
     
     <p>Zzap.it utilizza tanti elementi liberamente disponibili sul web,
       <scroll-link anchor="redazione-ringraziamenti">ecco i dettagli</scroll-link>.</p>

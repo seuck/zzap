@@ -19,7 +19,8 @@
         <li
           class="scanissue__contributor"
           v-for="contributor in contributors">
-          <a :href="buildContributorPath(contributor.id)">{{contributor.name}}</a>
+          <!--a :href="buildContributorPath(contributor.id)">{{contributor.name}}</a-->
+          {{contributor.name}}
         </li>
       </ul>
     </p>

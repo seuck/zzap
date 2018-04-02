@@ -9,9 +9,6 @@ const CONTENT_OFFSET = 55
  * @param {number} [options.offset]
  */
 export function scrollToClassWithOptions(className, options = {}) {
-  // eslint-disable-next-line no-console
-  console.log(`Scroll to: ${className}`)
-
   const element = document.querySelector(`.${className}`)
 
   if (element !== null) {

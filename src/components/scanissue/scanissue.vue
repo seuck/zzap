@@ -26,11 +26,9 @@
           <img
             :class="getContentClass(issue.volumes[0].pages[page])"
             v-lazy="buildPageThumbPath(issue.volumes[0].pages[page].scan.path)">
-          {{issue.volumes[0].pages[page].id}}
           <img
             :class="getContentClass(issue.volumes[0].pages[page + 1])"
             v-lazy="buildPageThumbPath(issue.volumes[0].pages[page + 1].scan.path)">
-          {{issue.volumes[0].pages[page+1].id}}
         </a>
       </div>
       <div class="scanissue__doublepage">
