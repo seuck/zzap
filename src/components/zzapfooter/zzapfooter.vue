@@ -8,7 +8,7 @@
     </p>
     <nav>
       <a href="progetto">Il Progetto</a>
-      <a href="redazione">Redazione</a>
+      <scroll-link anchor="redazione">Redazione</scroll-link>
       <a href="rassegna-stampa">Rassegna stampa</a>
       <a href="note-legali">Note legali</a>
     </nav>

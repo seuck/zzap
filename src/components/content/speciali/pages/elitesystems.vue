@@ -58,14 +58,14 @@ Oltre alla versione per GBA, esiste anche per i palmari Compaq e Palm. Attualmen
 
       <p>Parlando di Elite non posso non citare alcuni titoli passati alla storia (esagero, diciamo famosi) divisi per categorie.</p>
 
-      <ol>
+      <ul>
           <li>Jump’n’ run: Beond the ice place, Bomb Jack, Bomb Jack II, Dragon’s Lair (Software project la versione per C64), Ghost’n Goblins, Gremlins 2, Mighty Bombjack, Thundercats</li>
           <li>Shoot’em up: 1942, Airwolf, Commando, First Strike, Ikari Warriors, Sigma 7, Space Harrier</li>
           <li>Stetegy: Batty</li>
           <li>Race: Boggy boy, PaperBoy</li>
           <li>Action: Critical Mass</li>
           <li>Sport: Frank Bruno’s boxing, Passing shoot</li>
-      </ol>
+      </ul>
     </content-section>
   </content-container>
 </template>

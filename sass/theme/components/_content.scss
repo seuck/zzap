@@ -10,13 +10,17 @@
     @include reset-lists;
 
     margin: 20px;
-    list-style: disc inside none;
+    list-style-type: decimal;
+
+    li {
+      margin-left: 40px;
+    }
   }
 
   ul {
     @include reset-lists;
 
-    margin: 20px 0;
+    margin: 20px;
   }
 
   li {

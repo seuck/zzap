@@ -38,14 +38,14 @@ Visto il grande successo dello Speedking la Konix ne realizzò versioni per PC e
         ></content-image>
         Ma purtroppo la console non vide mai la luce a parte forse qualche esemplare dimostrativo per una serie di motivi fra i quali i continui cambiamenti dell'hardware e i continui posticipi della data di uscita che scoraggiarono le software house dall'investire risorse sullo sviluppo per questa macchina. Ad esempio la memoria ram dela consolle doveva essere inizialmente di 128k per poi essere portata a 256k con la possibilità di espansione fino a 512k dopo le critiche subite da parte di alcune software house, quindi ai definitivi 512k negli ultimi modelli.</p>
       <p>Vediamo dunque le specifiche tecniche della console:
-        <ol>
+        <ul>
           <li>Il <strong>processore</strong> era un 8086 a 16 bit affiancato da un coprocessore custom ASIC a 12mhz comprendente video generator, colour palette, disk controller, Blitter, ROM, fast RAM, 12 MIP Arithmetic and Logic Unit, RISC Digital Signal Processor, stereo compact disk DACs and digital and analogue ports.</li>
           <li>La <strong>memoria</strong> ram come già detto era di 256k (512k successivamente).</li>
           <li>Le <strong>risoluzioni</strong> grafiche 256x200 a 256 colori, 256x200 a 16 colori e 512x200 a 16 colori il tutto da una paletta di 4096 colori.</li>
           <li>Il <strong>sonoro</strong> stereo a 25 canali con qualità CD ed output via TV o cuffie.</li>
           <li><strong>Uscite video</strong> standard Tv o RGB composito.</li>
           <li>Il <strong>software</strong> risiedeva su dischetti da 3,5 con capacità da 880k o su cartuccia.</li>
-        </ol>
+        </ul>
         Dopo il fallimento del Konix multisystem e lo scioglimento delle due società la Flare continuò lo sviluppo dell'hardware del Flare One producendo il Flare Two che fu poi venduto ad Atari e diventò l'<strong>Atari Jaguar</strong>.
       </p>
     </content-section>
