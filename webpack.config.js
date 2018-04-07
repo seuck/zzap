@@ -27,7 +27,6 @@ export default {
     filename: `client-bundle.js`,
     path: path.resolve(`./dist/js`),
     publicPath: `/js/`
-    // publicPath: `/beta/js/`
   },
   plugins: [
     new webpack.DefinePlugin(constants),
