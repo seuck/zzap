@@ -9,8 +9,8 @@ import webpackConfig from './webpack.config'
 import { paths } from './package.json'
 
 gulp.task(`clean`, () => del([
-  `${paths.distDir}/${paths.distJsDir}`,
-  `${paths.distDir}/${paths.distCssDir}`
+  `${paths.publicDir}/${paths.publicJsDir}`,
+  `${paths.publicDir}/${paths.publicCssDir}`
 ]))
 
 gulp.task(`watch`, () => {
@@ -33,13 +33,13 @@ gulp.task(`css`, () =>
   gulp.src(paths.allSass)
     .pipe(sass().on(`error`, sass.logError))
     .pipe(postcss([autoprefixer()]))
-    .pipe(gulp.dest(`${paths.distDir}/${paths.distCssDir}`))
+    .pipe(gulp.dest(`${paths.publicDir}/${paths.publicCssDir}`))
 )
 
 gulp.task(`main`, [`css`, `lint`, `clean`], () =>
   gulp.src(paths.entryJS)
     .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest(`${paths.distDir}/${paths.distJsDir}`))
+    .pipe(gulp.dest(`${paths.publicDir}/${paths.publicJsDir}`))
 )
 
 gulp.task(`prod`, [`main`])

@@ -25,8 +25,8 @@ export default {
   output: {
     chunkFilename: `${values.bundle_filename}-[chunkhash].js`,
     filename: `${values.bundle_filename}.js`,
-    path: path.resolve(`${paths.distDir}/${paths.distJsDir}`),
-    publicPath: `/${paths.distJsDir}/`
+    path: path.resolve(`${paths.publicDir}/${paths.publicJsDir}`),
+    publicPath: `/${paths.publicJsDir}/`
   },
   plugins: [
     new webpack.DefinePlugin(constants),
