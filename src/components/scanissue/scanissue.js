@@ -22,71 +22,37 @@ const COMPONENT_NAME = `scanissue`
 const backcoverClass = `backcover`
 
 export default {
-  name: COMPONENT_NAME,
-  props: [`magazineId`, `issueId`],
+  beforeDestroy() {
+    this.dismissBookmarks()
+  },
   components: {
     ScanissueInfo
   },
-  data() {
-    return {
-      issue: {},
-      errors: [],
-      specialBookmarks: {
-        cover: `cover`,
-        backcover: backcoverClass
-      },
-      bookmarks: []
-    }
-  },
-  watch: {
-    // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
-    // eslint-disable-next-line object-shorthand
-    issueId: function (val) {
-      this.loadIssue(val)
-    }
-  },
   computed: {
-    isIssueId() {
-      return !isEmptyObject(this.issue)
-    },
     anchors() {
       return this.bookmarks.map(bookmark => bookmark.anchor)
+    },
+    isIssueId() {
+      return !isEmptyObject(this.issue)
+    }
+  },
+  data() {
+    return {
+      bookmarks: [],
+      errors: [],
+      issue: {},
+      specialBookmarks: {
+        backcover: backcoverClass,
+        cover: `cover`
+      }
     }
   },
   methods: {
-    resetLoadedIssue() {
-      this.dismissBookmarks()
-    },
-    loadIssue(issueId) {
-      if (issueId !== ``) {
-        axios.get(ZZAPI_RESOURCES.issue(this.magazineId, this.issueId))
-          .then((response) => {
-            this.resetLoadedIssue()
-            this.issue = response.data
-            this.bookmarks = this.getBookmarks()
-            this.announceBookmarks()
-          })
-          .catch(e => this.errors.push(e))
-      }
-    },
-    getDoublePages() {
-      return doublePages(this.issue)
-    },
-    buildPageThumbPath(imagePath) {
-      return buildPageThumbPath(imagePath)
-    },
-    buildScanPath(imagePath) {
-      return buildScanPath(imagePath)
-    },
-    getMonthNameFromNumber(monthNumber) {
-      return getMonthNameFromNumber(monthNumber)
-    },
-    getReaderData(startPage) {
-      const readerData = buildIssueReaderData(
-        this.issue, startPage, `${COMPONENT_NAME}__${startPage}`
-      )
-
-      return readerData
+    announceBookmarks() {
+      // Gives time to destroyed pages to close their bookmarks
+      window.setTimeout(() => {
+        this.$emit(EVENTS.announceBookmark, this.bookmarks)
+      }, ANIMATIONS.bookmarkCloseDelay)
     },
     buildDoublePageForReader(firstPage, lastPage) {
       const doublePage = {}
@@ -106,8 +72,39 @@ export default {
 
       return doublePage
     },
-    openReader(startPage) {
-      this.$emit(EVENTS.openReader, this.getReaderData(startPage))
+    buildPageThumbPath(imagePath) {
+      return buildPageThumbPath(imagePath)
+    },
+    buildScanPath(imagePath) {
+      return buildScanPath(imagePath)
+    },
+    dismissBookmarks() {
+      this.$emit(EVENTS.dismissBookmark, this.anchors)
+    },
+    getBookmarks() {
+      const bookmarks = [{
+        anchor: this.specialBookmarks.cover,
+        target: COMPONENT_NAME,
+        title: I18N.CONTENT_TYPES.it[0]
+      }]
+
+      this.issue.volumes[0].pages.forEach((page) => {
+        page.content.forEach((content) => {
+          bookmarks.push({
+            anchor: `content-type-${content.content_type_id}`,
+            target: COMPONENT_NAME,
+            title: I18N.CONTENT_TYPES.it[content.content_type_id]
+          })
+        })
+      })
+
+      bookmarks.push({
+        anchor: this.specialBookmarks.backcover,
+        target: COMPONENT_NAME,
+        title: I18N.CONTENT_TYPES.it[I18N.CONTENT_TYPES.it.length - 1]
+      })
+
+      return bookmarks
     },
     getContentClass(pageData) {
       const baseClass = `page`
@@ -128,49 +125,52 @@ export default {
 
       return classes.map(cls => `${COMPONENT_NAME}__${cls}`).join(` `)
     },
-    getBookmarks() {
-      const bookmarks = [{
-        title: I18N.CONTENT_TYPES.it[0],
-        anchor: this.specialBookmarks.cover,
-        target: COMPONENT_NAME
-      }]
+    getDoublePages() {
+      return doublePages(this.issue)
+    },
+    getMonthNameFromNumber(monthNumber) {
+      return getMonthNameFromNumber(monthNumber)
+    },
+    getReaderData(startPage) {
+      const readerData = buildIssueReaderData(
+        this.issue, startPage, `${COMPONENT_NAME}__${startPage}`
+      )
 
-      this.issue.volumes[0].pages.forEach((page) => {
-        page.content.forEach((content) => {
-          bookmarks.push({
-            title: I18N.CONTENT_TYPES.it[content.content_type_id],
-            anchor: `content-type-${content.content_type_id}`,
-            target: COMPONENT_NAME
+      return readerData
+    },
+    loadIssue(issueId) {
+      if (issueId !== ``) {
+        axios.get(ZZAPI_RESOURCES.issue(this.magazineId, this.issueId))
+          .then((response) => {
+            this.resetLoadedIssue()
+            this.issue = response.data
+            this.bookmarks = this.getBookmarks()
+            this.announceBookmarks()
           })
-        })
-      })
-
-      bookmarks.push({
-        title: I18N.CONTENT_TYPES.it[I18N.CONTENT_TYPES.it.length - 1],
-        anchor: this.specialBookmarks.backcover,
-        target: COMPONENT_NAME
-      })
-
-      return bookmarks
+          .catch(e => this.errors.push(e))
+      }
     },
-    announceBookmarks() {
-      // Gives time to destroyed pages to close their bookmarks
-      window.setTimeout(() => {
-        this.$emit(EVENTS.announceBookmark, this.bookmarks)
-      }, ANIMATIONS.bookmarkCloseDelay)
+    openReader(startPage) {
+      this.$emit(EVENTS.openReader, this.getReaderData(startPage))
     },
-    dismissBookmarks() {
-      this.$emit(EVENTS.dismissBookmark, this.anchors)
+    resetLoadedIssue() {
+      this.dismissBookmarks()
     }
   },
   mounted() {
     this.loadIssue(this.issueId)
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
   },
+  name: COMPONENT_NAME,
+  props: [`magazineId`, `issueId`],
   updated() {
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
   },
-  beforeDestroy() {
-    this.dismissBookmarks()
+  watch: {
+    // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
+    // eslint-disable-next-line object-shorthand
+    issueId: function (val) {
+      this.loadIssue(val)
+    }
   }
 }

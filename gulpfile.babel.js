@@ -6,22 +6,11 @@ import del from 'del'
 import eslint from 'gulp-eslint'
 import webpack from 'webpack-stream'
 import webpackConfig from './webpack.config'
-
-const paths = {
-  allSass: `sass/**/*.scss`,
-  allSrcJs: `src/**/*.js`,
-  allSrcToWatch: `src/**/*.{js,vue}`,
-  clientBundle: `dist/client-bundle.js?(.map)`,
-  clientEntryPoint: `src/all-components.js`,
-  distCssDir: `dist/css`,
-  distJsDir: `dist/js`,
-  gulpFile: `gulpfile.babel.js`,
-  webpackFile: `webpack.config.js`
-}
+import { paths } from './package.json'
 
 gulp.task(`clean`, () => del([
-  paths.distJsDir,
-  paths.distCssDir
+  `${paths.distDir}/${paths.distJsDir}`,
+  `${paths.distDir}/${paths.distCssDir}`
 ]))
 
 gulp.task(`watch`, () => {
@@ -44,13 +33,13 @@ gulp.task(`css`, () =>
   gulp.src(paths.allSass)
     .pipe(sass().on(`error`, sass.logError))
     .pipe(postcss([autoprefixer()]))
-    .pipe(gulp.dest(paths.distCssDir))
+    .pipe(gulp.dest(`${paths.distDir}/${paths.distCssDir}`))
 )
 
 gulp.task(`main`, [`css`, `lint`, `clean`], () =>
-  gulp.src(paths.clientEntryPoint)
+  gulp.src(paths.entryJS)
     .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest(paths.distJsDir))
+    .pipe(gulp.dest(`${paths.distDir}/${paths.distJsDir}`))
 )
 
 gulp.task(`prod`, [`main`])

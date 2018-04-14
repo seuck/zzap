@@ -23,9 +23,9 @@ export default {
     window.setTimeout(() => {
       this.$emit(EVENTS.announceBookmark, [
         {
-          title: this.title,
           anchor: this.anchor,
-          target: CLASS_NAME
+          target: CLASS_NAME,
+          title: this.title
         }
       ])
     }, ANIMATIONS.bookmarkCloseDelay)

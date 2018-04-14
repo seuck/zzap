@@ -1,6 +1,11 @@
 const COMPONENT_NAME = `scanissue-info`
 
 export default {
+  methods: {
+    buildContributorPath(contributorId) {
+      return `redazione/${contributorId}`
+    }
+  },
   name: COMPONENT_NAME,
   props: [
     `issueNumber`,
@@ -8,10 +13,5 @@ export default {
     `issueYear`,
     `issueEditor`,
     `contributors`,
-    `pdf`],
-  methods: {
-    buildContributorPath(contributorId) {
-      return `redazione/${contributorId}`
-    }
-  }
+    `pdf`]
 }

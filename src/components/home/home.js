@@ -13,7 +13,6 @@ import { jumpToClass } from 'utils/scroll'
 const COMPONENT_NAME = `home`
 
 export default {
-  name: COMPONENT_NAME,
   components: {
     Cover,
     DynamicNavigation,
@@ -21,20 +20,32 @@ export default {
     Loader,
     Reader,
     Scanindex,
-    ZzapHeader,
-    ZzapFooter
+    ZzapFooter,
+    ZzapHeader
   },
   data() {
     return {
-      readerData: {},
+      dynamicNavSections: [],
       homeClass: COMPONENT_NAME,
-      dynamicNavSections: []
+      readerData: {}
     }
   },
   methods: {
+    addDynamicNavSection(sections) {
+      sections.forEach((section) => {
+        this.dynamicNavSections.push(section)
+      })
+    },
     initReader(readerData) {
       this.readerData = readerData
       this.homeClass = `${COMPONENT_NAME} ${GLOBALCLASSES.overlay}`
+    },
+    removeDynamicNavSection(sections) {
+      for (let i = this.dynamicNavSections.length - 1; i >= 0; i--) {
+        if (sections.indexOf(this.dynamicNavSections[i].anchor) !== -1) {
+          this.dynamicNavSections.splice(i, 1)
+        }
+      }
     },
     resetReader() {
       const returnBookmark = this.readerData.returnBookmark
@@ -45,18 +56,7 @@ export default {
       window.setTimeout(() => {
         jumpToClass(returnBookmark)
       }, 500)
-    },
-    addDynamicNavSection(sections) {
-      sections.forEach((section) => {
-        this.dynamicNavSections.push(section)
-      })
-    },
-    removeDynamicNavSection(sections) {
-      for (let i = this.dynamicNavSections.length - 1; i >= 0; i--) {
-        if (sections.indexOf(this.dynamicNavSections[i].anchor) !== -1) {
-          this.dynamicNavSections.splice(i, 1)
-        }
-      }
     }
-  }
+  },
+  name: COMPONENT_NAME
 }

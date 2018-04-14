@@ -10,24 +10,36 @@ const COMPONENT_NAME = `games`
 const INITIAL_RESULTS_NUMBER = 15
 
 export default {
-  name: COMPONENT_NAME,
+  beforeDestroy() {
+    this.$emit(EVENTS.dismissBookmark, [COMPONENT_NAME])
+  },
+  computed: {
+    hasResults() {
+      return typeof this.apiResponse.totalEntries !== `undefined` &&
+        this.apiResponse.totalEntries > 0
+    },
+    moreToLoad() {
+      return typeof this.apiResponse.totalEntries !== `undefined` &&
+        this.apiResponse.games.length <= INITIAL_RESULTS_NUMBER &&
+        this.apiResponse.games.length < this.apiResponse.totalEntries
+    },
+    noResults() {
+      return typeof this.apiResponse.totalEntries !== `undefined` &&
+        this.apiResponse.totalEntries === 0
+    },
+    tooManyResults() {
+      return typeof this.apiResponse.totalEntries !== `undefined` &&
+        this.apiResponse.totalEntries > this.apiResponse.games.length && !this.moreToLoad
+    }
+  },
   data() {
     return {
-      gameQuery: ``,
       apiResponse: {},
-      errors: []
+      errors: [],
+      gameQuery: ``
     }
   },
   methods: {
-    searchGames(query) {
-      if (typeof query !== `undefined` && query.length >= 2) {
-        axios.get(ZZAPI_RESOURCES.gameFinder(query))
-          .then((response) => {
-            this.apiResponse = response.data
-          })
-          .catch(e => this.errors.push(e))
-      }
-    },
     goToGame(gameId) {
       this.$root.$router.push({
         name: `gioco`,
@@ -42,33 +54,15 @@ export default {
           this.apiResponse.games = this.apiResponse.games.concat(response.data.games)
         })
         .catch(e => this.errors.push(e))
-    }
-  },
-  computed: {
-    noResults() {
-      return typeof this.apiResponse.totalEntries !== `undefined` &&
-        this.apiResponse.totalEntries === 0
     },
-    hasResults() {
-      return typeof this.apiResponse.totalEntries !== `undefined` &&
-        this.apiResponse.totalEntries > 0
-    },
-    moreToLoad() {
-      return typeof this.apiResponse.totalEntries !== `undefined` &&
-        this.apiResponse.games.length <= INITIAL_RESULTS_NUMBER &&
-        this.apiResponse.games.length < this.apiResponse.totalEntries
-    },
-    tooManyResults() {
-      return typeof this.apiResponse.totalEntries !== `undefined` &&
-        this.apiResponse.totalEntries > this.apiResponse.games.length && !this.moreToLoad
-    }
-  },
-  watch: {
-    // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
-    // eslint-disable-next-line object-shorthand
-    gameQuery: function (val) {
-      this.apiResponse = {}
-      this.searchGames(val)
+    searchGames(query) {
+      if (typeof query !== `undefined` && query.length >= 2) {
+        axios.get(ZZAPI_RESOURCES.gameFinder(query))
+          .then((response) => {
+            this.apiResponse = response.data
+          })
+          .catch(e => this.errors.push(e))
+      }
     }
   },
   mounted() {
@@ -77,14 +71,20 @@ export default {
     window.setTimeout(() => {
       this.$emit(EVENTS.announceBookmark, [
         {
-          title: `Giochi`,
           anchor: COMPONENT_NAME,
-          target: `game`
+          target: `game`,
+          title: `Giochi`
         }
       ])
     }, ANIMATIONS.bookmarkCloseDelay)
   },
-  beforeDestroy() {
-    this.$emit(EVENTS.dismissBookmark, [COMPONENT_NAME])
+  name: COMPONENT_NAME,
+  watch: {
+    // Can't use arrow functions here. See: https://vuejs.org/v2/api/#watch
+    // eslint-disable-next-line object-shorthand
+    gameQuery: function (val) {
+      this.apiResponse = {}
+      this.searchGames(val)
+    }
   }
 }

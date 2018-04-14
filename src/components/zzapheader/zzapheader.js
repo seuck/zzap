@@ -8,17 +8,7 @@ const COMPONENT_CLASS = `header`
 const verticalThresholdMax = 250
 
 export default {
-  name: COMPONENT_NAME,
   methods: {
-    scrollToCover() {
-      scrollToClassWithOptions(`cover`, {
-        behavior: `smooth`,
-        offset: -(verticalThresholdMax + 1)
-      })
-    },
-    scrollToClassWithDefaultOffset(className) {
-      _scrollToClassWithDefaultOffset(className)
-    },
     initScroll() {
       const logo = document.querySelector(`.${COMPONENT_CLASS}__logo`)
       const headerFlavorCompactClass = `${COMPONENT_CLASS}--compact`
@@ -63,9 +53,19 @@ export default {
       }
 
       refreshHeader()
+    },
+    scrollToClassWithDefaultOffset(className) {
+      _scrollToClassWithDefaultOffset(className)
+    },
+    scrollToCover() {
+      scrollToClassWithOptions(`cover`, {
+        behavior: `smooth`,
+        offset: -(verticalThresholdMax + 1)
+      })
     }
   },
   mounted() {
     this.initScroll()
-  }
+  },
+  name: COMPONENT_NAME
 }

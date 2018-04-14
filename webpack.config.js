@@ -1,14 +1,14 @@
 const path = require(`path`)
 const webpack = require(`webpack`)
-
 const constants = require(`./webpack.constants`)
 const aliases = require(`./webpack.aliases`)
+const { paths, values } = require(`./package.json`)
 
-// There's mysterious a bug here and I can only solve it now negating the logic
+// There's a mysterious bug here and I can only solve it now negating the logic
 const isProduction = process.env.NODE_ENV !== `production`
 
 export default {
-  entry: `./src/all-components.js`,
+  entry: path.resolve(paths.entryJS),
   module: {
     loaders: [
       {
@@ -23,18 +23,13 @@ export default {
     ]
   },
   output: {
-    chunkFilename: `client-bundle-[chunkhash].js`,
-    filename: `client-bundle.js`,
-    path: path.resolve(`./dist/js`),
-    publicPath: `/js/`
+    chunkFilename: `${values.bundle_filename}-[chunkhash].js`,
+    filename: `${values.bundle_filename}.js`,
+    path: path.resolve(`${paths.distDir}/${paths.distJsDir}`),
+    publicPath: `/${paths.distJsDir}/`
   },
   plugins: [
     new webpack.DefinePlugin(constants),
-    new webpack.optimize.CommonsChunkPlugin({
-      filename: `common.js`,
-      minChunks: 2,
-      name: `common`
-    }),
     // see http://lisperator.net/uglifyjs/compress
     new webpack.optimize.UglifyJsPlugin({
       beautify: isProduction,

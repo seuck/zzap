@@ -3,8 +3,6 @@ import ScrollLink from 'components/scrolllink/scrolllink.vue'
 const COMPONENT_NAME = `dynamic-navigation`
 
 export default {
-  name: COMPONENT_NAME,
-  props: [`sections`],
   components: {
     ScrollLink
   },
@@ -14,6 +12,9 @@ export default {
     }
   },
   methods: {
+    closeBookmark(anchor) {
+      this.closedBookmark = anchor
+    },
     getBookmarkClass(anchor) {
       let closedClass = ``
 
@@ -22,9 +23,8 @@ export default {
       }
 
       return `dynamicnavigation__bookmark ${closedClass}`
-    },
-    closeBookmark(anchor) {
-      this.closedBookmark = anchor
     }
-  }
+  },
+  name: COMPONENT_NAME,
+  props: [`sections`]
 }
