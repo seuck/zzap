@@ -4,29 +4,29 @@
     anchor="speciali-leabbiamovistetutte">
 
     <content-image
-      imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
     ></content-image>
 
     <content-image
-      imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
       linkUrl="#"
       caption="Centred and linked"
     ></content-image>
 
     <content-image
-      imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
       rotation="cw"
       caption="Centred CW"
     ></content-image>
 
     <content-image
-      imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
       caption="Centred CC"
       rotation="cc"
     ></content-image>
 
     <content-image
-      imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
       caption="Centred with long caption, la splendida protagonista di &quot;Insects is Space&quot; creata da Sensible Software"
     ></content-image>
 
@@ -38,7 +38,7 @@
     </content-section>
 
     <content-image
-      imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
       linkUrl="#"
       caption="Centred, linked, between sections"
     ></content-image>
@@ -63,7 +63,7 @@
     <content-section title="Le origini">
       <p>
         <content-image
-          imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           rotation="cw"
           caption="Centred, CW, at the beginning of a paragraph"
         ></content-image>
@@ -88,7 +88,7 @@
     <content-section title="Le origini">
       <p>
         <content-image
-          imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           caption="Left, at the beginning of a paragraph"
           align="left"
         ></content-image>
@@ -111,7 +111,7 @@
 
       <p>
         <content-image
-          imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           caption="Right, linked, at the beginning of a paragraph"
           align="right"
           linkUrl="#"
@@ -138,7 +138,7 @@
     <content-section title="Le origini">
       <p>
         <content-image
-          imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           caption="Left, CC, at the beginning of a paragraph"
           align="left"
           rotation="cc"
@@ -162,7 +162,7 @@
 
       <p>
         <content-image
-          imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           caption="Right,CW, linked, at the beginning of a paragraph"
           align="right"
           rotation="cw"

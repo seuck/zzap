@@ -7,7 +7,7 @@
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
       <content-image
-          imagePath="assets/content/speciali/bovabyte/speciale-bovabyte.jpg"
+          :imagePath="resolveAssetPath(`speciali/bovabyte/speciale-bovabyte.jpg`)"
           noShadow="true"
           noSrcset="true"
         ></content-image>
@@ -30,37 +30,37 @@
       <div class="content__showcase">
         <content-image
           @openReader="openReader($event)"
-          imagePath="assets/content/speciali/bovabyte/bovabyte2-1.jpg"
+          :imagePath="resolveAssetPath(`speciali/bovabyte/bovabyte2-1.jpg`)"
           caption="Bovabyte 2: numero 1"
           :readerData="getBovaByte2ReaderData(1)"
         ></content-image>
         <content-image
           @openReader="openReader($event)"
-          imagePath="assets/content/speciali/bovabyte/bovabyte2-2.jpg"
+          :imagePath="resolveAssetPath(`speciali/bovabyte/bovabyte2-2.jpg`)"
           caption="Bovabyte 2: numero 2"
           :readerData="getBovaByte2ReaderData(2)"
         ></content-image>
         <content-image
           @openReader="openReader($event)"
-          imagePath="assets/content/speciali/bovabyte/bovabyte2-3.jpg"
+          :imagePath="resolveAssetPath(`speciali/bovabyte/bovabyte2-3.jpg`)"
           caption="Bovabyte 2: numero 3"
           :readerData="getBovaByte2ReaderData(3)"
         ></content-image>
         <content-image
           @openReader="openReader($event)"
-          imagePath="assets/content/speciali/bovabyte/bovabyte2-4.jpg"
+          :imagePath="resolveAssetPath(`speciali/bovabyte/bovabyte2-4.jpg`)"
           caption="Bovabyte 2: numero 4"
           :readerData="getBovaByte2ReaderData(4)"
         ></content-image>
         <content-image
           @openReader="openReader($event)"
-          imagePath="assets/content/speciali/bovabyte/bovabyte2-5.jpg"
+          :imagePath="resolveAssetPath(`speciali/bovabyte/bovabyte2-5.jpg`)"
           caption="Bovabyte 2: numero 5"
           :readerData="getBovaByte2ReaderData(5)"
         ></content-image>
         <content-image
           @openReader="openReader($event)"
-          imagePath="assets/content/speciali/bovabyte/bovabyte2-6.jpg"
+          :imagePath="resolveAssetPath(`speciali/bovabyte/bovabyte2-6.jpg`)"
           caption="Bovabyte 2: numero 6"
           :readerData="getBovaByte2ReaderData(6)"
         ></content-image>
@@ -72,7 +72,7 @@
       <p>
         <content-image
           @openReader="openReader($event)"
-          imagePath="assets/content/speciali/bovabyte/antologia-di-bovabyte-copertina.jpg"
+          :imagePath="resolveAssetPath(`speciali/bovabyte/antologia-di-bovabyte-copertina.jpg`)"
           caption="La copertina dell'Antologia di Bovabyte"
           align="right"
           rotation="cw"

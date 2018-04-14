@@ -1,10 +1,22 @@
-export const pathScans = `assets/magazines/scans/`
-export const pathThumbsContent = `assets/magazines/thumbscontent/`
-export const pathThumbsIssueSelector = `assets/magazines/thumbissueselector/`
-export const pathThumbsScan = `assets/magazines/thumbsscan/`
+const pathAssets = `/assets/`
+const pathAssetsContent = `${pathAssets}content/`
+const pathScans = `${pathAssets}/magazines/scans/`
+const pathThumbsContent = `${pathAssets}/magazines/thumbscontent/`
+const pathThumbsIssueSelector = `${pathAssets}/magazines/thumbissueselector/`
+const pathThumbsScan = `${pathAssets}/magazines/thumbsscan/`
 
 // Used to generate scan image path, as in table 'scans'
-export const pathMagazineName = [
+const pathMagazineName = [
   `unused`,
   `zzap`
 ]
+
+export {
+  pathAssets,
+  pathAssetsContent,
+  pathMagazineName,
+  pathScans,
+  pathThumbsContent,
+  pathThumbsIssueSelector,
+  pathThumbsScan
+}

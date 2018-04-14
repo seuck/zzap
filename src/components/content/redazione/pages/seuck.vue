@@ -5,7 +5,7 @@
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <content-image
-      imagePath="assets/content/redazione/seuck/seuck.png"
+      :imagePath="resolveAssetPath(`redazione/seuck/seuck.gif`)"
       align="right"
       rotation="cw"
     ></content-image>

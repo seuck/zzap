@@ -7,7 +7,7 @@
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
       <content-image
-        imagePath="assets/content/mappe/citadel/citadel.gif"
+        :imagePath="resolveAssetPath(`mappe/citadel/citadel.gif`)"
         align="right"
         rotation="cw"
       ></content-image>
@@ -28,7 +28,7 @@
 
       <content-image
         @openReader="openReader($event)"
-        imagePath="assets/content/mappe/citadel/map-mini.png"
+        :imagePath="resolveAssetPath(`mappe/citadel/map-mini.png`)"
         :readerData="getReaderData()"
       ></content-image>
 

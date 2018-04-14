@@ -3,7 +3,7 @@
     <h2 hidden>Copertina</h2>
     <div class="cover__baloon">
       <div class="cover__balooncontainer">
-        <img src="assets/cover/baloon.svg" alt="baloon">
+        <img :src="resolveAssetPath(`cover/baloon.svg`)" alt="baloon">
         <span>Edizione online della rivista italiana più amata</span>
       </div>
     </div>

@@ -2,6 +2,7 @@ import {
   scrollToClassWithOptions,
   scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset
 } from 'utils/scroll'
+import { pathAssets } from 'constants/paths'
 
 const COMPONENT_NAME = `zzap-header` // A component can't be named as an HTML tag
 const COMPONENT_CLASS = `header`
@@ -53,6 +54,9 @@ export default {
       }
 
       refreshHeader()
+    },
+    resolveAssetPath(pathSegment) {
+      return `${pathAssets}${pathSegment}`
     },
     scrollToClassWithDefaultOffset(className) {
       _scrollToClassWithDefaultOffset(className)

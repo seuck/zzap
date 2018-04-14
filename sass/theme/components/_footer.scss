@@ -3,7 +3,7 @@
   @include textlink($blue, $white);
 
   color: $white;
-  background-image: url(../assets/crt.jpg);
+  background-image: url($pathAssets + 'crt.jpg');
 
   &__navigation {
     margin-top: 20px;

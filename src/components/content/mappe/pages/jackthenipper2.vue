@@ -7,7 +7,7 @@
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
       <content-image
-        imagePath="assets/content/mappe/jackthenipper2/jack1.gif"
+        :imagePath="resolveAssetPath(`mappe/jackthenipper2/jack1.gif`)"
         align="right"
         rotation="cw"
       ></content-image>
@@ -37,7 +37,7 @@
 
       <content-image
         @openReader="openReader($event)"
-        imagePath="assets/content/mappe/jackthenipper2/map-mini.png"
+        :imagePath="resolveAssetPath(`mappe/jackthenipper2/map-mini.png`)"
         :readerData="getReaderData()"
       ></content-image>
 

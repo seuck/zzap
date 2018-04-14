@@ -1,5 +1,6 @@
 import ReaderImage from 'components/reader/reader-image.vue'
 import EVENTS from 'constants/events'
+import { pathAssets } from 'constants/paths'
 
 /*
  * Scroll down for example data
@@ -114,6 +115,9 @@ export default {
       if (this.doesPageExist(previousPage)) {
         this.actualPage = previousPage
       }
+    },
+    resolveAssetPath(pathSegment) {
+      return `${pathAssets}${pathSegment}`
     }
   },
   name: COMPONENT_NAME,

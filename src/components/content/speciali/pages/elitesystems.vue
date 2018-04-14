@@ -6,7 +6,7 @@
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
       <content-image
-          imagePath="assets/content/speciali/elite/elite-logo.jpg"
+          :imagePath="resolveAssetPath(`speciali/elite/elite-logo.jpg`)"
           noShadow="true"
           noSrcset="true"
         ></content-image>
@@ -22,7 +22,7 @@ Andiamo per ordine con un breve accenno alla storia e i colpi messi a segno.</p>
 
       <p>
         <content-image
-          imagePath="assets/content/speciali/elite/airwolf.gif"
+          :imagePath="resolveAssetPath(`speciali/elite/airwolf.gif`)"
           caption="Uno dei primi giochi: Airwolf"
           align="right"
           noSrcset="true"
@@ -31,7 +31,7 @@ Andiamo per ordine con un breve accenno alla storia e i colpi messi a segno.</p>
 
       <p>
         <content-image
-          imagePath="assets/content/speciali/elite/paperboy.gif"
+          :imagePath="resolveAssetPath(`speciali/elite/paperboy.gif`)"
           caption="La schermata di presentazione di Paperboy"
           align="left"
           noSrcset="true"
@@ -48,7 +48,7 @@ Un famoso titolo per Playstation, poi sviluppato anche per PC, fu Test Drive: Of
 Nella scia di Test Drive, nel ’98, in collaborazione con Peugeot, uscì un altro gioco di simulazione automobilistica, sempre programmato da Motivetime. Seguirono dal 1998 al 2000 titoli per PC, ancora simulazione di guida, come: Grand Touring e Ford Racing, in collaborazione con Kumyang Co Ltd per Grand Touring e Ford ovviamente per Ford Racing.</p>
 
       <content-image
-          imagePath="assets/content/speciali/elite/portable.jpg"
+          :imagePath="resolveAssetPath(`speciali/elite/portable.jpg`)"
           caption="Bombjack in versione portatile"
           noSrcset="true"
       ></content-image>

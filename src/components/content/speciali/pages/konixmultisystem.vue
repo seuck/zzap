@@ -6,7 +6,7 @@
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
       <content-image
-        imagePath="assets/content/speciali/konixmultisystem/speedking.jpg"
+        :imagePath="resolveAssetPath(`speciali/konixmultisystem/speedking.jpg`)"
         caption="Lo Speedking, il rivoluzionario joystick della Konix."
         align="right"
       ></content-image>
@@ -15,23 +15,23 @@ Non mi sento di esagerare dicendo che un buon 90% dei possessori di C64 in breve
 Visto il grande successo dello Speedking la Konix ne realizzò versioni per PC e per alcune consolle fra le quali ricordo il Nintendo Entertainment System e il Sega Master System che però non ebbero il successo dell'originale.</p>
       <p>Nel 1988 Konix si associò ad un'altra compagnia inglese la Flare, che aveva già sviluppato un prototipo di computer il Flare One, per lo sviluppo di una console basata sull'hardware di quest'ultimo, chiamata Konix Multisystem. Le foto sulle preview delle riviste del settore furono tali da fare sbavare qualsiasi appassionato di videogiochi e ancor di più chi già aveva testato la qualità dei prodotti Konix. Lasciando a dopo le specifiche tecniche della console, ciò che subito saltava all'occhio era proprio la forma di quest'ultima che appariva come un volante d'auto perfetto per i giochi automobilistici (considerate che ai tempi non esistevano tutti gli accessori che esistono oggi per le console) che all'occorrenza con semplici operazioni poteva trasformarsi in manubrio da moto/bike o in cloche per le simulazioni di volo. In più venivano sponsorizzate una serie di periferche accessiorie quali la lightgun, la sedia meccanica(!!!). Insomma c'era di tutto per fare sognare noi ingenui ragazzini dell'epoca.</p>
       <content-image
-        imagePath="assets/content/speciali/konixmultisystem/konixcloche.jpg"
+        :imagePath="resolveAssetPath(`speciali/konixmultisystem/konixcloche.jpg`)"
         caption="Il Konix Multisystem in configurazione cloche"
         noSrcset="true"
       ></content-image>
       <content-image
-        imagePath="assets/content/speciali/konixmultisystem/konixauto3.jpg"
+        :imagePath="resolveAssetPath(`speciali/konixmultisystem/konixauto3.jpg`)"
         caption="Configuarazione volante, con a destra la pedaliera fornita con la console"
         noSrcset="true"
       ></content-image>
       <content-image
-        imagePath="assets/content/speciali/konixmultisystem/konixmoto2.jpg"
+        :imagePath="resolveAssetPath(`speciali/konixmultisystem/konixmoto2.jpg`)"
         caption="Configurazione motorbike"
         noSrcset="true"
       ></content-image>
       <p>
         <content-image
-          imagePath="assets/content/speciali/konixmultisystem/konixsedia.jpg"
+          :imagePath="resolveAssetPath(`speciali/konixmultisystem/konixsedia.jpg`)"
           caption="La sedia meccanica"
           align="right"
           noSrcset="true"

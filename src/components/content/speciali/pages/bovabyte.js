@@ -48,11 +48,11 @@ export default extend(true, {}, basecontent, {
           {
             first: {
               label: `Fronte`,
-              path: `assets/content/speciali/bovabyte/bv2/bovabyte2-${issue}-1.jpg`
+              path: this.resolveAssetPath(`speciali/bovabyte/bv2/bovabyte2-${issue}-1.jpg`)
             },
             last: {
               label: `Retro`,
-              path: `assets/content/speciali/bovabyte/bv2/bovabyte2-${issue}-2.jpg`
+              path: this.resolveAssetPath(`speciali/bovabyte/bv2/bovabyte2-${issue}-2.jpg`)
             }
           }
         ],
@@ -63,7 +63,11 @@ export default extend(true, {}, basecontent, {
     },
     getReaderData() {
       return {
-        pages: this.generateReaderPages(`assets/content/speciali/bovabyte/bva/`, `.jpg`, 36),
+        pages: this.generateReaderPages(
+          this.resolveAssetPath(`speciali/bovabyte/bva/`),
+          `.jpg`,
+          36
+        ),
         returnBookmark: `content__speciali-bovabyte`,
         startPage: 0,
         title: `Antologia di BovaByte`

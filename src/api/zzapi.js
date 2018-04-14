@@ -1,4 +1,4 @@
-const basePath = `api/v1/`
+const basePath = `/api/v1/`
 
 export const ZZAPI_RESOURCES = {
   game: gameId => `${basePath}game/${gameId}`,

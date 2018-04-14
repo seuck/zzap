@@ -5,12 +5,12 @@ export default extend(true, {}, basecontent, {
   methods: {
     getReaderData() {
       return {
-        infoPath: `assets/content/mappe/jackthenipper2/info.png`,
+        infoPath: this.resolveAssetPath(`mappe/jackthenipper2/info.png`),
         pages: [
           {
             first: {
               label: `Map of Jack the Nipper 2 - In cononut capers`,
-              path: `assets/content/mappe/jackthenipper2/jack_the_nipper_2_map.gif`
+              path: this.resolveAssetPath(`mappe/jackthenipper2/jack_the_nipper_2_map.gif`)
             }
           }
         ],

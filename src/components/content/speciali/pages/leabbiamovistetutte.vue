@@ -44,7 +44,7 @@
 
     <content-section title="Le origini">
       <content-image
-        imagePath="assets/content/speciali/leabbiamovistetutte/numero1.jpg"
+        :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero1.jpg`)"
         caption="La copertina del primo numero di Zzap!"
         align="right"
         rotation="cw"
@@ -107,7 +107,7 @@
 
     <content-section title="Un &quot;dualismo&quot; persistente" >
       <content-image
-        imagePath="assets/content/speciali/leabbiamovistetutte/numero14.jpg"
+        :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero14.jpg`)"
         caption="Il numero 14 in tutto lo splendore della quadricromia"
         align="left"
       ></content-image>
@@ -119,7 +119,7 @@
 
     <content-section title="&quot;L'era Di Bello&quot;">
       <content-image
-        imagePath="assets/content/speciali/leabbiamovistetutte/numero23.jpg"
+        :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero23.jpg`)"
         caption="Il numero 23 segna il passaggio dalla direzione di Riccardo Albini a quella di Bonaventura Di Bello"
         align="right"
         rotation="cc"
@@ -131,7 +131,7 @@ Che la rivista, però, lentamente stesse cambiando pelle, apparì chiaro quando 
 
     <content-section title="La fine degli anni '80, e il declino degli 8 bit">
       <content-image
-        imagePath="assets/content/speciali/leabbiamovistetutte/numero33.jpg"
+        :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero33.jpg`)"
         caption="L'&quot;esclusiva&quot; del numro 33: la recensione di &quot;Zak McKracken 2&quot;"
         align="left"
         rotation="cc"
@@ -140,7 +140,7 @@ Che la rivista, però, lentamente stesse cambiando pelle, apparì chiaro quando 
       <p>Il numero 33, quello di Aprile, rimarrà per sempre segnato come "quello di Zak McKracken 2": per la prima volta, una rivista d’informatica confezionerà il "pesce d’aprile" che, negli anni successivi, sarebbe diventato una tradizione per tutte le testate, in particolare TGM. Visto che è attualmente on line, non sto qui a replicare nulla, semplicemente leggetevela (e divertitevi) cliccando qui.</p>
       <p>Da qui alla fine dell’anno, i titoloni continuano a uscire, ma iniziano a scarseggiare e a mancare di quell’originalità e di quell’entusiasmo che aveva caratterizzato i loro predecessori: Renegade 3 viene abbondantemente sopravvalutato, Denaris (Katakis) è il secondo titolo-fotocopia della Rainbow Arts, Silkworm una bella conversione. E poi ancora: Speedball, Phobia, Project Firestart, Rainbow Islands, Power Drift, Tusker, New Zealand Story, Batman The Movie, The Untouchables, Myth, Stunt Car Racer, Turbo Out Run e Chase HQ... Il numero di ottobre, poi, sarà caratterizzato dall’onnipresenza di tre caricature italiane in stile fumettoso, quelle di Marco Auletta, Antonello Jannone, Stefano Gallarini e, in un tempo immediatamente successivo, Max Reynaud. La redazione si era intanto ampliata, e comparivano – oltre ai succitati – anche i nomi di Giorgio Baratto, Matteo Bittanti (il "misterioso" MBF), Paolo Cardillo, Simone Crosignani, William e Giorgio Baldaccini. Cambio radicale della guardia, infine, per la redazione inglese: i vari Gordon Houghton, Paul Glancey, Julian Rignall e Katy Hamza a cui eravamo abituati, lasciano il posto a Phil King e a Robin Hogg. Per quanto i loro predecessori non fossero mai stati degli adoni, questi erano francamente molto più brutti...</p>
       <content-image
-        imagePath="assets/content/speciali/leabbiamovistetutte/numero43.jpg"
+        :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
         caption="La splendida protagonista di &quot;Insects is Space&quot; creata da Sensible Software"
         align="right"
         rotation="cw"
@@ -152,14 +152,14 @@ Che la rivista, però, lentamente stesse cambiando pelle, apparì chiaro quando 
 
     <content-section title="I '90: anni &quot;bui&quot;">
       <content-image
-        imagePath="assets/content/speciali/leabbiamovistetutte/numero53.jpg"
+        :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero53.jpg`)"
         caption="Medaglia d'oro a Turrican 2"
         align="left"
       ></content-image>
       <p>Che il 1991 non sarebbe stato un anno molto più esaltante del precedente, lo si vide sin dalla prima copertina: le Tartarughe Ninja non sono infatti il soggetto più felice ma, a onor del vero, va riconosciuto che il gioco è anche peggio. Appaiono le prime due recensioni per Neo Geo, e sono ovviamente due medaglie d’oro, mentre il Commodore ci riserva solo Robocop II e Ninja Remix, vittima di un’agonia che sembra regalare l’ultimo momento di lucidità a febbraio: ben ventitrè giochi recensiti, tra cui l’immortale Turrican 2 e il maniacale Klax. Arriva anche Shadow of the Beast per il 64, ma più interessante è l’avventura grafica Mean Streets, forse l’unica che portò l’agente Tex Murphy anche sugli otto bit. A marzo inizia quella che verrà definita "la diaspora" dei redattori di Zzap! e TGM: Stefano Gallarini un bel giorno decide di fare piazza pulita dei collaboratori, e di tutti gli arrivi più recenti se ne salveranno solo due... indovinate quali... Comunque sia, ancora due mesi e Zzap! cambierà completamente pelle: la direzione della rivista passa in mano completamente a Stefano, Bonvantura Di Bello uscirà improvvisamente di scena dopo un ultimo editoriale nostalgico, e con lui se ne va anche la vecchia impaginazione. La nuova ‘faccia’ prevede molte più pagine colorate, commenti tondeggianti e caricature un po’ deformi... non piace gran che e nei mesi successivi subisce continue modifiche.
 Per qualche mese Gabriele Pasquali ricopre la carica di caporedattore, dopodiché quest’ultima passa in mano a Giancarlo Calzetta. Il buon JH si applica, ma è anche l’epoca del buco redazionale e del "non sono d’accordo con te, Paolo", frase che mi sentirò ripetere nei suoi commenti almeno seicento volte. Con la seconda metà del 91, arrivano Mercs, Bonanza Bros, Wrath of the Demon, Rubicon, Out Run Europa, Terminator II e Spot. Fallisce la Newsfield Publications e Zzap! perde tutti i legami con il suo passato anglosassone, diventando a tutti gli effetti una rivista italiana. In quel periodo, nasce anche Consolemania, e la redazione si amplia: arrivano anche Stefano Petrullo, Emanuele Scihilone e Giovanni Papandrea. Nasce anche un nuovo "redattore pirla": è Geims Tonn, personaggio creato tempo addietro da Paolo Besser e Andrea Cavallotti sul giornale del Liceo, poi approdato tra le recensioni di Zzap!</p>
       <content-image
-        imagePath="assets/content/speciali/leabbiamovistetutte/numero65.jpg"
+        :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero65.jpg`)"
         caption="Il peggior numero della storia di Zzap!"
         align="right"
         rotation="cc"
@@ -172,7 +172,7 @@ Per qualche mese Gabriele Pasquali ricopre la carica di caporedattore, dopodich�
 Seppur bioridotta, la rivista riesce comunque a mantenere inalterato il suo spirito goliardico e indipendente, e in questi mesi riesce ancora a proporre le recensioni di Cool World, Rampart, Street Fighter 2, Lethal Waepon, 3D World Tennis, Smash, Wrath of The Demon, The First Samurai, Sleepwalker, Nobby the Aardwark, Trolls, Ugh! e Alien 3. Non mancano i momenti epici, tipo quando ci è arrivata la protesta di un gruppo di mamme perché un ragazzino, dopo aver letto un angolo di BovaByte, è stato sospeso da scuola in quanto brascato a giocare con una console portatile; oppure anche l’ultimo, strappalacrime editoriale con cui redattori vecchi e nuovi salutavano ‘per sempre’ una rivista che aveva rappresentato un’epoca.</p>
       <p>La redazione è formata essenzialmente da me, Davide Corrado, Silvia Patanè, Giancarlo Albertinazzi, Cristiana Marchini, Varia Vilardo, Luca Reynaud, Stefano Petrullo ed Emanuele Scihilone. Le caricature, tutte estremamente tondeggianti e per la prima volta unificate nello stile, sono opera di Rudy Mascheretti. In precedenza, erano state disegnate anche da me e da Eloisa Scihilone.</p>
       <content-image
-        imagePath="assets/content/speciali/leabbiamovistetutte/numero74.jpg"
+        :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero74.jpg`)"
         caption="Il primo Zzap!, ridotto a 16 pagine, allegato a The Games Machine"
         rotation="cw"
       ></content-image>

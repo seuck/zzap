@@ -6,13 +6,13 @@
         class="reader__close"
         title="Chiudi (Esc)"
         @click="close">
-        <img class="reader__closeicon" src="assets/icons/zoom-out.svg"/>
+        <img class="reader__closeicon" :src="resolveAssetPath(`icons/zoom-out.svg`)"/>
       </a>
       <nav class="reader__navigation">
         <ol class="reader__navigation-page-container">
           <li :class="getNavigationClass(index)" v-for="(doublepage, index) in pages">
             <a @click="actualPage = index">
-              <img src="assets/icons/paper-page.svg"/>
+              <img :src="resolveAssetPath(`icons/paper-page.svg`)"/>
             </a>
           </li>
         </ol>

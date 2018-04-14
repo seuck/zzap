@@ -9,6 +9,7 @@ import ScrollLink from 'components/scrolllink/scrolllink.vue'
 import {
   buildScanPathForContent
 } from 'utils/image'
+import { pathAssetsContent } from 'constants/paths'
 
 export default {
   components: {
@@ -31,6 +32,9 @@ export default {
     },
     openReader(readerData) {
       this.$emit(EVENTS.openReader, readerData)
+    },
+    resolveAssetPath(pathSegment) {
+      return `${pathAssetsContent}${pathSegment}`
     }
   }
 }
