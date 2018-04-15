@@ -1,4 +1,4 @@
-@mixin contentpage($base) {
+@mixin contentpage($base, $columns:"single") {
   @include responsive-centered;
   
   color: $darkGrey;
@@ -13,6 +13,19 @@
 
   @include for-tablet-landscape-up {
     width: 820px;
+  }
+
+  #{$base}__container {
+    display: flex;
+    flex-direction: column;
+
+    @if $columns != "single" {
+      @include for-tablet-landscape-up {
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: flex-start;
+      }
+    }
   }
 
   #{$base}__title {

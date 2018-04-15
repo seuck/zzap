@@ -1,12 +1,15 @@
 <template>
   <content-image
-    :alt="altText"
     @openReader="openReader($event)"
+    :align="align"
+    :alt="altText"
+    :caption="caption"
     :imagePath="imagePath"
     :readeDataMagazineId="magazineID"
     :readeDataIssueId="issueID"
     :readeDataStartPage="startPage"
     :readeDataReturnBookmark="returnBookmark"
+    :rotation="rotation"
   ></content-image>
 </template>
 

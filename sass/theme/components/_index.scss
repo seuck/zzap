@@ -1,14 +1,5 @@
 .index {
-  @include contentpage(&);
-
-  &__container {
-    @include for-tablet-landscape-up {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-      align-content: flex-start;
-    }
-  }
+  @include contentpage(&, 'double');
 
   &__section {
     flex: 0 1 47%;

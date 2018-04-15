@@ -25,10 +25,13 @@ export default {
   },
   name: COMPONENT_NAME,
   props: [
+    `align`,
     `altText`,
+    `caption`,
     `magazineID`,
     `issueID`,
     `returnBookmark`,
+    `rotation`,
     `startPage`
   ]
 }

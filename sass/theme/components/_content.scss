@@ -1,6 +1,5 @@
 .content {
   @include contentpage(&);
-  @include clearfix;
 
   h2 {
     margin-top: 0;

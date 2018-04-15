@@ -9,6 +9,7 @@
       <content-image
         :imagePath="resolveAssetPath(`mappe/citadel/citadel.gif`)"
         align="right"
+        :noSrcset="true"
         rotation="cw"
       ></content-image>
       <p>Ecco a voi le mappe degli 8 livelli di Citadel, lo spara-e-fuggi-strategico di <strong>Martin Walker</strong>.</p>
@@ -28,6 +29,7 @@
 
       <content-image
         @openReader="openReader($event)"
+        caption="Le mappe di Citadel"
         :imagePath="resolveAssetPath(`mappe/citadel/map-mini.png`)"
         :readerData="getReaderData()"
       ></content-image>

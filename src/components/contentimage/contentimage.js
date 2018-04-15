@@ -11,6 +11,19 @@ import {
 
 export default {
   computed: {
+    captionOrAlt() {
+      let text = ``
+
+      if (typeof this.alt !== `undefined`) {
+        text = this.alt
+      }
+
+      if (typeof this.caption !== `undefined`) {
+        text = this.caption
+      }
+
+      return text
+    },
     fullStyle() {
       const styles = []
       const baseStyle = (typeof this.namespace !== `undefined`)
