@@ -1,5 +1,10 @@
 <template>
-  <section :class="getComponentClass()" v-if="hasContent">
+  <section
+    :class="getComponentClass()"
+    v-if="hasContent"
+    data-track-content
+    data-content-name="reader"
+    :data-content-piece="title">
     <header class="reader__navigator">
       <h2 class="reader__info">{{title}}</h2>
       <a

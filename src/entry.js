@@ -10,6 +10,7 @@ SmoothscrollPolyfill.polyfill()
 
 // Init Vue routes
 const router = new VueRouter({
+  mode: `history`,
   routes
 })
 

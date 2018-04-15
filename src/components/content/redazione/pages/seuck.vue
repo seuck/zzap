@@ -4,12 +4,13 @@
     anchor="seuck"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
-    <content-image
-      :imagePath="resolveAssetPath(`redazione/seuck/seuck.gif`)"
-      align="right"
-      rotation="cw"
-    ></content-image>
-    <p><strong>Bio</strong>: Primo contatto con gli 8 bit: Atari 800XL.<br>
+    <p>
+      <content-image
+        :imagePath="resolveAssetPath(`redazione/seuck/seuck.gif`)"
+        align="right"
+        rotation="cw"
+      ></content-image>
+      <strong>Bio</strong>: Primo contatto con gli 8 bit: Atari 800XL.<br>
       Ascoltando la colonna sonora di Commando si innamora del C64.<br>
       Affina l'udito con le musiche di Martin Walker e il grilletto con Retrograde
       dei fratelli Rowland.<br>

@@ -4,12 +4,13 @@
     anchor="darkj"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
-    <content-image
-      :imagePath="resolveAssetPath(`redazione/darkj/darkj.jpg`)"
-      align="right"
-      rotation="cw"
-    ></content-image>
-    <p><strong>Bio</strong>: Primo contatto con gli 8 bit: 1984 Commodore Vic 20 seguito a breve dal
+    <p>
+      <content-image
+        :imagePath="resolveAssetPath(`redazione/darkj/darkj.jpg`)"
+        align="right"
+        rotation="cw"
+      ></content-image>
+      <strong>Bio</strong>: Primo contatto con gli 8 bit: 1984 Commodore Vic 20 seguito a breve dal
     fratello maggiore C64 con il quale si diletta alla tenera età di 10 anni a scrivere i primi
     programmi in basic.<br>
     Dopo più di 30 anni il C64 è ancora fisso sulla sua scrivania carrozzato attualmente da una 1541

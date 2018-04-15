@@ -14,13 +14,13 @@
     <zzap-header></zzap-header>
     <cover></cover>
     <index></index>
-    <scanindex magazineId="1"></scanindex>
+    <scanindex :magazineId=1></scanindex>
 
     <dynamic-navigation :sections="dynamicNavSections"></dynamic-navigation>
 
     <router-view
       name="issue"
-      magazineId="1"
+      :magazineId=1
       @openReader="initReader($event)"
       @announceBookmark="addDynamicNavSection($event)"
       @dismissBookmark="removeDynamicNavSection($event)"

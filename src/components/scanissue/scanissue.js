@@ -169,7 +169,7 @@ export default {
   props: {
     issueId: {
       required: true,
-      type: String
+      type: Number
     },
     magazineId: {
       required: true,

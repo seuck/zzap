@@ -2,7 +2,10 @@
   <section class="scanissue"
     v-if="isIssueId"
     @announceBookmark="announceBookmark($event)"
-    @dismissBookmark="dismissBookmark($event)">
+    @dismissBookmark="dismissBookmark($event)"
+    data-track-content
+    data-content-name="scanissue"
+    :data-content-piece="issue.sequence">
     <div class="scanissue__content">
       <div class="scanissue__doublepage">
         <div class="scanissue__detaillink scanissue__detaillink--intro">

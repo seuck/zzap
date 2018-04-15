@@ -1,5 +1,8 @@
 <template>
-  <section class="game game__game">
+  <section
+    class="game game__game"
+    data-track-content
+    :data-content-name="game.name">
     <h2>{{game.name}}</h2>
     <div class="game__content">
       <div class="game__details">
