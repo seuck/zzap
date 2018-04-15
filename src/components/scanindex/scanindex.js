@@ -67,5 +67,10 @@ export default {
     this.loadMagazine()
   },
   name: COMPONENT_NAME,
-  props: [`magazineId`]
+  props: {
+    magazineId: {
+      required: true,
+      type: String
+    }
+  }
 }

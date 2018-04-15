@@ -14,5 +14,15 @@ export default [
     props: {
       issue: true
     }
+  },
+  {
+    components: {
+      issue: Scanissue
+    },
+    name: `numero-pagina`,
+    path: `/numero/:issueId/pagina/:pageId`,
+    props: {
+      issue: true
+    }
   }
 ]

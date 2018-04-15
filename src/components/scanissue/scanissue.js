@@ -146,6 +146,10 @@ export default {
             this.issue = response.data
             this.bookmarks = this.getBookmarks()
             this.announceBookmarks()
+
+            if (typeof this.pageId !== `undefined`) {
+              this.openReader(this.pageId)
+            }
           })
           .catch(e => this.errors.push(e))
       }
@@ -162,7 +166,20 @@ export default {
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
   },
   name: COMPONENT_NAME,
-  props: [`magazineId`, `issueId`],
+  props: {
+    issueId: {
+      required: true,
+      type: String
+    },
+    magazineId: {
+      required: true,
+      type: String
+    },
+    pageId: {
+      required: false,
+      type: String
+    }
+  },
   updated() {
     _scrollToClassWithDefaultOffset(COMPONENT_NAME)
   },

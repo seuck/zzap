@@ -5,7 +5,6 @@
       :pages="readerData.pages"
       :startPage="readerData.startPage"
       :title="readerData.title"
-      :open="readerData.open"
       :returnBookmark="readerData.returnBookmark"
       :infoPath="readerData.infoPath"
       :labelPrefix="readerData.labelPrefix"
