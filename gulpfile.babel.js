@@ -14,7 +14,7 @@ gulp.task(`clean`, () => del([
 ]))
 
 gulp.task(`watch`, () => {
-  gulp.watch(paths.allSrcToWatch, [`main`])
+  gulp.watch(paths.allSrcToWatch, [`js`])
   gulp.watch(paths.allSass, [`css`])
 })
 
@@ -36,11 +36,13 @@ gulp.task(`css`, () =>
     .pipe(gulp.dest(`${paths.publicDir}/${paths.publicCssDir}`))
 )
 
-gulp.task(`main`, [`css`, `lint`, `clean`], () =>
+gulp.task(`js`, () =>
   gulp.src(paths.entryJS)
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(`${paths.publicDir}/${paths.publicJsDir}`))
 )
+
+gulp.task(`main`, [`clean`, `lint`, `css`, `js`])
 
 gulp.task(`prod`, [`main`])
 

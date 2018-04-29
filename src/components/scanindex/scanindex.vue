@@ -17,8 +17,8 @@
           </div>
           <img
             class="scanindex__image"
-            :src="buildCoverThumbPath(issue)"
-            :srcset="buildRetinaCoverThumbPath(issue)">
+            v-lazy="buildCoverThumbPath(issue)"
+            :data-srcset="buildSrcset(issue)">
         </a>
       </div>
 

@@ -41,6 +41,14 @@ export default {
     buildRetinaCoverThumbPath(issue) {
       return getRetinaPath(this.buildCoverThumbPath(issue))
     },
+    buildSrcset(issue) {
+      const defaultImg = this.buildCoverThumbPath(issue)
+
+      const correctSrcset = `${defaultImg}, ${getRetinaPath(this.buildCoverThumbPath(issue))}`
+
+      // quick and dirty workaround for https://github.com/hilongjw/vue-lazyload/issues/238
+      return correctSrcset.replace(`.jpg,`, `.jpg 79w,`).replace(` 2x`, ` 158w`)
+    },
     getLinkClass(issueId) {
       const baseClass = `scanindex__link`
       const linkClasses = [baseClass]

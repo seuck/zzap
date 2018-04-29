@@ -2,6 +2,8 @@ const path = require(`path`)
 const webpack = require(`webpack`)
 const constants = require(`./webpack.constants`)
 const aliases = require(`./webpack.aliases`)
+const { VueLoaderPlugin } = require(`vue-loader`)
+
 const { paths, values } = require(`./package.json`)
 
 // There's a mysterious bug here and I can only solve it now negating the logic
@@ -10,15 +12,18 @@ const isProduction = process.env.NODE_ENV !== `production`
 export default {
   entry: path.resolve(paths.entryJS),
   module: {
-    loaders: [
+    rules: [
       {
         loader: `vue-loader`,
         test: /\.vue$/
       },
       {
-        exclude: [/node_modules/],
+        exclude: file => (
+          /node_modules/.test(file) &&
+          !/\.vue\.js/.test(file)
+        ),
         loader: `babel-loader`,
-        test: /\.js?$/
+        test: /\.js$/
       }
     ]
   },
@@ -29,6 +34,7 @@ export default {
     publicPath: `/${paths.publicJsDir}/`
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin(constants),
     // see http://lisperator.net/uglifyjs/compress
     new webpack.optimize.UglifyJsPlugin({
