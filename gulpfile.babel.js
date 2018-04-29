@@ -1,7 +1,6 @@
 import gulp from 'gulp'
 import sass from 'gulp-sass'
 import postcss from 'gulp-postcss'
-import autoprefixer from 'autoprefixer'
 import del from 'del'
 import eslint from 'gulp-eslint'
 import webpack from 'webpack-stream'
@@ -32,7 +31,11 @@ gulp.task(`lint`, () =>
 gulp.task(`css`, () =>
   gulp.src(paths.allSass)
     .pipe(sass().on(`error`, sass.logError))
-    .pipe(postcss([autoprefixer()]))
+    .pipe(postcss({
+      // __dirname is necessary as process.cwd() in this context points to
+      // the containing directory of the *.pcss file being processed
+      config: `${__dirname}/postcss.config.js`
+    }))
     .pipe(gulp.dest(`${paths.publicDir}/${paths.publicCssDir}`))
 )
 

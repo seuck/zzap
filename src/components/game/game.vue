@@ -18,7 +18,7 @@
       <content-image v-if="game.adverts && game.adverts.length > 0"
         extraClass="game__thumbimage"
         namespace="game"
-        noSrcset="true"
+        :noSrcset=true
         align="right"
         rotation="cw"
         alt="advImageDescription()"
@@ -36,15 +36,15 @@
           <content-image
             extraClass="game__thumbimage"
             namespace="game"
-            noSrcset="true"
+            :noSrcset=true
             align="left"
             alt="reviewImageDescription()"
             @openReader="openReader($event)"
             :imagePath="buildPageThumbPath(version.reviews[0].page.scan.path)"
-            :readeDataMagazineId="1"
-            :readeDataIssueId="version.reviews[0].volume_id"
-            :readeDataStartPage="version.reviews[0].page.sequence"
-            readeDataReturnBookmark="game__game"
+            :readerDataMagazineId=1
+            :readerDataIssueId="version.reviews[0].volume_id"
+            :readerDataStartPage="version.reviews[0].page.sequence"
+            readerDataReturnBookmark="game__game"
           ></content-image>
         </div>
       </li>

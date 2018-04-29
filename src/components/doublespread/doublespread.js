@@ -25,7 +25,7 @@ export default {
       )
     },
     secondPage() {
-      return String(Number(this.startPage) + 1)
+      return Number(this.startPage) + 1
     }
   },
   methods: {
@@ -34,11 +34,26 @@ export default {
     }
   },
   name: COMPONENT_NAME,
-  props: [
-    `altText`,
-    `magazineID`,
-    `issueID`,
-    `returnBookmark`,
-    `startPage`
-  ]
+  props: {
+    altText: {
+      required: false,
+      type: String
+    },
+    issueID: {
+      required: false,
+      type: Number
+    },
+    magazineID: {
+      required: false,
+      type: Number
+    },
+    returnBookmark: {
+      required: false,
+      type: String
+    },
+    startPage: {
+      required: false,
+      type: Number
+    }
+  }
 }

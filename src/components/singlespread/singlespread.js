@@ -24,14 +24,44 @@ export default {
     }
   },
   name: COMPONENT_NAME,
-  props: [
-    `align`,
-    `altText`,
-    `caption`,
-    `magazineID`,
-    `issueID`,
-    `returnBookmark`,
-    `rotation`,
-    `startPage`
-  ]
+  props: {
+    align: {
+      required: false,
+      type: String,
+      validator(value) {
+        return [`left`, `right`].indexOf(value) !== -1
+      }
+    },
+    altText: {
+      required: false,
+      type: String
+    },
+    caption: {
+      required: false,
+      type: String
+    },
+    issueID: {
+      required: false,
+      type: Number
+    },
+    magazineID: {
+      required: false,
+      type: Number
+    },
+    returnBookmark: {
+      required: false,
+      type: String
+    },
+    rotation: {
+      required: false,
+      type: String,
+      validator(value) {
+        return [`cc`, `cw`].indexOf(value) !== -1
+      }
+    },
+    startPage: {
+      required: false,
+      type: Number
+    }
+  }
 }

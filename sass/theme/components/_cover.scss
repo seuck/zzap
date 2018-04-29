@@ -1,9 +1,9 @@
 .cover {
   @include fullpage;
-  height: 141vw;
+  height: 140.5vw;
   position: relative;
 
-  background-image: url($pathAssets + 'cover/artworks/zzap-cover-daphne-dirk.jpg');
+  background-image: url($pathAssets + 'cover/artworks/daphne-dirk-prog.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 50% 0;
@@ -21,26 +21,19 @@
   }
 
   &__baloon {
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 100%;
 
     &container {
       transform: rotate(30deg);
       position: absolute;
-      top: 6%;
-      right: -17px;
+      top: 8px;
+      right: -46px;
       width: 178px;
 
       @include for-tablet-portrait-up {
         width: 270px;
-        right: -3%;
+        right: -67px;
+        top: 12px;
       }
-    }
-
-    img {
-      width: 100%;
     }
 
     span {
@@ -53,6 +46,8 @@
       line-height: 1.2;
       font-weight: bold;
       color: red;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" id="svg5335" height="234" viewBox="0 0 383 234" width="383"><path id="path5345" d="m289.8 196.5-12 10.4-12.5-17.9-17.9 23.2-15.9-29.1-21.7 29.7-19.8-22.4-17.7 42.6-18.4-39.7-27.6 26-10.4-23.9-32.6 26.6 2.5-34.3-31.1 14.4 2.6-33.5-54.3 9.5l35-33.4-34.8-18 26.4-16.9-28-36.6s27.8 3.3 36.8 3.5l-18.3-45 41.5 23.7 2.4-24.1 28.1 21.2 13-34.9 21.1 31.4 8.5-18.9 8.9 15.4 26-43.8 16.7 49.3 26.8-33.5 9.2 28.6 41.2-38.7 4.3 46.9 30.7-21.5 2.7 30 45.9-9.4-21.5 35.7 37 1.4-19.8 30.2 38.6 28.6-56.7 11.2 16.5 27.9-27.1-4.8 1.5 33.3s-10.7-10.7-25.9-20.3z" fill="#fff845"/></svg>');
+      background-size: 100%;
 
       @include for-tablet-portrait-up {
         font-size: 115%;

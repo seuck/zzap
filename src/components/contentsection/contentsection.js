@@ -1,4 +1,4 @@
 export default {
   name: `content-section`,
-  props: [`title`]
+  props: [`date`, `title`]
 }

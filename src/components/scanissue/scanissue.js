@@ -2,7 +2,7 @@ import axios from 'axios'
 import EVENTS from 'constants/events'
 import ANIMATIONS from 'constants/animations'
 import ScanissueInfo from 'components/scanissue/scanissue-info.vue'
-import * as I18N from 'locales/localedate'
+import { CONTENT_TYPES, TEXTS } from 'locales/localedate'
 import { isEmptyObject } from 'utils/object'
 import { ZZAPI_RESOURCES } from 'api/zzapi'
 import { scrollToClassWithDefaultOffset as _scrollToClassWithDefaultOffset } from 'utils/scroll'
@@ -81,11 +81,14 @@ export default {
     dismissBookmarks() {
       this.$emit(EVENTS.dismissBookmark, this.anchors)
     },
+    getBackcoverAltText(issueNumber) {
+      return `${TEXTS.it.backcoverOfZzapIssue} ${issueNumber}`
+    },
     getBookmarks() {
       const bookmarks = [{
         anchor: this.specialBookmarks.cover,
         target: COMPONENT_NAME,
-        title: I18N.CONTENT_TYPES.it[0]
+        title: CONTENT_TYPES.it[0]
       }]
 
       this.issue.volumes[0].pages.forEach((page) => {
@@ -93,7 +96,7 @@ export default {
           bookmarks.push({
             anchor: `content-type-${content.content_type_id}`,
             target: COMPONENT_NAME,
-            title: I18N.CONTENT_TYPES.it[content.content_type_id]
+            title: CONTENT_TYPES.it[content.content_type_id]
           })
         })
       })
@@ -101,7 +104,7 @@ export default {
       bookmarks.push({
         anchor: this.specialBookmarks.backcover,
         target: COMPONENT_NAME,
-        title: I18N.CONTENT_TYPES.it[I18N.CONTENT_TYPES.it.length - 1]
+        title: CONTENT_TYPES.it[CONTENT_TYPES.it.length - 1]
       })
 
       return bookmarks
@@ -125,11 +128,17 @@ export default {
 
       return classes.map(cls => `${COMPONENT_NAME}__${cls}`).join(` `)
     },
+    getCoverAltText(issueNumber) {
+      return `${TEXTS.it.coverOfZzapIssue} ${issueNumber}`
+    },
     getDoublePages() {
       return doublePages(this.issue)
     },
     getMonthNameFromNumber(monthNumber) {
       return getMonthNameFromNumber(monthNumber)
+    },
+    getPageAltText(issueNumber, page) {
+      return `Pagina ${page} del numero ${issueNumber} di Zzap!`
     },
     getReaderData(startPage) {
       const readerData = buildIssueReaderData(

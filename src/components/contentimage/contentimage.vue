@@ -1,12 +1,12 @@
 <template>
   <figure :class="fullStyle">
     <a v-if="linkUrl" :href="linkUrl">
-      <img :src="imagePath" :srcset="srcset" :alt="captionOrAlt">
+      <img :class="contentImageClass" :src="imagePath" :srcset="srcset" :alt="captionOrAlt">
     </a>
-    <a v-else-if="readerData || readeDataMagazineId" @click="openReader">
-      <img :src="imagePath" :srcset="srcset" :alt="captionOrAlt">
+    <a v-else-if="readerData || readerDataMagazineId" @click="openReader">
+      <img :class="contentImageClass" :src="imagePath" :srcset="srcset" :alt="captionOrAlt">
     </a>
-    <img v-else :src="imagePath" :srcset="srcset" :alt="captionOrAlt">
+    <img v-else :class="contentImageClass" :src="imagePath" :srcset="srcset" :alt="captionOrAlt">
     <figcaption v-if="caption">{{caption}}</figcaption>
   </figure>
 </template>

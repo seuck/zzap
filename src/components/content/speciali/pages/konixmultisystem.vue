@@ -17,24 +17,24 @@ Visto il grande successo dello Speedking la Konix ne realizzò versioni per PC e
       <content-image
         :imagePath="resolveAssetPath(`speciali/konixmultisystem/konixcloche.jpg`)"
         caption="Il Konix Multisystem in configurazione cloche"
-        noSrcset="true"
+        :noSrcset=true
       ></content-image>
       <content-image
         :imagePath="resolveAssetPath(`speciali/konixmultisystem/konixauto3.jpg`)"
         caption="Configuarazione volante, con a destra la pedaliera fornita con la console"
-        noSrcset="true"
+        :noSrcset=true
       ></content-image>
       <content-image
         :imagePath="resolveAssetPath(`speciali/konixmultisystem/konixmoto2.jpg`)"
         caption="Configurazione motorbike"
-        noSrcset="true"
+        :noSrcset=true
       ></content-image>
       <p>
         <content-image
           :imagePath="resolveAssetPath(`speciali/konixmultisystem/konixsedia.jpg`)"
           caption="La sedia meccanica"
           align="right"
-          noSrcset="true"
+          :noSrcset=true
         ></content-image>
         Ma purtroppo la console non vide mai la luce a parte forse qualche esemplare dimostrativo per una serie di motivi fra i quali i continui cambiamenti dell'hardware e i continui posticipi della data di uscita che scoraggiarono le software house dall'investire risorse sullo sviluppo per questa macchina. Ad esempio la memoria ram dela consolle doveva essere inizialmente di 128k per poi essere portata a 256k con la possibilità di espansione fino a 512k dopo le critiche subite da parte di alcune software house, quindi ai definitivi 512k negli ultimi modelli.</p>
       <p>Vediamo dunque le specifiche tecniche della console:

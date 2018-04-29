@@ -17,6 +17,7 @@
           </div>
           <img
             class="scanindex__image"
+            :alt="getAltText(issue.sequence)"
             v-lazy="buildCoverThumbPath(issue)"
             :data-srcset="buildSrcset(issue)">
         </a>

@@ -9,7 +9,7 @@
       <content-image
         :imagePath="resolveAssetPath(`mappe/citadel/citadel.gif`)"
         align="right"
-        :noSrcset="true"
+        :noSrcset=true
         rotation="cw"
       ></content-image>
       <p>Ecco a voi le mappe degli 8 livelli di Citadel, lo spara-e-fuggi-strategico di <strong>Martin Walker</strong>.</p>
@@ -40,9 +40,9 @@
 
       <double-spread
         @openReader="openReader($event)"
-        magazineID="1"
-        issueID="37"
-        startPage="20"
+        :magazineID=1
+        :issueID=37
+        :startPage=20
         returnBookmark="content__mappe-citadel"
         altText="La recensione di Citadel su Zzap!">
       </double-spread>

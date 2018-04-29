@@ -7,8 +7,8 @@
     <content-section>
       <content-image
           :imagePath="resolveAssetPath(`speciali/elite/elite-logo.jpg`)"
-          noShadow="true"
-          noSrcset="true"
+          :noShadow=true
+          :noSrcset=true
         ></content-image>
       <p>Elite è stata una delle software house di maggior successo ai tempi d’oro del C64 e Amiga, i titoli di maggior successo che subito vengono in mente sono i mitici Ghost’n Goblins, Bomb Jack, Buggy boy, 1942 e Spece Harrier. Oltre alle conversioni arcade, hanno pubblicato una numero elevato di giochi originali. Ma che fine ha fatto questa società dopo la chiusura di Commodore?</p>
 
@@ -25,7 +25,7 @@ Andiamo per ordine con un breve accenno alla storia e i colpi messi a segno.</p>
           :imagePath="resolveAssetPath(`speciali/elite/airwolf.gif`)"
           caption="Uno dei primi giochi: Airwolf"
           align="right"
-          noSrcset="true"
+          :noSrcset=true
         ></content-image>
         Nello stesso anno, pubblicò Airwolf, famosissimo gioco tratto da una serie televisiva Statunitense. Alla guida di un elicottero (Airwolf, appunto) , la missione è quella di liberare cinque scienziati tenuti prigionieri in una base piena di insidie situata sotto il deserto dell’Arizona. Fu un successo: oltre 300.000 copie vendute. Questo titolo contribuì al riconoscimento di miglior software house britannica dell’anno nell’ambito dell’intrattenimento per home computer.</p>
 
@@ -34,7 +34,7 @@ Andiamo per ordine con un breve accenno alla storia e i colpi messi a segno.</p>
           :imagePath="resolveAssetPath(`speciali/elite/paperboy.gif`)"
           caption="La schermata di presentazione di Paperboy"
           align="left"
-          noSrcset="true"
+          :noSrcset=true
         ></content-image>
         Due anni più tardi, Paperboy fu votato come gioco dell’anno, anche se ricordo che Zzap! non fu particolarmente magnanimo nella valutazione di questo gioco.
 Paperboy, convertito da un’arcade, ci vede alla guida di una bicicletta per le strade di un quartiere americano, evitando i numerosi ostacoli presenti (automobili, persone, falciatrici e altro ancora), si devono distribuire quotidiani, lanciandoli, davanti alla porta d’ingresso delle abitazioni.</p>
@@ -50,7 +50,7 @@ Nella scia di Test Drive, nel ’98, in collaborazione con Peugeot, uscì un alt
       <content-image
           :imagePath="resolveAssetPath(`speciali/elite/portable.jpg`)"
           caption="Bombjack in versione portatile"
-          noSrcset="true"
+          :noSrcset=true
       ></content-image>
       <p>Chiuso il discorso automobilistico, lo scorso anno, per Elite ci fu un ritorno al passato: rinnovo del contratto con Nintendo per la commercializzazione di giochi per Game Boy Advanced. Ecco un altro geniale colpo di questa azienda: perché non riproporre i grandi classici come Bomb Jack su GBA? Detto, fatto! Rinnovato il contratto con Tecmo Ltd e da Gennaio 2002 ecco nuovamente riproposto l’eroe mascherato per la console palmare di Nintendo in una nuova versione denominata Bomb Jack World (in realtà di nuovo c’è solo il titolo).
 BJW contiene tutta la trilogia, ovvero Bomb Jack, Bomb Jack Mighty e Bombjack Twins.

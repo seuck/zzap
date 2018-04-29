@@ -17,6 +17,8 @@ const MONTHS = {
 
 const TEXTS = {
   it: {
+    backcoverOfZzapIssue: `Quarta di copertina di Zzap! numero`,
+    coverOfZzapIssue: `Copertina di Zzap! numero`,
     issue: `numero`
   }
 }

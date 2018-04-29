@@ -8,8 +8,8 @@
     <content-section>
       <content-image
           :imagePath="resolveAssetPath(`speciali/bovabyte/speciale-bovabyte.jpg`)"
-          noShadow="true"
-          noSrcset="true"
+          :noShadow=true
+          :noSrcset=true
         ></content-image>
       <p><strong>BovaByte</strong> nasce nel 1988 tra i banchi di scuola di un liceo di Vigevano (PV) un pò per prendere in giro i sedicenti sapientoni del computer ma soprattutto per procurarsi un buon motivo per non studiare il latino. La fanzine è assemblata con colla e graffette da <strong>Paolo Besser</strong> e <strong>Davide Corrado</strong> mettendo insieme articoli scritti a mano.</p>
 
@@ -78,8 +78,8 @@
           rotation="cw"
           :readerData="getReaderData()"
         ></content-image>
-      L'ambiziosa <strong>Antologia di BovaByte</strong> di ben 36 pagine, un record per i Bovas, contiene articoli inediti ed una selezione del meglio di BovaByte in versione fanzine.</br>
-      I nuovi articoli sono la realizzazione di un sogno della redazione, seguire la storia di un videogioco in tutte le sue fasi: l'ideazione (che fa il verso ai famosi diari dei programmatori di Zzap!), le recensioni e la soluzione (con tanto di mappa). Superfluo precisare che questo gioco, nato dalla mente malata del "Pastore", è un'assoluta schifezza.</br>
+      L'ambiziosa <strong>Antologia di BovaByte</strong> di ben 36 pagine, un record per i Bovas, contiene articoli inediti ed una selezione del meglio di BovaByte in versione fanzine.<br>
+      I nuovi articoli sono la realizzazione di un sogno della redazione, seguire la storia di un videogioco in tutte le sue fasi: l'ideazione (che fa il verso ai famosi diari dei programmatori di Zzap!), le recensioni e la soluzione (con tanto di mappa). Superfluo precisare che questo gioco, nato dalla mente malata del "Pastore", è un'assoluta schifezza.<br>
       Antologia di BovaByte è stata presentata anche sulle pagine di Zzap! nel numero 64 del Febbraio 1992.</p>
     </content-section>
   </content-container>

@@ -74,4 +74,5 @@ figcaption {
   left: 0;
   right: 0;
   background-color: $translucentOverlay;
+  pointer-events: none;
 }

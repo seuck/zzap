@@ -1,22 +1,22 @@
 <template>
   <div class="doublespread">
     <content-image
-      :alt="altText"
+      :altText="altText"
       @openReader="openReader($event)"
       :imagePath="firstImagePath"
-      :readeDataMagazineId="magazineID"
-      :readeDataIssueId="issueID"
-      :readeDataStartPage="startPage"
-      :readeDataReturnBookmark="returnBookmark"
+      :readerDataMagazineId="magazineID"
+      :readerDataIssueId="issueID"
+      :readerDataStartPage="startPage"
+      :readerDataReturnBookmark="returnBookmark"
     ></content-image>
     <content-image
-      :alt="altText"
+      :altText="altText"
       @openReader="openReader($event)"
       :imagePath="secondImagePath"
-      :readeDataMagazineId="magazineID"
-      :readeDataIssueId="issueID"
-      :readeDataStartPage="secondPage"
-      :readeDataReturnBookmark="returnBookmark"
+      :readerDataMagazineId="magazineID"
+      :readerDataIssueId="issueID"
+      :readerDataStartPage="secondPage"
+      :readerDataReturnBookmark="returnBookmark"
     ></content-image>
   </div>
 </template>

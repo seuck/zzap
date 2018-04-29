@@ -8,8 +8,8 @@
     <content-section>
       <content-image
         :imagePath="resolveAssetPath(`mappe/jackthenipper2/jack-the-nipper-2-panorama.gif`)"
-        alt="Jack nella giungla salutando il giocatore"
-        :noSrcset="true"
+        altText="Jack nella giungla salutando il giocatore"
+        :noSrcset=true
       ></content-image>
       <p>Jack torna piú dispettoso che mai in questo platform della Gremlin Graphics,
         pubblicato nel 1987.<br>
@@ -34,12 +34,12 @@
         @openReader="openReader($event)"
         align="right"
         caption="La recensione"
-        magazineID="1"
-        issueID="19"
+        :magazineID=1
+        :issueID=19
         rotation="cw"
-        startPage="28"
+        :startPage=28
         returnBookmark="content__mappe-jackthenipper2"
-        alt="La recensione di Jack the Nipper su Zzap!"
+        altText="La recensione di Jack the Nipper su Zzap!"
       ></single-spread>
 
       <p>La mappa è stata ottenuta catturando le schermate una alla volta, mentre giocavo con un emulatore. In ciascuna immagine ho rimosso il personaggio principale, tranne nella prima, cosí da poter localizzare dove si trova il punto di partenza: in alto a sinistra.</p>
@@ -53,9 +53,9 @@
       <double-spread
         @openReader="openReader($event)"
         caption="La mappa publicata su Zzap!"
-        magazineID="1"
-        issueID="21"
-        startPage="46"
+        :magazineID=1
+        :issueID=21
+        :startPage=46
         returnBookmark="content__mappe-jackthenipper2"
         altText="La mappa di Jack the nipper 2 su Zzap!">
       </double-spread>

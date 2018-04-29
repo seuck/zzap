@@ -5,6 +5,7 @@ import {
 } from 'utils/scroll'
 import { pathThumbsIssueSelector } from 'constants/paths'
 import { getRetinaPath } from 'utils/image'
+import { TEXTS } from 'locales/localedate'
 
 const COMPONENT_NAME = `scanindex`
 
@@ -48,6 +49,9 @@ export default {
 
       // quick and dirty workaround for https://github.com/hilongjw/vue-lazyload/issues/238
       return correctSrcset.replace(`.jpg,`, `.jpg 79w,`).replace(` 2x`, ` 158w`)
+    },
+    getAltText(issueId) {
+      return `${TEXTS.it.coverOfZzapIssue} ${issueId}`
     },
     getLinkClass(issueId) {
       const baseClass = `scanindex__link`

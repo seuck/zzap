@@ -4,18 +4,13 @@ import {
   getIssueReaderDataAndCallCallback
 } from 'utils/reader'
 
-/**
- * align: left | right
- * rotation: cw, cc
- */
-
 export default {
   computed: {
     captionOrAlt() {
       let text = ``
 
-      if (typeof this.alt !== `undefined`) {
-        text = this.alt
+      if (typeof this.altText !== `undefined`) {
+        text = this.altText
       }
 
       if (typeof this.caption !== `undefined`) {
@@ -23,6 +18,14 @@ export default {
       }
 
       return text
+    },
+    contentImageClass() {
+      // Floating retina images are displayed having double width on Firefox: https://bugzilla.mozilla.org/show_bug.cgi?id=1149357
+      if (!this.noSrcset) {
+        return `workaround-firefox-retina`
+      }
+
+      return ``
     },
     fullStyle() {
       const styles = []
@@ -39,7 +42,7 @@ export default {
         styles.push(`${baseStyle}--link`)
       }
       if (typeof this.readerData !== `undefined` ||
-          typeof this.readeDataMagazineId !== `undefined`) {
+          typeof this.readerDataMagazineId !== `undefined`) {
         styles.push(`${baseStyle}--link-reader`)
       }
       if (typeof this.align !== `undefined`) {
@@ -64,12 +67,12 @@ export default {
   },
   methods: {
     openReader() {
-      if (typeof this.readeDataMagazineId !== `undefined`) {
+      if (typeof this.readerDataMagazineId !== `undefined`) {
         getIssueReaderDataAndCallCallback({
-          issueId: this.readeDataIssueId,
-          magazineId: this.readeDataMagazineId,
-          returnBookmark: this.readeDataReturnBookmark,
-          startPage: this.readeDataStartPage
+          issueId: this.readerDataIssueId,
+          magazineId: this.readerDataMagazineId,
+          returnBookmark: this.readerDataReturnBookmark,
+          startPage: this.readerDataStartPage
         }, (readerData) => {
           this.$emit(EVENTS.openReader, readerData)
         })
@@ -79,21 +82,72 @@ export default {
     }
   },
   name: `content__image`,
-  props: [
-    `align`,
-    `alt`,
-    `caption`,
-    `extraClass`,
-    `imagePath`,
-    `linkUrl`,
-    `namespace`,
-    `noShadow`,
-    `noSrcset`,
-    `readerData`,
-    `readeDataMagazineId`,
-    `readeDataIssueId`,
-    `readeDataReturnBookmark`,
-    `readeDataStartPage`,
-    `rotation`
-  ]
+  props: {
+    align: {
+      required: false,
+      type: String,
+      validator(value) {
+        return [`left`, `right`].indexOf(value) !== -1
+      }
+    },
+    altText: {
+      required: false,
+      type: String
+    },
+    caption: {
+      required: false,
+      type: String
+    },
+    extraClass: {
+      required: false,
+      type: String
+    },
+    imagePath: {
+      required: true,
+      type: String
+    },
+    linkUrl: {
+      required: false,
+      type: String
+    },
+    namespace: {
+      required: false,
+      type: String
+    },
+    noShadow: {
+      required: false,
+      type: Boolean
+    },
+    noSrcset: {
+      required: false,
+      type: Boolean
+    },
+    readerData: {
+      required: false,
+      type: Object
+    },
+    readerDataIssueId: {
+      required: false,
+      type: Number
+    },
+    readerDataMagazineId: {
+      required: false,
+      type: Number
+    },
+    readerDataReturnBookmark: {
+      required: false,
+      type: String
+    },
+    readerDataStartPage: {
+      required: false,
+      type: Number
+    },
+    rotation: {
+      required: false,
+      type: String,
+      validator(value) {
+        return [`cc`, `cw`].indexOf(value) !== -1
+      }
+    }
+  }
 }

@@ -1,14 +1,16 @@
 <template>
   <content-container
-    title="Diario di una Pasqua creativa"
+    title="Il mio galeone, di Toni Bianchetti"
     anchor="diari-zzap"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
-    <content-section title="Martedì 11 Aprile 2017: 1 - Il galeone">
-      <p>Durante la mia adolescenza i fumetti di Dylan Dog hanno affiancato la lettura di Zzap! In entrambi i casi si trattava di una lettura mensile vorace. Ma mentre una volta terminato “l’albo” dell’indagatore dell’incubo non sempre ritornavo a leggerlo, colpa anche di una qualità sempre più discontinua col passare degli anni, Zzap! lo consumavo fino al punto da metterne a dura prova la precaria rilegatura graffettata.
+    <content-section
+      date="Martedì 11 Aprile 2017"
+      title="Il galeone">
+      <p>Durante la mia adolescenza i fumetti di Dylan Dog hanno affiancato la lettura di Zzap!. In entrambi i casi si trattava di una lettura mensile vorace. Ma mentre una volta terminato “l’albo” dell’indagatore dell’incubo non sempre ritornavo a leggerlo, colpa anche di una qualità sempre più discontinua col passare degli anni, Zzap! lo consumavo fino al punto da metterne a dura prova la precaria rilegatura graffettata.
 Nonostante le continue letture, tanto per puro godimento sensoriale che come volumi di consultazione su quella fetta di quotidianità che per me erano i videogiochi a quell’eta, i miei “numeri” di Zzap! si sono conservati abbastanza bene, integri a tal punto da servire come fonte iniziale per le scansioni di questo progetto.</p>
 
-      <p>Come chi ci segue ha piacevolmente scoperto, quell’opera immane di digitalizzazione di tutte le pagine mai publicate di Zzap! è avanzata molto più agilmente di quanto io e Dario ci aspettavamo. Grazie el prezioso contributo di tanti volontari “scansionatori" sparsi in lungo e in largo per la penisola italiana.</p>
+      <p>Come chi ci segue ha piacevolmente scoperto, quell’opera immane di digitalizzazione di tutte le pagine mai publicate di Zzap! è avanzata molto più agilmente di quanto io e Dario ci aspettavamo. Grazie el prezioso contributo di tanti volontari <scroll-link anchor="redazione-maghidelloscanner">“scansionatori"</scroll-link> sparsi in lungo e in largo per la penisola italiana.</p>
 
       <p>Invece, l’opera parallela di sviluppare e mantenere aggiornato il sito web del Progetto ha assomigliato sempre più al galeone del nostro Dylan Dog. Un passatempo eterno, un compito incombente, un sogno irraggiungibile.
 È certo vero che la miniatura di un galeone una volta completata finisce in bella mostra su quella mensola così in vista, mentre mettere insieme un prodotto informatico è per definizione un compito senza fine. Sarà per questo che si usa il verbo “sviluppare” invece che costruire, creare, o semplicemente fare?
@@ -17,7 +19,9 @@ Lo sviluppo infatti è per sempre, una meta la cui bellezza è proprio la non es
       <p>Scrivo queste righe proprio per raccontare la tappa successiva che sta per raggiungere il sito web di Zzap.it.</p>
     </content-section>
 
-    <content-section title="Mercoledì 12 Aprile 2017: 2 - Dove siamo">
+    <content-section
+      date="Mercoledì 12 Aprile 2017"
+      title="Dove siamo">
       <p>Sono orgoglioso dei contenuti si Zzap.it, molto meno dell’involucro che li presenta. Il sito web attualmente online risale al lontanissimo 2004, ovvero separato dai giorni nostri da varie ere geologiche, considerando il rapido evolversi della tecnologia web.
 E nonostante qualcuno mi disse, azzeccandoci, che è così vecchio che il sito stesso, oltre che i contenuti, può ritenersi “vintage” (^_^), la mia professione è proprio quella di sviluppatore web e non posso certo mostrarlo come esempio delle mie capacità attuali.</p>
 
@@ -35,7 +39,9 @@ Per fortuna, l’ampio supporto della grafica vettoriale in formato SVG nei brow
       <p>Finalmente di nuovo in ferie, vado a riaprire il codice sviluppato lo scorso Natale e purtroppo abbandonato a causa, principalmente, di un lungo viaggio di lavoro in Colombia.</p>
     </content-section>
 
-    <content-section title="Giovedì 13 Aprile 2017: 3 - La copetina, di nuovo">
+    <content-section
+      date="Giovedì 13 Aprile 2017"
+      title="La copetina, di nuovo">
       <p>Sorpresa, ma non troppo. Il codice della copertina responsive che ho sviluppato a Natale ha bisogno di molte modifiche. E’ più che altro una prova di concetto e per andare dritto al risultato non ho costruito correttamente l’HTML. In particolare la copertina è da sola, non c’è nessun contenuto dopo, in basso e aggiungendolo adesso sballa tutto.
 E dire che le regole le conosco ma com’è facile dimenticarsene quando si sperimenta. Prima di tutto infatti va creato un buon codice HTML semantico. Se si sbaglia questo passo è poi tutta una serie di errori a catena o quantomeno di complicazioni.</p>
 
@@ -49,7 +55,9 @@ Vi annuncio già adesso che mi piacciono i siti web con il testo grande e ben vi
       <p>Sto parlando della copertina già da qualche paragrafo ma non ho ancora specificato quale illustrazione mostrerà. Ho una ghiotta sorpresa in serbo!</p>
     </content-section>
 
-    <content-section title="Venerdì 14 Aprile 2017: 4 - Sommario">
+    <content-section
+      date="Venerdì 14 Aprile 2017"
+      title="Sommario">
       <p>La copertina si comporta molto meglio adesso. Cosa viene dopo? Ma certo, il sommario!
 Il sommario è la prima pagina testuale di Zzap!, dopo qualche pagina di pubblicità. I nostri simpatici redattori approfittavano già di questa lista di argomenti per cominciare a scherzare. Non solo i titoli delle varie sezioni cambiavano di mese in mese (I “soliti”, I “tosti”, Un “fertile” autunno a 8 bit), ma anche i paragrafi che accompagnavano ogni articolo erano divertenti, come: “dopo il “pacco” del Mega Indice, una fresca ventata di trucchi Made in Italy”.</p>
 
@@ -65,7 +73,9 @@ Ma andiamo per passi. Intanto mi sto occupando del frontend del nuovo sito del P
 Infatti per la versione dinamica ho grandi progetti, ma non certo fattibili nell’arco di questo fine settimana.</p>
     </content-section>
 
-    <content-section title="Domenica 16 Aprile 2017: 5 - Scansioni">
+    <content-section
+      date="Domenica 16 Aprile 2017"
+      title="Scansioni">
       <p>La giornata è soleggiata qui a Barcellona, ma l’operazione che mi accingo a compiere si sposerebbe meglio con una notte buia e tempestosa. Sarà necessario canalizzare l’energia di un fulmine per ridare vita al navigatore di scansioni che sviluppai nel 2013 dopo averlo innestato nel corpo del nuovo sito web del Progetto?
 Non potendo contare sull’aiuto di Igor, a rendere l’operazione più semplice sarà la tecnologia utilizzata. Infatti il navigatore usa un’implementazione frontend pura, quindi è il codice Javascript eseguito nel navigatore stesso che crea le varie viste. Tutti i dati, e la complessità richiesta per generarli, risiedono in un software esterno, tecnicamente un’API REST, che trasforma le informazioni conservate in un database, servendole in formato JSON. Quella che battezziamo proprio adesso col nome di “Zzapi!” è uno dei tanti esperimenti con cui ho giocato nei momenti di silenzio del Progetto, troppo a lungo tenuti nel cassetto.</p>
 
@@ -77,7 +87,9 @@ Rimangono tanti punti di sutura da curare e purtroppo il risultato finale non su
 Questa mancanza unita al codice vecchiotto con cui è programmato mi occuperanno durante e prossime ore.</p>
     </content-section>
 
-    <content-section title="Sabato 20 - Domenica 21 Maggio 2017: x - Zzapi">
+    <content-section
+      date="Sabato 20 - Domenica 21 Maggio 2017"
+      title="Zzapi">
       <p>Torniamo a Zzapi, l’API REST che espone il contenuto del data base del Progetto su Internet. Fornisce un semplice indirizzo ad ogni risorsa interessante di Zzap!, come i numeri della rivista, le recensioni dei giochi, le pubblicità e persino l’elenco di chi ha contribuito alle scansioni.
 Per esempio /magazine/1/issue/8 è l’indirizzo usato per consultare le informazioni del numero 8 di Zzap!. Il primo numero, uno, si usa perché il sistema supporta più di una rivista anche se per adesso solo contiene i dati di Zzap!.
 Tutte queste informazioni sono aperte al libero consumo su Internet e il visore delle scansioni utilizza proprio questi dati.
