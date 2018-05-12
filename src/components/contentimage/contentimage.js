@@ -51,14 +51,14 @@ export default {
       if (typeof this.rotation !== `undefined`) {
         styles.push(`${baseStyle}--${this.rotation}`)
       }
-      if (typeof this.noShadow !== `undefined`) {
+      if (this.noShadow) {
         styles.push(`${baseStyle}--${noShadowModifier}`)
       }
 
       return styles.join(` `)
     },
     srcset() {
-      if (typeof this.noSrcset !== `undefined`) {
+      if (this.noSrcset) {
         return ``
       }
 

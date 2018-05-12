@@ -17,8 +17,8 @@
     Ultimate II+, una C64SD 3.0 Princess Flc e da una Mssiah con la quale sfrutta al meglio il migliore
     sintetizzatore ad 8 bit, il SID.<br>
     Conosce Zzap! relativamente tardi nell'Ottobre del 1987 con il numero 16 e proprio spinto dalla
-    voglia di recuperare i vecchi numeri che nel 2002 comincia a lavorare al Zzap.it coinvolgendo in
-    beve tempo il compagno di liceo ed università <scroll-link anchor="redazione-seuck">Seuck</scroll-link>.<br>
+    voglia di recuperare i vecchi numeri che nel 2002 comincia a lavorare a Zzap.it coinvolgendo in
+    beve tempo il compagno di liceo ed università <scroll-link anchor="redazione-seuck">Antonio</scroll-link>.<br>
     È il fondatore di Zzap.it.</p>
   </content-container>
 </template>

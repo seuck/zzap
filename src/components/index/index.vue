@@ -8,7 +8,7 @@
         <div class="index__listcontainer">
           <ul class="index__list">
             <li class="index__item">Anche il nuovo sito di Zzap.it ha il suo diario.
-        <scroll-link anchor="diari-zzap">"Il mio galeone", di Toni Bianchetti</scroll-link></li>
+        <scroll-link anchor="diari-zzap">"Il mio galeone", di Antonio Bianchetti</scroll-link></li>
           </ul>
         </div>
       </section>

@@ -6,7 +6,7 @@
     @dismissBookmark="dismissBookmark($event)">
     <ul>
       <li>Anche il nuovo sito di Zzap.it ha il suo diario.
-        <scroll-link anchor="diari-zzap">"Il mio galeone", di Toni Bianchetti</scroll-link>
+        <scroll-link anchor="diari-zzap">"Il mio galeone", di Antonio Bianchetti</scroll-link>
       </li>
     </ul>
   </content-container>

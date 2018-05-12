@@ -1,6 +1,6 @@
 <template>
   <content-container
-    title="Il mio galeone, di Toni Bianchetti"
+    title="Il mio galeone, di Antonio Bianchetti"
     anchor="diari-zzap"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">

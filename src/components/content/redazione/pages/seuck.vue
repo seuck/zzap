@@ -1,6 +1,6 @@
 <template>
   <content-container
-    title="Toni &quot;Seuck&quot; Bianchetti"
+    title="Antonio &quot;Seuck&quot; Bianchetti"
     anchor="seuck"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
@@ -15,10 +15,16 @@
       Affina l'udito con le musiche di Martin Walker e il grilletto con Retrograde
       dei fratelli Rowland.<br>
       Senza saperlo inizia a collezionare gli esemplari di Zzap! che daranno vita a Zzap.it.<br>
-      Attivo nella demo scene locale, smanetta con gli interrupts e i raster del VIC II.<br>
+      Attivo nella &quot;demo scene&quot; locale, smanetta con gli interrupts e i raster del VIC II.<br>
       L'omonimo programma, S.E.U.C.K, gli apre le porte della pixel art, che gli frutterà più tardi,
-      ai tempi dell'Amiga, un'offerta di lavoro da Ivan Venturi. Sceglie di continuare gli studi universitari.<br>
+      ai tempi dell'Amiga, una proposta di lavoro da Ivan Venturi. Sceglie di continuare gli studi universitari.<br>
       Si fa carico della web di Zzap.it già nel 2004 ed è l'autore della versione che leggete adesso.</p>
+
+      <p>
+        Twitter: <a href="https://twitter.com/seuck">@seuck</a><br>
+        LinkdIn: <a href="https://www.linkedin.com/in/antoniobianchetti/">Antonio Bianchetti</a>
+      </p>
+
   </content-container>
 </template>
 

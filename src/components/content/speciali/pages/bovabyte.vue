@@ -1,6 +1,6 @@
 <template>
   <content-container
-    title="Speciale BovaByte, di Toni Bianchetti"
+    title="Speciale BovaByte, di Antonio Bianchetti"
     date="22 Ottobre 2004"
     anchor="speciali-bovabyte"
     @announceBookmark="announceBookmark($event)"

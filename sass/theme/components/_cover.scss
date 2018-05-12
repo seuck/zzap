@@ -2,12 +2,41 @@
   @include fullpage;
   height: 140.5vw;
   position: relative;
-
-  background-image: url($pathAssets + 'cover/artworks/daphne-dirk-prog.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 50% 0;
   background-origin: padding-box;
+
+  @media (max-width: 320px) {
+    background-image: url($pathAssets + 'cover/artworks/daphne-dirk-320.jpg');
+
+    @media (min-resolution: 2dppx),
+    (-webkit-min-device-pixel-ratio: 2) {
+      background-image: url($pathAssets + 'cover/artworks/daphne-dirk-640.jpg');
+    }
+  }
+
+  @media (min-width: 321px) and (max-width: 375px) {
+    background-image: url($pathAssets + 'cover/artworks/daphne-dirk-640.jpg');
+
+    @media (min-resolution: 2dppx),
+    (-webkit-min-device-pixel-ratio: 2) {
+      background-image: url($pathAssets + 'cover/artworks/daphne-dirk-750.jpg');
+    }
+  }
+
+  @media (min-width: 376px) and (max-width: 640px) {
+    background-image: url($pathAssets + 'cover/artworks/daphne-dirk-640.jpg');
+
+    @media (min-resolution: 2dppx),
+    (-webkit-min-device-pixel-ratio: 2) {
+      background-image: url($pathAssets + 'cover/artworks/daphne-dirk-900.jpg');
+    }
+  }
+
+  @media (min-width: 641px) {
+    background-image: url($pathAssets + 'cover/artworks/daphne-dirk-900.jpg');
+  }
 
   @include for-tablet-landscape-up {
     height: 1266px;

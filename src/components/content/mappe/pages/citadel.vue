@@ -1,6 +1,6 @@
 <template>
   <content-container
-    title="Citadel, di Toni Bianchetti"
+    title="Citadel, di Antonio Bianchetti"
     date="2 Febbraio 2006"
     anchor="mappe-citadel"
     @announceBookmark="announceBookmark($event)"
@@ -32,6 +32,7 @@
         caption="Le mappe di Citadel"
         :imagePath="resolveAssetPath(`mappe/citadel/map-mini.png`)"
         :readerData="getReaderData()"
+        :noSrcset=true
       ></content-image>
 
       <p>Zzap! gli assegna ben un 91% e il bollino di Gioco Caldo, risaltando, oltre agli effetti sonori,

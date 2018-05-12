@@ -5,8 +5,8 @@
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
-      <p>Nel 2002 i nostri scanner andavano a fuoco. Per primo <strong>Dario</strong>, attingendo alla
-        collezione personale di <strong>Toni</strong>, digitalizza le prime pagine. Poi si unisce Seuck stesso e
+      <p>Nel 2002 i nostri scanner andavano a fuoco. Per primo <scroll-link anchor="redazione-darkj">Dario</scroll-link>, attingendo alla
+        collezione personale di <scroll-link anchor="redazione-seuck">Antonio</scroll-link>, digitalizza le prime pagine. Poi si unisce Antonio stesso e
         tanti altri volenterosi collaboratori. Fino ad arrivare a ben quindici maghi dello scanner,
         lavorando all'unisono.</p>
       <p>Finalmente nel 2008 tutti i numeri di Zzap! sono disponibilie online, quel lavoro immane è finito.

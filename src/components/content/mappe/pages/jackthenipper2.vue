@@ -1,6 +1,6 @@
 <template>
   <content-container
-    title="Jack the Nipper 2, di Toni Bianchetti"
+    title="Jack the Nipper 2, di Antonio Bianchetti"
     date="12 Agosto 2004"
     anchor="mappe-jackthenipper2"
     @announceBookmark="announceBookmark($event)"
@@ -22,6 +22,7 @@
         caption="La mappa di Jack the Nipper 2"
         :imagePath="resolveAssetPath(`mappe/jackthenipper2/map-mini.png`)"
         :readerData="getReaderData()"
+        :noSrcset=true
       ></content-image>
 
       <p>Come vedrete, la mappa è immensa e non ci sono caricamenti durante il gioco.

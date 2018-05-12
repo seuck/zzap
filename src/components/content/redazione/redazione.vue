@@ -5,7 +5,7 @@
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <p><strong><scroll-link anchor="redazione-darkj">Dario</scroll-link></strong>: fondatore, web originale, scansioni.</p>
-    <p><strong><scroll-link anchor="redazione-seuck">Toni</scroll-link></strong>: versioni web del 2004 e 2018, mappe, scansioni.</p>
+    <p><strong><scroll-link anchor="redazione-seuck">Antonio</scroll-link></strong>: versioni web del 2004 e 2018, mappe, scansioni.</p>
     <p><strong><a href="https://www.facebook.com/Privodanima">Emiliano Grancagnolo</a></strong>: copertina.</p>
 
     <p>Ma non saremmo arrivati da nessuna parte senza il prezioso aiuto dei tanti appassionati di Zzap!<br>
