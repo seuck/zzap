@@ -13,7 +13,7 @@ gulp.task(`clean`, () => del([
 ]))
 
 gulp.task(`watch`, () => {
-  gulp.watch(paths.allSrcToWatch, [`js`])
+  gulp.watch(paths.allSrcJs, [`js`])
   gulp.watch(paths.allSass, [`css`])
 })
 

@@ -1,16 +1,16 @@
 <template>
   <content-image
-    @openReader="openReader($event)"
     :align="align"
-    :altText="altText"
+    :alt-text="altText"
     :caption="caption"
-    :imagePath="imagePath"
-    :readerDataMagazineId="magazineID"
-    :readerDataIssueId="issueID"
-    :readerDataStartPage="startPage"
-    :readerDataReturnBookmark="returnBookmark"
+    :image-path="imagePath"
+    :reader-data-magazine-id="magazineId"
+    :reader-data-issue-id="issueId"
+    :reader-data-start-page="startPage"
+    :reader-data-return-bookmark="returnBookmark"
     :rotation="rotation"
-  ></content-image>
+    @openReader="openReader($event)"
+  />
 </template>
 
 <script src="./singlespread.js"></script>

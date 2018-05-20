@@ -4,11 +4,13 @@
     <div class="index__container">
 
       <section class="index__section">
-        <h3 class="index__listtitle"><scroll-link anchor="diari">Diari e interviste</scroll-link></h3>
+        <h3 class="index__listtitle">
+          <scroll-link anchor="diari">Diari e interviste</scroll-link>
+        </h3>
         <div class="index__listcontainer">
           <ul class="index__list">
-            <li class="index__item">Anche il nuovo sito di Zzap.it ha il suo diario.
-        <scroll-link anchor="diari-zzap">"Il mio galeone", di Antonio Bianchetti</scroll-link></li>
+            <!-- eslint-disable-next-line max-len -->
+            <li class="index__item">Anche il nuovo sito di Zzap.it ha il suo diario. <scroll-link anchor="diari-zzap">"Il mio galeone", di Antonio Bianchetti</scroll-link></li>
           </ul>
         </div>
       </section>

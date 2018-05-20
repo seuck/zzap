@@ -22,8 +22,15 @@ export default {
       return this.magazine.name.replace(/[^a-z0-9]/gi, ``).toLowerCase()
     },
     paddingIssues() {
+      const padding = []
+
       if (typeof this.issues !== `undefined`) {
-        return Array(this.issues[0].month - 1)
+        for (let i = 0; i < this.issues[0].month - 1; i++) {
+          // provide unique key for loop
+          padding.push(`padding--${i}`)
+        }
+
+        return padding
       }
 
       return []

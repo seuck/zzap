@@ -8,12 +8,13 @@
     <p><strong><scroll-link anchor="redazione-seuck">Antonio</scroll-link></strong>: versioni web del 2004 e 2018, mappe, scansioni.</p>
     <p><strong><a href="https://www.facebook.com/Privodanima">Emiliano Grancagnolo</a></strong>: copertina.</p>
 
-    <p>Ma non saremmo arrivati da nessuna parte senza il prezioso aiuto dei tanti appassionati di Zzap!<br>
-      Chi sta dietro all'immane lavoro di scansione di tutti i numeri della rivista?<br>
-      Ben tredici volenterosi <scroll-link anchor="redazione-maghidelloscanner">maghi dello scanner</scroll-link>!</p>
-    
+    <p>Ma non saremmo arrivati da nessuna parte senza il prezioso aiuto dei tanti appassionati di Zzap!
+      <br>Chi sta dietro all'immane lavoro di scansione di tutti i numeri della rivista?
+      <br>Ben tredici volenterosi <scroll-link anchor="redazione-maghidelloscanner">maghi dello scanner</scroll-link>!
+    </p>
+
     <p>Zzap.it utilizza tanti elementi liberamente disponibili sul web,
-      <scroll-link anchor="redazione-ringraziamenti">ecco i dettagli</scroll-link>.</p>
+    <scroll-link anchor="redazione-ringraziamenti">ecco i dettagli</scroll-link>.</p>
 
   </content-container>
 </template>

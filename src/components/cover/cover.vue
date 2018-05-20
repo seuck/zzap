@@ -8,7 +8,13 @@
     </div>
     <nav class="cover__navigation">
       <ul class="cover__navigationlist">
-        <li><scroll-link target="scanindex" :isScrollOnly=true><span>Scansioni</span><small>Sfoglia Zzap! a tutto schermo</small></scroll-link></li>
+        <li>
+          <scroll-link
+            :is-scroll-only="true"
+            target="scanindex">
+            <span>Scansioni</span><small>Sfoglia Zzap! a tutto schermo</small>
+          </scroll-link>
+        </li>
         <li><scroll-link anchor="diari-zzap"><span>Diario</span><small>Com'è nato il nuovo Zzap.it</small></scroll-link></li>
         <li><scroll-link anchor="mappe"><small>Solo per temerari esploratori</small><span>Mappe</span></scroll-link></li>
         <li><scroll-link anchor="speciali"><span>Speciali</span><small>Rari ma imperdibili</small></scroll-link></li>

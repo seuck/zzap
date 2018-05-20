@@ -1,13 +1,17 @@
 <template>
-  <nav v-if="sections.length > 0" class="dynamicnavigation">
+  <nav
+    v-if="sections.length > 0"
+    class="dynamicnavigation">
     <ol class="dynamicnavigation__container">
-      <li @click="closeBookmark(section.anchor)"
+      <li
+        v-for="(section, index) in sections"
         :class="getBookmarkClass(section.anchor)"
-        v-for="section in sections">
+        :key="index"
+        @click="closeBookmark(section.anchor)">
         <scroll-link
           :anchor="section.anchor"
           :target="section.target"
-          :is-scroll-only="true">{{section.title}}</scroll-link>
+          :is-scroll-only="true">{{ section.title }}</scroll-link>
       </li>
     </ol>
   </nav>

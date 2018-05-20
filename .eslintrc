@@ -1,7 +1,8 @@
 {
   "root": true,
   "extends": [
-    "airbnb-base"
+    "airbnb-base",
+    "plugin:vue/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2015,
@@ -22,7 +23,7 @@
       "error",
       {
         "ignoreComments": false,
-        "ignorePattern": "^import*",
+        "ignorePattern": "^import*|^\\s*<p.*|^\\s*<li.*|^\\s*<br.*",
         "ignoreRegExpLiterals": true,
         "ignoreTemplateLiterals": true,
         "ignoreUrls": true,

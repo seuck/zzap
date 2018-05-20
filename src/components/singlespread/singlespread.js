@@ -14,7 +14,7 @@ export default {
   computed: {
     imagePath() {
       return buildScanPathForContent(
-        buildScanDatabasePath(this.magazineID, this.issueID, this.startPage)
+        buildScanDatabasePath(this.magazineId, this.issueId, this.startPage)
       )
     }
   },
@@ -40,11 +40,11 @@ export default {
       required: false,
       type: String
     },
-    issueID: {
+    issueId: {
       required: false,
       type: Number
     },
-    magazineID: {
+    magazineId: {
       required: false,
       type: Number
     },

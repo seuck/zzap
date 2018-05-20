@@ -1,40 +1,47 @@
 <template>
-  <section class="scanissue"
+  <section
     v-if="isIssueId"
-    @announceBookmark="announceBookmark($event)"
-    @dismissBookmark="dismissBookmark($event)"
+    :data-content-piece="issue.sequence"
+    class="scanissue"
     data-track-content
     data-content-name="scanissue"
-    :data-content-piece="issue.sequence">
+    @announceBookmark="announceBookmark($event)"
+    @dismissBookmark="dismissBookmark($event)">
     <div class="scanissue__content">
       <div class="scanissue__doublepage">
         <div class="scanissue__detaillink scanissue__detaillink--intro">
           <scanissue-info
-            :issueNumber="issue.sequence"
-            :issueMonth="getMonthNameFromNumber(issue.month)"
-            :issueYear="issue.year"
-            :issueEditor="issue.editor.name"
+            :issue-number="issue.sequence"
+            :issue-month="getMonthNameFromNumber(issue.month)"
+            :issue-year="issue.year"
+            :issue-editor="issue.editor.name"
             :contributors="issue.volumes[0].scan_authors"
-            :pdf="issue.volumes[0].pdf">
-          </scanissue-info>
-          <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[0].sequence)">
+            :pdf="issue.volumes[0].pdf"/>
+          <a
+            class="scanissue__detaillink"
+            @click="openReader(issue.volumes[0].pages[0].sequence)">
             <img
-              class="scanissue__page scanissue__cover scanissue__1"
+              v-lazy="buildPageThumbPath(issue.volumes[0].pages[0].scan.path)"
               :alt="getCoverAltText(issue.sequence)"
-              v-lazy="buildPageThumbPath(issue.volumes[0].pages[0].scan.path)">
+              class="scanissue__page scanissue__cover scanissue__1">
           </a>
         </div>
       </div>
-      <div class="scanissue__doublepage" v-for="page in getDoublePages()">
-        <a class="scanissue__detaillink" @click="openReader(issue.volumes[0].pages[page].sequence)">
+      <div
+        v-for="(page, index) in getDoublePages()"
+        :key="index"
+        class="scanissue__doublepage">
+        <a
+          class="scanissue__detaillink"
+          @click="openReader(issue.volumes[0].pages[page].sequence)">
           <img
+            v-lazy="buildPageThumbPath(issue.volumes[0].pages[page].scan.path)"
             :class="getContentClass(issue.volumes[0].pages[page])"
-            :alt="getPageAltText(issue.sequence, page + 1)"
-            v-lazy="buildPageThumbPath(issue.volumes[0].pages[page].scan.path)">
+            :alt="getPageAltText(issue.sequence, page + 1)">
           <img
+            v-lazy="buildPageThumbPath(issue.volumes[0].pages[page + 1].scan.path)"
             :class="getContentClass(issue.volumes[0].pages[page + 1])"
-            :alt="getPageAltText(issue.sequence, page + 2)"
-            v-lazy="buildPageThumbPath(issue.volumes[0].pages[page + 1].scan.path)">
+            :alt="getPageAltText(issue.sequence, page + 2)">
         </a>
       </div>
       <div class="scanissue__doublepage">
@@ -42,9 +49,11 @@
           class="scanissue__detaillink"
           @click="openReader(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].sequence)">
           <img
-            class="scanissue__page scanissue__backcover"
+            v-lazy="buildPageThumbPath(
+              issue.volumes[0].pages[issue.volumes[0].pages.length - 1].scan.path
+            )"
             :alt="getBackcoverAltText(issue.sequence)"
-            v-lazy="buildPageThumbPath(issue.volumes[0].pages[issue.volumes[0].pages.length - 1].scan.path)">
+            class="scanissue__page scanissue__backcover">
         </a>
       </div>
     </div>

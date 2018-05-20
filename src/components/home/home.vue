@@ -1,44 +1,44 @@
 <template>
   <div :class="homeClass">
-    <loader payload=""></loader>
+    <loader payload=""/>
     <reader
       :pages="readerData.pages"
-      :startPage="readerData.startPage"
+      :start-page="readerData.startPage"
       :title="readerData.title"
-      :returnBookmark="readerData.returnBookmark"
-      :infoPath="readerData.infoPath"
-      :labelPrefix="readerData.labelPrefix"
+      :return-bookmark="readerData.returnBookmark"
+      :info-path="readerData.infoPath"
+      :label-prefix="readerData.labelPrefix"
       @closeReader="resetReader"
-    ></reader>
-    
-    <zzap-header></zzap-header>
-    <cover></cover>
-    <index></index>
-    <scanindex :magazineId=1></scanindex>
+    />
 
-    <dynamic-navigation :sections="dynamicNavSections"></dynamic-navigation>
+    <zzap-header/>
+    <cover/>
+    <index/>
+    <scanindex :magazine-id="1"/>
+
+    <dynamic-navigation :sections="dynamicNavSections"/>
 
     <router-view
+      :magazine-id="1"
       name="issue"
-      :magazineId=1
       @openReader="initReader($event)"
       @announceBookmark="addDynamicNavSection($event)"
       @dismissBookmark="removeDynamicNavSection($event)"
-    ></router-view>
+    />
     <router-view
       name="content"
       @openReader="initReader($event)"
       @announceBookmark="addDynamicNavSection($event)"
       @dismissBookmark="removeDynamicNavSection($event)"
-    ></router-view>
+    />
     <router-view
       name="followup"
       @openReader="initReader($event)"
       @announceBookmark="addDynamicNavSection($event)"
       @dismissBookmark="removeDynamicNavSection($event)"
-    ></router-view>
+    />
 
-    <zzap-footer></zzap-footer>
+    <zzap-footer/>
   </div>
 </template>
 

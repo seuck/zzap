@@ -1,7 +1,7 @@
 <template>
   <footer
-    class="footer"
-    v-lazy:background-image="resolveAssetPath('crt.jpg')">
+    v-lazy:background-image="resolveAssetPath('crt.jpg')"
+    class="footer">
     <p>Zzap.it è l'opera collettiva che ha reso disponibili online tutte le scansioni della rivista Zzap!</p>
     <nav class="footer__navigation">
       <scroll-link anchor="progetto">Il progetto</scroll-link>

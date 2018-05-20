@@ -4,69 +4,70 @@
     anchor="speciali-leabbiamovistetutte">
 
     <content-image
-      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
-    ></content-image>
+      :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+    />
 
     <content-image
-      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
-      linkUrl="#"
+      :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+      link-url="#"
       caption="Centred and linked"
-    ></content-image>
+    />
 
     <content-image
-      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+      :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
       rotation="cw"
       caption="Centred CW"
-    ></content-image>
+    />
 
     <content-image
-      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+      :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
       caption="Centred CC"
       rotation="cc"
-    ></content-image>
+    />
 
     <content-image
-      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
-      caption="Centred with long caption, la splendida protagonista di &quot;Insects is Space&quot; creata da Sensible Software"
-    ></content-image>
+      :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+      caption="Centred with long caption, la splendida protagonista di &quot;Insects is Space&quot;
+        creata da Sensible Software"
+    />
 
     <content-section title="Le origini">
       <p>Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,
-        giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,
-        un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.
-        A meno che, ovviamente, debba scrivere un’autobiografia.</p>
+      giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,
+      un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.
+      A meno che, ovviamente, debba scrivere un’autobiografia.</p>
     </content-section>
 
     <content-image
-      :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
-      linkUrl="#"
+      :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+      link-url="#"
       caption="Centred, linked, between sections"
-    ></content-image>
+    />
 
     <content-section title="Il seguito">
       <p>Gli articoli storici sono sempre un’occasione d’oro per vanagloriarsi,
-        giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,
-        un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.
-        A meno che, ovviamente, debba scrivere un’autobiografia.
-        E questo tipo di manoscritti, per quanto affascinante, è sempre filtrato dai
-        ricordi, dalle emozioni vissute, dal desiderio di rimediare gli errori
-        compiuti, dalla voglia di giustificazione o di riscatto.
-        Parlare della rivista per cui si lavora, per fortuna, è sostanzialmente
-        diverso: ciò ch’è stato è stato, da qualche parte rimarrà scritto,
-        e troverai sempre il vecchio lettore pronto a contraddirti,
-        e poi c’è quella parte visibile, oggettiva, che rimarrà a tutti gli effetti
-        l’unica cosa che la gente ricorderà. Perché in fondo chi scrive non lo fa
-        solo per informare, ma anche nella speranza che qualcosa di suo rimanga in
-        eterno.</p>
+      giacché ognuno di noi normalmente vive le proprie giornate senza la pretesa,
+      un giorno, di ripercorrerle col pensiero e di riportarle da qualche parte.
+      A meno che, ovviamente, debba scrivere un’autobiografia.
+      E questo tipo di manoscritti, per quanto affascinante, è sempre filtrato dai
+      ricordi, dalle emozioni vissute, dal desiderio di rimediare gli errori
+      compiuti, dalla voglia di giustificazione o di riscatto.
+      Parlare della rivista per cui si lavora, per fortuna, è sostanzialmente
+      diverso: ciò ch’è stato è stato, da qualche parte rimarrà scritto,
+      e troverai sempre il vecchio lettore pronto a contraddirti,
+      e poi c’è quella parte visibile, oggettiva, che rimarrà a tutti gli effetti
+      l’unica cosa che la gente ricorderà. Perché in fondo chi scrive non lo fa
+      solo per informare, ma anche nella speranza che qualcosa di suo rimanga in
+      eterno.</p>
     </content-section>
 
     <content-section title="Le origini">
       <p>
         <content-image
-          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+          :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           rotation="cw"
           caption="Centred, CW, at the beginning of a paragraph"
-        ></content-image>
+        />
         Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con
         gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un
         Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente
@@ -88,10 +89,10 @@
     <content-section title="Le origini">
       <p>
         <content-image
-          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+          :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           caption="Left, at the beginning of a paragraph"
           align="left"
-        ></content-image>
+        />
         Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con
         gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un
         Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente
@@ -111,11 +112,11 @@
 
       <p>
         <content-image
-          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+          :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           caption="Right, linked, at the beginning of a paragraph"
           align="right"
-          linkUrl="#"
-        ></content-image>
+          link-url="#"
+        />
         Zzap! uscì in sordina, nel lontano maggio del 1986, tanto in sordina che non tutte
         le edicole ne furono provviste. Tant’è che il mio primo contatto con la nuova
         pubblicazione avvenne solo otto mesi più tardi, nel dicembre dello stesso anno:
@@ -130,19 +131,19 @@
         rotto le balle all’edicolante ogni santo mese, "è uscito Zzap!?", un leitmotiv a
         cui si saranno abituati in tanti.</p>
       <p>Solo in seguito riuscii a recuperare i sei numeri che mancavano alla mia collezione:
-        cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più
-        tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me
-        lo spedì in regalo.</p>
+      cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più
+      tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me
+      lo spedì in regalo.</p>
     </content-section>
 
     <content-section title="Le origini">
       <p>
         <content-image
-          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+          :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           caption="Left, CC, at the beginning of a paragraph"
           align="left"
           rotation="cc"
-        ></content-image>
+        />
         Nella primavera del 1986, facevo ancora la seconda media. Guardavo il mondo con
         gli occhi lucidi del bambino, e potevo considerarmi il felice utente di un
         Commodore 16, nonostante gli sfottò degli allora possessori di un C64 onestamente
@@ -162,12 +163,12 @@
 
       <p>
         <content-image
-          :imagePath="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
+          :image-path="resolveAssetPath(`speciali/leabbiamovistetutte/numero43.jpg`)"
           caption="Right,CW, linked, at the beginning of a paragraph"
           align="right"
           rotation="cw"
-          linkUrl="#"
-        ></content-image>
+          link-url="#"
+        />
         Zzap! uscì in sordina, nel lontano maggio del 1986, tanto in sordina che non tutte
         le edicole ne furono provviste. Tant’è che il mio primo contatto con la nuova
         pubblicazione avvenne solo otto mesi più tardi, nel dicembre dello stesso anno:
@@ -182,9 +183,9 @@
         rotto le balle all’edicolante ogni santo mese, "è uscito Zzap!?", un leitmotiv a
         cui si saranno abituati in tanti.</p>
       <p>Solo in seguito riuscii a recuperare i sei numeri che mancavano alla mia collezione:
-        cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più
-        tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me
-        lo spedì in regalo.</p>
+      cinque mi giunsero in arretrato, ma per il primo dovetti aspettare molti anni più
+      tardi, a rivista ormai defunta, quando un intraprendente lettore di Consolemania me
+      lo spedì in regalo.</p>
     </content-section>
   </content-container>
 </template>
