@@ -31,7 +31,24 @@ export default {
     }, ANIMATIONS.bookmarkCloseDelay)
   },
   name: COMPONENT_NAME,
-  props: [`title`, `date`, `anchor`]
+  props: {
+    anchor: {
+      required: true,
+      type: String
+    },
+    author: {
+      required: false,
+      type: String
+    },
+    date: {
+      required: false,
+      type: String
+    },
+    title: {
+      required: true,
+      type: String
+    }
+  }
 }
 
 export {

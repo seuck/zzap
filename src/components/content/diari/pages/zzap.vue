@@ -1,7 +1,8 @@
 <template>
   <content-container
-    title="Il mio galeone, di Antonio Bianchetti"
+    title="Il mio galeone"
     anchor="diari-zzap"
+    author="Antonio Bianchetti"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <content-section

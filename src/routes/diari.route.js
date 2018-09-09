@@ -22,5 +22,16 @@ export default [
     },
     name: `diari-zzap`,
     path: `diari/zzap`
+  },
+  {
+    components: {
+      content: Diari,
+      followup: (resolve) => {
+        // eslint-disable-next-line import/no-dynamic-require
+        require([`components/content/diari/pages/john-parker-retrospecs.vue`], resolve)
+      }
+    },
+    name: `diari-johnparkerretrospecs`,
+    path: `diari/john-parker-retrospecs`
   }
 ]

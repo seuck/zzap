@@ -1,6 +1,7 @@
 <template>
   <content-container
-    title="Citadel, di Antonio Bianchetti"
+    title="Citadel"
+    author="Antonio Bianchetti"
     date="2 Febbraio 2006"
     anchor="mappe-citadel"
     @announceBookmark="announceBookmark($event)"
@@ -21,7 +22,6 @@
       <content-image
         :image-path="resolveAssetPath(`mappe/citadel/map-mini.png`)"
         :reader-data="getReaderData()"
-        :no-srcset="true"
         caption="Le mappe di Citadel"
         @openReader="openReader($event)"
       />

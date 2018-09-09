@@ -1,7 +1,8 @@
 <template>
   <content-container
-    title="Le abbiamo viste tutte, di Paolo Besser"
+    title="Le abbiamo viste tutte"
     date="1996"
+    author="Paolo Besser"
     anchor="speciali-leabbiamovistetutte"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">

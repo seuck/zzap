@@ -9,8 +9,12 @@
         </h3>
         <div class="index__listcontainer">
           <ul class="index__list">
-            <!-- eslint-disable-next-line max-len -->
-            <li class="index__item">Anche il nuovo sito di Zzap.it ha il suo diario. <scroll-link anchor="diari-zzap">"Il mio galeone", di Antonio Bianchetti</scroll-link></li>
+            <li class="index__item">Intervista a <scroll-link
+              anchor="diari-johnparkerretrospecs"
+              target="diari">John Parker</scroll-link>, il programmatore di Retrospecs.</li>
+            <li class="index__item">Anche il nuovo sito di Zzap.it ha il suo diario. <scroll-link
+              anchor="diari-zzap"
+              target="diari">"Il mio galeone", di Antonio Bianchetti</scroll-link></li>
           </ul>
         </div>
       </section>

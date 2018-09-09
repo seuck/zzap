@@ -1,7 +1,8 @@
 <template>
   <content-container
-    title="Jack the Nipper 2, di Antonio Bianchetti"
+    title="Jack the Nipper 2"
     date="12 Agosto 2004"
+    author="Antonio Bianchetti"
     anchor="mappe-jackthenipper2"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">

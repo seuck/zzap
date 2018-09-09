@@ -36,6 +36,12 @@
     color: $lightBlue;
   }
 
+  &__author {
+    display: block;
+    font-size: 18px;
+    font-style: inherit;
+  }
+
   &__section {
     padding-bottom: 40px;
   }
@@ -83,6 +89,10 @@
           margin: 20px 40px 20px 20px;
         }
       }
+    }
+
+    & a[href*="//"]:after {
+      content: none;
     }
   }
 

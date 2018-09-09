@@ -6,7 +6,9 @@
     <span
       v-if="date"
       class="content__date">{{ date }}</span>
-    <h2>{{ title }}</h2>
+    <h2>{{ title }}<span
+      v-if="author"
+      class="content__author">di {{ author }}</span></h2>
     <div class="content__container">
       <slot/>
     </div>

@@ -1,7 +1,8 @@
 <template>
   <content-container
-    title="Elite Systems, di Zaxxon1"
+    title="Elite Systems"
     anchor="speciali-elite"
+    author="Zaxxon1"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <content-section>

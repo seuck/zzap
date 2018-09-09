@@ -1,7 +1,8 @@
 <template>
   <content-container
-    title="Un sogno mai realizzato: il Konix Multisystem, di Darkj"
+    title="Un sogno mai realizzato: il Konix Multisystem"
     anchor="speciali-konixmultisystem"
+    author="Darkj"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
