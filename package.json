@@ -35,7 +35,8 @@
     "smoothscroll-polyfill": "^0.4.3",
     "vue": "^2.5.16",
     "vue-lazyload": "^1.2.3",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-tweet-embed": "^2.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",

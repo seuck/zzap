@@ -33,5 +33,16 @@ export default [
     },
     name: `diari-johnparkerretrospecs`,
     path: `diari/john-parker-retrospecs`
+  },
+  {
+    components: {
+      content: Diari,
+      followup: (resolve) => {
+        // eslint-disable-next-line import/no-dynamic-require
+        require([`components/content/diari/pages/simone-bevilacqua-retream.vue`], resolve)
+      }
+    },
+    name: `diari-simonebevilacquaretream`,
+    path: `diari/simone-bevilacqua-retream`
   }
 ]

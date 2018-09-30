@@ -6,6 +6,7 @@ import ContentImage from 'components/contentimage/contentimage.vue'
 import DoubleSpread from 'components/doublespread/doublespread.vue'
 import SingleSpread from 'components/singlespread/singlespread.vue'
 import ScrollLink from 'components/scrolllink/scrolllink.vue'
+import Tweet from 'vue-tweet-embed/tweet'
 import {
   buildScanPathForContent
 } from 'utils/image'
@@ -18,7 +19,8 @@ export default {
     ContentSection,
     DoubleSpread,
     ScrollLink,
-    SingleSpread
+    SingleSpread,
+    Tweet
   },
   methods: {
     announceBookmark(payload) {
