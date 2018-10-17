@@ -31,33 +31,4 @@
   #{$base}__title {
     margin-top: 0;
   }
-
-  #{$base}__image {
-    @include imageshadow;
-
-    &-- {
-      &cw {
-        transform: rotate(7deg);
-      }
-
-      &cc {
-        transform: rotate(-5deg);
-      }
-
-      &right {
-        float: right;
-      }
-  
-      &left {
-        float: left;
-      }
-      &no-shadow {
-        box-shadow: initial;
-      }
-
-      &link-reader a {
-        cursor: zoom-in;
-      }
-    }
-  }
 }

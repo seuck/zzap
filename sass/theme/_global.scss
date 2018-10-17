@@ -48,7 +48,8 @@ p {
   margin: 0;
 }
 
-p + p {
+p + p,
+section + p {
   padding-top: 20px;
 }
 

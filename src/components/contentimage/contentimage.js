@@ -30,7 +30,7 @@ export default {
     fullStyle() {
       const styles = []
       const baseStyle = (typeof this.namespace !== `undefined`)
-        ? `${this.namespace}__image` : `content__image`
+        ? `${this.namespace}__image` : `contentimage`
       const noShadowModifier = `no-shadow`
 
       styles.push(baseStyle)
@@ -81,7 +81,7 @@ export default {
       }
     }
   },
-  name: `content__image`,
+  name: `contentimage`,
   props: {
     align: {
       required: false,
