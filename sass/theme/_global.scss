@@ -49,7 +49,8 @@ p {
 }
 
 p + p,
-section + p {
+section + p,
+div + p {
   padding-top: 20px;
 }
 
