@@ -41,8 +41,9 @@ export default {
       if (typeof this.linkUrl !== `undefined`) {
         styles.push(`${baseStyle}--link`)
       }
-      if (typeof this.readerData !== `undefined` ||
-          typeof this.readerDataMagazineId !== `undefined`) {
+      if (typeof this.readerData !== `undefined`
+        || typeof this.readerDataMagazineId !== `undefined`
+        || typeof this.original !== `undefined`) {
         styles.push(`${baseStyle}--link-reader`)
       }
       if (typeof this.align !== `undefined`) {
@@ -71,13 +72,27 @@ export default {
         getIssueReaderDataAndCallCallback({
           issueId: this.readerDataIssueId,
           magazineId: this.readerDataMagazineId,
-          returnBookmark: this.readerDataReturnBookmark,
           startPage: this.readerDataStartPage
         }, (readerData) => {
           this.$emit(EVENTS.openReader, readerData)
         })
-      } else {
+      } else if (typeof this.readerData !== `undefined`) {
         this.$emit(EVENTS.openReader, this.readerData)
+      } else if (typeof this.original !== `undefined`) {
+        const guessedReaderData = {
+          labelPrefix: `Pagina`,
+          pages: [
+            {
+              first: {
+                path: this.original
+              }
+            }
+          ],
+          startPage: 0,
+          title: this.captionOrAlt
+        }
+
+        this.$emit(EVENTS.openReader, guessedReaderData)
       }
     }
   },
@@ -122,6 +137,10 @@ export default {
       required: false,
       type: Boolean
     },
+    original: {
+      required: false,
+      type: String
+    },
     readerData: {
       required: false,
       type: Object
@@ -133,10 +152,6 @@ export default {
     readerDataMagazineId: {
       required: false,
       type: Number
-    },
-    readerDataReturnBookmark: {
-      required: false,
-      type: String
     },
     readerDataStartPage: {
       required: false,

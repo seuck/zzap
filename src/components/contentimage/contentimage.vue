@@ -10,7 +10,7 @@
         :alt="captionOrAlt">
     </a>
     <a
-      v-else-if="readerData || readerDataMagazineId"
+      v-else-if="readerData || readerDataMagazineId || original"
       @click="openReader">
       <img
         :class="contentImageClass"
