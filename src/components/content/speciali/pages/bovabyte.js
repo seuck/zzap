@@ -56,7 +56,6 @@ export default extend(true, {}, basecontent, {
             }
           }
         ],
-        returnBookmark: `content__speciali-bovabyte`,
         startPage: 0,
         title: `BovaByte 2 - Numero ${issue}`
       }
@@ -68,7 +67,6 @@ export default extend(true, {}, basecontent, {
           `.jpg`,
           36
         ),
-        returnBookmark: `content__speciali-bovabyte`,
         startPage: 0,
         title: `Antologia di BovaByte`
       }

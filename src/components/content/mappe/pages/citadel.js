@@ -57,7 +57,6 @@ export default extend(true, {}, basecontent, {
             }
           }
         ],
-        returnBookmark: `content__mappe-citadel`,
         startPage: 0,
         title: `Citadel`
       }

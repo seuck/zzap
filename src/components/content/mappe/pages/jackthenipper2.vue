@@ -35,7 +35,6 @@
         align="right"
         caption="La recensione"
         rotation="cw"
-        return-bookmark="content__mappe-jackthenipper2"
         alt-text="La recensione di Jack the Nipper su Zzap!"
         @openReader="openReader($event)"
       />
@@ -52,7 +51,6 @@
         :issue-id="21"
         :start-page="46"
         caption="La mappa publicata su Zzap!"
-        return-bookmark="content__mappe-jackthenipper2"
         alt-text="La mappa di Jack the nipper 2 su Zzap!"
         @openReader="openReader($event)"/>
     </content-section>

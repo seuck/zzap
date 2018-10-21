@@ -32,7 +32,6 @@
         :magazine-id="1"
         :issue-id="37"
         :start-page="20"
-        return-bookmark="content__mappe-citadel"
         alt-text="La recensione di Citadel su Zzap!"
         @openReader="openReader($event)"/>
     </content-section>

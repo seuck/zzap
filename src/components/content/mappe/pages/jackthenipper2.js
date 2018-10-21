@@ -14,7 +14,6 @@ export default extend(true, {}, basecontent, {
             }
           }
         ],
-        returnBookmark: `content__mappe-jackthenipper2`,
         startPage: 0,
         title: `Jack the Nipper 2 - In cononut capers`
       }
