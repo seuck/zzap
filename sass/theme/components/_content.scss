@@ -52,15 +52,30 @@
     align-items: center;
     flex-wrap: wrap;
     align-content: space-around;
+    margin-top: 10%;
+
+    @include for-tablet-portrait-up {
+      margin-top: 52px;
+    }
+  
+    @include for-tablet-landscape-up {
+      margin-top: 30px;
+    }
+
+    & .contentimage {
+      margin-top: 0;
+    }
   }
 
   &__embed {
     margin-top: 30px;
 
-    iframe {
+    iframe,
+    .twitter-tweet {
       margin-left: auto;
       margin-right: auto;
       display: inherit;
+      max-width: 100%;
     }
 
     .content__loader {

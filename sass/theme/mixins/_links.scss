@@ -17,13 +17,15 @@
     content: '';
     @include external-link(encodecolor($textColor));
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: right center;
     padding-right: 24px;
+    background-size: 16px;
   }
 
   @include for-tablet-portrait-up {
     a[href*="//"]:after {
-      padding-right: 30px;
+      padding-right: 26px;
+      background-size: 18px;
     }
   }
 }
