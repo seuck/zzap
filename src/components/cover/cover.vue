@@ -11,10 +11,11 @@
         <li>
           <scroll-link
             :is-scroll-only="true"
-            anchor="scanindex">
+            target="scanindex">
             <span>Scansioni</span><small>Sfoglia Zzap! a tutto schermo</small>
           </scroll-link>
         </li>
+        <li><scroll-link anchor="diari-simonebevilacquaretream"><span>Simone Bevilacqua di RETREAM</span><small>Intervista al creativo game designer italiano</small></scroll-link></li>
         <li><scroll-link anchor="diari-johnparkerretrospecs"><span>Intervista a John Parker</span><small>Il programmatore della app Retrospecs</small></scroll-link></li>
         <li><scroll-link anchor="diari-zzap"><span>Diario</span><small>Com'è nato il nuovo Zzap.it</small></scroll-link></li>
         <li><scroll-link anchor="mappe"><small>Solo per temerari esploratori</small><span>Mappe</span></scroll-link></li>

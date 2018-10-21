@@ -2,7 +2,7 @@
   <content-container
     anchor="diari-simonebevilacquaretream"
     author="Antonio Bianchetti"
-    date="17 Ottobre 2018"
+    date="21 Ottobre 2018"
     title="Intervista a Simone Bevilacqua, la mente creativa di Retream"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
@@ -50,7 +50,9 @@
           allowfullscreen />
       </div>
 
-      <p>Ho usato l'A1200 ininterrottamente fino al 2003, quando emigrai in Finlandia portandomi solo un AmigaOne G4 XE. Tale macchina, che architetturalmente è un PC su cui gira <a href="https://en.wikipedia.org/wiki/AmigaOS_4">AmigaOS 4</a>, era l'evoluzione naturale dell'Amiga classico e speravo di usarlo sia per sviluppare che per uso generale (documenti, email, musica, ecc.). Non trovando affatto piacevole programmare attraverso il sistema operativo (per me lo sfizio sta nell'accedere direttamente all'hardware delle macchine vintage, magari facendogli fare cose che non erano state pensate neanche dai progettisti), come soluzione intermedia iniziai a creare in C un mio piccolo framework che astraeva il più possibile dall'OS. Svolsi tale lavoro in parallelo con la creazione di un shoot'em up chiamato uniVERSUS, che aveva una componente gestionale e delle meccaniche di gioco sofisticate - troppo sofisticate, tanto che il gioco era esageratamente macchinoso; ciò, insieme al fatto che il progetto era davvero massiccio per me solo, mi spinse a chiudere tutto dopo un paio di anni di lavoro, quando ormai ero già rientrato in Italia (nella seconda metà del 2005). Nel 2006 lavorai a un progetto della Soprintendenza ai Beni Culturali. L'anno successivo feci il programmatore per un'azienda di Benevento (da pendolare, macinando 130 km al giorno in macchina). Ma io non posso fare il programmatore di professione, mi fa star male (in Finlandia effettivamente lo facevo, ma lavoravo ai driver grafici di uno smartphone, quindi qualcosa di abbastanza vicino alle mie propensioni), perciò quando il lavoro a Benevento finì, tirai un sospiro di sollievo e mi misi in cerca d'altro, vincendo per il 2008 una borsa di studio presso l'Università del Molise per un progetto sullo sviluppo del turismo - ma, poi, finito il progetto, finito tutto. Nel frattempo, continuavo a programmare usando (e migliorando) il mio framework, e una delle cose che realizzai era il motore grafico sul quale è basato BOH. Mi resi conto che aveva un gran potenziale, che davvero con la sua atmosfera ti immergeva in un mondo claustrofobico e misterioso. Ci costruii sopra un intero gioco e decisi che sarebbe stato il primo gioco pubblicato fisicamente per AmigaOS 4. Contavo su una sorta di scambio: da parte mia davo il primo gioco commerciale di qualità per il sistema, e in cambio speravo nel supporto (che non è mancato) degli utenti di AmigaOS 4. Il gioco girava anche su Windows per allargare il bacino degli utenti oltre quello ristretto degli amighisti.
+      <p>Ho usato l'A1200 ininterrottamente fino al 2003, quando emigrai in Finlandia portandomi solo un AmigaOne G4 XE. Tale macchina, che architetturalmente è un PC su cui gira <a href="https://en.wikipedia.org/wiki/AmigaOS_4">AmigaOS 4</a>, era l'evoluzione naturale dell'Amiga classico e speravo di usarlo sia per sviluppare che per uso generale (documenti, email, musica, ecc.). Non trovando affatto piacevole programmare attraverso il sistema operativo (per me lo sfizio sta nell'accedere direttamente all'hardware delle macchine vintage, magari facendogli fare cose che non erano state pensate neanche dai progettisti), come soluzione intermedia iniziai a creare in C un mio piccolo framework che astraeva il più possibile dall'OS. Svolsi tale lavoro in parallelo con la creazione di un shoot'em up chiamato uniVERSUS, che aveva una componente gestionale e delle meccaniche di gioco sofisticate - troppo sofisticate, tanto che il gioco era esageratamente macchinoso; ciò, insieme al fatto che il progetto era davvero massiccio per me solo, mi spinse a chiudere tutto dopo un paio di anni di lavoro, quando ormai ero già rientrato in Italia (nella seconda metà del 2005).
+        <br>Nel 2006 lavorai a un progetto della Soprintendenza ai Beni Culturali. L'anno successivo feci il programmatore per un'azienda di Benevento (da pendolare, macinando 130 km al giorno in macchina). Ma io non posso fare il programmatore di professione, mi fa star male (in Finlandia effettivamente lo facevo, ma lavoravo ai driver grafici di uno smartphone, quindi qualcosa di abbastanza vicino alle mie propensioni), perciò quando il lavoro a Benevento finì, tirai un sospiro di sollievo e mi misi in cerca d'altro, vincendo per il 2008 una borsa di studio presso l'Università del Molise per un progetto sullo sviluppo del turismo - ma, poi, finito il progetto, finito tutto.
+        <br>Nel frattempo, continuavo a programmare usando (e migliorando) il mio framework, e una delle cose che realizzai era il motore grafico sul quale è basato BOH. Mi resi conto che aveva un gran potenziale, che davvero con la sua atmosfera ti immergeva in un mondo claustrofobico e misterioso. Ci costruii sopra un intero gioco e decisi che sarebbe stato il primo gioco pubblicato fisicamente per AmigaOS 4. Contavo su una sorta di scambio: da parte mia davo il primo gioco commerciale di qualità per il sistema, e in cambio speravo nel supporto (che non è mancato) degli utenti di AmigaOS 4. Il gioco girava anche su Windows per allargare il bacino degli utenti oltre quello ristretto degli amighisti.
       <br>In precedenza avevo già rilasciato dei giochi freeware per Amiga classico, quelli che avevo sviluppato da giovanissimo (e che, a parte MeMO, ho poi ritirato), ma è con BOH che provai la strada commerciale per la prima volta. Al tempo ancora non esisteva l'etichetta RETREAM: il gioco fu pubblicato da Editel, un editore locale attivo in campo pubblicitario.</p>
 
       <p><strong>Z</strong>: Com'è nata RETREAM?</p>
@@ -109,7 +111,6 @@
       <content-image
         :image-path="resolveAssetPath(`diari/simone-bevilacqua-retream/huenison-screenshoot.png`)"
         align="right"
-        rotation="cw"
         caption="Lo psichedelico Huenison miscela elementi di Arkanoid, Tetris, Space Invaders..."
       />
 
@@ -118,9 +119,8 @@
 
       <content-image
         :image-path="resolveAssetPath(`diari/simone-bevilacqua-retream/quod-init-exit.png`)"
-        align="right"
-        rotation="cw"
-        caption="Rampo, il roseo protagonista di QUOD INIT EXIT"
+        align="left"
+        caption="Zampo, il roseo protagonista di QUOD INIT EXIT"
       />
 
       <p>Lo rilasciai e riscosse un incredibile successo nella scena C64. Addirittura <a href="https://www.rgcd.co.uk/">RGCD</a> lo publicò su cartuccia di sua stessa iniziativa. Io lo vedevo come una cosina semplice, ma alla gente è piaciuto molto - addirittura ho avuto la grande gioia di ricevere foto di bambini che ci giocano!</p>
@@ -131,7 +131,9 @@
 
         <content-image
           :image-path="resolveAssetPath(`diari/simone-bevilacqua-retream/ambiende-di-lavoro-di-quod-init-exit-iim.png`)"
+          :original="resolveAssetPath(`diari/simone-bevilacqua-retream/ambiende-di-lavoro-di-quod-init-exit-iim.original.png`)"
           caption="L'ambiende di lavoro di QUOD INIT EXIT IIm"
+          @openReader="openReader($event)"
         />
 
         A dirla tutta, ero partito con l'intenzione di realizzare QUOD INIT EXIT II (senza la 'm'), ma a un certo punto notai che avrei potuto realizzare una versione 16 kB da un solo livello con cui partecipare alla RGCD C64 16KB Cartridge Competition. Purtroppo sforai la deadline per una stupidaggine: allo scadere dell'ultimo giorno fornii a RGCD l'eseguibile in formato PRG, ma avrebbe dovuto essere CRT. Non avevo mai realizzato un software per cartuccia, quindi nel paio di ore scarso che rimanena prima che cominciasse il nuovo giorno mi studiai la materia e provai a modificare il programma, ma non riuscii a causa di un problema di bank switching (che risolsi solo il giorno dopo). A quel punto decisi comunque di rilasciare il gioco, appendendo al "II" ("secundus") una 'm' che sta per "minimus", a sottolineare le dimensioni ridotte del gioco.
@@ -232,7 +234,9 @@
             <content-image
               :image-path="resolveAssetPath(`diari/simone-bevilacqua-retream/sprite-factsheet.png`)"
               :no-srcset="true"
+              :original="resolveAssetPath(`diari/simone-bevilacqua-retream/sprite-factsheet.png`)"
               caption="Ecco come sono stati montati gli sprite in alta risoluzione multicolore."
+              @openReader="openReader($event)"
             />
           </li>
 

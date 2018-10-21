@@ -109,29 +109,29 @@
         margin-right: 45px;
       }
 
-      &:nth-child(1) a {
+      &:nth-child(5n + 1) a {
         color: $red;
-        -webkit-text-fill-color: $red;
+        -webkit-text-fill-color: $lightPurple;
       }
 
-      &:nth-child(2) a {
+      &:nth-child(5n + 2) a {
         color: $yellow;
         -webkit-text-fill-color: $yellow;
       }
 
-      &:nth-child(3) a {
+      &:nth-child(5n + 3) a {
         color: $green;
         -webkit-text-fill-color: $green;
       }
 
-      &:nth-child(4) a {
+      &:nth-child(5n + 4) a {
         color: $lightPurple;
-        -webkit-text-fill-color: $lightPurple;
+        -webkit-text-fill-color: $blue;
       }
 
-      &:nth-child(5) a {
+      &:nth-child(5n + 5) a {
         color: $blue;
-        -webkit-text-fill-color: $blue;
+        -webkit-text-fill-color: $red;
       }
 
       a {
