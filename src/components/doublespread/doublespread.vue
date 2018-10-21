@@ -6,7 +6,6 @@
       :reader-data-magazine-id="magazineId"
       :reader-data-issue-id="issueId"
       :reader-data-start-page="startPage"
-      :reader-data-return-bookmark="returnBookmark"
       @openReader="openReader($event)"
     />
     <content-image
@@ -15,7 +14,6 @@
       :reader-data-magazine-id="magazineId"
       :reader-data-issue-id="issueId"
       :reader-data-start-page="secondPage"
-      :reader-data-return-bookmark="returnBookmark"
       @openReader="openReader($event)"
     />
   </div>

@@ -47,10 +47,6 @@ export default {
       required: false,
       type: Number
     },
-    returnBookmark: {
-      required: false,
-      type: String
-    },
     startPage: {
       required: false,
       type: Number

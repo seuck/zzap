@@ -48,10 +48,6 @@ export default {
       required: false,
       type: Number
     },
-    returnBookmark: {
-      required: false,
-      type: String
-    },
     rotation: {
       required: false,
       type: String,

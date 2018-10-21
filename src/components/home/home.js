@@ -8,7 +8,6 @@ import ZzapHeader from 'components/zzapheader/zzapheader.vue'
 import ZzapFooter from 'components/zzapfooter/zzapfooter.vue'
 
 import { CLASSES as GLOBALCLASSES } from 'constants/classes'
-import { jumpToClass } from 'utils/scroll'
 
 const COMPONENT_NAME = `home`
 
@@ -38,7 +37,7 @@ export default {
     },
     initReader(readerData) {
       this.readerData = readerData
-      this.homeClass = `${COMPONENT_NAME} ${GLOBALCLASSES.overlay}`
+      document.querySelector(`body`).classList.add(GLOBALCLASSES.overlay)
     },
     removeDynamicNavSection(sections) {
       for (let i = this.dynamicNavSections.length - 1; i >= 0; i--) {
@@ -48,14 +47,8 @@ export default {
       }
     },
     resetReader() {
-      const returnBookmark = this.readerData.returnBookmark
-
-      this.homeClass = COMPONENT_NAME
+      document.querySelector(`body`).classList.remove(GLOBALCLASSES.overlay)
       this.readerData = {}
-
-      window.setTimeout(() => {
-        jumpToClass(returnBookmark)
-      }, 500)
     }
   },
   name: COMPONENT_NAME

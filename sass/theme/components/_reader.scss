@@ -108,3 +108,17 @@
     }
   }
 }
+
+.overlay {
+  overflow: hidden;
+
+  // Hides all components except "reader"
+  & .home > :not(.reader) {
+    visibility: hidden;
+  }
+
+  & .header--compact,
+  & .header__navigation {
+    visibility: hidden;
+  }
+}

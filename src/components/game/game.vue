@@ -51,7 +51,6 @@
             extra-class="game__thumbimage"
             align="left"
             alt="reviewImageDescription()"
-            reader-data-return-bookmark="game__game"
             @openReader="openReader($event)"
           />
         </div>

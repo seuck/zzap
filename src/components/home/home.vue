@@ -1,11 +1,10 @@
 <template>
-  <div :class="homeClass">
+  <div class="home">
     <loader payload=""/>
     <reader
       :pages="readerData.pages"
       :start-page="readerData.startPage"
       :title="readerData.title"
-      :return-bookmark="readerData.returnBookmark"
       :info-path="readerData.infoPath"
       :label-prefix="readerData.labelPrefix"
       @closeReader="resetReader"

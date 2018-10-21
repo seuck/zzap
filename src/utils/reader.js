@@ -43,7 +43,7 @@ export function doublePages(issue) {
   return doublePageArray
 }
 
-export function buildIssueReaderData(issueData, startPage, returnBookmark) {
+export function buildIssueReaderData(issueData, startPage) {
   const data = {}
   const formattedDate = `${getMonthNameFromNumber(+issueData.month)} ${issueData.year}`
 
@@ -71,18 +71,17 @@ export function buildIssueReaderData(issueData, startPage, returnBookmark) {
   ))
 
   data.startPage = Math.floor(+startPage / 2)
-  data.returnBookmark = returnBookmark
   data.labelPrefix = `Pagina`
 
   return data
 }
 
 export function getIssueReaderDataAndCallCallback({
-  magazineId, issueId, returnBookmark, startPage = 0
+  magazineId, issueId, startPage = 0
 }, callback) {
   axios.get(ZZAPI_RESOURCES.issue(magazineId, issueId))
     .then((response) => {
-      const readerData = buildIssueReaderData(response.data, startPage, returnBookmark)
+      const readerData = buildIssueReaderData(response.data, startPage)
 
       callback(readerData)
     })

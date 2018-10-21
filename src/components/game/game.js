@@ -61,7 +61,6 @@ export default {
             }
           }
         ],
-        returnBookmark: `${COMPONENT_NAME}__game`,
         startPage: 0,
         title: `Publicità - ${this.game.name}`
       }
