@@ -10,7 +10,7 @@
       </p>
       <p>Per maggiori informazioni sugli autori del progetto web vi invitiamo a conoscere la nostra <scroll-link anchor="redazione">redazione</scroll-link>.</p>
       <p>Nato nel 2002, Zzap.it è un progetto pioniero in Italia. A quell'epoca digitalizzare cosí tante immagini e metterle a disposizione online si scontrava con i limiti tecnologici dell'epoca, principalmente la memoria dei computer e dei server e l'ampiezza di banda dei sistemi di telecomunicazione di quelli anni.</p>
-      <p>Grazie ai tanti appassionati che hanno contribuito volontariamnete e gratuitamente, soprattutto digitalizzando le loro collezioni private della rivista, Zzap.it ha fatto scuola tra i progetti collettivi nati su Internet.
+      <p>Grazie ai tanti appassionati che hanno contribuito volontariamente e gratuitamente, soprattutto digitalizzando le loro collezioni private della rivista, Zzap.it ha fatto scuola tra i progetti collettivi nati su Internet.
         <br>Tra i vari progetti ispirati a Zzap.it, abbiamo il piacere di citare il ben più ambizioso <a href="http://www.retroedicola.it/">Retroedicola Videoludica</a>, che si propone di digitalizzare tante altre riviste e materiale di diverso tipo di quello che viene comunemente chiamato &quot;Retrogaming&quot; e non solo.
         <br>Grazie alla collaborazione con Retroedicola, Zzap.it offre le loro versioni dei numeri di Zzap! in PDF, di altissima qualità, come metodo alternativo per sfogliare la rivista originale.
       </p>

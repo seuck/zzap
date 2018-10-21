@@ -3,7 +3,7 @@
     anchor="diari-simonebevilacquaretream"
     author="Antonio Bianchetti"
     date="21 Ottobre 2018"
-    title="Intervista a Simone Bevilacqua, la mente creativa di Retream"
+    title="Intervista a Simone Bevilacqua, la mente creativa di RETREAM"
     @announceBookmark="announceBookmark($event)"
     @dismissBookmark="dismissBookmark($event)">
     <content-section>
