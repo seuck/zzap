@@ -130,9 +130,9 @@
       <p><strong>SB</strong>: A dire il vero, no: QUOD INIT EXIT, QUOD INIT EXIT IIm, nacque da un risultato tecnico di <a href="https://retream.itch.io/mah">MAH</a>. Per il suo finale avevo implementato uno scrolling multidirezionale bellissimo ma che solo poche persone avrebbero visto (non perché sono cattivo, ma perché MAH richiede impegno, e oggi la gente non ha né tempo né voglia di impegnarsi più di tanto): sarebbe stato uno spreco usarlo solo lì, e infatti nelle prime versioni di MAH appare la piccolissima scritta "A NEW GAME WITH THIS?". In sostanza, il punto di partenza fu un obiettivo tecnico (fondamentalmete stimolato dal voler superare i limiti). Quasi tutti i miei giochi nascono così, da una qualche sfida e/o sfizio di natura tecnica.
 
         <content-image
-          :image-path="resolveAssetPath(`diari/simone-bevilacqua-retream/ambiende-di-lavoro-di-quod-init-exit-iim.png`)"
-          :original="resolveAssetPath(`diari/simone-bevilacqua-retream/ambiende-di-lavoro-di-quod-init-exit-iim.original.png`)"
-          caption="L'ambiende di lavoro di QUOD INIT EXIT IIm"
+          :image-path="resolveAssetPath(`diari/simone-bevilacqua-retream/ambiente-di-lavoro-di-quod-init-exit-iim.png`)"
+          :original="resolveAssetPath(`diari/simone-bevilacqua-retream/ambiente-di-lavoro-di-quod-init-exit-iim.original.png`)"
+          caption="L'ambiente di lavoro di QUOD INIT EXIT IIm"
           @openReader="openReader($event)"
         />
 
